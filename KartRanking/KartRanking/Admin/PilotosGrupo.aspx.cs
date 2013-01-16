@@ -301,6 +301,7 @@ namespace KartRanking
                                  join e1 in dk.Kart_Equipe_Campeonatos on g.idCampeonato equals e1.idCampeonato
                                  where (g.idGrupo == Convert.ToInt16(ddlGrupos.SelectedValue) && e1.idEquipeCampeonato > IdEquipeCampeonato)
                                 && (e1.NomeEquipe.Contains(txtNomeEquipe.Text) || e1.Sigla.Contains(txtSigla.Text))
+                                && e1.idCampeonato == Convert.ToInt16(ddlCampeonato.SelectedValue)
                                  select g).Count();
 
                     if (count > 0)
@@ -326,7 +327,6 @@ namespace KartRanking
                             dk.GetTable<Kart_Equipe_Campeonato>().InsertOnSubmit(equipe);
 
                         dk.SubmitChanges();
-
 
                         CarregarGrids(Convert.ToInt16(ddlGrupos.SelectedValue), Convert.ToInt16(ddlCampeonato.SelectedValue));
 
