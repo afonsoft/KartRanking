@@ -11,7 +11,7 @@ namespace KartRanking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            try 
             {
                 Exception ex1 = null;
 
