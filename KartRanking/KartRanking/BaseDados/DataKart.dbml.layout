@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 17, 16.125" name="DataKart">
+  <DataContextMoniker Name="/DataKartDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1be1054d-9a75-4132-8f63-f2fe56a22cba" absoluteBounds="9, 13.375, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Calendario_Campeonato" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d41786b-39d6-45d7-8669-c3c6f846d1d9" absoluteBounds="9.015, 13.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9550ff3b-0788-4342-bc7e-6438ed7001f4" absoluteBounds="6.25, 12.375, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Campeonato" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b33192f5-462b-46e9-86a2-080a8e49068e" absoluteBounds="6.265, 12.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="28f9aa4a-6dfa-4246-9c97-5265639b3921" absoluteBounds="9, 10.875, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Equipe_Campeonato" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f4eaa672-d9a1-4e16-a30c-23cf7b59bf06" absoluteBounds="9.015, 11.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ddc0f792-53df-4872-8f24-fce194a283f9" absoluteBounds="14.75, 9.75, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Grid_Calendario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb67af78-06bb-4d1d-b8b1-3b9de41d75d8" absoluteBounds="14.765, 10.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="effcb4ff-1e0f-4d1d-af00-97d1876a5fc4" absoluteBounds="3.5, 9.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Grupo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7da506f6-937a-4e3c-b15e-6d1d6de353b3" absoluteBounds="3.515, 9.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2d26f67b-824c-45d1-ad2a-2efea6eb8229" absoluteBounds="11.75, 8.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Usuario_Equipe_Campeonato" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6103fa1d-db3d-4b45-9a8a-84d922fc9725" absoluteBounds="11.765, 9.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d67a99a-bd40-48a5-a7d0-53422c2af62e" absoluteBounds="6.25, 8.25, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Usuario_Grupo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fee8cb5-c2d9-4db9-a5a2-4030b8d7c2dc" absoluteBounds="6.265, 8.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 13.9527498372396); (9 : 13.9527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Kart_Campeonato/Kart_Campeonato_Kart_Calendario_Campeonato" />
+      <nodes>
+        <classShapeMoniker Id="9550ff3b-0788-4342-bc7e-6438ed7001f4" />
+        <classShapeMoniker Id="1be1054d-9a75-4132-8f63-f2fe56a22cba" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 12.375); (7.25 : 11.6249995); (9 : 11.6249995)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Kart_Campeonato/Kart_Campeonato_Kart_Equipe_Campeonato" />
+      <nodes>
+        <classShapeMoniker Id="9550ff3b-0788-4342-bc7e-6438ed7001f4" />
+        <classShapeMoniker Id="28f9aa4a-6dfa-4246-9c97-5265639b3921" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 15.4223046875); (15.75 : 15.4223046875); (15.75 : 12.6747054036458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Kart_Calendario_Campeonato/Kart_Calendario_Campeonato_Kart_Grid_Calendario" />
+      <nodes>
+        <classShapeMoniker Id="1be1054d-9a75-4132-8f63-f2fe56a22cba" />
+        <classShapeMoniker Id="ddc0f792-53df-4872-8f24-fce194a283f9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 12.1074039713542); (4.5 : 13.4527498372396); (6.25 : 13.4527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Kart_Grupo/Kart_Grupo_Kart_Campeonato" />
+      <nodes>
+        <classShapeMoniker Id="effcb4ff-1e0f-4d1d-af00-97d1876a5fc4" />
+        <classShapeMoniker Id="9550ff3b-0788-4342-bc7e-6438ed7001f4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10 : 10.875); (10 : 9.53929768880208); (11.75 : 9.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Kart_Equipe_Campeonato/Kart_Equipe_Campeonato_Kart_Usuario_Equipe_Campeonato" />
+      <nodes>
+        <classShapeMoniker Id="28f9aa4a-6dfa-4246-9c97-5265639b3921" />
+        <classShapeMoniker Id="2d26f67b-824c-45d1-ad2a-2efea6eb8229" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.79409912109375); (6.25 : 9.79409912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Kart_Grupo/Kart_Grupo_Kart_Usuario_Grupo" />
+      <nodes>
+        <classShapeMoniker Id="effcb4ff-1e0f-4d1d-af00-97d1876a5fc4" />
+        <classShapeMoniker Id="3d67a99a-bd40-48a5-a7d0-53422c2af62e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="19408f97-cbfa-4d1e-8497-ed79833a4998" absoluteBounds="0.75, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataKartDataContext/View_Kart_Equipe_Pontos_Campeonato" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d407777-3078-468d-b108-8a1d3ae72b6f" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="292e5fe5-60a0-41d3-a9aa-99cd8b3eccf0" absoluteBounds="3.75, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataKartDataContext/View_Kart_Usuario_Pontos_Grupo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60de917e-5071-44a1-86d0-49fcf4b1c062" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5ba452b9-3013-4bb5-8ba0-182d6d484baf" absoluteBounds="6.75, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataKartDataContext/View_Kart_Usuario_Historico" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e444235f-60f6-4ae4-819b-0474207c2a44" absoluteBounds="6.7650000000000006, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cb4a30fb-e149-492d-942d-d6863916347e" absoluteBounds="6.75, 3.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataKartDataContext/View_Kart_Usuario_Pontos_Campeonato" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e23360f-4932-4728-a535-ccccafa1ca7f" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c71d108-8b78-42ce-adbe-2d1daab25ea0" absoluteBounds="12.5, 11.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_Resultado_Calendario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a6f0667a-f581-4cd4-9337-8a21aeeb7397" absoluteBounds="12.515, 12.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11 : 14.1210034179687); (12.5 : 14.1210034179687)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Kart_Calendario_Campeonato/Kart_Calendario_Campeonato_Kart_Resultado_Calendario" />
+      <nodes>
+        <classShapeMoniker Id="1be1054d-9a75-4132-8f63-f2fe56a22cba" />
+        <classShapeMoniker Id="5c71d108-8b78-42ce-adbe-2d1daab25ea0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="71cc5cad-e841-4519-8e0b-074cae6cadb0" absoluteBounds="1.25, 3.375, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DataKartDataContext/View_Equipe_Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="332f9b1d-f17d-4f3a-9eec-a53f9797ec51" absoluteBounds="1.2650000000000006, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="366e5714-80e9-4c3d-9787-5a69b50dcb09" absoluteBounds="0.875, 7.125, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/DataKartDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4228175e-d6b0-435b-98ed-062abcba1720" absoluteBounds="0.89, 7.585, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 7.69310628255208); (5.69791666666667 : 7.69310628255208 : JumpStart); (5.86458333333333 : 7.69310628255208 : JumpEnd); (15.75 : 7.69310628255208); (15.75 : 9.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Grid_Calendario" />
+      <nodes>
+        <classShapeMoniker Id="366e5714-80e9-4c3d-9787-5a69b50dcb09" />
+        <classShapeMoniker Id="ddc0f792-53df-4872-8f24-fce194a283f9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 10.5237235514323); (3.5 : 10.5237235514323)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Grupo" />
+      <nodes>
+        <classShapeMoniker Id="366e5714-80e9-4c3d-9787-5a69b50dcb09" />
+        <classShapeMoniker Id="effcb4ff-1e0f-4d1d-af00-97d1876a5fc4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 10.289641078776); (3.25 : 10.289641078776); (3.25 : 9.125); (6 : 9.125); (6 : 10.5785953776042); (9.91666666666667 : 10.5785953776042 : JumpStart); (10.0833333333333 : 10.5785953776042 : JumpEnd); (12.75 : 10.5785953776042); (12.75 : 10.3285953776042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Usuario_Equipe_Campeonato" />
+      <nodes>
+        <classShapeMoniker Id="366e5714-80e9-4c3d-9787-5a69b50dcb09" />
+        <classShapeMoniker Id="2d26f67b-824c-45d1-ad2a-2efea6eb8229" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 8.625); (6.25 : 8.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Usuario_Grupo" />
+      <nodes>
+        <classShapeMoniker Id="366e5714-80e9-4c3d-9787-5a69b50dcb09" />
+        <classShapeMoniker Id="3d67a99a-bd40-48a5-a7d0-53422c2af62e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.875 : 12.3573225911458); (1.875 : 13.0585034179688); (6 : 13.0585034179688); (6 : 12.125); (8.75 : 12.125); (8.75 : 13.125); (12.125 : 13.125); (12.125 : 13.3085034179688); (12.5 : 13.3085034179688)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Resultado_Calendario" />
+      <nodes>
+        <classShapeMoniker Id="366e5714-80e9-4c3d-9787-5a69b50dcb09" />
+        <classShapeMoniker Id="5c71d108-8b78-42ce-adbe-2d1daab25ea0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6a874c7c-caaa-4367-8f56-1f6f8719f893" absoluteBounds="4, 3.25, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/DataKartDataContext/Kart_log_erro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="506d5ec7-429a-4378-ab48-5f74d2a49a59" absoluteBounds="4.015, 3.71, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 8.15905314127604); (5.78125 : 8.15905314127604); (5.78125 : 7.13621256510417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_log_erro" />
+      <nodes>
+        <classShapeMoniker Id="366e5714-80e9-4c3d-9787-5a69b50dcb09" />
+        <classShapeMoniker Id="6a874c7c-caaa-4367-8f56-1f6f8719f893" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

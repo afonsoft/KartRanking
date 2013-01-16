@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/KartRanking.Master" AutoEventWireup="true"
+    CodeBehind="PainelMenu.master.cs" Inherits="KartRanking.PainelMenu" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <style type="text/css">
+        a:link, a:visited, a:active
+        {
+            text-decoration: none;
+            color: #696969;
+        }
+        a:hover
+        {
+            text-decoration: underline overline;
+            color: #696969;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+
+    <script type="text/javascript">
+        $(function() {
+            $(".menu").button();
+        });
+    </script>
+
+    <div class="container_12">
+        <div class="grid_2">
+            <div style="border: sold 1px #000;">
+                <table width="100%" cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td>
+                            <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="menu" style="width: 100%;"><a href="MeusDados.aspx">Perfil</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="menu" style="width: 100%;"><a href="PainelControle.aspx">Administração</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="menu" style="width: 100%;"><a href="PilotosGrupo.aspx">Pilotos</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="menu" style="width: 100%;"><a href="PermissoesGrupo.aspx">Permissões</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="menu" style="width: 100%;"><a href="InscricoesGrupo.aspx">Inscrições</a></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <hr />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="menu" style="width: 100%;">
+                                <asp:LinkButton ID="lnkSair" runat="server" OnClick="lnkSair_Click">Sair</asp:LinkButton></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="grid_10">
+            <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear espaco">
+            &nbsp;
+        </div>
+    </div>
+</asp:Content>
