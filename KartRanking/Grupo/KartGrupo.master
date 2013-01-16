@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/KartRanking.Master" AutoEventWireup="true"
+    CodeBehind="KartGrupo.master.cs" Inherits="KartRanking.Grupo.KartGrupo" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+    <asp:HiddenField ID="HiddenFieldIdGrupo" runat="server" />
+    <!--==============================header=================================-->
+    <header class="header">
+        <div class="row-top">
+            <div class="main">
+                <h1>
+                    <a href="#">KartRanking</a></h1>
+                <ul class="menu-top">
+                    <li><a href="../CadastroUsuario.aspx?idGrupo=<%= idGrupo %>">Cadastrar</a></li>
+                    <li><a href="../index.aspx?idGrupo=<%= idGrupo %>">Login</a></li>
+                </ul>
+                <nav>
+                    <ul class="sf-menu sf-js-enabled">
+                        <li><a href="index.aspx?idGrupo=<%= idGrupo %>"><strong><strong>home</strong></strong></a></li>
+                        <li><a href="pilotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Pilotos</strong></strong></a></li>
+                        <li><a href="noticias.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Notícias</strong></strong></a></li>
+                        <li><a href="fotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Fotos</strong></strong></a></li>
+                        <li><a href="videos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Videos</strong></strong></a></li>
+                        <li><a href="informacoes.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Informações</strong></strong></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!--==============================End header=================================-->
+    <!--==============================aside=================================-->
+    <aside>
+        <div class="main">
+            <figure>
+                <a href="#">
+                    <img src="/images/banner.png" width="940" height="103" alt="" /></a></figure>
+            <div>
+                <h4>
+                    <b>
+                        <asp:Literal ID="ltNomeGrupo" runat="server"></asp:Literal></b></h4>
+            </div>
+        </div>
+    </aside>
+    <!--==============================End aside=================================-->
+    <section id="content">
+        <div class="padding-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </section>
+    <!--==============================End content================================-->
+    <!--==============================footer=================================-->
+    <div class="main">
+        <footer>
+            <div class="bg">
+                <div class="padding-footer">
+                    <div class="wrapper">
+                        <div class="fleft">
+                            <ul class="menu-bot p1">
+                                <li><a class="active" href="index.aspx?idGrupo=<%= idGrupo %>">
+                                    <canvas width="61" height="17" style="width: 61px; height: 17px; top: -3px; left: -3px;">
+                                    </canvas>Home</a></li>
+                                <li><a href="pilotos.aspx?idGrupo=<%= idGrupo %>">
+                                    <canvas width="69" height="17" style="width: 69px; height: 17px; top: -3px; left: -3px;">
+                                    </canvas>Pilotos</a></li>
+                                <li><a href="noticias.aspx?idGrupo=<%= idGrupo %>">
+                                    <canvas width="81" height="17" style="width: 81px; height: 17px; top: -3px; left: -3px;">
+                                    </canvas>Noticias</a></li>
+                                <li><a href="fotos.aspx?idGrupo=<%= idGrupo %>">
+                                    <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
+                                    </canvas>Fotos</a></li>
+                            </ul>
+                            <div class="extra-wrap">
+                                <div class="text-bot">
+                                    KartRanking © 2013</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--==============================End footer=================================-->
+</asp:Content>
