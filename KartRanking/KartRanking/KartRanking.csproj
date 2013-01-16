@@ -72,6 +72,13 @@
     <Compile Include="Administrador\Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\TesteMenu.aspx.cs">
+      <DependentUpon>TesteMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\TesteMenu.aspx.designer.cs">
+      <DependentUpon>TesteMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -308,7 +315,9 @@
     <None Include="BaseDados\DataKart.dbml.layout">
       <DependentUpon>DataKart.dbml</DependentUpon>
     </None>
+    <Content Include="Administrador\TesteMenu.aspx" />
     <Content Include="css\ie.css" />
+    <Content Include="css\menu.css" />
     <Content Include="css\prettyPhoto.css" />
     <Content Include="css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="css\redmond\images\ui-bg_flat_25_000000_40x100.png" />

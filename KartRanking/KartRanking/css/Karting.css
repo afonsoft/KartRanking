@@ -3,14 +3,13 @@
 	color:#000000;
 	font-family:Verdana, Arial, sans-serif;
 	font-weight:normal;
-	font-size:12px;
+	font-size:10px;
 	background-color: #f2f2f2;
-	overflow-y: scroll;
 }
 .error { font-weight: normal; color: red; }
 .titulo { background-color: #cccccc; border: 1px solid #aaaaaa; padding: 5px; margin-bottom: 0px; color:#222222; }
-input { font-family: Verdana; font-size: 11px; padding: 2px 0px 2px 0px; color: #000000; width: 98%; }
-select { font-family: Verdana; font-size: 11px; padding: 2px; color: #000000; width: 100%; }
+input { font-family: Verdana; font-size: 10px; padding: 2px 0px 2px 0px; color: #000000; width: 98%; }
+select { font-family: Verdana; font-size: 10px; padding: 2px; color: #000000; width: 100%; }
 legend { font-size: 16px; }
 label { font-weight: bold; color: #222222; }
 .label { font-weight: bold; color: #222222; width:100%; text-align:left; }

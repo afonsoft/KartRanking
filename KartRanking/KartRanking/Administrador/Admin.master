@@ -2,6 +2,7 @@
     CodeBehind="Admin.master.cs" Inherits="KartRanking.Administrador.Admin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link href="../css/menu.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         a:link, a:visited, a:active
         {
@@ -18,17 +19,100 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-    <table width="100%" cellpadding="1" cellspacing="1" border="0">
+
+    <script type="text/javascript">
+        $(function() {
+            if ($.browser.msie && $.browser.version.substr(0, 1) < 7) {
+                $('li').has('ul').mouseover(function() {
+                    $(this).children('ul').css('visibility', 'visible');
+                }).mouseout(function() {
+                    $(this).children('ul').css('visibility', 'hidden');
+                })
+            }
+
+            /* Mobile */
+            $('#menu-wrap').prepend('<div id="menu-trigger">Menu</div>');
+            $("#menu-trigger").on("click", function() {
+                $("#menu").slideToggle();
+            });
+
+            // iPad
+            var isiPad = navigator.userAgent.match(/iPad/i) != null;
+            if (isiPad) $('#menu ul').addClass('no-transition');
+        });          
+
+    </script>
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td>
+            <td style="background-color: #F5F5F5;">
                 <!-- Cabeçalho -->
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td>
+                            <nav id="menu-wrap">    
+	                            <ul id="menu">
+	                                <li><a href="">Seu Perfil</a></li>
+	                                <li>
+	                                    <a href="#">Administração</a>
+	                                    <ul>
+	                                        <li><a href="">Grupo</a></li>
+	                                        <li><a href="">Campeonatos</a>
+	                                            <ul>
+	                                                <li><a href="">Classificação Pilotos</a></li>
+	                                                <li><a href="">Classificação Equipes</a></li>
+	                                                <li><a href="">Calendário Provas</a></li>
+	                                            </ul>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li>
+	                                    <a href="#">Pilotos</a>
+	                                    <ul>
+	                                        <li><a href="">Pilotos Grupo</a></li>
+	                                        <li><a href="">Equipes Campeonato</a></li>
+	                                    </ul>
+	                                </li>
+	                                <li><a href="">Permissões do Grupo</a></li>
+	                                <li><a href="#">Inscrições do Grupo</a>
+	                                    <ul>
+	                                        <li><a href="">Solicitações</a></li>
+	                                        <li><a href="">Cadastrar</a></li>
+	                                        <li><a href="">Remover</a></li>
+	                                    </ul>
+	                                </li>
+	                                 <li><a href="">Sair</a></li>
+	                            </ul>
+	                        </nav>
                         </td>
                     </tr>
                 </table>
                 <!-- Fim -->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td style="background-color: #F5F5F5; width: 1%; height: 20px;">
+                        </td>
+                        <td style="background-color: #F5F5F5; width: 59%; height: 20px; vertical-align: middle;">
+                            <span>Bem Vindo:
+                                <asp:Label ID="lblNomeUsuario" runat="server" Text="Afonso Dutra Nogueira Filho"></asp:Label></span>
+                        </td>
+                        <td style="background-color: #F5F5F5; width: 36%; height: 20px; text-align: right;
+                            vertical-align: middle;">
+                            Grupo:&nbsp;<asp:DropDownList ID="ddlGrupos" runat="server" Width="300px">
+                            </asp:DropDownList>
+                            <td style="background-color: #F5F5F5; width: 3%; height: 20px; text-align: right;
+                                vertical-align: middle;">
+                                <asp:ImageButton ID="imgAssociarGrupo" runat="server" Width="20px" Height="20px" />
+                            </td>
+                        </td>
+                        <td style="background-color: #F5F5F5; width: 1%; height: 20px;">
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
         <tr>
