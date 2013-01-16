@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/KartRanking.Master" AutoEventWireup="true"
+    CodeBehind="Admin.master.cs" Inherits="KartRanking.Administrador.Admin" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <style type="text/css">
+        a:link, a:visited, a:active
+        {
+            text-decoration: none;
+            color: #696969;
+        }
+        a:hover
+        {
+            text-decoration: underline overline;
+            color: #696969;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+    <table width="100%" cellpadding="1" cellspacing="1" border="0">
+        <tr>
+            <td>
+                <!-- Cabeçalho -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Fim -->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td>
+                            <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
