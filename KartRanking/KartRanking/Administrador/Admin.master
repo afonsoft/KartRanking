@@ -15,6 +15,10 @@
             color: #696969;
         }
     </style>
+    <% if (pnlLogin.Visible)
+       { %>
+    <link href="../css/Login.css" rel="stylesheet" type="text/css" />
+    <%} %>
     <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -50,7 +54,8 @@
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td>
-                            <nav id="menu-wrap">    
+                            <asp:Panel ID="pnlMenu" runat="server">
+                                <nav id="menu-wrap">    
 	                            <ul id="menu">
 	                                <li><a href="">Seu Perfil</a></li>
 	                                <li>
@@ -62,6 +67,7 @@
 	                                                <li><a href="">Classificação dos Pilotos</a></li>
 	                                                <li><a href="">Classificação das Equipes</a></li>
 	                                                <li><a href="">Calendário das Provas</a></li>
+	                                                <li><a href="">Administrar</a></li>
 	                                            </ul>
 	                                        </li>
 	                                    </ul>
@@ -70,20 +76,59 @@
 	                                    <a href="#">Pilotos</a>
 	                                    <ul>
 	                                        <li><a href="">Pilotos do Grupo</a></li>
-	                                        <li><a href="">Equipes do Campeonato</a></li>
+	                                        <li><a href="">Cadastrar / Remover</a></li>
 	                                    </ul>
 	                                </li>
-	                                <li><a href="#">Inscrições do Grupo</a>
+	                                <li>
+	                                    <a href="#">Equipes</a>
 	                                    <ul>
-	                                        <li><a href="">Solicitações</a></li>
-	                                        <li><a href="">Cadastrar Piloto</a></li>
-	                                        <li><a href="">Remover Piloto</a></li>
+	                                        <li><a href="">Equipes do Campeonato</a></li>
+	                                        <li><a href="">Cadastrar / Remover</a></li>
 	                                    </ul>
 	                                </li>
+	                                <li><a href="">Inscrições do Grupo</a></li>
 	                                <li><a href="">Permissões do Grupo</a></li>
-	                                 <li><a href="">Sair</a></li>
+	                                 <li><asp:LinkButton ID="lnkSair" runat="server" onclick="lnkSair_Click">Sair</asp:LinkButton></li>
 	                            </ul>
 	                        </nav>
+                            </asp:Panel>
+                            <asp:Panel ID="pnlLogin" runat="server">
+
+                                <script src="../js/login.js" type="text/javascript"></script>
+
+                                <nav id="menu-wrap">    
+	                            <ul id="menu">
+	                            <!-- Login Starts Here -->
+                                    <li>
+                                    <a href="#" id="loginButton" style="text-decoration: none;"><span>Login</span><em></em></a>
+                                    <div style="clear: both">
+                                    </div>
+                                    <div id="loginBox">
+                                        <div id="loginForm">
+                                            <fieldset id="body">
+                                                <fieldset>
+                                                    <label for='<%= txtEmail.ClientID %>'>
+                                                        Email</label>
+                                                    <asp:TextBox ID="txtEmail" placeholder="usuario@email.com.br" runat="server"></asp:TextBox>
+                                                </fieldset>
+                                                <fieldset>
+                                                    <label for='<%= txtPassword.ClientID %>'>
+                                                        Password</label>
+                                                    <asp:TextBox ID="txtPassword" placeholder="Senha" TextMode="Password" runat="server"></asp:TextBox>
+                                                </fieldset>
+                                                <asp:Button ID="btnLogin" CssClass="login" Width="60px" runat="server" Text="Entrar" />
+                                                <label for="checkbox">
+                                                    <input type="checkbox" id="checkbox" />Lembra-me</label>
+                                            </fieldset>
+                                            <span><a href="#" style="color:White;">Esqueceu a senha?</a></span>
+                                        </div>
+                                    </div>
+                                <!-- Login Ends Here -->
+                                    </li>          
+                                    <li><a href="">Cadastrar</a></li>                  
+                                </ul>
+                                </nav>
+                            </asp:Panel>
                         </td>
                     </tr>
                 </table>
