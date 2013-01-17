@@ -73,7 +73,6 @@
 	                                        <li><a href="">Equipes do Campeonato</a></li>
 	                                    </ul>
 	                                </li>
-	                                <li><a href="">Permissões do Grupo</a></li>
 	                                <li><a href="#">Inscrições do Grupo</a>
 	                                    <ul>
 	                                        <li><a href="">Solicitações</a></li>
@@ -81,6 +80,7 @@
 	                                        <li><a href="">Remover Piloto</a></li>
 	                                    </ul>
 	                                </li>
+	                                <li><a href="">Permissões do Grupo</a></li>
 	                                 <li><a href="">Sair</a></li>
 	                            </ul>
 	                        </nav>

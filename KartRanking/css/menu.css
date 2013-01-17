@@ -75,8 +75,8 @@
 	visibility: hidden;
 	position: absolute;
 	/* top: 38px; */
-	top: 35px;
-	left: 0;
+	top: 34px;
+	left: 1px;
 	z-index: 1;    
 	background: #444;
 	background: -moz-linear-gradient(#444, #111);
