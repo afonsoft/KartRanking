@@ -59,9 +59,9 @@
 	                                        <li><a href="">Grupo</a></li>
 	                                        <li><a href="">Campeonatos</a>
 	                                            <ul>
-	                                                <li><a href="">Classificação Pilotos</a></li>
-	                                                <li><a href="">Classificação Equipes</a></li>
-	                                                <li><a href="">Calendário Provas</a></li>
+	                                                <li><a href="">Classificação dos Pilotos</a></li>
+	                                                <li><a href="">Classificação das Equipes</a></li>
+	                                                <li><a href="">Calendário das Provas</a></li>
 	                                            </ul>
 	                                        </li>
 	                                    </ul>
@@ -69,16 +69,16 @@
 	                                <li>
 	                                    <a href="#">Pilotos</a>
 	                                    <ul>
-	                                        <li><a href="">Pilotos Grupo</a></li>
-	                                        <li><a href="">Equipes Campeonato</a></li>
+	                                        <li><a href="">Pilotos do Grupo</a></li>
+	                                        <li><a href="">Equipes do Campeonato</a></li>
 	                                    </ul>
 	                                </li>
 	                                <li><a href="">Permissões do Grupo</a></li>
 	                                <li><a href="#">Inscrições do Grupo</a>
 	                                    <ul>
 	                                        <li><a href="">Solicitações</a></li>
-	                                        <li><a href="">Cadastrar</a></li>
-	                                        <li><a href="">Remover</a></li>
+	                                        <li><a href="">Cadastrar Piloto</a></li>
+	                                        <li><a href="">Remover Piloto</a></li>
 	                                    </ul>
 	                                </li>
 	                                 <li><a href="">Sair</a></li>
@@ -104,10 +104,10 @@
                             vertical-align: middle;">
                             Grupo:&nbsp;<asp:DropDownList ID="ddlGrupos" runat="server" Width="300px">
                             </asp:DropDownList>
-                            <td style="background-color: #F5F5F5; width: 3%; height: 20px; text-align: right;
-                                vertical-align: middle;">
-                                <asp:ImageButton ID="imgAssociarGrupo" runat="server" Width="20px" Height="20px" />
-                            </td>
+                        </td>
+                        <td style="background-color: #F5F5F5; width: 3%; height: 20px; text-align: right;
+                            vertical-align: middle;">
+                            <asp:ImageButton ID="imgAssociarGrupo" runat="server" Width="20px" Height="20px" />
                         </td>
                         <td style="background-color: #F5F5F5; width: 1%; height: 20px;">
                         </td>
