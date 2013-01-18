@@ -144,7 +144,7 @@
                         </td>
                         <td style="background-color: #F5F5F5; width: 59%; height: 20px; vertical-align: middle;">
                             <span>Bem Vindo:
-                                <asp:Label ID="lblNomeUsuario" runat="server" Text="Afonso Dutra Nogueira Filho"></asp:Label></span>
+                                <asp:Label ID="lblNomeUsuario" runat="server" Text="Visitante"></asp:Label></span>
                         </td>
                         <td style="background-color: #F5F5F5; width: 36%; height: 20px; text-align: right;
                             vertical-align: middle;">
@@ -166,8 +166,10 @@
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td>
-                            <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
-                            </asp:ContentPlaceHolder>
+                            <asp:Panel ID="pnlConteudo" Visible="false" runat="server">
+                                <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </asp:Panel>
                         </td>
                     </tr>
                 </table>
