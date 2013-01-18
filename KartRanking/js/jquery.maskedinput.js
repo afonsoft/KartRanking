@@ -40,7 +40,8 @@ $(function($){
 
 */
 (function($) {
-    var pasteEventName = ($.browser.msie ? 'paste' : 'input') + ".mask";
+    //var pasteEventName = ($.browser.msie ? 'paste' : 'input') + ".mask";
+    var pasteEventName = ('input') + ".mask";
     var iPhone = (window.orientation != undefined);
 
     $.mask = {
@@ -273,7 +274,7 @@ $(function($){
 					        else
 					            input.caret(pos);
 					    };
-					    ($.browser.msie ? moveCaret : function() { setTimeout(moveCaret, 0) })();
+					    moveCaret;
 					})
 					.bind("blur.mask", function() {
 					    checkVal();

@@ -2,6 +2,8 @@
     CodeBehind="PainelMenu.master.cs" Inherits="KartRanking.PainelMenu" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link href="/css/redmond/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/redmond/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         a:link, a:visited, a:active
         {

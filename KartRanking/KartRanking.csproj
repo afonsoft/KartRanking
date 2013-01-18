@@ -316,6 +316,20 @@
       <DependentUpon>DataKart.dbml</DependentUpon>
     </None>
     <Content Include="Administrador\TesteMenu.aspx" />
+    <Content Include="css\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
+    <Content Include="css\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
+    <Content Include="css\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />
+    <Content Include="css\dot-luv\images\ui-bg_dots-small_30_a32d00_2x2.png" />
+    <Content Include="css\dot-luv\images\ui-bg_dots-small_40_00498f_2x2.png" />
+    <Content Include="css\dot-luv\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\dot-luv\images\ui-bg_flat_40_292929_40x100.png" />
+    <Content Include="css\dot-luv\images\ui-bg_gloss-wave_20_111111_500x100.png" />
+    <Content Include="css\dot-luv\images\ui-icons_00498f_256x240.png" />
+    <Content Include="css\dot-luv\images\ui-icons_98d2fb_256x240.png" />
+    <Content Include="css\dot-luv\images\ui-icons_9ccdfc_256x240.png" />
+    <Content Include="css\dot-luv\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\dot-luv\jquery-ui-1.10.0.custom.css" />
+    <Content Include="css\dot-luv\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="css\ie.css" />
     <Content Include="css\Login.css" />
     <Content Include="css\menu.css" />
@@ -483,10 +497,10 @@
     <Content Include="images\submenu-tail.gif" />
     <Content Include="images\th-tail.gif" />
     <Content Include="images\Trophy_Gold.png" />
-    <Content Include="js\ff_cash.js" />
     <Content Include="js\html5.js" />
-    <Content Include="js\jquery-1.8.3.js" />
-    <Content Include="js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="js\jquery-1.9.0.js" />
+    <Content Include="js\jquery-1.9.0.min.js" />
+    <Content Include="js\jquery-ui-1.10.0.custom.min.js" />
     <Content Include="js\jquery.easing.1.3.js" />
     <Content Include="js\jquery.equalheights.js" />
     <Content Include="js\jquery.hoverIntent.js" />
