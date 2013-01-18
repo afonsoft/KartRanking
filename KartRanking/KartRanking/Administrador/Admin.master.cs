@@ -74,7 +74,8 @@ namespace KartRanking.Administrador
         {
             Session.Clear();
             Session.Abandon();
-            
+
+            lblNomeUsuario.Text = "Visitante";
             HttpCookie cookie = Request.Cookies["KartRankingAutoLogin"];
             if (cookie != null)
             {
