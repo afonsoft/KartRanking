@@ -143,7 +143,7 @@ Version: 3.1.4
             settings = pp_settings;
 
             if (settings.theme == 'pp_default') settings.horizontal_padding = 16;
-            if (settings.ie6_fallback && $.browser.msie && parseInt($.browser.version) == 6) settings.theme = "light_square"; // Fallback to a supported theme for IE6
+            if (settings.ie6_fallback && parseInt($.browser.version) == 6) settings.theme = "light_square"; // Fallback to a supported theme for IE6
 
             // Find out if the picture is part of a set
             theRel = $(this).attr(settings.hook);
@@ -181,7 +181,7 @@ Version: 3.1.4
         $.prettyPhoto.open = function(event) {
             if (typeof settings == "undefined") { // Means it's an API call, need to manually get the settings and set the variables
                 settings = pp_settings;
-                if ($.browser.msie && $.browser.version == 6) settings.theme = "light_square"; // Fallback to a supported theme for IE6
+                //if ($.browser.msie && $.browser.version == 6) settings.theme = "light_square"; // Fallback to a supported theme for IE6
                 pp_images = $.makeArray(arguments[0]);
                 pp_titles = (arguments[1]) ? $.makeArray(arguments[1]) : $.makeArray("");
                 pp_descriptions = (arguments[2]) ? $.makeArray(arguments[2]) : $.makeArray("");
@@ -190,7 +190,7 @@ Version: 3.1.4
                 _build_overlay(event.target); // Build the overlay {this} being the caller
             }
 
-            if ($.browser.msie && $.browser.version == 6) $('select').css('visibility', 'hidden'); // To fix the bug with IE select boxes
+            //if ($.browser.msie && $.browser.version == 6) $('select').css('visibility', 'hidden'); // To fix the bug with IE select boxes
 
             if (settings.hideflash) $('object,embed,iframe[src*=youtube],iframe[src*=vimeo]').css('visibility', 'hidden'); // Hide the flash
 
@@ -472,7 +472,7 @@ Version: 3.1.4
             $('div.pp_pic_holder,div.ppt,.pp_fade').fadeOut(settings.animation_speed, function() { $(this).remove(); });
 
             $pp_overlay.fadeOut(settings.animation_speed, function() {
-                if ($.browser.msie && $.browser.version == 6) $('select').css('visibility', 'visible'); // To fix the bug with IE select boxes
+               //if ($.browser.msie && $.browser.version == 6) $('select').css('visibility', 'visible'); // To fix the bug with IE select boxes
 
                 if (settings.hideflash) $('object,embed,iframe[src*=youtube],iframe[src*=vimeo]').css('visibility', 'visible'); // Show the flash
 
@@ -633,7 +633,7 @@ Version: 3.1.4
             });
             detailsHeight += $pp_details.height();
             detailsHeight = (detailsHeight <= 34) ? 36 : detailsHeight; // Min-height for the details
-            if ($.browser.msie && $.browser.version == 7) detailsHeight += 8;
+            //if ($.browser.msie && $.browser.version == 7) detailsHeight += 8;
             $pp_details.remove();
 
             // Get the titles height, to do so, I need to clone it since it's invisible
