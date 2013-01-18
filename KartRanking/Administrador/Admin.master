@@ -119,9 +119,9 @@
                                                 <asp:Button ID="btnLogin" CssClass="login" Width="60px" runat="server" 
                                                     Text="Entrar" onclick="btnLogin_Click" />
                                                 <label for="checkbox">
-                                                    <asp:CheckBox ID="chkLembrar" CssClass="checkbox" runat="server" Text="Lembra-me"></asp:CheckBox></label>
+                                                    <input type="checkbox" id="chkLembrar" class="checkbox" runat="server" >Lembra-me</input>
                                             </fieldset>
-                                            <span><a href="#" style="color:White;">Esqueceu a senha?</a></span>
+                                            <span><a href="#">Esqueceu a senha?</a></span>
                                         </div>
                                     </div>
                                 <!-- Login Ends Here -->
@@ -166,30 +166,34 @@
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td>
-                            <asp:Panel ID="pnlConteudo" Visible="false" runat="server">
-                                <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
-                                </asp:ContentPlaceHolder>
-                            </asp:Panel>
-                            <asp:Panel ID="pnlNotLogin" Visible="true" runat="server">
-                                <b>Efetue o Login no sistea</b><br />
-                                <span style="font-style: italic">Você não está logado no sistema, caso queira acessar
-                                    os recursos administrativo, favor efetuar o login.</span><br />
-                                <span>O <b>kart.afonsoft.com.br</b> é uma das primeiras comunidade Brasileira de kart
-                                    que oferece uma ferramenta completa para a administração e divulgação do seu campeonato
-                                    de kart.
+                            <div style="width: 100%; height: 100% auto; padding: 10px;">
+                                <asp:Panel ID="pnlConteudo" Visible="false" runat="server">
+                                    <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </asp:Panel>
+                                <asp:Panel ID="pnlNotLogin" Visible="true" runat="server">
+                                    <b>Efetue o Login no sistea</b><br />
+                                    <span style="font-style: italic; font-size: 9px;">Você não está logado no sistema, caso
+                                        queira acessar os recursos administrativo, favor efetuar o login.</span><br />
                                     <br />
-                                    Todos os serviços são 100% Free e criados especialmente para você.
                                     <br />
-                                    Cadastrando o seu campeonato (indoor, profissional, amador), você terá a sua disposição
-                                    um site personalizado com tudo que você precisa para turbinar o seu evento. Ex:
-                                    kart.afonsoft.com.br/grupo/amigos2012.aspx<br />
-                                    Participe você também dessa comunidade de pilotos profissionais e amadores de todo
-                                    o mundo.
-                                    <br />
-                                    O cadastro leva aproximadamente 3 minutos e você terá a sua disposição um gestor
-                                    de conteúdo para publicar todas as informações do seu evento na internet de forma
-                                    muito simples. </span>
-                            </asp:Panel>
+                                    <span>O <b>kart.afonsoft.com.br</b> é uma das primeiras comunidade Brasileira de kart
+                                        que oferece uma ferramenta completa para a administração e divulgação do seu campeonato
+                                        de kart.
+                                        <br />
+                                        Todos os serviços são 100% Free e criados especialmente para você.
+                                        <br />
+                                        Cadastrando o seu campeonato (indoor, profissional, amador), você terá a sua disposição
+                                        um site personalizado com tudo que você precisa para turbinar o seu evento. Ex:
+                                        kart.afonsoft.com.br/grupo/amigos2012.aspx<br />
+                                        Participe você também dessa comunidade de pilotos profissionais e amadores de todo
+                                        o mundo.
+                                        <br />
+                                        O cadastro leva aproximadamente 3 minutos e você terá a sua disposição um gestor
+                                        de conteúdo para publicar todas as informações do seu evento na internet de forma
+                                        muito simples. </span>
+                                </asp:Panel>
+                            </div>
                         </td>
                     </tr>
                 </table>
