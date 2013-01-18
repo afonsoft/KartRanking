@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 using KartRanking.BaseDados;
+using KartRanking.Tools;
 
 namespace KartRanking
 {
@@ -24,19 +25,31 @@ namespace KartRanking
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             string originalPath = Request.Url.ToString().ToLower();
-            if (originalPath.Contains("/grupo/") && !originalPath.Contains("index"))
+            string UrlAmigavel = originalPath.Substring(originalPath.LastIndexOf('/') + 1, originalPath.Length - originalPath.LastIndexOf('/') - 1);
+
+            if ((UrlAmigavel.IndexOf(".aspx") >= 0 && UrlAmigavel.IndexOf("?") < 0)  || UrlAmigavel.IndexOf('.') < 0)
             {
-                string UrlAmigavel = originalPath.Substring(originalPath.LastIndexOf('/') + 1, originalPath.Length - originalPath.LastIndexOf('/') - 1);
                 UrlAmigavel = UrlAmigavel.Replace(".aspx", "");
 
-                int idGrupo = (from g in new DataKartDataContext().Kart_Grupos
-                               where g.UrlAcesso.Contains(UrlAmigavel)
-                               select g.idGrupo).SingleOrDefault();
-                if (idGrupo > 0)
-                {
-                    Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + idGrupo);
-                }
+                List<Kart_Grupo> lstGrupos = new List<Kart_Grupo>();
 
+                if (!CacheHelper.Exists("AllGrupo"))
+                {
+                    lstGrupos = (from g in new DataKartDataContext().Kart_Grupos where g.Ativo == true select g).ToList();
+                    CacheHelper.Add(lstGrupos, "AllGrupo");
+                }
+                else
+                    CacheHelper.Get("AllGrupo", out lstGrupos);
+
+                int? idGrupo = (from g in lstGrupos
+                                where g.UrlAcesso.ToLower() == UrlAmigavel.ToLower()
+                                select (int?)g.idGrupo).SingleOrDefault();
+
+                if (idGrupo.HasValue && idGrupo.Value > 0)
+                {
+                    //Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                    Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                }
             }
         }
 

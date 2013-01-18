@@ -25,12 +25,12 @@
                 </ul>
                 <nav>
                     <ul class="sf-menu sf-js-enabled">
-                        <li><a href="index.aspx?idGrupo=<%= idGrupo %>"><strong><strong>home</strong></strong></a></li>
-                        <li><a href="pilotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Pilotos</strong></strong></a></li>
-                        <li><a href="noticias.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Notícias</strong></strong></a></li>
-                        <li><a href="fotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Fotos</strong></strong></a></li>
-                        <li><a href="videos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Videos</strong></strong></a></li>
-                        <li><a href="informacoes.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Informações</strong></strong></a></li>
+                        <li><a href="/Grupo/index.aspx?idGrupo=<%= idGrupo %>"><strong><strong>home</strong></strong></a></li>
+                        <li><a href="/Grupo/pilotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Pilotos</strong></strong></a></li>
+                        <li><a href="/Grupo/noticias.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Notícias</strong></strong></a></li>
+                        <li><a href="/Grupo/fotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Fotos</strong></strong></a></li>
+                        <li><a href="/Grupo/videos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Videos</strong></strong></a></li>
+                        <li><a href="/Grupo/informacoes.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Informações</strong></strong></a></li>
                     </ul>
                 </nav>
             </div>
@@ -69,13 +69,13 @@
                                 <li><a class="active" href="index.aspx?idGrupo=<%= idGrupo %>">
                                     <canvas width="61" height="17" style="width: 61px; height: 17px; top: -3px; left: -3px;">
                                     </canvas>Home</a></li>
-                                <li><a href="pilotos.aspx?idGrupo=<%= idGrupo %>">
+                                <li><a href="/Grupo/pilotos.aspx?idGrupo=<%= idGrupo %>">
                                     <canvas width="69" height="17" style="width: 69px; height: 17px; top: -3px; left: -3px;">
                                     </canvas>Pilotos</a></li>
-                                <li><a href="noticias.aspx?idGrupo=<%= idGrupo %>">
+                                <li><a href="/Grupo/noticias.aspx?idGrupo=<%= idGrupo %>">
                                     <canvas width="81" height="17" style="width: 81px; height: 17px; top: -3px; left: -3px;">
                                     </canvas>Noticias</a></li>
-                                <li><a href="fotos.aspx?idGrupo=<%= idGrupo %>">
+                                <li><a href="/Grupo/fotos.aspx?idGrupo=<%= idGrupo %>">
                                     <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
                                     </canvas>Fotos</a></li>
                             </ul>
