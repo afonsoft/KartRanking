@@ -170,6 +170,26 @@
                                 <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
                                 </asp:ContentPlaceHolder>
                             </asp:Panel>
+                            <asp:Panel ID="pnlNotLogin" Visible="true" runat="server">
+                                <b>Efetue o Login no sistea</b><br />
+                                <span style="font-style: italic">Você não está logado no sistema, caso queira acessar
+                                    os recursos administrativo, favor efetuar o login.</span><br />
+                                <span>O <b>kart.afonsoft.com.br</b> é uma das primeiras comunidade Brasileira de kart
+                                    que oferece uma ferramenta completa para a administração e divulgação do seu campeonato
+                                    de kart.
+                                    <br />
+                                    Todos os serviços são 100% Free e criados especialmente para você.
+                                    <br />
+                                    Cadastrando o seu campeonato (indoor, profissional, amador), você terá a sua disposição
+                                    um site personalizado com tudo que você precisa para turbinar o seu evento. Ex:
+                                    kart.afonsoft.com.br/grupo/amigos2012.aspx<br />
+                                    Participe você também dessa comunidade de pilotos profissionais e amadores de todo
+                                    o mundo.
+                                    <br />
+                                    O cadastro leva aproximadamente 3 minutos e você terá a sua disposição um gestor
+                                    de conteúdo para publicar todas as informações do seu evento na internet de forma
+                                    muito simples. </span>
+                            </asp:Panel>
                         </td>
                     </tr>
                 </table>
