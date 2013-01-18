@@ -45,29 +45,29 @@ namespace KartRanking.Administrador
         }
         #endregion
 
+        #region AutoLogin
         private void AutoLogin()
         {
             HttpCookie cookie = Request.Cookies["KartRankingAutoLogin"];
             if (cookie != null)
             {
-                if (cookie.Expires >= DateTime.Now)
+                if (!string.IsNullOrEmpty(cookie.Value))
                 {
-                    if (!string.IsNullOrEmpty(cookie.Value))
-                    {
-                        Usuario user = (from p in dk.Usuarios
-                                        where p.Email.Equals(cookie.Value)
-                                        select p).FirstOrDefault();
+                    Usuario user = (from p in dk.Usuarios
+                                    where p.Email.Equals(cookie.Value)
+                                    select p).FirstOrDefault();
 
-                        if (user != null)
-                        {
-                            Session["Usuario"] = user;
-                            pnlMenu.Visible = true;
-                            pnlLogin.Visible = false;
-                        }
+                    if (user != null)
+                    {
+                        Session["Usuario"] = user;
+                        pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
+                        pnlLogin.Visible = false;
+                        lblNomeUsuario.Text = user.Nome;
                     }
                 }
             }
         }
+        #endregion 
 
         #region Login e Logout
         protected void lnkSair_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace KartRanking.Administrador
                 cookie.Value = "";
                 Response.Cookies.Add(cookie);
             }
-            pnlMenu.Visible = false;
+            pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = false;
             pnlLogin.Visible = true;
         }
 
@@ -103,7 +103,8 @@ namespace KartRanking.Administrador
                     throw new Exception("Usuário ou Senha inválidos!");
 
                 Session["Usuario"] = user;
-                pnlMenu.Visible = true;
+                lblNomeUsuario.Text = user.Nome;
+                pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
                 pnlLogin.Visible = false;
                 
                 if (chkLembrar.Checked)
@@ -126,14 +127,17 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
+                AutoLogin();
                 if (Session["Usuario"] != null)
                 {
-                    pnlMenu.Visible = true;
+                    lblNomeUsuario.Text = ((Usuario)Session["Usuario"]).Nome;
+                    pnlMenu.Visible = pnlConteudo.Visible = true;
                     pnlLogin.Visible = false;
                 }
                 else
                 {
-                    pnlMenu.Visible = false;
+                    lblNomeUsuario.Text = "Visitante";
+                    pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = false;
                     pnlLogin.Visible = true;
                 }
 
