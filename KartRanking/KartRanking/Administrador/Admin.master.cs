@@ -61,7 +61,7 @@ namespace KartRanking.Administrador
                     {
                         Session["Usuario"] = user;
                         pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
-                        pnlLogin.Visible = false;
+                        pnlLogin.Visible = pnlNotLogin.Visible = false;
                         lblNomeUsuario.Text = user.Nome;
                     }
                 }
@@ -83,7 +83,7 @@ namespace KartRanking.Administrador
                 Response.Cookies.Add(cookie);
             }
             pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = false;
-            pnlLogin.Visible = true;
+            pnlLogin.Visible = pnlNotLogin.Visible = true;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -105,7 +105,7 @@ namespace KartRanking.Administrador
                 Session["Usuario"] = user;
                 lblNomeUsuario.Text = user.Nome;
                 pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
-                pnlLogin.Visible = false;
+                pnlLogin.Visible = pnlNotLogin.Visible = false;
                 
                 if (chkLembrar.Checked)
                 {
@@ -132,13 +132,13 @@ namespace KartRanking.Administrador
                 {
                     lblNomeUsuario.Text = ((Usuario)Session["Usuario"]).Nome;
                     pnlMenu.Visible = pnlConteudo.Visible = true;
-                    pnlLogin.Visible = false;
+                    pnlLogin.Visible = pnlNotLogin.Visible = false;
                 }
                 else
                 {
                     lblNomeUsuario.Text = "Visitante";
                     pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = false;
-                    pnlLogin.Visible = true;
+                    pnlLogin.Visible = pnlNotLogin.Visible = true;
                 }
 
             }
