@@ -83,6 +83,15 @@ fieldset#body {
     *margin:-3px 9px 0 0; /* IE7 Fix */
 }
 
+.checkbox {
+    width:auto;
+    margin:1px 9px 0 0;
+    float:left;
+    padding:0;
+    border:0;
+    *margin:-3px 9px 0 0; /* IE7 Fix */
+}
+
 #body label {
     color:#3a454d;
     margin:9px 0 0 0;
@@ -99,16 +108,30 @@ fieldset#body {
 /* Default Input */
 #loginForm input {
     width:92%;
-    border:1px solid #899caa;
-    border-radius:3px;
-    -moz-border-radius:3px;
+    font-size:8px;
+    font-weight:normal;
     color:#3a454d;
-    font-weight:bold;
-    padding:8px 8px;
+    border:1px solid #899caa;
+    border-radius:4px;
+    -moz-border-radius:4px;
+    padding:5px 5px;
     box-shadow:inset 0px 1px 3px #bbb;
     -webkit-box-shadow:inset 0px 1px 3px #bbb;
     -moz-box-shadow:inset 0px 1px 3px #bbb;
-    font-size:12px;
+}
+
+.inputlogin {
+    width:92%;
+    font-size:8px;
+    font-weight:normal;
+    color:#3a454d;
+    border:1px solid #899caa;
+    border-radius:4px;
+    -moz-border-radius:4px;
+    padding:5px 5px;
+    box-shadow:inset 0px 1px 3px #bbb;
+    -webkit-box-shadow:inset 0px 1px 3px #bbb;
+    -moz-box-shadow:inset 0px 1px 3px #bbb;
 }
 
 /* Sign In Button */
