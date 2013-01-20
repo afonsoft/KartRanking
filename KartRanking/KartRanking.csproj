@@ -72,6 +72,13 @@
     <Compile Include="Administrador\Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\AdminGrupo.aspx.cs">
+      <DependentUpon>AdminGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\AdminGrupo.aspx.designer.cs">
+      <DependentUpon>AdminGrupo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ImageHandler.ashx.cs">
       <DependentUpon>ImageHandler.ashx</DependentUpon>
     </Compile>
@@ -330,6 +337,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrador\Admin.master" />
+    <Content Include="Administrador\AdminGrupo.aspx" />
     <Content Include="Administrador\ImageHandler.ashx" />
     <None Include="BaseDados\DataKart.dbml.layout">
       <DependentUpon>DataKart.dbml</DependentUpon>

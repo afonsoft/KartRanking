@@ -133,6 +133,10 @@ namespace KartRanking.Administrador
             if (!IsPostBack)
             {
                 HiddenidGrupo.Value = "0";
+
+                if (Request.QueryString["IdGrupo"] != null)
+                    HiddenidGrupo.Value = Request.QueryString["IdGrupo"];
+               
                 AutoLogin();
                 if (Session["Usuario"] != null)
                 {
@@ -175,6 +179,8 @@ namespace KartRanking.Administrador
                 {
                     ddlGrupos.Items.FindByValue(idGrupoSelecionado.ToString()).Selected = true;
                 }
+
+                Session["IdGrupo"] = ddlGrupos.SelectedValue;
             }
             else
             {
