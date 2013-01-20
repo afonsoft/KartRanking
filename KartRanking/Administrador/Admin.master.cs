@@ -63,6 +63,8 @@ namespace KartRanking.Administrador
                         pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
                         pnlLogin.Visible = pnlNotLogin.Visible = false;
                         lblNomeUsuario.Text = user.Nome;
+
+                        CarregarGruposUsuario();
                     }
                 }
             }
@@ -107,7 +109,9 @@ namespace KartRanking.Administrador
                 lblNomeUsuario.Text = user.Nome;
                 pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
                 pnlLogin.Visible = pnlNotLogin.Visible = false;
-                
+
+                CarregarGruposUsuario();
+
                 if (chkLembrar.Checked)
                 {
                     //Criar um cookie
@@ -128,12 +132,14 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
+                HiddenidGrupo.Value = "0";
                 AutoLogin();
                 if (Session["Usuario"] != null)
                 {
                     lblNomeUsuario.Text = ((Usuario)Session["Usuario"]).Nome;
                     pnlMenu.Visible = pnlConteudo.Visible = true;
                     pnlLogin.Visible = pnlNotLogin.Visible = false;
+                    CarregarGruposUsuario();
                 }
                 else
                 {
@@ -143,6 +149,43 @@ namespace KartRanking.Administrador
                 }
 
             }
+        }
+
+        private void CarregarGruposUsuario()
+        {
+            Usuario user = (Usuario)Session["Usuario"];
+
+            var Grupos = (from gu in dk.Kart_Usuario_Grupos
+                          join g in dk.Kart_Grupos
+                          on gu.idGrupo equals g.idGrupo
+                          orderby g.dtCriacao descending
+                          where gu.idUsuario == user.idUsuario
+                          && g.Ativo == true
+                          select new { id = g.idGrupo, Nome = g.NomeGrupo });
+
+            if (Grupos != null && Grupos.Count() > 0)
+            {
+                ddlGrupos.DataSource = Grupos;
+                ddlGrupos.DataTextField = "Nome";
+                ddlGrupos.DataValueField = "id";
+                ddlGrupos.DataBind();
+
+                int idGrupoSelecionado = Convert.ToInt16(HiddenidGrupo.Value);
+                if (idGrupoSelecionado > 0)
+                {
+                    ddlGrupos.Items.FindByValue(idGrupoSelecionado.ToString()).Selected = true;
+                }
+            }
+            else
+            {
+                ddlGrupos.Items.Insert(0, new ListItem("Nenhum Grupo associado", "0", true));
+            }
+
+        }
+
+        protected void ddlGrupos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["IdGrupo"] = ddlGrupos.SelectedValue;
         }
 
     }

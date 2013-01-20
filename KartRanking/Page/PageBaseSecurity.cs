@@ -9,6 +9,17 @@ namespace KartRanking.Page
     public class PageBaseSecurity : PageBase
     {
 
+        public int IdGrupo
+        {
+            get { return Session["IdGrupo"] != null ? Convert.ToInt16(Session["IdGrupo"]) : 0; }
+            set { Session["IdGrupo"] = value.ToString(); }
+        }
+
+        public int IdCampeonato {
+            get { return Session["IdCampeonato"] != null ? Convert.ToInt16(Session["IdCampeonato"]) : 0; }
+            set { Session["IdCampeonato"] = value.ToString(); }
+        }
+
         public bool IsThisGroup
         {
             get
@@ -52,7 +63,7 @@ namespace KartRanking.Page
             }
         }
 
-      public bool IsAdmin
+        public bool IsAdmin
         {
             get
             {
@@ -107,9 +118,9 @@ namespace KartRanking.Page
             return false;
         }
 
-        protected override void OnInit( EventArgs e )
+        protected override void OnInit(EventArgs e)
         {
-            base.OnInit( e );
+            base.OnInit(e);
 
             if (Session["Usuario"] == null && ViewState["Usuario"] == null)
                 Response.Redirect("~/index.aspx");
