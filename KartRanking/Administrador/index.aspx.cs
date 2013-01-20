@@ -4,14 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using KartRanking.Page;
 
 namespace KartRanking.Administrador
 {
-    public partial class index : System.Web.UI.Page
+    public partial class index : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("~/Administrador/perfil.aspx");
+            if (Session["Usuario"] != null)
+            {
+                Response.Redirect("~/Administrador/perfil.aspx");
+            }
         }
     }
 }
