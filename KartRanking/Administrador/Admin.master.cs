@@ -186,6 +186,7 @@ namespace KartRanking.Administrador
         protected void ddlGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["IdGrupo"] = ddlGrupos.SelectedValue;
+            Response.Redirect(Request.Url.ToString());
         }
 
     }

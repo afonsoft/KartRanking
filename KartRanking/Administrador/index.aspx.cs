@@ -11,7 +11,7 @@ namespace KartRanking.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Administrador/perfil.aspx");
         }
     }
 }
