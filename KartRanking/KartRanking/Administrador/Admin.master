@@ -61,7 +61,7 @@
 	                                <li>
 	                                    <a href="#">Administração</a>
 	                                    <ul>
-	                                        <li><a href="">Grupo</a></li>
+	                                        <li><a href="AdminGrupo.aspx">Grupo</a></li>
 	                                        <li><a href="">Campeonatos</a>
 	                                            <ul>
 	                                                <li><a href="">Classificação dos Pilotos</a></li>
@@ -149,7 +149,8 @@
                         <td style="background-color: #F5F5F5; width: 36%; height: 20px; text-align: right;
                             vertical-align: middle;">
                             Grupo:&nbsp;<asp:DropDownList ID="ddlGrupos" runat="server" Width="300px" 
-                                onselectedindexchanged="ddlGrupos_SelectedIndexChanged">
+                                onselectedindexchanged="ddlGrupos_SelectedIndexChanged" 
+                                AutoPostBack="True">
                             </asp:DropDownList>
                         </td>
                         <td style="background-color: #F5F5F5; width: 3%; height: 20px; text-align: right;

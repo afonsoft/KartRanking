@@ -20,6 +20,17 @@ namespace KartRanking.Page
             set { Session["IdCampeonato"] = value.ToString(); }
         }
 
+        private bool ValidarSeAtivo()
+        {
+            Usuario user = (Usuario)Session["Usuario"];
+            if (user.Ativo == false)
+            {
+                Response.Redirect("~/Administrador/perfil.aspx", true);
+                return false;
+            }
+            return true;
+        }
+
         public bool IsThisGroup
         {
             get
@@ -142,6 +153,17 @@ namespace KartRanking.Page
                     Session["Msg"] = "Você não possue permissão para acessar este grupo.";
                     Response.Redirect("~/Admin/PainelControle.aspx");
                 }
+                else
+                {
+                    if (ValidarSeAtivo())
+                    {
+                        if (Request.QueryString["IdGrupo"] != null)
+                        {
+                            IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
+                        }
+                    }
+                }
+
             }
         }
     }
