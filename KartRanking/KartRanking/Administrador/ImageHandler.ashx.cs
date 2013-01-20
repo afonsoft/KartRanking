@@ -8,7 +8,7 @@ using System.Drawing.Imaging;
 using KartRanking.Tools;
 using KartRanking.BaseDados;
 
-namespace KartRanking
+namespace KartRanking.Administrador
 {
     /// <summary>
     /// Summary description for $codebehindclassname$
