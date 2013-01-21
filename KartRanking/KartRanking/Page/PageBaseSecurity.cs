@@ -11,13 +11,50 @@ namespace KartRanking.Page
 
         public int IdGrupo
         {
-            get { return Session["IdGrupo"] != null ? Convert.ToInt16(Session["IdGrupo"]) : 0; }
-            set { Session["IdGrupo"] = value.ToString(); }
+            get
+            {
+                int idGrupo = 0;
+                if (Request.QueryString["IdGrupo"] != null)
+                {
+                    int.TryParse(Request.QueryString["IdGrupo"], out idGrupo);
+                    if (idGrupo > 0)
+                        Session["IdGrupo"] = idGrupo;
+                }
+                if (Session["IdGrupo"] != null)
+                {
+                    int.TryParse(Session["IdGrupo"].ToString(), out idGrupo);
+                }
+
+                return idGrupo;
+            }
+            set
+            {
+                Session["IdGrupo"] = value.ToString();
+            }
         }
 
-        public int IdCampeonato {
-            get { return Session["IdCampeonato"] != null ? Convert.ToInt16(Session["IdCampeonato"]) : 0; }
-            set { Session["IdCampeonato"] = value.ToString(); }
+        public int IdCampeonato
+        {
+            get
+            {
+                int IdCampeonato = 0;
+                if (Request.QueryString["IdCampeonato"] != null)
+                {
+                    int.TryParse(Request.QueryString["IdCampeonato"], out IdCampeonato);
+                    if (IdCampeonato > 0)
+                        Session["IdCampeonato"] = IdCampeonato;
+                }
+                if (Session["IdCampeonato"] != null)
+                {
+                    int.TryParse(Session["IdCampeonato"].ToString(), out IdCampeonato);
+                }
+
+                return IdCampeonato;
+            }
+            set
+            {
+                Session["IdCampeonato"] = value.ToString();
+            }
         }
 
         private bool ValidarSeAtivo()
@@ -37,21 +74,14 @@ namespace KartRanking.Page
             {
                 try
                 {
-                    int idGrupo = 0;
 
-                    if (Request.QueryString["IdGrupo"] != null)
-                        idGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
-
-                    if (Session["IdGrupo"] != null)
-                        idGrupo = Convert.ToInt16(Session["IdGrupo"]);
-
-                    if (idGrupo > 0)
+                    if (IdGrupo > 0)
                     {
                         if (Session["Usuario"] != null)
                         {
                             Usuario user = (Usuario)Session["Usuario"];
                             var admin = (from t in new DataKartDataContext().Kart_Usuario_Grupos
-                                         where t.idGrupo == idGrupo && t.idUsuario == user.idUsuario
+                                         where t.idGrupo == IdGrupo && t.idUsuario == user.idUsuario
                                          select t).FirstOrDefault();
 
                             if (admin != null)
@@ -80,21 +110,13 @@ namespace KartRanking.Page
             {
                 try
                 {
-                    int idGrupo = 0;
-
-                    if (Request.QueryString["IdGrupo"] != null)
-                        idGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
-
-                    if (Session["IdGrupo"] != null)
-                        idGrupo = Convert.ToInt16(Session["IdGrupo"]);
-
-                    if (idGrupo > 0)
+                    if (IdGrupo > 0)
                     {
                         if (Session["Usuario"] != null)
                         {
                             Usuario user = (Usuario)Session["Usuario"];
                             var admin = (from t in new DataKartDataContext().Kart_Usuario_Grupos
-                                         where t.idGrupo == idGrupo && t.idUsuario == user.idUsuario
+                                         where t.idGrupo == IdGrupo && t.idUsuario == user.idUsuario
                                          select new { t.Admin }).FirstOrDefault();
 
                             if (admin != null && admin.Admin.HasValue)
@@ -151,7 +173,7 @@ namespace KartRanking.Page
                 if (!IsThisGroup)
                 {
                     Session["Msg"] = "Você não possue permissão para acessar este grupo.";
-                    Response.Redirect("~/Admin/PainelControle.aspx");
+                    Response.Redirect("~/Administrador/index.aspx");
                 }
                 else
                 {

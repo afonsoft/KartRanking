@@ -11,7 +11,7 @@
 namespace KartRanking.Administrador {
     
     
-    public partial class AdminGrupo {
+    public partial class AdminCampeonato {
         
         /// <summary>
         /// ltTitulo control.
@@ -32,15 +32,6 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.Literal ltDescricao;
         
         /// <summary>
-        /// ddlGruposDesativados control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGruposDesativados;
-        
-        /// <summary>
         /// HiddenIdGrupo control.
         /// </summary>
         /// <remarks>
@@ -50,67 +41,49 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.HiddenField HiddenIdGrupo;
         
         /// <summary>
-        /// txtNomeGrupo control.
+        /// HiddenIdCampeonato control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomeGrupo;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenIdCampeonato;
         
         /// <summary>
-        /// txtSigla control.
+        /// txtNomeCampeonato control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSigla;
+        protected global::System.Web.UI.WebControls.TextBox txtNomeCampeonato;
         
         /// <summary>
-        /// ddlPermitirInscricoes control.
+        /// txtDtInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPermitirInscricoes;
+        protected global::System.Web.UI.WebControls.TextBox txtDtInicio;
         
         /// <summary>
-        /// txtUrlAcesso control.
+        /// txtDtFim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUrlAcesso;
+        protected global::System.Web.UI.WebControls.TextBox txtDtFim;
         
         /// <summary>
-        /// ddlEstado control.
+        /// ddlAtivo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
-        
-        /// <summary>
-        /// txtCidade control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCidade;
-        
-        /// <summary>
-        /// btnEditar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAtivo;
         
         /// <summary>
         /// btnSalvar control.
@@ -120,14 +93,5 @@ namespace KartRanking.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSalvar;
-        
-        /// <summary>
-        /// gvCampeonatos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCampeonatos;
     }
 }
