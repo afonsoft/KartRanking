@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.BaseDados;
+using System.Collections.Specialized;
 
 namespace KartRanking.Administrador
 {
@@ -195,8 +196,32 @@ namespace KartRanking.Administrador
         protected void ddlGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["IdGrupo"] = ddlGrupos.SelectedValue;
-            Response.Redirect(Request.Url.ToString());
+            string url = AlterarGrupo(Request.Url.LocalPath, Request.QueryString, ddlGrupos.SelectedValue);
+            Response.Redirect(url);
         }
+
+        private string AlterarGrupo(string url, NameValueCollection nameValueCollection, string idGrupo)
+        {
+            string rurl = "";
+            foreach (string q in nameValueCollection.AllKeys)
+            {
+                if (q.ToLower() != "idgrupo")
+                {
+                    if (rurl.IndexOf("?") >= 0)
+                        rurl += "&" + q + "=" + nameValueCollection[q];
+                    else
+                        rurl += "?" + q + "=" + nameValueCollection[q];
+                }
+            }
+            if (rurl.IndexOf("?") >= 0)
+                rurl += url + "&IdGrupo=" + idGrupo;
+            else
+                rurl += url + "?IdGrupo=" + idGrupo;
+
+            return rurl;
+        }
+
+       
 
     }
 }
