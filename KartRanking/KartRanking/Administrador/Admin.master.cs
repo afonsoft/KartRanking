@@ -200,7 +200,7 @@ namespace KartRanking.Administrador
                                where c.idGrupo == idGrupo
                                && c.Ativo == true
                                && c.dtFim >= DateTime.Now
-                               orderby c.dtFim descending, c.NomeCampeonato ascending
+                               orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
                                select c).FirstOrDefault();
 
             if (campeonato != null)
