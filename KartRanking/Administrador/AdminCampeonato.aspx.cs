@@ -5,25 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
-using KartRanking.BaseDados;
 
-namespace KartRanking
+namespace KartRanking.Administrador
 {
-    public partial class CadastroCampeonato : PageBaseSecurity
+    public partial class AdminCampeonato : PageBaseSecurity
     {
-        
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                HiddenIdGrupo.Value = Request.QueryString["IdGrupo"];
+                HiddenIdGrupo.Value = IdGrupo.ToString();
                 HiddenIdCampeonato.Value = "0";
 
                 if (String.IsNullOrEmpty(HiddenIdGrupo.Value))
                     throw new Exception("Grupo informado inválido.");
 
-                if (!VerificarPermissaoUsuarioGrupo(Convert.ToInt16(HiddenIdGrupo.Value)))
+                if (!VerificarPermissaoUsuarioGrupo(IdGrupo))
 
                     if (IdCampeonato > 0)
                     {
@@ -125,7 +122,7 @@ namespace KartRanking
 
         private void ValidarDatas()
         {
-            try 
+            try
             {
                 DateTime dt = Convert.ToDateTime(txtDtInicio.Text);
                 dt = Convert.ToDateTime(txtDtFim.Text);

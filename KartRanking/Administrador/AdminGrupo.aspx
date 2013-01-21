@@ -7,22 +7,22 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-        
+
             $('#<%= txtUrlAcesso.ClientID %>').on("focus", function() {
                 var dest = $(this);
-                dest.val(dest.val().split(" ").join(""));
+                try { dest.val(dest.val().split(" ").join("")); } catch (e) { }
             });
-            
+
             $('#<%= txtUrlAcesso.ClientID %>').on("blur", function() {
                 var dest = $(this);
-                dest.val(dest.val().split(" ").join(""));
+                try { dest.val(dest.val().split(" ").join("")); } catch (e) { }
             });
 
             $('#<%= txtUrlAcesso.ClientID %>').blur(function() {
                 var dest = $('#<%= txtUrlAcesso.ClientID %>').val();
-                dest.val(dest.val().split(" ").join(""));
+                try { dest.val(dest.val().split(" ").join("")); } catch (e) { }
             });
-            
+
         });
     </script>
 
@@ -35,16 +35,15 @@
             <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
                 border-right: #ccc 1px dashed;" />
         </div>
-         <div class="clear ">
+        <div class="clear ">
             &nbsp;
         </div>
-         <div class="grid_4">
+        <div class="grid_4">
             <span class="label">Grupo Destivados:</span>
         </div>
         <div class="grid_8">
-            <asp:DropDownList ID="ddlGruposDesativados" runat="server" Width="95%" 
-                AutoPostBack="True" 
-                onselectedindexchanged="ddlGruposDesativados_SelectedIndexChanged" >
+            <asp:DropDownList ID="ddlGruposDesativados" runat="server" Width="95%" AutoPostBack="True"
+                OnSelectedIndexChanged="ddlGruposDesativados_SelectedIndexChanged">
             </asp:DropDownList>
         </div>
         <div class="clear ">
@@ -130,7 +129,7 @@
             &nbsp;
         </div>
         <div class="grid_4">
-             <asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" />
+            <asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" />
         </div>
         <div class="grid_4">
             &nbsp;&nbsp;&nbsp;
@@ -141,9 +140,9 @@
         <div class="clear espaco">
             &nbsp;
         </div>
-         <div class="grid_12">
-         Campeonatos deste grupo
-         </div>
+        <div class="grid_12">
+            Campeonatos deste grupo
+        </div>
         <div class="clear">
             &nbsp;
         </div>
@@ -177,12 +176,12 @@
                         <asp:BoundField HeaderText="Ativo" SortExpression="Ativo" DataField="Ativo" />
                         <asp:BoundField HeaderText="idGrupo" SortExpression="idGrupo" DataField="idGrupo"
                             Visible="false" />
-                             <asp:TemplateField>
+                        <asp:TemplateField>
                             <HeaderTemplate>
                                 Editar</HeaderTemplate>
                             <ItemTemplate>
-                                <asp:ImageButton ID="imgEditar" ToolTip="Editar o Campeonato" runat="server" Width="16px" Height="16px" CommandArgument='<%# Eval( "idCampeonato" )%>'
-                                    CommandName="EditCampeonato" />
+                                <asp:ImageButton ID="imgEditar" ToolTip="Editar o Campeonato" runat="server" Width="16px"
+                                    Height="16px" CommandArgument='<%# Eval( "idCampeonato" )%>' ImageUrl="~/images/Edit16px.png" CommandName="EditCampeonato" />
                             </ItemTemplate>
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:TemplateField>

@@ -177,7 +177,7 @@ namespace KartRanking.Administrador
 
                     EMail.EnviarEmailStatusGrupo(user.idUsuario, kg.idGrupo);
 
-                    Alert("Cadastro do Grupo efetuado com sucesso!", "PainelControle.aspx?IdGrupo=" + NovoIdGrupo);
+                    Alert("Cadastro do Grupo efetuado com sucesso!", "index.aspx?IdGrupo=" + NovoIdGrupo);
                 }
                 else
                 {
@@ -229,7 +229,7 @@ namespace KartRanking.Administrador
 
                     EMail.EnviarEmailStatusGrupo(user.idUsuario, kg.idGrupo);
 
-                    Alert("Alteração do grupo efetuado com sucesso!", "PainelControle.aspx?IdGrupo=" + Request.QueryString["IdGrupo"]);
+                    Alert("Alteração do grupo efetuado com sucesso!", "index.aspx?IdGrupo=" + Request.QueryString["IdGrupo"]);
                 }
 
             }
@@ -261,7 +261,6 @@ namespace KartRanking.Administrador
         protected void gvCampeonatos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             IdCampeonato = Convert.ToInt16(e.CommandArgument);
-
             if (e.CommandName == "EditCampeonato")
             {
                 Response.Redirect("AdminCampeonato.aspx?IdGrupo=" + IdGrupo.ToString() + "&IdCampeonato=" + IdCampeonato.ToString());

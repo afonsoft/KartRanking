@@ -14,7 +14,11 @@ namespace KartRanking.Administrador
         {
             if (Session["Usuario"] != null)
             {
-              
+                if (Session["Msg"] != null)
+                {
+                    Alert((string)Session["Msg"]);
+                    Session["Msg"] = null;
+                }
             }
         }
     }
