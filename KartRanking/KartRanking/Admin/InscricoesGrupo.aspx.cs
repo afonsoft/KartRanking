@@ -24,19 +24,19 @@ namespace KartRanking
                 if (!IsPostBack)
                 {
 
-                    string idGrupo = Request.QueryString["idGrupo"];
+                    string _idGrupo = Request.QueryString["idGrupo"];
                     string idTab = Request.QueryString["tab"];
 
-                    if (String.IsNullOrEmpty(idGrupo) && Session["idGrupo"] != null) idGrupo = Session["idGrupo"].ToString();
+                    if (String.IsNullOrEmpty(_idGrupo) && Session["idGrupo"] != null) _idGrupo = Session["idGrupo"].ToString();
 
                     Usuario user = (Usuario)Session["Usuario"];
                     PopularDDL(user.idUsuario);
 
-                    IdGrupo.Value = "0";
-                    if (!String.IsNullOrEmpty(idGrupo))
+                   idGrupo.Value = "0";
+                    if (!String.IsNullOrEmpty(_idGrupo))
                     {
-                        ControlUtil.SelectByValue(ref ddlGrupos, idGrupo);
-                        IdGrupo.Value = idGrupo;
+                        ControlUtil.SelectByValue(ref ddlGrupos, _idGrupo);
+                        idGrupo.Value = _idGrupo;
                     }
 
                     PopularGrids(Convert.ToInt16(ddlGrupos.SelectedValue));
@@ -86,13 +86,13 @@ namespace KartRanking
 
         }
 
-        private void PopularGrids(int idGrupo)
+        private void PopularGrids(int _idGrupo)
         {
-            IdGrupo.Value = idGrupo.ToString();
+            idGrupo.Value = _idGrupo.ToString();
 
             var UsuarioLivre = from u in dk.Usuarios
                                join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
-                               where ug.idGrupo == idGrupo
+                               where ug.idGrupo == _idGrupo
                                && ug.Aprovado == false
                                select u;
 
@@ -100,7 +100,7 @@ namespace KartRanking
             gvUsuariosAdmin.DataBind();
 
             Kart_Grupo grupo = (from g in dk.Kart_Grupos
-                                where g.idGrupo == idGrupo
+                                where g.idGrupo == _idGrupo
                                 select g).FirstOrDefault();
 
             if (grupo != null)
@@ -117,7 +117,7 @@ namespace KartRanking
                                 join t4 in dk.Kart_Equipe_Campeonatos on t3.idEquipeCampeonato equals t4.idEquipeCampeonato into t4_join
                                 from t4 in t4_join.DefaultIfEmpty()
                                 where
-                                  t1.idGrupo == idGrupo &&
+                                  t1.idGrupo == _idGrupo &&
                                   t1.Aprovado == true
                                 select new
                                 {
@@ -194,14 +194,14 @@ namespace KartRanking
                 Kart_Usuario_Grupo kug = new Kart_Usuario_Grupo();
                 kug.Admin = false;
                 kug.Aprovado = true;
-                kug.idGrupo = Convert.ToInt16(IdGrupo.Value);
+                kug.idGrupo = Convert.ToInt16(idGrupo.Value);
                 kug.idUsuario = usr.idUsuario;
                 kug.dtCriacao = DateTime.Now;
 
                 dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
                 dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
 
-                EMail.EnviarEmailBemvido(usr, Convert.ToInt16(IdGrupo.Value));
+                EMail.EnviarEmailBemvido(usr, Convert.ToInt16(idGrupo.Value));
 
                 Alert("Convite enviado com sucesso!");
 

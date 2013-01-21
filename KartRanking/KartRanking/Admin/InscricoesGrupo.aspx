@@ -12,7 +12,7 @@
         });
     </script>
 
-    <asp:HiddenField ID="IdGrupo" runat="server" />
+    <asp:HiddenField ID="idGrupo" runat="server" />
     <div class="container_12">
         <div class="grid_12">
             <h3 class="titulo">
