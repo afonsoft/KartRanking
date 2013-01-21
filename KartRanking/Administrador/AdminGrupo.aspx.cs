@@ -107,7 +107,7 @@ namespace KartRanking.Administrador
                 ddlEstado.Items.FindByValue(gr.Estado).Selected = true;
             }
             else
-                Alert("Informações não encontrada para esse grupo!", "index.aspx?IdGrupo=" + Request.QueryString["IdGrupo"]);
+                Alert("Informações não encontrada para esse grupo!", "index.aspx?IdGrupo=" + idGrupo);
         }
 
         private bool VerificarPermissaoUsuarioGrupo(int idGrupo)
@@ -229,7 +229,7 @@ namespace KartRanking.Administrador
 
                     EMail.EnviarEmailStatusGrupo(user.idUsuario, kg.idGrupo);
 
-                    Alert("Alteração do grupo efetuado com sucesso!", "index.aspx?IdGrupo=" + Request.QueryString["IdGrupo"]);
+                    Alert("Alteração do grupo efetuado com sucesso!", "index.aspx?IdGrupo=" + idGrupo);
                 }
 
             }

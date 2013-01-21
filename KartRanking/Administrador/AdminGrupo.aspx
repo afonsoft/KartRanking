@@ -129,13 +129,13 @@
             &nbsp;
         </div>
         <div class="grid_4">
-            <asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" />
+            &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" />&nbsp;
         </div>
         <div class="grid_4">
             &nbsp;&nbsp;&nbsp;
         </div>
         <div class="grid_4">
-            <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+            &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />&nbsp;
         </div>
         <div class="clear espaco">
             &nbsp;

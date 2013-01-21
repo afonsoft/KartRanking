@@ -1,8 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true" CodeBehind="AdminCampeonato.aspx.cs" Inherits="KartRanking.Administrador.AdminCampeonato" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true"
+    CodeBehind="AdminCampeonato.aspx.cs" Inherits="KartRanking.Administrador.AdminCampeonato" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-<script type="text/javascript">
+
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#<%= txtDtInicio.ClientID %>, #<%= txtDtFim.ClientID %>').datepicker({
                 changeMonth: true,
@@ -33,8 +36,7 @@
             &nbsp;
         </div>
         <div class="grid_3">
-            <span class="label">Nome Campeonato:</span><asp:HiddenField ID="HiddenIdGrupo" runat="server" />
-            <asp:HiddenField ID="HiddenIdCampeonato" runat="server" />
+            <span class="label">Nome Campeonato:</span>
         </div>
         <div class="grid_9">
             <asp:TextBox ID="txtNomeCampeonato" MaxLength="100" runat="server"></asp:TextBox>
@@ -75,9 +77,15 @@
         <div class="clear espaco">
             &nbsp;
         </div>
-        <div class="grid_12">
-            <asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
-                Width="150px" />
+        <div class="grid_4">
+            &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar o Campeonato" OnClick="btnEditar_Click" />&nbsp;
+        </div>
+        <div class="grid_4">
+            &nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="grid_4">
+            &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
+                Width="200px" />&nbsp;
         </div>
         <div class="clear espaco">
             &nbsp;

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
+using KartRanking.BaseDados;
 
 namespace KartRanking.Administrador
 {
@@ -14,34 +15,44 @@ namespace KartRanking.Administrador
         {
             try
             {
-                HiddenIdGrupo.Value = IdGrupo.ToString();
-                HiddenIdCampeonato.Value = "0";
-
-                if (String.IsNullOrEmpty(HiddenIdGrupo.Value))
-                    throw new Exception("Grupo informado inválido.");
-
-                if (!VerificarPermissaoUsuarioGrupo(IdGrupo))
-
+                if (IsPostBack)
+                {
                     if (IdCampeonato > 0)
                     {
-                        HiddenIdCampeonato.Value = IdCampeonato.ToString();
+                        PopularTela(IdCampeonato, IdGrupo);
                         ltTitulo.Text = "Alteração do Campeonato";
                         ltDescricao.Text = "Efetuar alteração do Campeonato";
-                        PopularTela(IdCampeonato, IdGrupo);
+                        DisableEditCampeonato(true);
                     }
                     else
                     {
-                        HiddenIdCampeonato.Value = "0";
                         IdCampeonato = 0;
-                        ltTitulo.Text = "Cadastro de um Campeonato";
-                        ltDescricao.Text = "Efetuar cadastro de um Campeonato para o grupo";
+                        if (VerificarPermissaoUsuarioGrupo(IdGrupo))
+                        {
+                            ltTitulo.Text = "Cadastro de um Campeonato";
+                            ltDescricao.Text = "Efetuar cadastro de um Campeonato para o grupo";
+                            DisableEditCampeonato(false);
+                            btnEditar.Visible = false;
+                        }
+                        else { Alert("Você não possue permissão para criar um campeonato."); }
                     }
+                }
             }
             catch (Exception ex)
             {
                 Alert(ex);
             }
         }
+
+        private void DisableEditCampeonato(bool p)
+        {
+            txtDtFim.ReadOnly = p;
+            txtDtInicio.ReadOnly = p;
+            txtNomeCampeonato.ReadOnly = p;
+            ddlAtivo.Enabled = !p;
+            btnSalvar.Visible = !p;
+        }
+
 
         private void PopularTela(int idCampeonato, int idGrupo)
         {
@@ -52,10 +63,10 @@ namespace KartRanking.Administrador
                 txtDtFim.Text = kc.dtFim.ToString("dd/MM/yyyy");
                 txtDtInicio.Text = kc.dtInicio.ToString("dd/MM/yyyy");
                 txtNomeCampeonato.Text = kc.NomeCampeonato;
-                ddlAtivo.Items.FindByValue(kc.Ativo.ToString()).Selected = true;
+                ddlAtivo.Items.FindByValue(kc.Ativo.HasValue ? kc.Ativo.Value.ToString() : "false").Selected = true;
             }
             else
-                Alert("Erro para recuperar as informações do Campeonato.", "PainelControle.aspx?IdGrupo=" + Request.QueryString["IdGrupo"]);
+                Alert("Erro para recuperar as informações do Campeonato.", "index.aspx?IdGrupo=" + IdGrupo);
 
         }
 
@@ -74,43 +85,59 @@ namespace KartRanking.Administrador
                 return false;
         }
 
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (IsAdmin)
+            {
+            }
+            else
+            {
+                Alert("Você não possue permissão para editar este campeonato.");
+            }
+        }
+
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
             try
             {
-                int idCampeonato = Convert.ToInt16(HiddenIdCampeonato.Value);
-                int idGrupo = Convert.ToInt16(HiddenIdGrupo.Value);
-                Kart_Campeonato kc = null;
-
-                ValidarDatas();
-
-                if (idCampeonato > 0)
+                if (IsAdmin)
                 {
-                    kc = (from k in dk.Kart_Campeonatos
-                          where k.idCampeonato == idCampeonato && k.idGrupo == idGrupo
-                          select k).FirstOrDefault();
+                    Kart_Campeonato kc = null;
+
+                    ValidarDatas();
+
+                    if (IdCampeonato > 0)
+                    {
+                        kc = (from k in dk.Kart_Campeonatos
+                              where k.idCampeonato == IdCampeonato && k.idGrupo == IdGrupo
+                              select k).FirstOrDefault();
+                    }
+                    else
+                    {
+                        kc = new Kart_Campeonato();
+                        kc.idGrupo = IdGrupo;
+                    }
+
+                    kc.Ativo = Convert.ToBoolean(ddlAtivo.SelectedValue);
+                    kc.dtInicio = Convert.ToDateTime(txtDtInicio.Text);
+                    kc.dtFim = Convert.ToDateTime(txtDtFim.Text);
+                    kc.dtCriacao = DateTime.Now;
+                    kc.NomeCampeonato = txtNomeCampeonato.Text;
+
+                    if (IdCampeonato <= 0)
+                        dk.GetTable<Kart_Campeonato>().InsertOnSubmit(kc);
+
+                    dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+
+                    if (IdCampeonato > 0)
+                        Alert("Alteração do Campeonato efetuado com sucesso!", "index.aspx?IdGrupo=" + IdGrupo);
+                    else
+                        Alert("Criação do Campeonato efetuado com sucesso!", "index.aspx?IdGrupo=" + IdGrupo);
                 }
                 else
                 {
-                    kc = new Kart_Campeonato();
-                    kc.idGrupo = idGrupo;
+                    Alert("Você não possue permissão para editar este campeonato.");
                 }
-
-                kc.Ativo = Convert.ToBoolean(ddlAtivo.SelectedValue);
-                kc.dtInicio = Convert.ToDateTime(txtDtInicio.Text);
-                kc.dtFim = Convert.ToDateTime(txtDtFim.Text);
-                kc.dtCriacao = DateTime.Now;
-                kc.NomeCampeonato = txtNomeCampeonato.Text;
-
-                if (idCampeonato <= 0)
-                    dk.GetTable<Kart_Campeonato>().InsertOnSubmit(kc);
-
-                dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
-
-                if (idCampeonato > 0)
-                    Alert("Alteração do Campeonato efetuado com sucesso!", "PainelControle.aspx?IdGrupo=" + Request.QueryString["IdGrupo"]);
-                else
-                    Alert("Criação do Campeonato efetuado com sucesso!", "PainelControle.aspx?IdGrupo=" + Request.QueryString["IdGrupo"]);
 
             }
             catch (Exception ex)
@@ -132,5 +159,6 @@ namespace KartRanking.Administrador
                 throw new Exception("Data Inválida!");
             }
         }
+
     }
 }
