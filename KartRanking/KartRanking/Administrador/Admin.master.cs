@@ -185,6 +185,7 @@ namespace KartRanking.Administrador
                 }
 
                 Session["IdGrupo"] = ddlGrupos.SelectedValue;
+                CarregarCampeonato(Convert.ToInt16(ddlGrupos.SelectedValue));
             }
             else
             {
@@ -193,9 +194,26 @@ namespace KartRanking.Administrador
 
         }
 
+        private void CarregarCampeonato(int idGrupo)
+        {
+            var campeonato = (from c in dk.Kart_Campeonatos
+                               where c.idGrupo == idGrupo
+                               && c.Ativo == true
+                               && c.dtFim >= DateTime.Now
+                               orderby c.dtFim descending, c.NomeCampeonato ascending
+                               select c).FirstOrDefault();
+
+            if (campeonato != null)
+                Session["IdCampeonato"] = campeonato.idCampeonato;
+            else
+                Session["IdCampeonato"] = 0;
+
+        }
+
         protected void ddlGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["IdGrupo"] = ddlGrupos.SelectedValue;
+            CarregarCampeonato(Convert.ToInt16(ddlGrupos.SelectedValue));
             string url = AlterarGrupo(Request.Url.LocalPath, Request.QueryString, ddlGrupos.SelectedValue);
             Response.Redirect(url);
         }
@@ -205,7 +223,7 @@ namespace KartRanking.Administrador
             string rurl = "";
             foreach (string q in nameValueCollection.AllKeys)
             {
-                if (q.ToLower() != "idgrupo")
+                if (q.ToLower() != "idgrupo" || q.ToLower() != "idcampeonato")
                 {
                     if (rurl.IndexOf("?") >= 0)
                         rurl += "&" + q + "=" + nameValueCollection[q];
