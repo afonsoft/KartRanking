@@ -39,7 +39,7 @@
             <span class="label">Nome Campeonato:</span>
         </div>
         <div class="grid_9">
-            <asp:TextBox ID="txtNomeCampeonato" MaxLength="100" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtNomeCampeonato" MaxLength="100" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="clear ">
             &nbsp;
@@ -48,13 +48,13 @@
             <span class="label">Dt. Inicio:</span>
         </div>
         <div class="grid_3">
-            <asp:TextBox ID="txtDtInicio" MaxLength="12" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDtInicio" MaxLength="12" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="grid_3">
             <span class="label">Dt. Fim:</span>
         </div>
         <div class="grid_3">
-            <asp:TextBox ID="txtDtFim" MaxLength="12" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtDtFim" MaxLength="12" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="clear ">
             &nbsp;
@@ -63,29 +63,30 @@
             <span class="label">Ativo?:</span>
         </div>
         <div class="grid_2">
-            <asp:DropDownList ID="ddlAtivo" runat="server">
+            <asp:DropDownList ID="ddlAtivo" runat="server" CssClass="text">
                 <asp:ListItem Selected="True" Text="Sim" Value="true" />
                 <asp:ListItem Text="Não" Value="false" />
             </asp:DropDownList>
         </div>
-        <div class="grid_8">
+        <div class="grid_7">
             &nbsp;
         </div>
-        <div class="clear ">
+        <div class="clear">
             &nbsp;
         </div>
         <div class="clear espaco">
             &nbsp;
         </div>
         <div class="grid_4">
-            &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar o Campeonato" OnClick="btnEditar_Click" />&nbsp;
+            &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar o Campeonato" OnClick="btnEditar_Click"
+                CssClass="button" />&nbsp;
         </div>
         <div class="grid_4">
             &nbsp;&nbsp;&nbsp;
         </div>
         <div class="grid_4">
             &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
-                Width="200px" />&nbsp;
+                CssClass="button" Width="200px" />&nbsp;
         </div>
         <div class="clear espaco">
             &nbsp;

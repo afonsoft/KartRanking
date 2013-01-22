@@ -25,10 +25,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
 
     <script type="text/javascript">
-        $(function() {
-            $(".menu").button();
-        });
-    
+      
         $(function() {
                 $('li').has('ul').mouseover(function() {
                     $(this).children('ul').css('visibility', 'visible');

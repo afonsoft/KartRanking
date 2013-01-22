@@ -1,8 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true" CodeBehind="perfil.aspx.cs" Inherits="KartRanking.Administrador.perfil" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true"
+    CodeBehind="perfil.aspx.cs" Inherits="KartRanking.Administrador.perfil" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-<script type="text/javascript">
+
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#<%= txtDtNascimento.ClientID %>').datepicker({
                 changeMonth: true,
@@ -94,7 +97,7 @@
                     <span class="label">Nome:</span><asp:HiddenField ID="IdUsuario" runat="server" />
                 </div>
                 <div class="grid_10">
-                    <asp:TextBox ID="txtNome" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNome" runat="server" CssClass="text"></asp:TextBox>
                 </div>
                 <div class="clear espaco_mini">
                     &nbsp;
@@ -103,7 +106,7 @@
                     <span class="label">E-Mail:</span>
                 </div>
                 <div class="grid_10">
-                    <asp:TextBox ID="txtEmail" runat="server" ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" ReadOnly="true" CssClass="text"></asp:TextBox>
                 </div>
                 <div class="clear espaco_mini">
                     &nbsp;
@@ -112,13 +115,13 @@
                     <span class="label">Nascimento:</span>
                 </div>
                 <div class="grid_3">
-                    <asp:TextBox ID="txtDtNascimento" MaxLength="10" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDtNascimento" MaxLength="10" runat="server" CssClass="text"></asp:TextBox>
                 </div>
                 <div class="grid_2">
                     <span class="label">Apelido:</span>
                 </div>
                 <div class="grid_5">
-                    <asp:TextBox ID="txtApelido" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtApelido" runat="server" CssClass="text"></asp:TextBox>
                 </div>
                 <div class="clear espaco_mini">
                     &nbsp;
@@ -126,12 +129,12 @@
                 <div class="grid_2">
                     <span class="label">Peso:</span></div>
                 <div class="grid_3">
-                    <asp:TextBox ID="txtPeso" MaxLength="6" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtPeso" MaxLength="6" runat="server" CssClass="text"></asp:TextBox>
                 </div>
                 <div class="grid_2">
                     <span class="label">Sexo:</span></div>
                 <div class="grid_5">
-                    <asp:DropDownList ID="ddlSexo" runat="server">
+                    <asp:DropDownList ID="ddlSexo" runat="server" CssClass="text">
                         <asp:ListItem Text="Masculino" Value="M" />
                         <asp:ListItem Text="Feminino" Value="F" />
                     </asp:DropDownList>
@@ -142,12 +145,12 @@
                 <div class="grid_2">
                     <span class="label">Altura:</span></div>
                 <div class="grid_3">
-                    <asp:TextBox ID="txtAltura" MaxLength="4" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtAltura" MaxLength="4" runat="server" CssClass="text"></asp:TextBox>
                 </div>
                 <div class="grid_2">
                     <span class="label">Estado:</span></div>
                 <div class="grid_5">
-                    <asp:DropDownList ID="ddlEstado" runat="server">
+                    <asp:DropDownList ID="ddlEstado" runat="server" CssClass="text">
                         <asp:ListItem Text="Acre (AC)" Value="AC" />
                         <asp:ListItem Text="Alagoas (AL)" Value="AL" />
                         <asp:ListItem Text="Amapá (AP)" Value="AP" />
@@ -188,12 +191,12 @@
         <div class="grid_2">
             <span class="label">Telefone:</span></div>
         <div class="grid_4">
-            <asp:TextBox ID="txtTelefone" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtTelefone" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="grid_2">
             <span class="label">Celular:</span></div>
         <div class="grid_4">
-            <asp:TextBox ID="txtCelular" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCelular" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -201,7 +204,7 @@
         <div class="grid_2">
             <span class="label">Endereço:</span></div>
         <div class="grid_10">
-            <asp:TextBox ID="txtEndereco" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtEndereco" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -209,12 +212,12 @@
         <div class="grid_2">
             <span class="label">Cidade:</span></div>
         <div class="grid_4">
-            <asp:TextBox ID="txtCidade" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCidade" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="grid_2">
             <span class="label">Perfil Facebook:</span></div>
         <div class="grid_4">
-            <asp:TextBox ID="txtPerfilFacebook" MaxLength="200" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPerfilFacebook" MaxLength="200" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -222,12 +225,12 @@
         <div class="grid_2">
             <span class="label">Perfil Twitter:</span></div>
         <div class="grid_4">
-            <asp:TextBox ID="txtPerfilTwitter" MaxLength="200" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPerfilTwitter" MaxLength="200" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="grid_2">
             <span class="label">Perfil Plus:</span></div>
         <div class="grid_4">
-            <asp:TextBox ID="txtPerfilPlus" MaxLength="200" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtPerfilPlus" MaxLength="200" runat="server" CssClass="text"></asp:TextBox>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -236,13 +239,14 @@
             <span class="label">Obs:</span></div>
         <div class="grid_10">
             <asp:TextBox ID="txtObs" Height="100px" Width="98%" MaxLength="8000" TextMode="MultiLine"
-                runat="server"></asp:TextBox>
+                CssClass="text" runat="server"></asp:TextBox>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
         </div>
         <div class="grid_12">
-            <asp:Button ID="btnAtualizar" runat="server" Text="Atualizar" Width="150px" OnClick="btnAtualizar_Click" />
+            <asp:Button ID="btnAtualizar" runat="server" Text="Atualizar" Width="150px" OnClick="btnAtualizar_Click"
+                CssClass="button" />
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -253,7 +257,7 @@
         <fieldset>
             <legend>Atualizar a sua foto do perfil.</legend>
             <asp:FileUpload ID="flUpload" class="ui-widget-content ui-corner-all" runat="server" /><br />
-            <span>As fotos tem de ser JPG, GIF e no maximo 1MB e nas resoluções  W170 X H190.</span>
+            <span>As fotos tem de ser JPG, GIF e no maximo 1MB e nas resoluções W170 X H190.</span>
         </fieldset>
         <div style="display: none;">
             <asp:LinkButton ID="lnkUploadFile" runat="server" OnClick="lnkUploadFile_Click"></asp:LinkButton>

@@ -42,7 +42,7 @@
                 <span class="label">Grupo Destivados:</span>
             </td>
             <td colspan="5">
-                <asp:DropDownList ID="ddlGruposDesativados" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlGruposDesativados_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlGruposDesativados" runat="server" CssClass="text" AutoPostBack="True" OnSelectedIndexChanged="ddlGruposDesativados_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -56,7 +56,7 @@
                 <span class="label">Nome Grupo:</span>
             </td>
             <td colspan="5">
-                <asp:TextBox ID="txtNomeGrupo" MaxLength="200" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNomeGrupo" MaxLength="200" CssClass="text" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -64,13 +64,13 @@
                 <span class="label">Sigla Grupo:</span>
             </td>
             <td colspan="2">
-                <asp:TextBox ID="txtSigla" MaxLength="50" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSigla" MaxLength="50" CssClass="text" runat="server"></asp:TextBox>
             </td>
             <td colspan="2">
                 <span class="label">Permitir Inscrições:</span>
             </td>
             <td colspan="1">
-                <asp:DropDownList ID="ddlPermitirInscricoes" runat="server">
+                <asp:DropDownList ID="ddlPermitirInscricoes" runat="server" CssClass="text">
                     <asp:ListItem Selected="true" Text="Sim" Value="true" />
                     <asp:ListItem Text="Não" Value="false" />
                 </asp:DropDownList>
@@ -81,7 +81,7 @@
                 <span class="label">Url Acesso:</span>
             </td>
             <td colspan="5">
-                <asp:TextBox ID="txtUrlAcesso" MaxLength="50" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUrlAcesso" MaxLength="50" runat="server" CssClass="text"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
                 <span class="label">Estado:</span>
             </td>
             <td colspan="2">
-                <asp:DropDownList ID="ddlEstado" runat="server">
+                <asp:DropDownList ID="ddlEstado" runat="server"CssClass="text">
                     <asp:ListItem Text="Acre (AC)" Value="AC" />
                     <asp:ListItem Text="Alagoas (AL)" Value="AL" />
                     <asp:ListItem Text="Amapá (AP)" Value="AP" />
@@ -123,7 +123,7 @@
                 <span class="label">Cidade:</span>
             </td>
             <td colspan="2">
-                <asp:TextBox ID="txtCidade" MaxLength="100" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCidade" MaxLength="100" runat="server" CssClass="text"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -131,8 +131,8 @@
                 &nbsp;&nbsp;&nbsp;
             </td>
             <td colspan="3" style="text-align: right;">
-                &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
-                &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" />
+                &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" CssClass="button"/>
+                &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" CssClass="button"/>
             </td>
         </tr>
         <tr>
