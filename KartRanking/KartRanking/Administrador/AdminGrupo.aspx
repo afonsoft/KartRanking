@@ -26,7 +26,7 @@
         });
     </script>
 
-    <table width="95%" cellpadding="2" cellspacing="2" border="0">
+    <table width="97%" cellpadding="2" cellspacing="2" border="0">
         <tr>
             <td colspan="6">
                 <h3 class="titulo">
@@ -42,7 +42,8 @@
                 <span class="label">Grupo Destivados:</span>
             </td>
             <td colspan="5">
-                <asp:DropDownList ID="ddlGruposDesativados" runat="server" CssClass="text" AutoPostBack="True" OnSelectedIndexChanged="ddlGruposDesativados_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlGruposDesativados" runat="server" CssClass="text" AutoPostBack="True"
+                    OnSelectedIndexChanged="ddlGruposDesativados_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -131,8 +132,10 @@
                 &nbsp;&nbsp;&nbsp;
             </td>
             <td colspan="3" style="text-align: right;">
-                &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" CssClass="button"/>
-                &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" CssClass="button"/>
+                &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
+                    CssClass="button" />
+                &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click"
+                    CssClass="button" />
             </td>
         </tr>
         <tr>
