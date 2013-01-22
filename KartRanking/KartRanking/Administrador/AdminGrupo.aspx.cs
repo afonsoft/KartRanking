@@ -91,6 +91,7 @@ namespace KartRanking.Administrador
             txtUrlAcesso.ReadOnly = p;
             txtCidade.ReadOnly = p;
             ddlEstado.Enabled = !p;
+            ddlPermitirInscricoes.Enabled = !p;
             btnSalvar.Visible = !p;
         }
 
@@ -131,11 +132,10 @@ namespace KartRanking.Administrador
             {
                 Usuario user = (Usuario)Session["Usuario"];
                 Kart_Grupo kg = null;
-                int idGrupo = Convert.ToInt16(HiddenIdGrupo.Value);
 
                 ValidarCampos();
 
-                if (idGrupo <= 0)
+                if (IdGrupo <= 0)
                 {
                     int count = (from g in dk.Kart_Grupos
                                  where g.Sigla.Equals(txtSigla.Text)
@@ -177,12 +177,13 @@ namespace KartRanking.Administrador
 
                     EMail.EnviarEmailStatusGrupo(user.idUsuario, kg.idGrupo);
 
-                    Alert("Cadastro do Grupo efetuado com sucesso!", "index.aspx?IdGrupo=" + NovoIdGrupo);
+                    Alert("Cadastro do Grupo efetuado com sucesso!");
+                    DisableEditGrupo(true);
                 }
                 else
                 {
                     kg = (from g in dk.Kart_Grupos
-                          where g.idGrupo == idGrupo
+                          where g.idGrupo == IdGrupo
                           select g).FirstOrDefault();
 
                     if (kg.NomeGrupo != txtNomeGrupo.Text)
@@ -229,7 +230,8 @@ namespace KartRanking.Administrador
 
                     EMail.EnviarEmailStatusGrupo(user.idUsuario, kg.idGrupo);
 
-                    Alert("Alteração do grupo efetuado com sucesso!", "index.aspx?IdGrupo=" + idGrupo);
+                    Alert("Alteração do grupo efetuado com sucesso!");
+                    DisableEditGrupo(true);
                 }
 
             }

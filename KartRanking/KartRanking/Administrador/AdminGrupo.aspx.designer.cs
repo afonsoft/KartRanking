@@ -41,15 +41,6 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.DropDownList ddlGruposDesativados;
         
         /// <summary>
-        /// HiddenIdGrupo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenIdGrupo;
-        
-        /// <summary>
         /// txtNomeGrupo control.
         /// </summary>
         /// <remarks>
@@ -104,15 +95,6 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.TextBox txtCidade;
         
         /// <summary>
-        /// btnEditar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
-        
-        /// <summary>
         /// btnSalvar control.
         /// </summary>
         /// <remarks>
@@ -120,6 +102,15 @@ namespace KartRanking.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSalvar;
+        
+        /// <summary>
+        /// btnEditar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditar;
         
         /// <summary>
         /// gvCampeonatos control.
