@@ -25,13 +25,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
 
     <script type="text/javascript">
-      
         $(function() {
-                $('li').has('ul').mouseover(function() {
-                    $(this).children('ul').css('visibility', 'visible');
-                }).mouseout(function() {
-                    $(this).children('ul').css('visibility', 'hidden');
-                })
+            $('li').has('ul').mouseover(function() {
+                $(this).children('ul').css('visibility', 'visible');
+            }).mouseout(function() {
+                $(this).children('ul').css('visibility', 'hidden');
+            })
 
             /* Mobile */
             $('#menu-wrap').prepend('<div id="menu-trigger">Menu</div>');
@@ -42,13 +41,18 @@
             // iPad
             var isiPad = navigator.userAgent.match(/iPad/i) != null;
             if (isiPad) $('#menu ul').addClass('no-transition');
+        });          
+    </script>
 
+    <% if (!pnlLogin.Visible)
+       { %>
+    <script type="text/javascript">
+        $(function() {
             $("input:submit, input:button, button").button();
         });          
-
     </script>
+    <%} %>
     <asp:HiddenField ID="HiddenidGrupo" runat="server" />
-    
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
             <td style="background-color: #F5F5F5;">
@@ -151,8 +155,7 @@
                         </td>
                         <td style="background-color: #F5F5F5; width: 36%; height: 20px; text-align: right;
                             vertical-align: middle;">
-                            Grupo:&nbsp;<asp:DropDownList ID="ddlGrupos" runat="server" Width="300px" 
-                                onselectedindexchanged="ddlGrupos_SelectedIndexChanged" 
+                            Grupo:&nbsp;<asp:DropDownList ID="ddlGrupos" runat="server" Width="300px" OnSelectedIndexChanged="ddlGrupos_SelectedIndexChanged"
                                 AutoPostBack="True">
                             </asp:DropDownList>
                         </td>
@@ -171,7 +174,7 @@
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td>
-                            <div style="width: 100%; height: 100% auto; padding: 10px;">
+                            <div style="width: 98%; height: 100% auto; padding: 10px;">
                                 <asp:Panel ID="pnlConteudo" Visible="false" runat="server">
                                     <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
                                     </asp:ContentPlaceHolder>

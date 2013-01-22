@@ -18,7 +18,6 @@
     <link rel="icon" href="kart-touch-icon.png" />
     <link rel="shortcut icon" href="kart-touch-icon.png" />
     <link rel="apple-touch-startup-image" href="kart-touch-icon.png" />
-    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
     <link href="/css/Karting.css" rel="stylesheet" type="text/css" />
     <link href="/css/GridViewTemplate.css" rel="stylesheet" type="text/css" />
     <link href="/css/960Grid.css" rel="stylesheet" type="text/css" />
