@@ -89,7 +89,7 @@
                 <span class="label">Estado:</span>
             </td>
             <td colspan="2">
-                <asp:DropDownList ID="ddlEstado" runat="server"CssClass="text">
+                <asp:DropDownList ID="ddlEstado" runat="server" CssClass="text">
                     <asp:ListItem Text="Acre (AC)" Value="AC" />
                     <asp:ListItem Text="Alagoas (AL)" Value="AL" />
                     <asp:ListItem Text="Amapá (AP)" Value="AP" />
