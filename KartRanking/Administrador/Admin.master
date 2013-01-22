@@ -26,6 +26,10 @@
 
     <script type="text/javascript">
         $(function() {
+            $(".menu").button();
+        });
+    
+        $(function() {
                 $('li').has('ul').mouseover(function() {
                     $(this).children('ul').css('visibility', 'visible');
                 }).mouseout(function() {
@@ -41,6 +45,8 @@
             // iPad
             var isiPad = navigator.userAgent.match(/iPad/i) != null;
             if (isiPad) $('#menu ul').addClass('no-transition');
+
+            $("input:submit, input:button, button").button();
         });          
 
     </script>

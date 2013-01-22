@@ -28,7 +28,7 @@
 
     <table width="95%" cellpadding="2" cellspacing="2" border="0">
         <tr>
-            <td colspan="12">
+            <td colspan="6">
                 <h3 class="titulo">
                     <asp:Literal ID="ltTitulo" runat="server"></asp:Literal></h3>
                 <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
@@ -38,34 +38,38 @@
             </td>
         </tr>
         <tr>
-            <td colspan="4">
+            <td colspan="1">
                 <span class="label">Grupo Destivados:</span>
             </td>
-            <td colspan="8">
-                <asp:DropDownList ID="ddlGruposDesativados" runat="server" Width="95%" AutoPostBack="True"
-                    OnSelectedIndexChanged="ddlGruposDesativados_SelectedIndexChanged">
+            <td colspan="5">
+                <asp:DropDownList ID="ddlGruposDesativados" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlGruposDesativados_SelectedIndexChanged">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                <span class="label">Nome Grupo:</span><asp:HiddenField ID="HiddenIdGrupo" runat="server" />
+            <td colspan="6">
+                <hr />
             </td>
-            <td colspan="10">
+        </tr>
+        <tr>
+            <td colspan="1">
+                <span class="label">Nome Grupo:</span>
+            </td>
+            <td colspan="5">
                 <asp:TextBox ID="txtNomeGrupo" MaxLength="200" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="1">
                 <span class="label">Sigla Grupo:</span>
             </td>
-            <td colspan="4">
+            <td colspan="2">
                 <asp:TextBox ID="txtSigla" MaxLength="50" runat="server"></asp:TextBox>
             </td>
-            <td colspan="4">
+            <td colspan="2">
                 <span class="label">Permitir Inscrições:</span>
             </td>
-            <td colspan="2">
+            <td colspan="1">
                 <asp:DropDownList ID="ddlPermitirInscricoes" runat="server">
                     <asp:ListItem Selected="true" Text="Sim" Value="true" />
                     <asp:ListItem Text="Não" Value="false" />
@@ -73,18 +77,18 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="1">
                 <span class="label">Url Acesso:</span>
             </td>
-            <td colspan="10">
+            <td colspan="5">
                 <asp:TextBox ID="txtUrlAcesso" MaxLength="50" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="1">
                 <span class="label">Estado:</span>
             </td>
-            <td colspan="4">
+            <td colspan="2">
                 <asp:DropDownList ID="ddlEstado" runat="server">
                     <asp:ListItem Text="Acre (AC)" Value="AC" />
                     <asp:ListItem Text="Alagoas (AL)" Value="AL" />
@@ -115,31 +119,29 @@
                     <asp:ListItem Text="Tocantins (TO)" Value="TO" />
                 </asp:DropDownList>
             </td>
-            <td colspan="2">
+            <td colspan="1">
                 <span class="label">Cidade:</span>
             </td>
-            <td colspan="4">
+            <td colspan="2">
                 <asp:TextBox ID="txtCidade" MaxLength="100" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td colspan="4">
-                &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" />&nbsp;
-            </td>
-            <td colspan="4">
+            <td colspan="3">
                 &nbsp;&nbsp;&nbsp;
             </td>
-            <td colspan="4">
-                &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />&nbsp;
+            <td colspan="3" style="text-align: right;">
+                &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
+                &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click" />
             </td>
         </tr>
         <tr>
-            <td colspan="12">
+            <td colspan="6">
                 Campeonatos deste grupo
             </td>
         </tr>
         <tr>
-            <td colspan="12">
+            <td colspan="6">
                 <div class="template">
                     <asp:GridView ID="gvCampeonatos" AutoGenerateColumns="false" DataKeyNames="idCampeonato"
                         CssClass="gridview" runat="server" EmptyDataText="Nenhum campeonato neste grupo"
