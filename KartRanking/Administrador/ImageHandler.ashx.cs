@@ -18,7 +18,7 @@ namespace KartRanking.Administrador
     public class ImageHandler : IHttpHandler
     {
 
-        public void ProcessRequest( HttpContext context )
+        public void ProcessRequest(HttpContext context)
         {
             try
             {
@@ -26,33 +26,33 @@ namespace KartRanking.Administrador
                 Image image = null;
                 Usuario user = null;
 
-                if ( context.Session != null && context.Session[ "Usuario" ] != null )
-                    user = ( Usuario )context.Session[ "Usuario" ];
+                if (context.Session != null && context.Session["Usuario"] != null)
+                    user = (Usuario)context.Session["Usuario"];
 
-                if ( user == null )
+                if (user == null)
                 {
-                    if ( !String.IsNullOrEmpty( context.Request.QueryString[ "id" ] ) )
+                    if (!String.IsNullOrEmpty(context.Request.QueryString["id"]))
                     {
-                        int id = Int32.Parse( context.Request.QueryString[ "id" ] );
+                        int id = Int32.Parse(context.Request.QueryString["id"]);
                         DataKartDataContext dk = new DataKartDataContext();
-                        user = ( from u in dk.Usuarios
-                                 where u.idUsuario == id
-                                 select u ).FirstOrDefault();
+                        user = (from u in dk.Usuarios
+                                where u.idUsuario == id
+                                select u).FirstOrDefault();
                     }
                 }
 
-                if ( user.Foto != null && user.Foto.Length>0 )
-                    image = ImageUtil.BinaryToImage( user.Foto );
+                if (user.Foto != null && user.Foto.Length > 0)
+                    image = ImageUtil.BinaryToImage(user.Foto);
                 else
-                    image = ImageUtil.FileToImage( PathUtil.GetFullPathRoot()+@"\piloto-sem-foto.jpg" );
+                    image = ImageUtil.FileToImage(PathUtil.GetFullPathRoot() + @"\piloto-sem-foto.jpg");
 
 
                 // Of course set this to whatever your format is of the image
                 context.Response.ContentType = "image/jpeg";
                 // Save the image to the OutputStream
-                image.Save( context.Response.OutputStream, ImageFormat.Jpeg );
+                image.Save(context.Response.OutputStream, ImageFormat.Jpeg);
             }
-            catch ( Exception ex )
+            catch (Exception ex)
             {
                 LogErro.Log.Logar(ex, null);
             }
