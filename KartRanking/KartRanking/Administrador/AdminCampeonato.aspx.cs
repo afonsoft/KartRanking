@@ -23,19 +23,21 @@ namespace KartRanking.Administrador
                         ltTitulo.Text = "Alteração do Campeonato";
                         ltDescricao.Text = "Efetuar alteração do Campeonato";
                         DisableEditCampeonato(true);
-
                     }
                     else
                     {
                         IdCampeonato = 0;
-                        if (VerificarPermissaoUsuarioGrupo(IdGrupo))
+                        if (IsAdmin)
                         {
                             ltTitulo.Text = "Cadastro de um Campeonato";
                             ltDescricao.Text = "Efetuar cadastro de um Campeonato para o grupo";
                             DisableEditCampeonato(false);
                             btnEditar.Visible = false;
                         }
-                        else { Alert("Você não possue permissão para criar um campeonato."); }
+                        else
+                        {
+                            Alert("Você não possue permissão para criar um campeonato.");
+                        }
                     }
                 }
             }
@@ -54,7 +56,6 @@ namespace KartRanking.Administrador
             btnSalvar.Visible = !p;
         }
 
-
         private void PopularTela(int idCampeonato, int idGrupo)
         {
             Kart_Campeonato kc = (from k in dk.Kart_Campeonatos where k.idGrupo == idGrupo && k.idCampeonato == idCampeonato select k).FirstOrDefault();
@@ -70,21 +71,6 @@ namespace KartRanking.Administrador
             else
                 Alert("Erro para recuperar as informações do Campeonato.");
 
-        }
-
-        private bool VerificarPermissaoUsuarioGrupo(int idGrupo)
-        {
-            Usuario user = (Usuario)Session["Usuario"];
-
-            var grupoAdmin = (from gu in dk.Kart_Usuario_Grupos
-                              where gu.idUsuario == user.idUsuario
-                              && gu.idGrupo == idGrupo
-                              select new { gu.Admin }).FirstOrDefault();
-
-            if (grupoAdmin != null && grupoAdmin.Admin.HasValue)
-                return grupoAdmin.Admin.Value;
-            else
-                return false;
         }
 
         private void ValidarDatas()
