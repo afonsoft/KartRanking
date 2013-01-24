@@ -23,6 +23,7 @@ namespace KartRanking.Administrador
                         ltTitulo.Text = "Alteração do Campeonato";
                         ltDescricao.Text = "Efetuar alteração do Campeonato";
                         DisableEditCampeonato(true);
+                        popularCalendario(IdCampeonato);
                     }
                     else
                     {
@@ -33,6 +34,7 @@ namespace KartRanking.Administrador
                             ltDescricao.Text = "Efetuar cadastro de um Campeonato para o grupo";
                             DisableEditCampeonato(false);
                             btnEditar.Visible = false;
+                            popularCalendario(0);
                         }
                         else
                         {
@@ -45,6 +47,18 @@ namespace KartRanking.Administrador
             {
                 Alert(ex);
             }
+        }
+
+        private void popularCalendario(int IdCampeonato)
+        {
+            //Listar as Etapas do Campeonato
+            var Calendario_Campeonato = (from cc in dk.Kart_Calendario_Campeonatos
+                                         where cc.idCampeonato == IdCampeonato
+                                         orderby cc.Data ascending, cc.Ativo descending
+                                         select cc);
+
+            gvEtapas.DataSource = Calendario_Campeonato;
+            gvEtapas.DataBind();
         }
 
         private void DisableEditCampeonato(bool p)
@@ -185,6 +199,15 @@ namespace KartRanking.Administrador
             else
             {
                 Alert("Você não possue permissão para editar este campeonato.");
+            }
+        }
+
+        protected void gvEtapas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditCalendario")
+            {
+                int idCalendario = Convert.ToInt16(e.CommandArgument);
+                Response.Redirect("AdminCalendarioProvas.aspx?idGrupo=" + IdGrupo + "&IdCampeonato=" + IdCampeonato + "&idCalendario=" + idCalendario);
             }
         }
     }
