@@ -93,6 +93,7 @@ namespace KartRanking.Administrador
             ddlEstado.Enabled = !p;
             ddlPermitirInscricoes.Enabled = !p;
             btnSalvar.Visible = !p;
+            btnNovo.Visible = !btnSalvar.Visible;
         }
 
         private void popularTela(int idGrupo)
@@ -252,12 +253,55 @@ namespace KartRanking.Administrador
                 throw new Exception("Url do grupo obrigatório.");
         }
 
+        protected void btnNovo_Click(object sender, EventArgs e)
+        {
+            ViewState["OldIdGrupo"] = IdGrupo;
+            IdGrupo = 0;
+            ltTitulo.Text = "Cadastro do Grupo";
+            ltDescricao.Text = "Efetuar um cadastro de um Grupo";
+            DisableEditGrupo(false);
+            btnEditar.Text = "Cancelar";
+            CarregarCampeonato(0);
+
+            txtNomeGrupo.Text = "";
+            txtSigla.Text = "";
+            txtUrlAcesso.Text = "";
+            txtCidade.Text = "";
+            ddlEstado.ClearSelection();
+
+        }
+
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            if (VerificarPermissaoUsuarioGrupo(IdGrupo))
-                DisableEditGrupo(false);
-            else 
-                Alert("Você não é o administrador deste grupo.");
+
+            if (!btnSalvar.Visible)
+            {
+                if (VerificarPermissaoUsuarioGrupo(IdGrupo))
+                {
+                    btnEditar.Text = "Cancelar";
+                    DisableEditGrupo(false);
+                }
+                else
+                {
+                    Alert("Você não é o administrador deste grupo.");
+                }
+            }
+            else
+            {
+                btnEditar.Text = "Editar Grupo";
+                DisableEditGrupo(true);
+                ltTitulo.Text = "Informações do Grupo";
+                ltDescricao.Text = "Efetuar alteração do Grupo";
+                if (ViewState["OldIdGrupo"] != null)
+                {
+                    IdGrupo = Convert.ToInt16(ViewState["OldIdGrupo"]);
+                    ViewState["OldIdGrupo"] = null;
+                    popularTela(IdGrupo);
+                    DisableEditGrupo(true);
+                    CarregarCampeonato(IdGrupo);
+                    CarregarGruposDesativados();
+                }
+            }
         }
 
         protected void gvCampeonatos_RowCommand(object sender, GridViewCommandEventArgs e)

@@ -7,22 +7,23 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            try {
+                $('#<%= txtUrlAcesso.ClientID %>').on("focus", function() {
+                    var dest = $(this);
+                    dest.val(dest.val().split(" ").join(""));
+                });
 
-            $('#<%= txtUrlAcesso.ClientID %>').on("focus", function() {
-                var dest = $(this);
-                try { dest.val(dest.val().split(" ").join("")); } catch (e) { }
-            });
+                $('#<%= txtUrlAcesso.ClientID %>').on("blur", function() {
+                    var dest = $(this);
+                    dest.val(dest.val().split(" ").join(""));
+                });
 
-            $('#<%= txtUrlAcesso.ClientID %>').on("blur", function() {
-                var dest = $(this);
-                try { dest.val(dest.val().split(" ").join("")); } catch (e) { }
-            });
+                $('#<%= txtUrlAcesso.ClientID %>').blur(function() {
 
-            $('#<%= txtUrlAcesso.ClientID %>').blur(function() {
-                var dest = $('#<%= txtUrlAcesso.ClientID %>').val();
-                try { dest.val(dest.val().split(" ").join("")); } catch (e) { }
-            });
-
+                    var dest = $('#<%= txtUrlAcesso.ClientID %>').val();
+                    dest.val(dest.val().split(" ").join(""));
+                });
+            } catch (e) { }
         });
     </script>
 
@@ -134,6 +135,8 @@
             <td colspan="3" style="text-align: right;">
                 &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
                     CssClass="button" />
+                &nbsp;<asp:Button ID="btnNovo" runat="server" Text="Novo Grupo" OnClick="btnNovo_Click"
+                    OnClientClick="return confirm('Deseja criar um novo grupo?');" CssClass="button" />
                 &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar Grupo" OnClick="btnEditar_Click"
                     CssClass="button" />
             </td>
