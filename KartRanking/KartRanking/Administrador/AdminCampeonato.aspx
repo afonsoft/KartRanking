@@ -71,16 +71,16 @@
         <div class="grid_7">
             &nbsp;
         </div>
-        <div class="clear espaco">
+        <div class="clear">
             &nbsp;
-        </div>
-        <div class="grid_4">
-            &nbsp;&nbsp;&nbsp;
         </div>
         <div class="grid_3">
             &nbsp;&nbsp;&nbsp;
         </div>
-        <div class="grid_5" style="text-align: right;">
+        <div class="grid_2">
+            &nbsp;
+        </div>
+        <div class="grid_7" style="text-align: right;">
             &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
                 Width="100px" CssClass="button" />&nbsp;
             <asp:Button ID="btnNovo" runat="server" Text="Salvar" Width="100px" OnClick="btnNovo_Click"

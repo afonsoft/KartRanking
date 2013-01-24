@@ -107,8 +107,10 @@ namespace KartRanking.Administrador
                 txtSigla.Text = gr.Sigla;
                 txtUrlAcesso.Text = gr.UrlAcesso;
                 txtCidade.Text = gr.Cidade;
+                ddlEstado.ClearSelection();
+                ddlAtivo.ClearSelection();
                 ddlEstado.Items.FindByValue(gr.Estado).Selected = true;
-                ddlAtivo.Items.FindByValue(gr.Ativo.HasValue ? gr.Ativo.Value.ToString() : "false").Selected = true;
+                ddlAtivo.Items.FindByValue(gr.Ativo.HasValue ? gr.Ativo.Value.ToString().ToLower() : "false").Selected = true;
             }
             else
                 Alert("Informações não encontrada para esse grupo!", "index.aspx?IdGrupo=" + idGrupo);
@@ -264,6 +266,7 @@ namespace KartRanking.Administrador
             txtUrlAcesso.Text = "";
             txtCidade.Text = "";
             ddlEstado.ClearSelection();
+            ddlAtivo.ClearSelection();
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -284,7 +287,8 @@ namespace KartRanking.Administrador
             else
             {
                 btnEditar.Text = "Editar Grupo";
-                DisableEditGrupo(true);
+                ddlEstado.ClearSelection();
+                ddlAtivo.ClearSelection();
                 ltTitulo.Text = "Informações do Grupo";
                 ltDescricao.Text = "Efetuar alteração do Grupo";
                 if (ViewState["OldIdGrupo"] != null)
@@ -292,10 +296,10 @@ namespace KartRanking.Administrador
                     IdGrupo = Convert.ToInt16(ViewState["OldIdGrupo"]);
                     ViewState["OldIdGrupo"] = null;
                     popularTela(IdGrupo);
-                    DisableEditGrupo(true);
                     CarregarCampeonato(IdGrupo);
                     CarregarGruposDesativados();
                 }
+                DisableEditGrupo(true);
             }
         }
 
