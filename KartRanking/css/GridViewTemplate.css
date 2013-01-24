@@ -12,7 +12,7 @@
     color: #666666;
     margin: 0;
     background-color: #ffffff;    
-    font-size: 80%;
+    font-size: 8pt;
 }
 .template h1
 {
@@ -115,6 +115,7 @@ div.back a:hover
 
 .template table.listview td, table.gridview td, table.detailstable td
 {
+    font-size: 95%;
     border-left: 0px;
     border-right: 0px;
     border-bottom: 1px dotted #dadada;

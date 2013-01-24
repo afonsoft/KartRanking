@@ -214,7 +214,8 @@ namespace KartRanking.Administrador
         {
             Session["IdGrupo"] = ddlGrupos.SelectedValue;
             CarregarCampeonato(Convert.ToInt16(ddlGrupos.SelectedValue));
-            string url = AlterarGrupo(Request.Url.LocalPath, Request.QueryString, ddlGrupos.SelectedValue);
+            //string url = AlterarGrupo(Request.Url.LocalPath, Request.QueryString, ddlGrupos.SelectedValue);
+            string url = AlterarGrupo("/Administrador/index.aspx", Request.QueryString, ddlGrupos.SelectedValue);
             Response.Redirect(url);
         }
 
@@ -223,7 +224,7 @@ namespace KartRanking.Administrador
             string rurl = "";
             foreach (string q in nameValueCollection.AllKeys)
             {
-                if (q.ToLower() != "idgrupo" || q.ToLower() != "idcampeonato")
+                if (q.ToLower() != "idgrupo" && q.ToLower() != "idcampeonato")
                 {
                     if (rurl.IndexOf("?") >= 0)
                         rurl += "&" + q + "=" + nameValueCollection[q];
@@ -232,11 +233,9 @@ namespace KartRanking.Administrador
                 }
             }
             if (rurl.IndexOf("?") >= 0)
-                rurl += url + "&IdGrupo=" + idGrupo;
+                return url + rurl + "&IdGrupo=" + idGrupo;
             else
-                rurl += url + "?IdGrupo=" + idGrupo;
-
-            return rurl;
+                return url + rurl + "?IdGrupo=" + idGrupo;
         }
 
        
