@@ -65,15 +65,24 @@
             <td colspan="1">
                 <span class="label">Sigla Grupo:</span>
             </td>
-            <td colspan="2">
+            <td colspan="1">
                 <asp:TextBox ID="txtSigla" MaxLength="50" CssClass="text" runat="server"></asp:TextBox>
             </td>
-            <td colspan="2">
+            <td colspan="1">
                 <span class="label">Permitir Inscrições:</span>
             </td>
             <td colspan="1">
                 <asp:DropDownList ID="ddlPermitirInscricoes" runat="server" CssClass="text">
                     <asp:ListItem Selected="true" Text="Sim" Value="true" />
+                    <asp:ListItem Text="Não" Value="false" />
+                </asp:DropDownList>
+            </td>
+            <td colspan="1">
+                <span class="label">Ativo:</span>
+            </td>
+            <td colspan="1">
+                <asp:DropDownList ID="ddlAtivo" runat="server" CssClass="text">
+                    <asp:ListItem Text="Sim" Value="true" />
                     <asp:ListItem Text="Não" Value="false" />
                 </asp:DropDownList>
             </td>

@@ -91,6 +91,7 @@ namespace KartRanking.Administrador
             txtUrlAcesso.ReadOnly = p;
             txtCidade.ReadOnly = p;
             ddlEstado.Enabled = !p;
+            ddlAtivo.Enabled = !p;
             ddlPermitirInscricoes.Enabled = !p;
             btnSalvar.Visible = !p;
             btnNovo.Visible = !btnSalvar.Visible;
@@ -107,24 +108,10 @@ namespace KartRanking.Administrador
                 txtUrlAcesso.Text = gr.UrlAcesso;
                 txtCidade.Text = gr.Cidade;
                 ddlEstado.Items.FindByValue(gr.Estado).Selected = true;
+                ddlAtivo.Items.FindByValue(gr.Ativo.HasValue ? gr.Ativo.Value.ToString() : "false").Selected = true;
             }
             else
                 Alert("Informações não encontrada para esse grupo!", "index.aspx?IdGrupo=" + idGrupo);
-        }
-
-        private bool VerificarPermissaoUsuarioGrupo(int idGrupo)
-        {
-            Usuario user = (Usuario)Session["Usuario"];
-
-            var grupoAdmin = (from gu in dk.Kart_Usuario_Grupos
-                              where gu.idUsuario == user.idUsuario
-                              && gu.idGrupo == idGrupo
-                              select new { gu.Admin }).FirstOrDefault();
-
-            if (grupoAdmin != null && grupoAdmin.Admin.HasValue)
-                return grupoAdmin.Admin.Value;
-            else
-                return false;
         }
 
         protected void btnSalvar_Click(object sender, EventArgs e)
@@ -158,6 +145,7 @@ namespace KartRanking.Administrador
                     kg.Cidade = txtCidade.Text;
                     kg.dtCriacao = DateTime.Now;
                     kg.Estado = ddlEstado.SelectedValue;
+                    kg.Ativo = Convert.ToBoolean(ddlAtivo.SelectedValue);
 
                     dk.GetTable<Kart_Grupo>().InsertOnSubmit(kg);
 
@@ -183,56 +171,64 @@ namespace KartRanking.Administrador
                 }
                 else
                 {
-                    kg = (from g in dk.Kart_Grupos
-                          where g.idGrupo == IdGrupo
-                          select g).FirstOrDefault();
-
-                    if (kg.NomeGrupo != txtNomeGrupo.Text)
+                    if (IsAdmin)
                     {
-                        int count = (from g in dk.Kart_Grupos
-                                     where g.NomeGrupo.Equals(txtNomeGrupo.Text)
-                                     select g).Count();
+                        kg = (from g in dk.Kart_Grupos
+                              where g.idGrupo == IdGrupo
+                              select g).FirstOrDefault();
 
-                        if (count > 0)
-                            throw new Exception("Já existe um grupo cadastro com esse Nome!");
+                        if (kg.NomeGrupo != txtNomeGrupo.Text)
+                        {
+                            int count = (from g in dk.Kart_Grupos
+                                         where g.NomeGrupo.Equals(txtNomeGrupo.Text)
+                                         select g).Count();
+
+                            if (count > 0)
+                                throw new Exception("Já existe um grupo cadastro com esse Nome!");
+                        }
+
+                        if (kg.Sigla != txtSigla.Text)
+                        {
+                            int count = (from g in dk.Kart_Grupos
+                                         where g.Sigla.Equals(txtSigla.Text)
+                                         select g).Count();
+
+                            if (count > 0)
+                                throw new Exception("Já existe um grupo cadastro com essa Sigla!");
+                        }
+
+                        if (kg.UrlAcesso != txtUrlAcesso.Text)
+                        {
+                            int count = (from g in dk.Kart_Grupos
+                                         where g.UrlAcesso.Equals(txtUrlAcesso.Text)
+                                         select g).Count();
+
+                            if (count > 0)
+                                throw new Exception("Já existe um grupo cadastro com essa Url!");
+                        }
+
+                        kg.Id_Usuario_Lider = user.idUsuario;
+                        kg.NomeGrupo = txtNomeGrupo.Text;
+                        kg.permitirInsricoes = Convert.ToBoolean(ddlPermitirInscricoes.SelectedValue);
+                        kg.Sigla = txtSigla.Text;
+                        kg.UrlAcesso = txtUrlAcesso.Text;
+                        kg.Ativo = true;
+                        kg.Cidade = txtCidade.Text;
+                        kg.dtCriacao = DateTime.Now;
+                        kg.Estado = ddlEstado.SelectedValue;
+                        kg.Ativo = Convert.ToBoolean(ddlAtivo.SelectedValue);
+
+                        dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+
+                        EMail.EnviarEmailStatusGrupo(user.idUsuario, kg.idGrupo);
+
+                        Alert("Alteração do grupo efetuado com sucesso!");
+                        DisableEditGrupo(true);
                     }
-
-                    if (kg.Sigla != txtSigla.Text)
+                    else
                     {
-                        int count = (from g in dk.Kart_Grupos
-                                     where g.Sigla.Equals(txtSigla.Text)
-                                     select g).Count();
-
-                        if (count > 0)
-                            throw new Exception("Já existe um grupo cadastro com essa Sigla!");
+                        Alert("Você não possue permissão para alterar este grupo.");
                     }
-
-                    if (kg.UrlAcesso != txtUrlAcesso.Text)
-                    {
-                        int count = (from g in dk.Kart_Grupos
-                                     where g.UrlAcesso.Equals(txtUrlAcesso.Text)
-                                     select g).Count();
-
-                        if (count > 0)
-                            throw new Exception("Já existe um grupo cadastro com essa Url!");
-                    }
-
-                    kg.Id_Usuario_Lider = user.idUsuario;
-                    kg.NomeGrupo = txtNomeGrupo.Text;
-                    kg.permitirInsricoes = Convert.ToBoolean(ddlPermitirInscricoes.SelectedValue);
-                    kg.Sigla = txtSigla.Text;
-                    kg.UrlAcesso = txtUrlAcesso.Text;
-                    kg.Ativo = true;
-                    kg.Cidade = txtCidade.Text;
-                    kg.dtCriacao = DateTime.Now;
-                    kg.Estado = ddlEstado.SelectedValue;
-
-                    dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
-
-                    EMail.EnviarEmailStatusGrupo(user.idUsuario, kg.idGrupo);
-
-                    Alert("Alteração do grupo efetuado com sucesso!");
-                    DisableEditGrupo(true);
                 }
 
             }
@@ -268,15 +264,13 @@ namespace KartRanking.Administrador
             txtUrlAcesso.Text = "";
             txtCidade.Text = "";
             ddlEstado.ClearSelection();
-
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-
             if (!btnSalvar.Visible)
             {
-                if (VerificarPermissaoUsuarioGrupo(IdGrupo))
+                if (IsAdmin)
                 {
                     btnEditar.Text = "Cancelar";
                     DisableEditGrupo(false);
@@ -284,6 +278,7 @@ namespace KartRanking.Administrador
                 else
                 {
                     Alert("Você não é o administrador deste grupo.");
+                    return;
                 }
             }
             else

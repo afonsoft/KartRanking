@@ -23,6 +23,7 @@ namespace KartRanking.Administrador
                         ltTitulo.Text = "Alteração do Campeonato";
                         ltDescricao.Text = "Efetuar alteração do Campeonato";
                         DisableEditCampeonato(true);
+
                     }
                     else
                     {
@@ -85,67 +86,6 @@ namespace KartRanking.Administrador
                 return false;
         }
 
-        protected void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (IsAdmin)
-            {
-            }
-            else
-            {
-                Alert("Você não possue permissão para editar este campeonato.");
-            }
-        }
-
-        protected void btnSalvar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (IsAdmin)
-                {
-                    Kart_Campeonato kc = null;
-
-                    ValidarDatas();
-
-                    if (IdCampeonato > 0)
-                    {
-                        kc = (from k in dk.Kart_Campeonatos
-                              where k.idCampeonato == IdCampeonato && k.idGrupo == IdGrupo
-                              select k).FirstOrDefault();
-                    }
-                    else
-                    {
-                        kc = new Kart_Campeonato();
-                        kc.idGrupo = IdGrupo;
-                    }
-
-                    kc.Ativo = Convert.ToBoolean(ddlAtivo.SelectedValue);
-                    kc.dtInicio = Convert.ToDateTime(txtDtInicio.Text);
-                    kc.dtFim = Convert.ToDateTime(txtDtFim.Text);
-                    kc.dtCriacao = DateTime.Now;
-                    kc.NomeCampeonato = txtNomeCampeonato.Text;
-
-                    if (IdCampeonato <= 0)
-                        dk.GetTable<Kart_Campeonato>().InsertOnSubmit(kc);
-
-                    dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
-
-                    if (IdCampeonato > 0)
-                        Alert("Alteração do Campeonato efetuado com sucesso!");
-                    else
-                        Alert("Criação do Campeonato efetuado com sucesso!");
-                }
-                else
-                {
-                    Alert("Você não possue permissão para editar este campeonato.");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Alert(ex);
-            }
-        }
-
         private void ValidarDatas()
         {
             try
@@ -156,6 +96,79 @@ namespace KartRanking.Administrador
             catch
             {
                 throw new Exception("Data Inválida!");
+            }
+        }
+
+        protected void btnSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Kart_Campeonato kc = null;
+
+                if (IdCampeonato > 0)
+                {
+                    if (IsAdmin)
+                    {
+                        kc = (from k in dk.Kart_Campeonatos
+                              where k.idCampeonato == IdCampeonato && k.idGrupo == IdGrupo
+                              select k).FirstOrDefault();
+                    }
+                    else
+                    {
+                        Alert("Você não possue permissão para editar este campeonato.");
+                        return;
+                    }
+                }
+                else
+                {
+                    kc = new Kart_Campeonato();
+                    kc.idGrupo = IdGrupo;
+                }
+                ValidarDatas();
+
+                kc.Ativo = Convert.ToBoolean(ddlAtivo.SelectedValue);
+                kc.dtInicio = Convert.ToDateTime(txtDtInicio.Text);
+                kc.dtFim = Convert.ToDateTime(txtDtFim.Text);
+                kc.dtCriacao = DateTime.Now;
+                kc.NomeCampeonato = txtNomeCampeonato.Text;
+
+                if (IdCampeonato <= 0)
+                    dk.GetTable<Kart_Campeonato>().InsertOnSubmit(kc);
+
+                dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+
+                if (IdCampeonato > 0)
+                    Alert("Alteração do Campeonato efetuado com sucesso!");
+                else
+                    Alert("Criação do Campeonato efetuado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
+        }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (IsAdmin)
+            {
+
+            }
+            else
+            {
+                Alert("Você não possue permissão para editar este campeonato.");
+            }
+        }
+
+        protected void btnNovo_Click(object sender, EventArgs e)
+        {
+            if (IsAdmin)
+            {
+
+            }
+            else
+            {
+                Alert("Você não possue permissão para editar este campeonato.");
             }
         }
     }

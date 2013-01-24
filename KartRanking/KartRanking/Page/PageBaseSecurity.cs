@@ -24,7 +24,7 @@ namespace KartRanking.Page
                 {
                     int.TryParse(Session["IdGrupo"].ToString(), out idGrupo);
                 }
-
+                Session["IdGrupo"] = idGrupo;
                 return idGrupo;
             }
             set
@@ -48,7 +48,7 @@ namespace KartRanking.Page
                 {
                     int.TryParse(Session["IdCampeonato"].ToString(), out IdCampeonato);
                 }
-
+                Session["IdCampeonato"] = IdCampeonato;
                 return IdCampeonato;
             }
             set
