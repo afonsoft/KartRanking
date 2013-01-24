@@ -54,18 +54,21 @@ namespace KartRanking.Administrador
             {
                 if (!string.IsNullOrEmpty(cookie.Value))
                 {
-                    Usuario user = (from p in dk.Usuarios
-                                    where p.Email.Equals(cookie.Value)
-                                    select p).FirstOrDefault();
-
-                    if (user != null)
+                    if (Session["Usuario"] == null)
                     {
-                        Session["Usuario"] = user;
-                        pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
-                        pnlLogin.Visible = pnlNotLogin.Visible = false;
-                        lblNomeUsuario.Text = user.Nome;
+                        Usuario user = (from p in dk.Usuarios
+                                        where p.Email.Equals(cookie.Value)
+                                        select p).FirstOrDefault();
 
-                        CarregarGruposUsuario();
+                        if (user != null)
+                        {
+                            Session["Usuario"] = user;
+                            pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
+                            pnlLogin.Visible = pnlNotLogin.Visible = false;
+                            lblNomeUsuario.Text = user.Nome;
+
+                            CarregarGruposUsuario();
+                        }
                     }
                 }
             }
