@@ -15,7 +15,7 @@ namespace KartRanking.Administrador
         {
             try
             {
-                if (IsPostBack)
+                if (!IsPostBack)
                 {
                     if (IdCampeonato > 0)
                     {
@@ -64,7 +64,8 @@ namespace KartRanking.Administrador
                 txtDtFim.Text = kc.dtFim.ToString("dd/MM/yyyy");
                 txtDtInicio.Text = kc.dtInicio.ToString("dd/MM/yyyy");
                 txtNomeCampeonato.Text = kc.NomeCampeonato;
-                ddlAtivo.Items.FindByValue(kc.Ativo.HasValue ? kc.Ativo.Value.ToString() : "false").Selected = true;
+                ddlAtivo.ClearSelection();
+                ddlAtivo.Items.FindByValue(kc.Ativo.HasValue ? kc.Ativo.Value.ToString().ToLower() : "false").Selected = true;
             }
             else
                 Alert("Erro para recuperar as informações do Campeonato.");
@@ -150,13 +151,32 @@ namespace KartRanking.Administrador
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            if (IsAdmin)
+            if (!btnSalvar.Visible)
             {
-
+                if (IsAdmin)
+                {
+                    btnEditar.Text = "Cancelar";
+                    DisableEditCampeonato(false);
+                }
+                else
+                {
+                    Alert("Você não possue permissão para editar este campeonato.");
+                    return;
+                }
             }
             else
             {
-                Alert("Você não possue permissão para editar este campeonato.");
+                btnEditar.Text = "Editar Grupo";
+                ddlAtivo.ClearSelection();
+                ltTitulo.Text = "Alteração do Campeonato";
+                ltDescricao.Text = "Efetuar alteração do Campeonato";
+                if (ViewState["OldIdCampeonato"] != null)
+                {
+                    IdCampeonato = Convert.ToInt16(ViewState["OldIdCampeonato"]);
+                    ViewState["OldIdCampeonato"] = null;
+                    PopularTela(IdCampeonato, IdGrupo);
+                }
+                DisableEditCampeonato(true);
             }
         }
 
@@ -164,6 +184,16 @@ namespace KartRanking.Administrador
         {
             if (IsAdmin)
             {
+                ViewState["OldIdCampeonato"] = IdCampeonato;
+                IdCampeonato = 0;
+                ltTitulo.Text = "Cadastro de um Campeonato";
+                ltDescricao.Text = "Efetuar cadastro de um Campeonato para o grupo";
+                DisableEditCampeonato(false);
+                txtDtFim.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                txtDtInicio.Text = DateTime.Now.AddYears(1).ToString("dd/MM/yyyy");
+                txtNomeCampeonato.Text = "";
+                ddlAtivo.ClearSelection();
+                btnEditar.Text = "Cancelar";
 
             }
             else
