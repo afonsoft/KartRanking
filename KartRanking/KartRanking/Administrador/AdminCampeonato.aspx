@@ -90,5 +90,45 @@
         <div class="clear espaco">
             &nbsp;
         </div>
+        <div class="grid_12">
+            <span class="label">Calendario de Provas</span>
+        </div>
+        <div class="clear">
+            &nbsp;
+        </div>
+        <div class="grid_12">
+            <div class="template">
+                <asp:GridView ID="gvEtapas" CssClass="gridview" runat="server" DataKeyNames="idCalendario"
+                    EmptyDataText="Nenhum campeonato neste grupo" OnRowCommand="gvEtapas_RowCommand"
+                    AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                Código</HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkCodCalendario" runat="server" CommandArgument='<%# Eval( "idCalendario" )%>'
+                                    CommandName="EditCalendario"><%# Eval("idCalendario")%></asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                Nome</HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idCalendario" )%>'
+                                    CommandName="EditCalendario"><%# Eval("Nome")%></asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:BoundField HeaderText="Data" SortExpression="Data" DataField="Data" DataFormatString="{0:dd/MM/yyyy}" />
+                        <asp:BoundField HeaderText="Kartodromo" SortExpression="Kartodromo" DataField="Kartodromo" />
+                        <asp:BoundField HeaderText="Horario" SortExpression="Horario" DataField="Horario" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div>
+        <div class="clear espaco">
+            &nbsp;
+        </div>
     </div>
 </asp:Content>
