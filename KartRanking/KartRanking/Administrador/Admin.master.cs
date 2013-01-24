@@ -140,9 +140,10 @@ namespace KartRanking.Administrador
 
                 if (Request.QueryString["IdGrupo"] != null)
                 {
-                    HiddenidGrupo.Value = Request.QueryString["IdGrupo"];
                     Session["IdGrupo"] = Request.QueryString["IdGrupo"];
                 }
+                if (Session["IdGrupo"] != null)
+                    HiddenidGrupo.Value = Session["IdGrupo"].ToString();
                
                 AutoLogin();
                 if (Session["Usuario"] != null)
