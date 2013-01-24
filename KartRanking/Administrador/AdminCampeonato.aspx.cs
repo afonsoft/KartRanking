@@ -66,7 +66,7 @@ namespace KartRanking.Administrador
                 ddlAtivo.Items.FindByValue(kc.Ativo.HasValue ? kc.Ativo.Value.ToString() : "false").Selected = true;
             }
             else
-                Alert("Erro para recuperar as informações do Campeonato.", "index.aspx?IdGrupo=" + IdGrupo);
+                Alert("Erro para recuperar as informações do Campeonato.");
 
         }
 
@@ -130,9 +130,9 @@ namespace KartRanking.Administrador
                     dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
 
                     if (IdCampeonato > 0)
-                        Alert("Alteração do Campeonato efetuado com sucesso!", "index.aspx?IdGrupo=" + IdGrupo);
+                        Alert("Alteração do Campeonato efetuado com sucesso!");
                     else
-                        Alert("Criação do Campeonato efetuado com sucesso!", "index.aspx?IdGrupo=" + IdGrupo);
+                        Alert("Criação do Campeonato efetuado com sucesso!");
                 }
                 else
                 {
@@ -144,7 +144,6 @@ namespace KartRanking.Administrador
             {
                 Alert(ex);
             }
-
         }
 
         private void ValidarDatas()
@@ -159,6 +158,5 @@ namespace KartRanking.Administrador
                 throw new Exception("Data Inválida!");
             }
         }
-
     }
 }
