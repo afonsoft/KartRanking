@@ -71,22 +71,21 @@
         <div class="grid_7">
             &nbsp;
         </div>
-        <div class="clear">
-            &nbsp;
-        </div>
         <div class="clear espaco">
             &nbsp;
         </div>
         <div class="grid_4">
-            &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar o Campeonato" OnClick="btnEditar_Click"
-                CssClass="button" />&nbsp;
-        </div>
-        <div class="grid_4">
             &nbsp;&nbsp;&nbsp;
         </div>
-        <div class="grid_4">
+        <div class="grid_3">
+            &nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="grid_5" style="text-align: right;">
             &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
-                CssClass="button" Width="200px" />&nbsp;
+                Width="100px" CssClass="button" />&nbsp;
+            <asp:Button ID="btnNovo" runat="server" Text="Salvar" Width="100px" OnClick="btnNovo_Click"
+                CssClass="button" />&nbsp; &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar o Campeonato"
+                    OnClick="btnEditar_Click" CssClass="button" />
         </div>
         <div class="clear espaco">
             &nbsp;
