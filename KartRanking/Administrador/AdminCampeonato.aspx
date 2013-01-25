@@ -32,7 +32,7 @@
             <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
                 border-right: #ccc 1px dashed;" />
         </div>
-        <div class="clear ">
+        <div class="clear espaco">
             &nbsp;
         </div>
         <div class="grid_3">
@@ -41,7 +41,7 @@
         <div class="grid_9">
             <asp:TextBox ID="txtNomeCampeonato" MaxLength="100" runat="server" CssClass="text"></asp:TextBox>
         </div>
-        <div class="clear ">
+        <div class="clear espaco_mini">
             &nbsp;
         </div>
         <div class="grid_3">
@@ -56,7 +56,7 @@
         <div class="grid_3">
             <asp:TextBox ID="txtDtFim" MaxLength="12" runat="server" CssClass="text"></asp:TextBox>
         </div>
-        <div class="clear ">
+        <div class="clear espaco_mini">
             &nbsp;
         </div>
         <div class="grid_3">
@@ -71,7 +71,7 @@
         <div class="grid_7">
             &nbsp;
         </div>
-        <div class="clear">
+        <div class="clear espaco_mini">
             &nbsp;
         </div>
         <div class="grid_3">
@@ -83,7 +83,7 @@
         <div class="grid_7" style="text-align: right;">
             &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
                 Width="100px" CssClass="button" />&nbsp;
-            <asp:Button ID="btnNovo" runat="server" Text="Salvar" Width="100px" OnClick="btnNovo_Click"
+            <asp:Button ID="btnNovo" runat="server" Text="Novo" Width="100px" OnClick="btnNovo_Click"
                 CssClass="button" />&nbsp; &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar o Campeonato"
                     OnClick="btnEditar_Click" CssClass="button" />
         </div>
