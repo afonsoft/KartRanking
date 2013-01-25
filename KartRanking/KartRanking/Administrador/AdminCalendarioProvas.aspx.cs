@@ -114,7 +114,13 @@ namespace KartRanking.Administrador
             //TODO: Efetuar o metodo para excluir um calendario
             Alert("Em desenvolvimento!");
         }
-
+        protected void btnVoltarCampeonato_Click(object sender, EventArgs e)
+        {
+            if (IdCampeonato > 0)
+                Response.Redirect("AdminCampeonato.aspx?IdGrupo=" + IdGrupo.ToString() + "&IdCampeonato=" + IdCampeonato.ToString());
+            else
+                Response.Redirect("AdminGrupo.aspx?IdGrupo=" + IdGrupo.ToString());
+        }
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
             PanelEditar.Visible = false;
@@ -154,8 +160,9 @@ namespace KartRanking.Administrador
                     dk.GetTable<Kart_Calendario_Campeonato>().InsertOnSubmit(cc);
 
                 dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+                btnVoltar_Click(sender, e);
 
-                Alert("Etapa alterada com sucesso!");
+                Alert("Etapa salvo com sucesso!");
             }
             catch (Exception ex)
             {

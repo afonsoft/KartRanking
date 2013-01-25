@@ -14,7 +14,7 @@
                 <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
                     border-right: #ccc 1px dashed;" />
             </div>
-            <div class="clear ">
+            <div class="clear espaco">
                 &nbsp;
             </div>
             <div class="grid_3">
@@ -28,10 +28,12 @@
                 &nbsp;
             </div>
             <div class="grid_12">
-                <asp:Button ID="btnNovoCalendario" runat="server" Text="Nova Etapa" 
-                    onclick="btnNovoCalendario_Click" />
+                <asp:Button ID="btnVoltarCampeonato" runat="server" Text="Voltar" OnClick="btnVoltarCampeonato_Click" />&nbsp;
+                &nbsp;
+                <asp:Button ID="btnNovoCalendario" runat="server" Text="Nova Etapa" OnClick="btnNovoCalendario_Click" />
+                &nbsp; &nbsp;
             </div>
-            <div class="clear">
+            <div class="clear espaco_mini">
                 &nbsp;
             </div>
             <div class="grid_12">
@@ -75,7 +77,7 @@
                     </asp:GridView>
                 </div>
             </div>
-            <div class="clear">
+            <div class="clear espaco">
                 &nbsp;
             </div>
         </div>
@@ -111,14 +113,14 @@
                 <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
                     border-right: #ccc 1px dashed;" />
             </div>
-            <div class="clear ">
+            <div class="clear espaco">
                 &nbsp;
             </div>
             <div class="grid_2">
                 <span class="label">Etapa:</span>
             </div>
             <div class="grid_4">
-                <asp:TextBox ID="ltEtapa" runat="server" MaxLength="20"></asp:TextBox>
+                <asp:TextBox ID="ltEtapa" runat="server" MaxLength="20" Width="100%"></asp:TextBox>
             </div>
             <div class="grid_2">
                 <span class="label">Data / Horário:</span>
@@ -127,30 +129,29 @@
                 <asp:TextBox ID="ltData" runat="server" MaxLength="10" Width="100px"></asp:TextBox>&nbsp;
                 <asp:TextBox ID="ltHora" runat="server" MaxLength="8" Width="50px"></asp:TextBox>
             </div>
-            <div class="clear ">
+            <div class="clear espaco_mini">
                 &nbsp;
             </div>
             <div class="grid_2">
                 <span class="label">Kartódromo:</span>
             </div>
             <div class="grid_4">
-                <asp:TextBox ID="ltKartodromo" runat="server" MaxLength="150"></asp:TextBox>
+                <asp:TextBox ID="ltKartodromo" runat="server" MaxLength="150" Width="100%"></asp:TextBox>
             </div>
             <div class="grid_2">
                 <span class="label">Circuito:</span>
             </div>
             <div class="grid_4">
-                <asp:TextBox ID="ltCircuito" runat="server" MaxLength="20"></asp:TextBox>
+                <asp:TextBox ID="ltCircuito" runat="server" MaxLength="20" Width="100%"></asp:TextBox>
             </div>
-            <div class="clear">
+            <div class="clear espaco_mini">
                 &nbsp;
             </div>
             <div class="grid_4">
                 &nbsp;</div>
             <div class="grid_8" style="text-align: right;">
                 &nbsp;
-                <asp:Button ID="btnAlterar" runat="server" Text="Salvar" 
-                    OnClick="btnAlterar_Click" />&nbsp;
+                <asp:Button ID="btnAlterar" runat="server" Text="Salvar" OnClick="btnAlterar_Click" />&nbsp;
                 &nbsp;
                 <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
             </div>
