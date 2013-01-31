@@ -72,6 +72,66 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelGridEtapa" runat="server">
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#<%= txtGridTempo.ClientID%>').mask("99:99:999");
+                $('#<%= txtEtapaTempo.ClientID%>').mask("99:99:999");
+                $('#<%= txtGridPos.ClientID%>').numeric(false);
+                $('#<%= txtEtapaPontos.ClientID%>').numeric(false);
+                $('#<%= txtEtapaPos.ClientID%>').numeric(false);
+            });
+
+            function OpenGrid(id, op) {
+                document.getElementById('<%= HiddenIdGrid.ClientID %>').value = id;
+                document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
+                
+                $('#OpenGrid').dialog({
+                        autoOpen: false, bgiframe: false, hide: 'explode', resizable: true, draggable: true,
+                        modal: true, show: 'slide', minHeight: 200, minWidth: 250,
+                        maxHeight: 450, maxWidth: 600, 
+                        buttons: {
+                            "Salvar": function() {
+                                $('#OpenGrid').dialog("close");
+                                document.getElementById('<%= HiddenIdGridPiloto.ClientID %>').value = document.getElementById('<%= ddlGridPilotoDisponivel.ClientID %>').selectedIndex;
+                                __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
+                                return true;
+                            },
+                            "Sair": function() { $('#OpenGrid').dialog("close"); return true; }
+                        }
+                    });
+                    $('#OpenGrid').dialog({ width: 620, height: 220 });
+                    $('#OpenGrid').parent().appendTo(jQuery("form:first"));
+                    $('#OpenGrid').dialog('open');
+                    return true;
+                }
+
+                function OpenEtapa(id, op) {
+                    document.getElementById('<%= HiddenIdEtapa.ClientID %>').value = id;
+                    document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
+
+                    $('#OpenEtapa').dialog({
+                        autoOpen: false, bgiframe: false, hide: 'explode', resizable: true, draggable: true,
+                        modal: true, show: 'slide', minHeight: 200, minWidth: 250,
+                        maxHeight: 450, maxWidth: 600, 
+                        buttons: {
+                            "Salvar": function() {
+                                $('#OpenEtapa').dialog("close");
+                                document.getElementById('<%= HiddenIdEtapaPiloto.ClientID %>').value = document.getElementById('<%= ddlEtapaPilotoDisponivel.ClientID %>').selectedIndex;
+                                __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
+                                return true;
+                            },
+                            "Sair": function() { $('#OpenEtapa').dialog("close"); return true; }
+                        }
+                    });
+                    $('#OpenEtapa').dialog({ width: 520, height: 220 });
+                    $('#OpenEtapa').parent().appendTo(jQuery("form:first"));
+                    $('#OpenEtapa').dialog('open');
+                    return true;
+                }
+            
+        </script>
+
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="titulo">
@@ -93,31 +153,44 @@
             <div class="clear espaco_mini">
                 &nbsp;
             </div>
-            <div class="grid_12" >
+            <div class="grid_12">
                 <asp:Button ID="BtnVoltarSelecionar" runat="server" Text="Voltar" OnClick="BtnVoltarSelecionar_Click" />
                 &nbsp; &nbsp;
             </div>
             <div class="clear">
                 &nbsp;
             </div>
-            <div class="grid_10">
+            <div class="grid_1" style="text-align: right;">
+                &nbsp;<asp:ImageButton ID="imgAdd1" runat="server" CommandArgument="1" ImageUrl="~/images/add.png"
+                    Width="16px" Height="16px" OnClick="imgAdd_Click" />
+            </div>
+            <div class="grid_11">
                 <span class="label"><b>Grid de qualificação</b></span>
             </div>
-            <div class="grid_2" style="text-align: right;">
-                &nbsp;<asp:Button ID="btnEditarGrid" runat="server" Text="Editar" Visible="false" OnClick="btnEditarGrid_Click" />
-            </div>
-            <div class="clear espaco_mini">
+            <div class="clear">
                 &nbsp;
             </div>
             <div class="grid_12">
                 <div class="template">
                     <asp:GridView ID="gvGrid" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado de classificação"
-                        DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false">
+                        DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false" OnRowCommand="gvGrid_RowCommand">
                         <Columns>
                             <asp:BoundField HeaderText="Pos" DataField="Pos" />
                             <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
                             <asp:BoundField HeaderText="Nome Equipe" DataField="NomeEquipe" />
                             <asp:BoundField HeaderText="Tempo" DataField="tempo" />
+                            <asp:TemplateField Visible="true">
+                                <HeaderTemplate>
+                                    Opções</HeaderTemplate>
+                                <HeaderStyle HorizontalAlign="Center" Width="80px" />
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkExluir" CommandArgument='<%# Eval("idGrid") %>' CommandName="Exluir"
+                                        OnClientClick="return confirm('Deseja excluir?');" runat="server">Exluir</asp:LinkButton>&nbsp;|&nbsp;
+                                    <asp:LinkButton ID="lnkAlterar" CommandArgument='<%# Eval("idGrid") %>' CommandName="Alterar"
+                                        runat="server">Alterar</asp:LinkButton>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" Width="80px" />
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -125,11 +198,12 @@
             <div class="clear espaco">
                 &nbsp;
             </div>
-            <div class="grid_10">
-                <span class="label"><b>Grid Final da Etapa</b></span>
+            <div class="grid_1" style="text-align: right;">
+                &nbsp;<asp:ImageButton ID="imgAdd2" runat="server" CommandArgument="2" ImageUrl="~/images/add.png"
+                    Width="16px" Height="16px" OnClick="imgAdd_Click" />
             </div>
-            <div class="grid_2" style="text-align: right;">
-                &nbsp;&nbsp;<asp:Button ID="btnEditResultado" runat="server" Text="Editar" Visible="false" OnClick="btnEditResultado_Click" />
+            <div class="grid_11">
+                <span class="label"><b>Grid Final da Etapa</b></span>
             </div>
             <div class="clear espaco_mini">
                 &nbsp;
@@ -137,13 +211,25 @@
             <div class="grid_12">
                 <div class="template">
                     <asp:GridView ID="gvResultados" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado final"
-                        DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false">
+                        DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false" OnRowCommand="gvResultados_RowCommand">
                         <Columns>
                             <asp:BoundField HeaderText="Pos" DataField="Pos" />
                             <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
                             <asp:BoundField HeaderText="Nome Equipe" DataField="NomeEquipe" />
                             <asp:BoundField HeaderText="Tempo" DataField="tempo" />
                             <asp:BoundField HeaderText="Ponto" DataField="Ponto" />
+                            <asp:TemplateField Visible="true">
+                                <HeaderTemplate>
+                                    Opções</HeaderTemplate>
+                                <HeaderStyle HorizontalAlign="Center" Width="80px" />
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkExluir" CommandArgument='<%# Eval("idResultado") %>' CommandName="Exluir"
+                                        OnClientClick="return confirm('Deseja excluir?');" runat="server">Exluir</asp:LinkButton>&nbsp;|&nbsp;
+                                    <asp:LinkButton ID="lnkAlterar" CommandArgument='<%# Eval("idResultado") %>' CommandName="Alterar"
+                                        runat="server">Alterar</asp:LinkButton>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" Width="80px" />
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -151,6 +237,88 @@
             <div class="clear">
                 &nbsp;
             </div>
+        </div>
+        <div style="display: none;">
+            <asp:HiddenField ID="HiddenFieldOpEdit" runat="server" />
+            <asp:LinkButton ID="lnkAtualizaGridEtapa" runat="server" OnClick="lnkAtualizaGridEtapa_Click"></asp:LinkButton>
+        </div>
+        <div id="OpenGrid" title="Grid qualificação" style="display: none; font-size: x-small;
+            color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+            class="ui-dialog ui-resizable-handle">
+            <dl>
+                <dt><b>Grid Qualificação</b></dt>
+                <dd>
+                    <table width="98%">
+                        <tr>
+                            <td>
+                                Posição
+                            </td>
+                            <td>
+                                Piloto
+                            </td>
+                            <td>
+                                Tempo
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:TextBox ID="txtGridPos" MaxLength="2" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlGridPilotoDisponivel" Width="250px" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtGridTempo" MaxLength="10" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:HiddenField ID="HiddenIdGrid" runat="server" />
+                    <asp:HiddenField ID="HiddenIdGridPiloto" runat="server" />
+                </dd>
+            </dl>
+        </div>
+        <div id="OpenEtapa" title="Qualificação Final" style="display: none; font-size: x-small;
+            color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+            class="ui-dialog ui-resizable-handle">
+            <dl>
+                <dt><b>Grid Final da Etapa</b></dt>
+                <dd>
+                    <table width="98%">
+                        <tr>
+                            <td>
+                                Posição
+                            </td>
+                            <td>
+                                Piloto
+                            </td>
+                            <td>
+                                Tempo
+                            </td>
+                            <td>
+                                Pontos
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:TextBox ID="txtEtapaPos" MaxLength="2" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlEtapaPilotoDisponivel" Width="250px" runat="server">
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtEtapaTempo" MaxLength="10" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtEtapaPontos" MaxLength="3" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                    <asp:HiddenField ID="HiddenIdEtapa" runat="server" />
+                    <asp:HiddenField ID="HiddenIdEtapaPiloto" runat="server" />
+                </dd>
+            </dl>
         </div>
     </asp:Panel>
 </asp:Content>
