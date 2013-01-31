@@ -452,6 +452,7 @@
     <Content Include="Grupo\noticias.aspx" />
     <Content Include="Grupo\pilotos.aspx" />
     <Content Include="Grupo\videos.aspx" />
+    <Content Include="images\add.png" />
     <Content Include="images\banner.png" />
     <Content Include="images\bar.png" />
     <Content Include="images\bg-top.jpg" />
@@ -484,6 +485,7 @@
     <Content Include="images\GrupoAdd.png" />
     <Content Include="images\GrupoSearch.png" />
     <Content Include="images\header_back.gif" />
+    <Content Include="images\history.png" />
     <Content Include="images\input-bg.gif" />
     <Content Include="images\loginArrow.png" />
     <Content Include="images\loginbuttonbg.png" />
@@ -542,6 +544,7 @@
     <Content Include="images\prettyPhoto\light_square\default_thumbnail.gif" />
     <Content Include="images\prettyPhoto\light_square\loader.gif" />
     <Content Include="images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="images\printer.png" />
     <Content Include="images\select-bg.gif" />
     <Content Include="images\select-marker.gif" />
     <Content Include="images\slider-banner1.png" />

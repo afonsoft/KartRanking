@@ -29,14 +29,22 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
-                if (IsAdmin)
-                    btnNovoCalendario.Visible = true;
-
                 popularCampeonatos(IdGrupo, IdCampeonato);
                 popularEtapas(IdCampeonato);
 
                 PanelSelecionar.Visible = true;
                 PanelGridEtapa.Visible = false;
+
+                btnNovoCalendario.Visible = false;
+                imgAdd1.Visible = false;
+                imgAdd2.Visible = false;
+
+                if (IsAdmin)
+                {
+                    btnNovoCalendario.Visible = true;
+                    imgAdd1.Visible = true;
+                    imgAdd2.Visible = true;
+                }
             }
         }
 
@@ -57,6 +65,9 @@ namespace KartRanking.Administrador
                 ddlCampeonatos.Items.Add(new ListItem("Nenhum campeonato neste grupo", "0"));
             else if (idCampeonato > 0)
                 ddlCampeonatos.Items.FindByValue(idCampeonato.ToString()).Selected = true;
+
+            if(ddlCampeonatos.SelectedIndex >= 0 )
+                IdCampeonato = Convert.ToInt16(ddlCampeonatos.SelectedValue);
         }
 
         private void popularEtapas(int idCampeonato)
@@ -78,7 +89,7 @@ namespace KartRanking.Administrador
         protected void btnNovoCalendario_Click(object sender, EventArgs e)
         {
             IdCalendario = 0;
-            Response.Redirect("AdminCalendarioProvas.aspx?op=novo");
+            Response.Redirect("AdminCalendarioProvas.aspx?op=novo&IdCampeonato=" + IdCampeonato);
         }
 
         protected void gvEtapas_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -151,6 +162,25 @@ namespace KartRanking.Administrador
             gvResultados.DataBind();
             PanelSelecionar.Visible = false;
             PanelGridEtapa.Visible = true;
+
+            if (!IsAdmin)
+            {
+                if (gvGrid.Rows.Count > 0)
+                {
+                    gvGrid.HeaderRow.Cells[4].Visible = false;
+                    gvGrid.FooterRow.Cells[4].Visible = false;
+                    foreach (GridViewRow r in gvGrid.Rows)
+                        r.Cells[4].Visible = false;
+                }
+                if (gvEtapas.Rows.Count > 0)
+                {
+                    gvEtapas.HeaderRow.Cells[5].Visible = false;
+                    gvEtapas.FooterRow.Cells[5].Visible = false;
+                    foreach (GridViewRow r in gvEtapas.Rows)
+                        r.Cells[5].Visible = false;
+                }
+            }
+
         }
 
         protected void BtnVoltarSelecionar_Click(object sender, EventArgs e)
@@ -159,12 +189,27 @@ namespace KartRanking.Administrador
             PanelGridEtapa.Visible = false;
         }
 
-        protected void btnEditarGrid_Click(object sender, EventArgs e)
+        protected void gvGrid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
         }
 
-        protected void btnEditResultado_Click(object sender, EventArgs e)
+        protected void gvResultados_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void imgAdd_Click(object sender, ImageClickEventArgs e)
+        {
+            string op = ((ImageButton)sender).CommandArgument;
+            if (op == "1")
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "AbrirGrid", "OpenGrid(0,1);", true);
+            else
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "AbrirEtapa", "OpenEtapa(0,2);", true);
+            
+        }
+
+        protected void lnkAtualizaGridEtapa_Click(object sender, EventArgs e)
         {
 
         }
