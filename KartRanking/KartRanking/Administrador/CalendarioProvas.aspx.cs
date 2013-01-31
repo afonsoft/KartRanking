@@ -203,10 +203,9 @@ namespace KartRanking.Administrador
         {
             string op = ((ImageButton)sender).CommandArgument;
             if (op == "1")
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "AbrirGrid", "OpenGrid(0,1);", true);
+                ScriptManager.RegisterStartupScript(PanelGridEtapa, PanelGridEtapa.GetType(), "AbrirGrid", "OpenGrid(0,1);", true);
             else
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "AbrirEtapa", "OpenEtapa(0,2);", true);
-            
+                ScriptManager.RegisterStartupScript(PanelGridEtapa, PanelGridEtapa.GetType(), "AbrirEtapa", "OpenEtapa(0,2);", true);   
         }
 
         protected void lnkAtualizaGridEtapa_Click(object sender, EventArgs e)
