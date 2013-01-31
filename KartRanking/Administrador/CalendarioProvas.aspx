@@ -87,9 +87,7 @@
                 document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
                 
                 $('#OpenGrid').dialog({
-                        autoOpen: false, bgiframe: false, hide: 'explode', resizable: true, draggable: true,
-                        modal: true, show: 'slide', minHeight: 200, minWidth: 250,
-                        maxHeight: 450, maxWidth: 600, 
+                        autoOpen: false, hide: 'explode', modal: true, show: 'slide', 
                         buttons: {
                             "Salvar": function() {
                                 $('#OpenGrid').dialog("close");
@@ -101,7 +99,7 @@
                         }
                     });
                     $('#OpenGrid').dialog({ width: 620, height: 220 });
-                    $('#OpenGrid').parent().appendTo(jQuery("form:first"));
+                    $('#OpenGrid').parent().appendTo($("form:first"));
                     $('#OpenGrid').dialog('open');
                     return true;
                 }
@@ -111,9 +109,7 @@
                     document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
 
                     $('#OpenEtapa').dialog({
-                        autoOpen: false, bgiframe: false, hide: 'explode', resizable: true, draggable: true,
-                        modal: true, show: 'slide', minHeight: 200, minWidth: 250,
-                        maxHeight: 450, maxWidth: 600, 
+                        autoOpen: false, hide: 'explode', modal: true, show: 'slide', 
                         buttons: {
                             "Salvar": function() {
                                 $('#OpenEtapa').dialog("close");
@@ -125,7 +121,7 @@
                         }
                     });
                     $('#OpenEtapa').dialog({ width: 520, height: 220 });
-                    $('#OpenEtapa').parent().appendTo(jQuery("form:first"));
+                    $('#OpenEtapa').parent().appendTo($("form:first"));
                     $('#OpenEtapa').dialog('open');
                     return true;
                 }
@@ -246,17 +242,17 @@
             color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
             class="ui-dialog ui-resizable-handle">
             <dl>
-                <dt><b>Grid Qualificação</b></dt>
+                <dt><b style="color:White;">Grid Qualificação</b></dt>
                 <dd>
                     <table width="98%">
                         <tr>
-                            <td>
+                            <td style="color:White;">
                                 Posição
                             </td>
-                            <td>
+                            <td style="color:White;">
                                 Piloto
                             </td>
-                            <td>
+                            <td style="color:White;">
                                 Tempo
                             </td>
                         </tr>
@@ -282,20 +278,20 @@
             color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
             class="ui-dialog ui-resizable-handle">
             <dl>
-                <dt><b>Grid Final da Etapa</b></dt>
+                <dt><b style="color:White;">Grid Final da Etapa</b></dt>
                 <dd>
                     <table width="98%">
                         <tr>
-                            <td>
+                            <td style="color:White;">
                                 Posição
                             </td>
-                            <td>
+                            <td style="color:White;">
                                 Piloto
                             </td>
-                            <td>
+                            <td style="color:White;">
                                 Tempo
                             </td>
-                            <td>
+                            <td style="color:White;">
                                 Pontos
                             </td>
                         </tr>
