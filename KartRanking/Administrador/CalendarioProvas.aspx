@@ -87,16 +87,16 @@
                 document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
                 
                 $('#OpenGrid').dialog({
-                        autoOpen: false, hide: 'explode', modal: true, show: 'slide', 
-                        buttons: {
-                            "Salvar": function() {
-                                $('#OpenGrid').dialog("close");
-                                document.getElementById('<%= HiddenIdGridPiloto.ClientID %>').value = document.getElementById('<%= ddlGridPilotoDisponivel.ClientID %>').selectedIndex;
-                                __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
-                                return true;
-                            },
-                            "Sair": function() { $('#OpenGrid').dialog("close"); return true; }
-                        }
+                    autoOpen: false, hide: 'explode', modal: false, show: 'slide', 
+                    buttons: {
+                        "Salvar": function() {
+                            $('#OpenGrid').dialog("close");
+                            document.getElementById('<%= HiddenIdGridPiloto.ClientID %>').value = document.getElementById('<%= ddlGridPilotoDisponivel.ClientID %>').selectedIndex;
+                            __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
+                            return true;
+                        },
+                        "Sair": function() { $('#OpenGrid').dialog("close"); return true; }
+                    }
                     });
                     $('#OpenGrid').dialog({ width: 620, height: 220 });
                     $('#OpenGrid').parent().appendTo($("form:first"));
@@ -109,7 +109,7 @@
                     document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
 
                     $('#OpenEtapa').dialog({
-                        autoOpen: false, hide: 'explode', modal: true, show: 'slide', 
+                        autoOpen: false, hide: 'explode', modal: false, show: 'slide', 
                         buttons: {
                             "Salvar": function() {
                                 $('#OpenEtapa').dialog("close");
@@ -149,7 +149,7 @@
             <div class="clear espaco_mini">
                 &nbsp;
             </div>
-            <div class="grid_12">
+            <div class="grid_12" style="text-align:right;">
                 <asp:Button ID="BtnVoltarSelecionar" runat="server" Text="Voltar" OnClick="BtnVoltarSelecionar_Click" />
                 &nbsp; &nbsp;
             </div>

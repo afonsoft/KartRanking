@@ -203,7 +203,6 @@ namespace KartRanking.Administrador
             var campeonato = (from c in dk.Kart_Campeonatos
                                where c.idGrupo == idGrupo
                                && c.Ativo == true
-                               && c.dtFim >= DateTime.Now
                                orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
                                select c).FirstOrDefault();
 
