@@ -73,7 +73,7 @@
 	                                            <ul>
 	                                                <li><a href="">Classificação dos Pilotos</a></li>
 	                                                <li><a href="">Classificação das Equipes</a></li>
-	                                                <li><a href="">Calendário das Provas</a></li>
+	                                                <li><a href="CalendarioProvas.aspx">Calendário das Provas</a></li>
 	                                                <li><a href="AdminCampeonato.aspx">Administrar</a></li>
 	                                            </ul>
 	                                        </li>

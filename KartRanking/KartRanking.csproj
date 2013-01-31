@@ -93,6 +93,13 @@
     <Compile Include="Administrador\AdminGrupo.aspx.designer.cs">
       <DependentUpon>AdminGrupo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\CalendarioProvas.aspx.cs">
+      <DependentUpon>CalendarioProvas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\CalendarioProvas.aspx.designer.cs">
+      <DependentUpon>CalendarioProvas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\ImageHandler.ashx.cs">
       <DependentUpon>ImageHandler.ashx</DependentUpon>
     </Compile>
@@ -354,6 +361,7 @@
     <Content Include="Administrador\AdminCalendarioProvas.aspx" />
     <Content Include="Administrador\AdminCampeonato.aspx" />
     <Content Include="Administrador\AdminGrupo.aspx" />
+    <Content Include="Administrador\CalendarioProvas.aspx" />
     <Content Include="Administrador\ImageHandler.ashx" />
     <None Include="BaseDados\DataKart.dbml.layout">
       <DependentUpon>DataKart.dbml</DependentUpon>

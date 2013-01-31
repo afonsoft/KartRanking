@@ -11,141 +11,105 @@
 namespace KartRanking.Administrador {
     
     
-    public partial class Admin {
+    public partial class CalendarioProvas {
         
         /// <summary>
-        /// ContentPlaceHead control.
+        /// PanelSelecionar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHead;
+        protected global::System.Web.UI.WebControls.Panel PanelSelecionar;
         
         /// <summary>
-        /// HiddenidGrupo control.
+        /// ddlCampeonatos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenidGrupo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampeonatos;
         
         /// <summary>
-        /// pnlMenu control.
+        /// btnNovoCalendario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMenu;
+        protected global::System.Web.UI.WebControls.Button btnNovoCalendario;
         
         /// <summary>
-        /// lnkSair control.
+        /// gvEtapas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSair;
+        protected global::System.Web.UI.WebControls.GridView gvEtapas;
         
         /// <summary>
-        /// pnlLogin control.
+        /// PanelGridEtapa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlLogin;
+        protected global::System.Web.UI.WebControls.Panel PanelGridEtapa;
         
         /// <summary>
-        /// txtEmail control.
+        /// lbCalendarioSelecionado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.Label lbCalendarioSelecionado;
         
         /// <summary>
-        /// txtPassword control.
+        /// BtnVoltarSelecionar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Button BtnVoltarSelecionar;
         
         /// <summary>
-        /// btnLogin control.
+        /// btnEditarGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnEditarGrid;
         
         /// <summary>
-        /// chkLembrar control.
+        /// gvGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkLembrar;
+        protected global::System.Web.UI.WebControls.GridView gvGrid;
         
         /// <summary>
-        /// lblNomeUsuario control.
+        /// btnEditResultado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomeUsuario;
+        protected global::System.Web.UI.WebControls.Button btnEditResultado;
         
         /// <summary>
-        /// ddlGrupos control.
+        /// gvResultados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGrupos;
-        
-        /// <summary>
-        /// imgAssociarGrupo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgAssociarGrupo;
-        
-        /// <summary>
-        /// pnlConteudo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlConteudo;
-        
-        /// <summary>
-        /// ContentPlaceCorpo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceCorpo;
-        
-        /// <summary>
-        /// pnlNotLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlNotLogin;
+        protected global::System.Web.UI.WebControls.GridView gvResultados;
     }
 }
