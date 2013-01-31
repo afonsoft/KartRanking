@@ -40,6 +40,13 @@ namespace KartRanking.Administrador
 
                 if (IdCalendario > 0)
                     popularTelaEdit(IdCampeonato, IdCalendario);
+
+                if (Request.QueryString["op"] != null)
+                {
+                    string op = Request.QueryString["op"];
+                    if (op == "novo")
+                        btnNovoCalendario_Click(sender, e);
+                }
             }
         }
 

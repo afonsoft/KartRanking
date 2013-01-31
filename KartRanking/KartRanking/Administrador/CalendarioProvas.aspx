@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true"
-    CodeBehind="AdminCalendarioProvas.aspx.cs" Inherits="KartRanking.Administrador.AdminCalendarioProvas" %>
+    CodeBehind="CalendarioProvas.aspx.cs" Inherits="KartRanking.Administrador.CalendarioProvas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
@@ -28,9 +28,8 @@
                 &nbsp;
             </div>
             <div class="grid_12">
-                <asp:Button ID="btnVoltarCampeonato" runat="server" Text="Voltar" OnClick="btnVoltarCampeonato_Click" />&nbsp;
-                &nbsp;
-                <asp:Button ID="btnNovoCalendario" runat="server" Text="Nova Etapa" OnClick="btnNovoCalendario_Click" />
+                <asp:Button ID="btnNovoCalendario" runat="server" Visible="false" Text="Nova Etapa"
+                    OnClick="btnNovoCalendario_Click" />
                 &nbsp; &nbsp;
             </div>
             <div class="clear espaco_mini">
@@ -63,16 +62,6 @@
                             <asp:BoundField HeaderText="Data" SortExpression="Data" DataField="Data" DataFormatString="{0:dd/MM/yyyy}" />
                             <asp:BoundField HeaderText="Kartodromo" SortExpression="Kartodromo" DataField="Kartodromo" />
                             <asp:BoundField HeaderText="Horario" SortExpression="Horario" DataField="Horario" />
-                            <asp:TemplateField>
-                                <HeaderTemplate>
-                                    Excluir</HeaderTemplate>
-                                <ItemTemplate>
-                                    <asp:ImageButton ID="imgbntExcluir" ImageUrl="~/images/delete16px.png" Height="16px"
-                                        Width="16px" runat="server" ToolTip="Excluir esta Etapa do Campeonato" CommandArgument='<%# Eval( "idCalendario" )%>'
-                                        CommandName="ExcluirCalendario" OnClientClick="return confirm('Deseja excluir este grupo e todos os seus apontamentos?\n\nAo excluir, serão excluido os seguintes itens:\n*Grid desta Etapa\n*Resultado desta Etapa\n\nNão será possivel recuperar os valores após a exclusão.');" />
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>
@@ -82,32 +71,11 @@
             </div>
         </div>
     </asp:Panel>
-    <asp:Panel ID="PanelEditar" runat="server">
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#<%= ltData.ClientID %>').datepicker({
-                    changeMonth: true,
-                    changeYear: true,
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Ter&ccedil;a', 'Quarta', 'Quinta', 'Sexta', 'S&aacute;bado', 'Domingo'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S&aacute;b', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    nextText: 'Pr&oacute;ximo',
-                    prevText: 'Anterior',
-                    showAnim: 'slideDown'
-                });
-
-                $('#<%= ltHora.ClientID %>').mask("99:99");
-            });
-        </script>
-
+    <asp:Panel ID="PanelGridEtapa" runat="server">
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="titulo">
-                    Editção / Cadastro de um Calendário</h3>
+                    Calendário do Campeonato</h3>
                 <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
                     Informações e gerenciamento do calendário</p>
                 <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
@@ -116,46 +84,71 @@
             <div class="clear espaco">
                 &nbsp;
             </div>
-            <div class="grid_2">
-                <span class="label">Etapa:</span>
+            <div class="grid_3">
+                <span class="label">Calendario Selecionado:</span>
             </div>
-            <div class="grid_4">
-                <asp:TextBox ID="ltEtapa" runat="server" MaxLength="20" Width="100%"></asp:TextBox>
-            </div>
-            <div class="grid_2">
-                <span class="label">Data / Horário:</span>
-            </div>
-            <div class="grid_4">
-                <asp:TextBox ID="ltData" runat="server" MaxLength="10" Width="100px"></asp:TextBox>&nbsp;
-                <asp:TextBox ID="ltHora" runat="server" MaxLength="8" Width="50px"></asp:TextBox>
+            <div class="grid_9">
+                <asp:Label ID="lbCalendarioSelecionado" runat="server" Text="Teste"></asp:Label>
             </div>
             <div class="clear espaco_mini">
                 &nbsp;
             </div>
-            <div class="grid_2">
-                <span class="label">Kartódromo:</span>
+            <div class="grid_12" >
+                <asp:Button ID="BtnVoltarSelecionar" runat="server" Text="Voltar" OnClick="BtnVoltarSelecionar_Click" />
+                &nbsp; &nbsp;
             </div>
-            <div class="grid_4">
-                <asp:TextBox ID="ltKartodromo" runat="server" MaxLength="150" Width="100%"></asp:TextBox>
+            <div class="clear">
+                &nbsp;
             </div>
-            <div class="grid_2">
-                <span class="label">Circuito:</span>
+            <div class="grid_10">
+                <span class="label"><b>Grid de qualificação</b></span>
             </div>
-            <div class="grid_4">
-                <asp:TextBox ID="ltCircuito" runat="server" MaxLength="20" Width="100%"></asp:TextBox>
+            <div class="grid_2" style="text-align: right;">
+                &nbsp;<asp:Button ID="btnEditarGrid" runat="server" Text="Editar" Visible="false" OnClick="btnEditarGrid_Click" />
             </div>
             <div class="clear espaco_mini">
                 &nbsp;
             </div>
-            <div class="grid_4">
-                &nbsp;</div>
-            <div class="grid_8" style="text-align: right;">
-                &nbsp;
-                <asp:Button ID="btnAlterar" runat="server" Text="Salvar" OnClick="btnAlterar_Click" />&nbsp;
-                &nbsp;
-                <asp:Button ID="btnVoltar" runat="server" Text="Voltar" OnClick="btnVoltar_Click" />
+            <div class="grid_12">
+                <div class="template">
+                    <asp:GridView ID="gvGrid" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado de classificação"
+                        DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField HeaderText="Pos" DataField="Pos" />
+                            <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
+                            <asp:BoundField HeaderText="Nome Equipe" DataField="NomeEquipe" />
+                            <asp:BoundField HeaderText="Tempo" DataField="tempo" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
             </div>
             <div class="clear espaco">
+                &nbsp;
+            </div>
+            <div class="grid_10">
+                <span class="label"><b>Grid Final da Etapa</b></span>
+            </div>
+            <div class="grid_2" style="text-align: right;">
+                &nbsp;&nbsp;<asp:Button ID="btnEditResultado" runat="server" Text="Editar" Visible="false" OnClick="btnEditResultado_Click" />
+            </div>
+            <div class="clear espaco_mini">
+                &nbsp;
+            </div>
+            <div class="grid_12">
+                <div class="template">
+                    <asp:GridView ID="gvResultados" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado final"
+                        DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField HeaderText="Pos" DataField="Pos" />
+                            <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
+                            <asp:BoundField HeaderText="Nome Equipe" DataField="NomeEquipe" />
+                            <asp:BoundField HeaderText="Tempo" DataField="tempo" />
+                            <asp:BoundField HeaderText="Ponto" DataField="Ponto" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+            </div>
+            <div class="clear">
                 &nbsp;
             </div>
         </div>
