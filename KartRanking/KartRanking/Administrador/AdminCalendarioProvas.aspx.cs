@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
+using KartRanking.Tools;
 
 namespace KartRanking.Administrador
 {
@@ -54,7 +55,8 @@ namespace KartRanking.Administrador
         {
             var kg = (from g in dk.Kart_Campeonatos
                       where g.idGrupo == idGrupo
-                      && g.Ativo == true
+                      && (g.Ativo == true || g.idCampeonato == idCampeonato)
+                      orderby g.Ativo descending
                       select new { Text = g.NomeCampeonato, Value = g.idCampeonato });
 
             ddlCampeonatos.Items.Clear();
@@ -66,7 +68,7 @@ namespace KartRanking.Administrador
             if (ddlCampeonatos.Items.Count <= 0)
                 ddlCampeonatos.Items.Add(new ListItem("Nenhum campeonato neste grupo", "0"));
             else if (idCampeonato > 0)
-                ddlCampeonatos.Items.FindByValue(idCampeonato.ToString()).Selected = true;
+                ControlUtil.SelectByValue(ref ddlCampeonatos, idCampeonato.ToString());
         }
 
         private void popularEtapas(int idCampeonato)

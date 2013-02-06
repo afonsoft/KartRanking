@@ -19,8 +19,7 @@
                 });
 
                 $('#<%= txtUrlAcesso.ClientID %>').blur(function() {
-
-                    var dest = $('#<%= txtUrlAcesso.ClientID %>').val();
+                    var dest = $(this);
                     dest.val(dest.val().split(" ").join(""));
                 });
             } catch (e) { }
