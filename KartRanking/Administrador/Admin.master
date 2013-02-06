@@ -69,12 +69,11 @@
 	                                    <a href="#">Administração</a>
 	                                    <ul>
 	                                        <li><a href="AdminGrupo.aspx">Grupo</a></li>
-	                                        <li><a href="">Campeonatos</a>
+	                                        <li><a href="AdminCampeonato.aspx">Campeonatos</a>
 	                                            <ul>
 	                                                <li><a href="">Classificação dos Pilotos</a></li>
 	                                                <li><a href="">Classificação das Equipes</a></li>
 	                                                <li><a href="CalendarioProvas.aspx">Calendário das Provas</a></li>
-	                                                <li><a href="AdminCampeonato.aspx">Administrar</a></li>
 	                                            </ul>
 	                                        </li>
 	                                    </ul>
