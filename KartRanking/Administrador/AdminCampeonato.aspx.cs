@@ -207,7 +207,7 @@ namespace KartRanking.Administrador
             if (e.CommandName == "EditCalendario")
             {
                 int idCalendario = Convert.ToInt16(e.CommandArgument);
-                Response.Redirect("AdminCalendarioProvas.aspx?idGrupo=" + IdGrupo + "&IdCampeonato=" + IdCampeonato + "&idCalendario=" + idCalendario);
+                Response.Redirect("CalendarioProvas.aspx?idGrupo=" + IdGrupo + "&IdCampeonato=" + IdCampeonato + "&idCalendario=" + idCalendario);
             }
         }
     }
