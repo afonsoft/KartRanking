@@ -30,6 +30,7 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
+                ViewState["kgAtivo"] = true;
                 popularCampeonatos(IdGrupo, IdCampeonato);
                 popularEtapas(IdCampeonato);
 
@@ -40,11 +41,17 @@ namespace KartRanking.Administrador
                 imgAdd1.Visible = false;
                 imgAdd2.Visible = false;
 
-                if (IsAdmin)
+                if (IsAdmin && (bool)ViewState["kgAtivo"])
                 {
                     btnNovoCalendario.Visible = true;
                     imgAdd1.Visible = true;
                     imgAdd2.Visible = true;
+                }
+                if (Request.QueryString["IdCalendario"] != null)
+                {
+                    IdCalendario = Convert.ToInt32(Request.QueryString["IdCalendario"]);
+                    if (IdCalendario > 0)
+                        popularTelaEtapa(IdCalendario);
                 }
             }
         }
@@ -172,7 +179,7 @@ namespace KartRanking.Administrador
             PanelSelecionar.Visible = false;
             PanelGridEtapa.Visible = true;
 
-            if (!IsAdmin)
+            if (!IsAdmin || !(bool)ViewState["kgAtivo"])
             {
                 if (gvGrid.Rows.Count > 0)
                 {
@@ -181,11 +188,11 @@ namespace KartRanking.Administrador
                     foreach (GridViewRow r in gvGrid.Rows)
                         r.Cells[4].Visible = false;
                 }
-                if (gvEtapas.Rows.Count > 0)
+                if (gvResultados.Rows.Count > 0)
                 {
-                    gvEtapas.HeaderRow.Cells[5].Visible = false;
-                    gvEtapas.FooterRow.Cells[5].Visible = false;
-                    foreach (GridViewRow r in gvEtapas.Rows)
+                    gvResultados.HeaderRow.Cells[5].Visible = false;
+                    gvResultados.FooterRow.Cells[5].Visible = false;
+                    foreach (GridViewRow r in gvResultados.Rows)
                         r.Cells[5].Visible = false;
                 }
             }

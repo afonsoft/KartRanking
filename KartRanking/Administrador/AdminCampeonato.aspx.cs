@@ -17,6 +17,7 @@ namespace KartRanking.Administrador
             {
                 if (!IsPostBack)
                 {
+                    ViewState["kgAtivo"] = true;
                     if (IdCampeonato > 0)
                     {
                         PopularTela(IdCampeonato, IdGrupo);
@@ -24,6 +25,13 @@ namespace KartRanking.Administrador
                         ltDescricao.Text = "Efetuar alteração do Campeonato";
                         DisableEditCampeonato(true);
                         popularCalendario(IdCampeonato);
+                        btnEditar.Visible = false;
+                        btnNovo.Visible = false;
+                        if (IsAdmin)
+                        {
+                            btnNovo.Visible = true;
+                            btnEditar.Visible = true;
+                        }
                     }
                     else
                     {
@@ -76,6 +84,7 @@ namespace KartRanking.Administrador
 
             if (kc != null)
             {
+                ViewState["kgAtivo"] = kc.Ativo.HasValue ? kc.Ativo.Value : false;
                 txtDtFim.Text = kc.dtFim.ToString("dd/MM/yyyy");
                 txtDtInicio.Text = kc.dtInicio.ToString("dd/MM/yyyy");
                 txtNomeCampeonato.Text = kc.NomeCampeonato;
