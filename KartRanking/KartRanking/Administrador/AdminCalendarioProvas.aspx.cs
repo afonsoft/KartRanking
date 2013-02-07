@@ -31,6 +31,7 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
+                ViewState["kgAtivo"] = true;
                 if (Request.QueryString["idCalendario"] != null)
                     IdCalendario = Convert.ToInt16(Request.QueryString["idCalendario"]);
                 if (Request.QueryString["IdCampeonato"] != null)
