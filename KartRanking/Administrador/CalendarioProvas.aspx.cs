@@ -120,6 +120,11 @@ namespace KartRanking.Administrador
 
         private void popularTelaEtapa(int idCalendario)
         {
+
+            lbCalendarioSelecionado.Text = (from cc in dk.Kart_Calendario_Campeonatos
+                                            where cc.idCalendario == idCalendario
+                                            select cc.Nome).FirstOrDefault();
+
             var grid = (from g in dk.Kart_Grid_Calendarios
                         join u in dk.Usuarios on g.idUsuario equals u.idUsuario
                         join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
