@@ -56,13 +56,23 @@
                                     Nome</HeaderTemplate>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idCalendario" )%>'
-                                        CommandName="EditCalendario"><%# Eval("Nome")%></asp:LinkButton>
+                                        CommandName="ViewCalendario"><%# Eval("Nome")%></asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="Data" SortExpression="Data" DataField="Data" DataFormatString="{0:dd/MM/yyyy}" />
                             <asp:BoundField HeaderText="Kartodromo" SortExpression="Kartodromo" DataField="Kartodromo" />
                             <asp:BoundField HeaderText="Horario" SortExpression="Horario" DataField="Horario" />
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Editar</HeaderTemplate>
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="imgbntEditar" ImageUrl="~/images/Edit16px.png" Height="16px"
+                                        Width="16px" runat="server" ToolTip="Editar esta Etapa do Campeonato" CommandArgument='<%# Eval( "idCalendario" )%>'
+                                        CommandName="EditCalendario"  />
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
                             <asp:TemplateField>
                                 <HeaderTemplate>
                                     Excluir</HeaderTemplate>

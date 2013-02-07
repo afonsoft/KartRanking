@@ -57,7 +57,7 @@ namespace KartRanking.Administrador
                       where g.idGrupo == idGrupo
                       && (g.Ativo == true || g.idCampeonato == idCampeonato)
                       orderby g.Ativo descending
-                      select new { Text = g.NomeCampeonato, Value = g.idCampeonato });
+                      select new { Text = g.NomeCampeonato, Value = g.idCampeonato, Ativo = g.Ativo, g.idCampeonato });
 
             ddlCampeonatos.Items.Clear();
             ddlCampeonatos.DataSource = kg;
@@ -68,11 +68,21 @@ namespace KartRanking.Administrador
             if (ddlCampeonatos.Items.Count <= 0)
                 ddlCampeonatos.Items.Add(new ListItem("Nenhum campeonato neste grupo", "0"));
             else if (idCampeonato > 0)
+            {
                 ControlUtil.SelectByValue(ref ddlCampeonatos, idCampeonato.ToString());
+                bool? kgAtivo = (from k in kg where k.idCampeonato == idCampeonato select k.Ativo).FirstOrDefault();
+                ViewState["kgAtivo"] = kgAtivo.HasValue ? kgAtivo.Value : false;
+            }
         }
 
         private void popularEtapas(int idCampeonato)
         {
+            bool? kgAtivo = (from g in dk.Kart_Campeonatos
+                        where g.idGrupo == IdGrupo
+                        && g.idCampeonato == idCampeonato
+                        select g.Ativo).FirstOrDefault();
+            ViewState["kgAtivo"] = kgAtivo.HasValue? kgAtivo.Value : false;
+
             //Listar as Etapas do Campeonato
             var Calendario_Campeonato = (from cc in dk.Kart_Calendario_Campeonatos
                                          where cc.idCampeonato == idCampeonato
@@ -91,7 +101,7 @@ namespace KartRanking.Administrador
         private void popularTelaEdit(int idCampeonato, int idCalendario)
         {
             Kart_Calendario_Campeonato cc = (from c in dk.Kart_Calendario_Campeonatos
-                                             where c.idCalendario == IdCalendario
+                                             where c.idCalendario == idCalendario
                                              && c.idCampeonato == IdCampeonato
                                              select c).FirstOrDefault();
             if (cc != null)
@@ -111,11 +121,19 @@ namespace KartRanking.Administrador
 
         protected void gvEtapas_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int idCalendario = Convert.ToInt16(e.CommandArgument);
-            if (e.CommandName == "EditCalendario")
-                popularTelaEdit(IdCampeonato, idCalendario);
-            else if (e.CommandName == "ExcluirCalendario")
-                excluirCalendario(IdCampeonato, idCalendario);
+            bool b = (bool)ViewState["kgAtivo"];
+            IdCalendario = Convert.ToInt16(e.CommandArgument);
+            if (e.CommandName == "EditCalendario" && b)
+                popularTelaEdit(IdCampeonato, IdCalendario);
+            else if (e.CommandName == "ExcluirCalendario" && b)
+                excluirCalendario(IdCampeonato, IdCalendario);
+            else if (e.CommandName == "ViewCalendario")
+                viewCalendario(IdCampeonato, IdCalendario);
+        }
+
+        private void viewCalendario(int IdCampeonato, int IdCalendario)
+        {
+            
         }
 
         private void excluirCalendario(int IdCampeonato, int idCalendario)

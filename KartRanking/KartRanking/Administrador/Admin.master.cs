@@ -215,6 +215,8 @@ namespace KartRanking.Administrador
 
         protected void ddlGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ViewState["IdCalendario"] = 0;
+            Session["IdCampeonato"] = 0;
             Session["IdGrupo"] = ddlGrupos.SelectedValue;
             CarregarCampeonato(Convert.ToInt16(ddlGrupos.SelectedValue));
             //string url = AlterarGrupo(Request.Url.LocalPath, Request.QueryString, ddlGrupos.SelectedValue);
