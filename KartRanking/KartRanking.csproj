@@ -166,6 +166,13 @@
     <Compile Include="Admin\listarGrupos.aspx.designer.cs">
       <DependentUpon>listarGrupos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\PermissoesGrupo.aspx.cs">
+      <DependentUpon>PermissoesGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PermissoesGrupo.aspx.designer.cs">
+      <DependentUpon>PermissoesGrupo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaseDados\DataKart.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -394,6 +401,7 @@
     <Content Include="Administrador\PermissaoGrupo.aspx" />
     <Content Include="Administrador\PilotosEquipesGrupo.aspx" />
     <Content Include="Administrador\TesteMenu.aspx" />
+    <Content Include="Admin\PermissoesGrupo.aspx" />
     <Content Include="css\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />
