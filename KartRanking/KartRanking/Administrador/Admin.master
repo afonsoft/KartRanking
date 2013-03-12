@@ -180,7 +180,7 @@
                                     </asp:ContentPlaceHolder>
                                 </asp:Panel>
                                 <asp:Panel ID="pnlNotLogin" Visible="true" runat="server">
-                                    <b>Efetue o Login no sistea</b><br />
+                                    <b>Efetue o Login no sistema</b><br />
                                     <span style="font-style: italic; font-size: 9px;">Você não está logado no sistema, caso
                                         queira acessar os recursos administrativo, favor efetuar o login.</span><br />
                                     <br />
