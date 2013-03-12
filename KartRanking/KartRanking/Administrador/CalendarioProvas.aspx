@@ -75,6 +75,7 @@
 
             function OpenGrid(id, op) {
                 document.getElementById('<%= HiddenIdGrid.ClientID %>').value = id;
+                document.getElementById('<%= HiddenIdEtapa.ClientID %>').value = 0;
                 document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
 
                 $('#OpenGrid').dialog({
@@ -97,6 +98,7 @@
 
             function OpenEtapa(id, op) {
                 document.getElementById('<%= HiddenIdEtapa.ClientID %>').value = id;
+                document.getElementById('<%= HiddenIdGrid.ClientID %>').value = 0;
                 document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
 
                 $('#OpenEtapa').dialog({
