@@ -19,7 +19,7 @@ namespace KartRanking.Administrador
             {
                 if (!IsPostBack)
                 {
-                    //MeusDados.aspx?idUsuario={0}&Edit={1}&idGrupo={2}
+                    //perfil.aspx?idUsuario={0}&Edit={1}&idGrupo={2}
                     bool EditUser = false;
                     int idUsuario = 0;
                     int idGrupo = 0;
@@ -30,10 +30,8 @@ namespace KartRanking.Administrador
                         idUsuario = Convert.ToInt16(Request.QueryString["idUsuario"]);
                         idGrupo = Convert.ToInt16(Request.QueryString["idGrupo"]);
 
-                        if (idGrupo <= 0 || idUsuario <= 0)
+                        if (idUsuario <= 0)
                             throw new Exception("Informações inválida!");
-
-                        Session["idGrupo"] = idGrupo;
 
                         try { EditUser = Convert.ToBoolean(Request.QueryString["Edit"]); }
                         catch { EditUser = false; }
