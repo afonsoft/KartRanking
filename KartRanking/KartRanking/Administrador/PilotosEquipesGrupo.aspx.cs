@@ -136,10 +136,10 @@ namespace KartRanking.Administrador
 
                         if (equipe != null)
                         {
-                            //txtNomeEquipe.Text = equipe.NomeEquipe;
-                            //txtSigla.Text = equipe.Sigla;
+                            txtNomeEquipe.Text = equipe.NomeEquipe;
+                            txtSigla.Text = equipe.Sigla;
 
-                            //Page.ClientScript.RegisterStartupScript(this.GetType(), "Edit", "OpenCadastro(); $(document).ready(function() {  $('#accordion').tabs( 'select' , 1); });", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Edit", "OpenCadastro(0);", true);
                         }
                         else
                             Alert("Erro para recuperar as informações da equipe!");
@@ -267,6 +267,73 @@ namespace KartRanking.Administrador
             (sender as GridView).EditIndex = -1;
             (sender as GridView).DataSource = getUserGrid();
             (sender as GridView).DataBind();
+        }
+
+        protected void lnkConfirmar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsAdmin)
+                {
+                    if (String.IsNullOrEmpty(HiddenIdEquipeCampeonato.Value))
+                        HiddenIdEquipeCampeonato.Value = "0";
+
+                    int IdEquipeCampeonato = Convert.ToInt16(HiddenIdEquipeCampeonato.Value);
+
+                    if (String.IsNullOrEmpty(txtNomeEquipe.Text) || String.IsNullOrEmpty(txtSigla.Text))
+                        throw new Exception("Campos obrigatório não preenchido!");
+
+                    int count = (from g in dk.Kart_Campeonatos
+                                 join e1 in dk.Kart_Equipe_Campeonatos on g.idCampeonato equals e1.idCampeonato
+                                 where (g.idGrupo == IdGrupo && e1.idEquipeCampeonato > IdEquipeCampeonato)
+                                && (e1.NomeEquipe.Contains(txtNomeEquipe.Text) || e1.Sigla.Contains(txtSigla.Text))
+                                && e1.idCampeonato == IdCampeonato
+                                 select g).Count();
+
+                    if (count > 0)
+                        throw new Exception("Já existe um grupo com o mesmo nome ou sigla!");
+
+                    Kart_Equipe_Campeonato equipe = null;
+
+                    if (IdEquipeCampeonato == 0)
+                    {
+                        equipe = new Kart_Equipe_Campeonato();
+                        equipe.dtCriacao = DateTime.Now;
+                    }
+                    else
+                        equipe = (from e1 in dk.Kart_Equipe_Campeonatos where e1.idEquipeCampeonato == IdEquipeCampeonato select e1).FirstOrDefault();
+
+                    if (equipe != null)
+                    {
+                        equipe.idCampeonato = IdCampeonato;
+                        equipe.NomeEquipe = txtNomeEquipe.Text;
+                        equipe.Sigla = txtSigla.Text;
+
+                        if (IdEquipeCampeonato == 0)
+                            dk.GetTable<Kart_Equipe_Campeonato>().InsertOnSubmit(equipe);
+
+                        dk.SubmitChanges();
+
+                        PopularEquipes();
+
+                        if (IdEquipeCampeonato == 0)
+                            Alert("Equipe cadastrado com sucesso!");
+                        else
+                            Alert("Equipe alterada com sucesso!");
+                    }
+                    else
+                        Alert("Erro para alterar a equipe!");
+
+
+                    HiddenIdEquipeCampeonato.Value = "0";
+                }
+                else
+                    Alert("Você não é o administrador do grupo para efetuar essa operação!");
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
         }
     }
 }

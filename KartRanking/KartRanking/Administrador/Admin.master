@@ -46,11 +46,13 @@
 
     <% if (!pnlLogin.Visible)
        { %>
+
     <script type="text/javascript">
         $(function() {
             $("input:submit, input:button, button").button();
         });          
     </script>
+
     <%} %>
     <asp:HiddenField ID="HiddenidGrupo" runat="server" />
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -82,17 +84,16 @@
 	                                    <a href="#">Pilotos</a>
 	                                    <ul>
 	                                        <li><a href="PilotosEquipesGrupo.aspx?op=1">Pilotos do Grupo</a></li>
-	                                        <li><a href="">Cadastrar / Remover</a></li>
+	                                        <li><a href="InscricoesUsuariosGrupo.aspx">Cadastrar / Remover</a></li>
 	                                    </ul>
 	                                </li>
 	                                <li>
 	                                    <a href="#">Equipes</a>
 	                                    <ul>
 	                                        <li><a href="PilotosEquipesGrupo.aspx?op=2">Equipes do Campeonato</a></li>
-	                                        <li><a href="">Cadastrar / Remover</a></li>
 	                                    </ul>
 	                                </li>
-	                                <li><a href="">Inscrições do Grupo</a></li>
+	                                <li><a href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
 	                                <li><a href="">Permissões do Grupo</a></li>
 	                                 <li><asp:LinkButton ID="lnkSair" runat="server" onclick="lnkSair_Click">Sair</asp:LinkButton></li>
 	                            </ul>

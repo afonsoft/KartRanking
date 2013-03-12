@@ -84,6 +84,34 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelEquipes" runat="server">
+    
+    <script type="text/javascript">
+        function OpenCadastro(op) {
+
+            if (op == 1) {
+                var hidden = document.getElementById('<%= HiddenIdEquipeCampeonato.ClientID %>');
+                var txtNome = document.getElementById('<%= txtNomeEquipe.ClientID %>');
+                var txtSigla = document.getElementById('<%= txtSigla.ClientID %>');
+                hidden.value = "0";
+                txtNome.value = "";
+                txtSigla.value = "";
+            }
+        
+            jQuery('#CadEquipe').dialog({
+                autoOpen: false, bgiframe: false, hide: 'explode', resizable: false, draggable: false,
+                modal: false, show: 'slide', minHeight: 200, minWidth: 300,
+                maxHeight: 300, maxWidth: 500, title: "Aviso",
+                buttons: {
+                    "Salvar": function() { jQuery('#CadEquipe').dialog("close"); __doPostBack('<%= lnkConfirmar.UniqueID %>', ''); return true; },
+                    "Sair": function() { jQuery('#CadEquipe').dialog("close"); return true; }
+                }
+            });
+            jQuery('#CadEquipe').dialog({ width: 300, height: 160 });
+            jQuery("#CadEquipe").parent().appendTo(jQuery("form:first"));
+            jQuery('#CadEquipe').dialog('open');
+        }      
+    </script>
+    
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="titulo">
@@ -106,47 +134,80 @@
             <div class="clear espaco_mini">
                 &nbsp;
             </div>
-            <div class="grid_12">
-                <div class="template">
-                    <asp:GridView ID="gvEquipes" CssClass="gridview" runat="server" DataKeyNames="idEquipeCampeonato"
-                        EmptyDataText="Nenhuma equipe neste grupo" OnRowCommand="gvEquipes_RowCommand"
-                        AutoGenerateColumns="false">
-                        <Columns>
-                            <asp:TemplateField>
-                                <HeaderTemplate>
-                                    Siga</HeaderTemplate>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkCodCalendario" runat="server" CommandArgument='<%# Eval( "idEquipeCampeonato" )%>'
-                                        CommandName="EditCalendario"><%# Eval("Sigla")%></asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField>
-                                <HeaderTemplate>
-                                    Nome Equipe</HeaderTemplate>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idEquipeCampeonato" )%>'
-                                        CommandName="EditCalendario"><%# Eval("NomeEquipe")%></asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField>
-                                <HeaderStyle HorizontalAlign="Center" Width="50px" />
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkExluir" CommandArgument='<%# Eval("idEquipeCampeonato") %>'
-                                        CommandName="Exluir" OnClientClick="return confirm('Deseja excluir a Equipe?\nOs pontos da equipe e do piloto serão apagados!');"
-                                        runat="server">Excluir</asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
+            <div class="grid_12" style="text-align: right;">
+                <input id="Button1" type="button" value="Adicionar" onclick="OpenCadastro(1);" />
+                <!-- Dialog Cadastro -->
+                <asp:HiddenField ID="HiddenIdEquipeCampeonato" runat="server" />
+                <div id="CadEquipe" title="Cadastrar / Alterar Equipe" style="display: none; font-size: x-small;
+                    color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+                    class="ui-dialog ui-resizable-handle">
+                    <table width="98%" cellpadding="1" cellspacing="1" border="0">
+                        <tr>
+                            <td>
+                                <span style="color:White;"><b>Nome:</b></span>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtNomeEquipe" Width="98%" MaxLength="20" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span style="color:White;"><b>Sigla:</b></span>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtSigla" MaxLength="5" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="display: none;">
+                        <asp:LinkButton ID="lnkConfirmar" runat="server" OnClick="lnkConfirmar_Click"></asp:LinkButton>
+                    </div>
                 </div>
             </div>
-            <div class="clear espaco">
-                &nbsp;
+            <!-- Fim Dialog Cadastro -->
+        <div class="clear espaco_mini">
+            &nbsp;
+        </div>
+        <div class="grid_12">
+            <div class="template">
+                <asp:GridView ID="gvEquipes" CssClass="gridview" runat="server" DataKeyNames="idEquipeCampeonato"
+                    EmptyDataText="Nenhuma equipe neste grupo" OnRowCommand="gvEquipes_RowCommand"
+                    AutoGenerateColumns="false">
+                    <Columns>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                Sigla</HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkCodCalendario" runat="server" CommandArgument='<%# Eval( "idEquipeCampeonato" )%>'
+                                    CommandName="EditCalendario"><%# Eval("Sigla")%></asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                Nome Equipe</HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idEquipeCampeonato" )%>'
+                                    CommandName="EditCalendario"><%# Eval("NomeEquipe")%></asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <HeaderStyle HorizontalAlign="Center" Width="50px" />
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkExluir" CommandArgument='<%# Eval("idEquipeCampeonato") %>'
+                                    CommandName="Exluir" OnClientClick="return confirm('Deseja excluir a Equipe?\nOs pontos da equipe e do piloto serão apagados!');"
+                                    runat="server">Excluir</asp:LinkButton>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
-        <asp:HiddenField ID="HiddenIdEquipeCampeonato" runat="server" />
+        <div class="clear espaco">
+            &nbsp;
+        </div>
+        </div>
     </asp:Panel>
 </asp:Content>
