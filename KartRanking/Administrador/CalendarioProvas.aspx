@@ -43,15 +43,6 @@
                         <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
-                                    Código</HeaderTemplate>
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkCodCalendario" runat="server" CommandArgument='<%# Eval( "idCalendario" )%>'
-                                        CommandName="EditCalendario"><%# Eval("idCalendario")%></asp:LinkButton>
-                                </ItemTemplate>
-                                <ItemStyle HorizontalAlign="Center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField>
-                                <HeaderTemplate>
                                     Nome</HeaderTemplate>
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idCalendario" )%>'
@@ -85,9 +76,9 @@
             function OpenGrid(id, op) {
                 document.getElementById('<%= HiddenIdGrid.ClientID %>').value = id;
                 document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
-                
+
                 $('#OpenGrid').dialog({
-                    autoOpen: false, hide: 'explode', modal: false, show: 'slide', 
+                    autoOpen: false, hide: 'explode', modal: false, show: 'slide',
                     buttons: {
                         "Salvar": function() {
                             $('#OpenGrid').dialog("close");
@@ -97,34 +88,34 @@
                         },
                         "Sair": function() { $('#OpenGrid').dialog("close"); return true; }
                     }
-                    });
-                    $('#OpenGrid').dialog({ width: 620, height: 220 });
-                    $('#OpenGrid').parent().appendTo($("form:first"));
-                    $('#OpenGrid').dialog('open');
-                    return true;
-                }
+                });
+                $('#OpenGrid').dialog({ width: 550, height: 220 });
+                $('#OpenGrid').parent().appendTo($("form:first"));
+                $('#OpenGrid').dialog('open');
+                return true;
+            }
 
-                function OpenEtapa(id, op) {
-                    document.getElementById('<%= HiddenIdEtapa.ClientID %>').value = id;
-                    document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
+            function OpenEtapa(id, op) {
+                document.getElementById('<%= HiddenIdEtapa.ClientID %>').value = id;
+                document.getElementById('<%= HiddenFieldOpEdit.ClientID %>').value = op;
 
-                    $('#OpenEtapa').dialog({
-                        autoOpen: false, hide: 'explode', modal: false, show: 'slide', 
-                        buttons: {
-                            "Salvar": function() {
-                                $('#OpenEtapa').dialog("close");
-                                document.getElementById('<%= HiddenIdEtapaPiloto.ClientID %>').value = document.getElementById('<%= ddlEtapaPilotoDisponivel.ClientID %>').selectedIndex;
-                                __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
-                                return true;
-                            },
-                            "Sair": function() { $('#OpenEtapa').dialog("close"); return true; }
-                        }
-                    });
-                    $('#OpenEtapa').dialog({ width: 520, height: 220 });
-                    $('#OpenEtapa').parent().appendTo($("form:first"));
-                    $('#OpenEtapa').dialog('open');
-                    return true;
-                }
+                $('#OpenEtapa').dialog({
+                    autoOpen: false, hide: 'explode', modal: false, show: 'slide',
+                    buttons: {
+                        "Salvar": function() {
+                            $('#OpenEtapa').dialog("close");
+                            document.getElementById('<%= HiddenIdEtapaPiloto.ClientID %>').value = document.getElementById('<%= ddlEtapaPilotoDisponivel.ClientID %>').selectedIndex;
+                            __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
+                            return true;
+                        },
+                        "Sair": function() { $('#OpenEtapa').dialog("close"); return true; }
+                    }
+                });
+                $('#OpenEtapa').dialog({ width: 600, height: 220 });
+                $('#OpenEtapa').parent().appendTo($("form:first"));
+                $('#OpenEtapa').dialog('open');
+                return true;
+            }
             
         </script>
 
@@ -149,7 +140,7 @@
             <div class="clear espaco_mini">
                 &nbsp;
             </div>
-            <div class="grid_12" style="text-align:right;">
+            <div class="grid_12" style="text-align: right;">
                 <asp:Button ID="BtnVoltarSelecionar" runat="server" Text="Voltar" OnClick="BtnVoltarSelecionar_Click" />
                 &nbsp; &nbsp;
             </div>
@@ -242,30 +233,30 @@
             color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
             class="ui-dialog ui-resizable-handle">
             <dl>
-                <dt><b style="color:White;">Grid Qualificação</b></dt>
+                <dt><b>Grid Qualificação</b></dt>
                 <dd>
                     <table width="98%">
                         <tr>
-                            <td style="color:White;">
+                            <td>
                                 Posição
                             </td>
-                            <td style="color:White;">
+                            <td>
                                 Piloto
                             </td>
-                            <td style="color:White;">
+                            <td>
                                 Tempo
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:TextBox ID="txtGridPos" MaxLength="2" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtGridPos" MaxLength="2" Width="50px" runat="server"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:DropDownList ID="ddlGridPilotoDisponivel" Width="250px" runat="server">
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtGridTempo" MaxLength="10" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtGridTempo" MaxLength="10" Width="100px" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
@@ -278,36 +269,36 @@
             color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
             class="ui-dialog ui-resizable-handle">
             <dl>
-                <dt><b style="color:White;">Grid Final da Etapa</b></dt>
+                <dt><b>Grid Final da Etapa</b></dt>
                 <dd>
                     <table width="98%">
                         <tr>
-                            <td style="color:White;">
+                            <td>
                                 Posição
                             </td>
-                            <td style="color:White;">
+                            <td>
                                 Piloto
                             </td>
-                            <td style="color:White;">
+                            <td>
                                 Tempo
                             </td>
-                            <td style="color:White;">
+                            <td>
                                 Pontos
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:TextBox ID="txtEtapaPos" MaxLength="2" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtEtapaPos" MaxLength="2" runat="server" Width="50px"></asp:TextBox>
                             </td>
                             <td>
                                 <asp:DropDownList ID="ddlEtapaPilotoDisponivel" Width="250px" runat="server">
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtEtapaTempo" MaxLength="10" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtEtapaTempo" MaxLength="10" Width="100px" runat="server"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtEtapaPontos" MaxLength="3" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtEtapaPontos" MaxLength="3" Width="50px" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
