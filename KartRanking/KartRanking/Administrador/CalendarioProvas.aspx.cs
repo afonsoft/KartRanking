@@ -33,7 +33,7 @@ namespace KartRanking.Administrador
                 ViewState["kgAtivo"] = true;
                 popularCampeonatos(IdGrupo, IdCampeonato);
                 popularEtapas(IdCampeonato);
-
+                
                 PanelSelecionar.Visible = true;
                 PanelGridEtapa.Visible = false;
 
@@ -51,9 +51,63 @@ namespace KartRanking.Administrador
                 {
                     IdCalendario = Convert.ToInt32(Request.QueryString["IdCalendario"]);
                     if (IdCalendario > 0)
+                    {
                         popularTelaEtapa(IdCalendario);
+                        PopularDDL(IdCalendario);
+                    }
                 }
             }
+        }
+
+        private void PopularDDL(int idCalendario)
+        {
+
+            //recuperar somente os usuarios que não está cadastro no resultados.
+            var PilotosEtapa = from kart_usuario_grupos in dk.Kart_Usuario_Grupos
+                               join usuarios in dk.Usuarios on kart_usuario_grupos.idUsuario equals usuarios.idUsuario
+                               join kart_campeonatos in dk.Kart_Campeonatos on kart_usuario_grupos.idGrupo equals kart_campeonatos.idGrupo
+                               join kart_calendario_campeonatos in dk.Kart_Calendario_Campeonatos on kart_campeonatos.idCampeonato equals kart_calendario_campeonatos.idCampeonato
+                               where !(from a in dk.Kart_Resultado_Calendarios
+                                        where a.idCalendario == kart_calendario_campeonatos.idCalendario
+                                        select new { a.idUsuario}).Contains(new { usuarios.idUsuario }) 
+                                    && kart_usuario_grupos.idGrupo == IdGrupo 
+                                    && kart_calendario_campeonatos.idCalendario == idCalendario
+                               select new
+                               {
+                                   idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
+                                   usuarios.Nome
+                               };
+
+            ddlEtapaPilotoDisponivel.DataSource = PilotosEtapa;
+            ddlEtapaPilotoDisponivel.DataTextField = "Nome";
+            ddlEtapaPilotoDisponivel.DataValueField = "idUsuario";
+            ddlEtapaPilotoDisponivel.DataBind();
+
+            var Pilotos = from kart_usuario_grupos in dk.Kart_Usuario_Grupos
+                          join usuarios in dk.Usuarios on kart_usuario_grupos.idUsuario equals usuarios.idUsuario
+                          join kart_campeonatos in dk.Kart_Campeonatos on kart_usuario_grupos.idGrupo equals kart_campeonatos.idGrupo
+                          join kart_calendario_campeonatos in dk.Kart_Calendario_Campeonatos on kart_campeonatos.idCampeonato equals kart_calendario_campeonatos.idCampeonato
+                          where
+                            !
+                              (from a in dk.Kart_Grid_Calendarios
+                               where
+                                 a.idCalendario == kart_calendario_campeonatos.idCalendario
+                               select new
+                               {
+                                   a.idUsuario
+                               }).Contains(new { usuarios.idUsuario }) &&
+                                kart_usuario_grupos.idGrupo == IdGrupo &&
+                                kart_calendario_campeonatos.idCalendario == idCalendario
+                          select new
+                          {
+                              idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
+                              usuarios.Nome
+                          };
+
+            ddlGridPilotoDisponivel.DataSource = Pilotos;
+            ddlGridPilotoDisponivel.DataTextField = "Nome";
+            ddlGridPilotoDisponivel.DataValueField = "idUsuario";
+            ddlGridPilotoDisponivel.DataBind();
         }
 
         private void popularCampeonatos(int idGrupo, int idCampeonato)
@@ -181,6 +235,8 @@ namespace KartRanking.Administrador
 
             gvResultados.DataSource = Resultado;
             gvResultados.DataBind();
+
+            PopularDDL(idCalendario);
             PanelSelecionar.Visible = false;
             PanelGridEtapa.Visible = true;
 

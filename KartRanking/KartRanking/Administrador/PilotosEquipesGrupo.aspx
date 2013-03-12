@@ -144,7 +144,7 @@
                     <table width="98%" cellpadding="1" cellspacing="1" border="0">
                         <tr>
                             <td>
-                                <span style="color:White;"><b>Nome:</b></span>
+                                <span ><b>Nome:</b></span>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtNomeEquipe" Width="98%" MaxLength="20" runat="server"></asp:TextBox>
@@ -152,7 +152,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span style="color:White;"><b>Sigla:</b></span>
+                                <span ><b>Sigla:</b></span>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtSigla" MaxLength="5" runat="server"></asp:TextBox>
