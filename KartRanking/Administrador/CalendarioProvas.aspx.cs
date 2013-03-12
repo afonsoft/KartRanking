@@ -268,12 +268,12 @@ namespace KartRanking.Administrador
 
         protected void gvGrid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            Alert("Em desenvolvimento");
         }
 
         protected void gvResultados_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            Alert("Em desenvolvimento");
         }
 
         protected void imgAdd_Click(object sender, ImageClickEventArgs e)
@@ -287,7 +287,9 @@ namespace KartRanking.Administrador
 
         protected void lnkAtualizaGridEtapa_Click(object sender, EventArgs e)
         {
-
+            string op = HiddenFieldOpEdit.Value;
+            int idGrid = Convert.ToInt16(HiddenIdGrid.Value);
+            int idEtapa = Convert.ToInt16(HiddenIdEtapa.Value);
         }
     }
 }
