@@ -59,15 +59,6 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.DropDownList ddlCampeonatos2;
         
         /// <summary>
-        /// gvEquipes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvEquipes;
-        
-        /// <summary>
         /// HiddenIdEquipeCampeonato control.
         /// </summary>
         /// <remarks>
@@ -75,5 +66,41 @@ namespace KartRanking.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenIdEquipeCampeonato;
+        
+        /// <summary>
+        /// txtNomeEquipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomeEquipe;
+        
+        /// <summary>
+        /// txtSigla control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSigla;
+        
+        /// <summary>
+        /// lnkConfirmar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkConfirmar;
+        
+        /// <summary>
+        /// gvEquipes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvEquipes;
     }
 }
