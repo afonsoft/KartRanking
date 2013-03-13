@@ -17,6 +17,7 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
+                ((Admin)Page.Master).ConteudoVisible = true;
                 string id = Request.QueryString["id"];
                 ViewState["id"] = 0;
                 if (!string.IsNullOrEmpty(id))

@@ -132,6 +132,19 @@ namespace KartRanking.Administrador
         }
         #endregion
 
+        public bool ConteudoVisible
+        {
+            get
+            {
+                return pnlConteudo.Visible;
+            }
+            set
+            {
+                pnlConteudo.Visible = value;
+                pnlNotLogin.Visible = !value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -156,8 +169,11 @@ namespace KartRanking.Administrador
                 else
                 {
                     lblNomeUsuario.Text = "Visitante";
-                    pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = false;
-                    pnlLogin.Visible = pnlNotLogin.Visible = true;
+                    pnlMenu.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = false;
+                    pnlLogin.Visible =  true;
+
+                    pnlConteudo.Visible = ConteudoVisible;
+                    pnlNotLogin.Visible = !ConteudoVisible;
                 }
 
             }
@@ -242,8 +258,6 @@ namespace KartRanking.Administrador
             else
                 return url + rurl + "?IdGrupo=" + idGrupo;
         }
-
-       
 
     }
 }
