@@ -133,9 +133,15 @@ namespace KartRanking.Administrador
                     msg += "Este e-mail já está associado a este grupo!\n";
                 }
             }
-
-            EMail.EnviarEmailBemvido(usr, idGrupo);
-            Alert("Atenção!\n\n" + msg);
+            if (!ExistUser)
+            {
+                EMail.EnviarEmailBemvido(usr, idGrupo);
+                Alert("Atenção!\n\n" + msg, null, "index.aspx");
+            }
+            else
+            {
+                Alert("Atenção!\n\n" + msg);
+            }
         }
 
         private string GerarSenhaAleatorio()

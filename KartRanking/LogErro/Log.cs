@@ -46,7 +46,7 @@ namespace KartRanking.LogErro
                     StackTrace += ex.StackTrace + Environment.NewLine;
                     TargetSite += ex.TargetSite + Environment.NewLine;
                     Source += ex.Source + Environment.NewLine;
-                    tmp = ex.InnerException;
+                    tmp = tmp.InnerException;
                 }
 
                 LogDb(msg, MsgEr, StackTrace, TargetSite, Source, Current);
