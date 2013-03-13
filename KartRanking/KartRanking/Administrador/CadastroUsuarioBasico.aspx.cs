@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
+using System.Data.Linq;
+using KartRanking.email;
 
 namespace KartRanking.Administrador
 {
@@ -50,7 +52,9 @@ namespace KartRanking.Administrador
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             string s = "";
+            string msg = "";
             string mail = txtMail.Text;
+            int idGrupo = Convert.ToInt32(ViewState["id"].ToString());
 
             if (string.IsNullOrEmpty(mail))
             {
@@ -74,6 +78,73 @@ namespace KartRanking.Administrador
                 Alert("O valor da captcha não confere.");
                 return;
             }
+
+            //Verificar se já existe cadastro um usuario com este e-mail.
+            Usuario usr = (from k in dk.Usuarios
+                           where k.Email == mail
+                           select k).FirstOrDefault();
+
+            bool ExistUser = true;
+            if (usr == null)
+            {
+                ExistUser = false;
+                string Apelido = mail.Substring(0, mail.IndexOf('@'));
+                if (Apelido.Length >= 29) Apelido.Substring(0, 29);
+
+                usr = new Usuario();
+                usr.Nome = mail;
+                usr.Email = mail;
+                usr.Apelido = Apelido;
+                usr.Senha = GerarSenhaAleatorio();
+                usr.MostarInfo = true;
+                usr.Ativo = false;
+
+                dk.GetTable<Usuario>().InsertOnSubmit(usr);
+                dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                msg += "Usuário cadastrado com sucesso!\n";
+
+            }
+            else
+            {
+                msg += "Este e-mail já existe na nossa base de dados!\n";
+            }
+
+            if (idGrupo > 0)
+            {
+                bool exist = (from g in dk.Kart_Usuario_Grupos
+                              where g.idGrupo == idGrupo
+                              && g.idUsuario == usr.idUsuario
+                              select g).Count() > 0;
+                if (!exist)
+                {
+                    Kart_Usuario_Grupo kug = new Kart_Usuario_Grupo();
+                    kug.Admin = false;
+                    kug.Aprovado = true;
+                    kug.idGrupo = idGrupo;
+                    kug.idUsuario = usr.idUsuario;
+                    kug.dtCriacao = DateTime.Now;
+
+                    dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
+                    dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                    msg += "Usuário associado ao grupo com sucesso!\n";
+                }
+                else
+                {
+                    msg += "Este e-mail já está associado a este grupo!\n";
+                }
+            }
+
+            EMail.EnviarEmailBemvido(usr, idGrupo);
+            Alert("Atenção!\n\n" + msg);
+        }
+
+        private string GerarSenhaAleatorio()
+        {
+            Random rnd = new Random();
+            string pw = "";
+            for (int i = 0; i < 6; i++)
+                pw += rnd.Next(9);
+            return pw;
         }
     }
 }
