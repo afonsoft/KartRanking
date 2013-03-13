@@ -188,5 +188,13 @@ namespace KartRanking.Page
 
             }
         }
+
+        public Usuario UsuarioLogado
+        {
+            get
+            {
+                return (Usuario)Session["Usuario"];
+            }
+        }
     }
 }
