@@ -45,10 +45,13 @@ namespace KartRanking.Administrador
                     else
                     {
                         user = (Usuario)Session["Usuario"];
-
-                        user = (from p in dk.Usuarios
-                                where p.idUsuario == user.idUsuario
-                                select p).FirstOrDefault();
+                        
+                        if (user != null)
+                        {
+                            user = (from p in dk.Usuarios
+                                    where p.idUsuario == user.idUsuario
+                                    select p).FirstOrDefault();
+                        }
                     }
                     if (user != null)
                     {
