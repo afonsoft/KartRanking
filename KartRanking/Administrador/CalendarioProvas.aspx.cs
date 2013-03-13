@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.Tools;
+using KartRanking.BaseDados;
 
 namespace KartRanking.Administrador
 {
@@ -63,46 +64,46 @@ namespace KartRanking.Administrador
         {
 
             //recuperar somente os usuarios que não está cadastro no resultados.
-            var PilotosEtapa = from kart_usuario_grupos in dk.Kart_Usuario_Grupos
-                               join usuarios in dk.Usuarios on kart_usuario_grupos.idUsuario equals usuarios.idUsuario
-                               join kart_campeonatos in dk.Kart_Campeonatos on kart_usuario_grupos.idGrupo equals kart_campeonatos.idGrupo
-                               join kart_calendario_campeonatos in dk.Kart_Calendario_Campeonatos on kart_campeonatos.idCampeonato equals kart_calendario_campeonatos.idCampeonato
-                               where !(from a in dk.Kart_Resultado_Calendarios
+            var PilotosEtapa = (from kart_usuario_grupos in dk.Kart_Usuario_Grupos
+                                join usuarios in dk.Usuarios on kart_usuario_grupos.idUsuario equals usuarios.idUsuario
+                                join kart_campeonatos in dk.Kart_Campeonatos on kart_usuario_grupos.idGrupo equals kart_campeonatos.idGrupo
+                                join kart_calendario_campeonatos in dk.Kart_Calendario_Campeonatos on kart_campeonatos.idCampeonato equals kart_calendario_campeonatos.idCampeonato
+                                where !(from a in dk.Kart_Resultado_Calendarios
                                         where a.idCalendario == kart_calendario_campeonatos.idCalendario
-                                        select new { a.idUsuario}).Contains(new { usuarios.idUsuario }) 
-                                    && kart_usuario_grupos.idGrupo == IdGrupo 
-                                    && kart_calendario_campeonatos.idCalendario == idCalendario
-                               select new
-                               {
-                                   idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
-                                   usuarios.Nome
-                               };
+                                        select new { a.idUsuario }).Contains(new { usuarios.idUsuario })
+                                     && kart_usuario_grupos.idGrupo == IdGrupo
+                                     && kart_calendario_campeonatos.idCalendario == idCalendario
+                                select new
+                                {
+                                    idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
+                                    usuarios.Nome
+                                }).ToList();
 
             ddlEtapaPilotoDisponivel.DataSource = PilotosEtapa;
             ddlEtapaPilotoDisponivel.DataTextField = "Nome";
             ddlEtapaPilotoDisponivel.DataValueField = "idUsuario";
             ddlEtapaPilotoDisponivel.DataBind();
 
-            var Pilotos = from kart_usuario_grupos in dk.Kart_Usuario_Grupos
-                          join usuarios in dk.Usuarios on kart_usuario_grupos.idUsuario equals usuarios.idUsuario
-                          join kart_campeonatos in dk.Kart_Campeonatos on kart_usuario_grupos.idGrupo equals kart_campeonatos.idGrupo
-                          join kart_calendario_campeonatos in dk.Kart_Calendario_Campeonatos on kart_campeonatos.idCampeonato equals kart_calendario_campeonatos.idCampeonato
-                          where
-                            !
-                              (from a in dk.Kart_Grid_Calendarios
-                               where
-                                 a.idCalendario == kart_calendario_campeonatos.idCalendario
-                               select new
-                               {
-                                   a.idUsuario
-                               }).Contains(new { usuarios.idUsuario }) &&
-                                kart_usuario_grupos.idGrupo == IdGrupo &&
-                                kart_calendario_campeonatos.idCalendario == idCalendario
-                          select new
-                          {
-                              idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
-                              usuarios.Nome
-                          };
+            var Pilotos = (from kart_usuario_grupos in dk.Kart_Usuario_Grupos
+                           join usuarios in dk.Usuarios on kart_usuario_grupos.idUsuario equals usuarios.idUsuario
+                           join kart_campeonatos in dk.Kart_Campeonatos on kart_usuario_grupos.idGrupo equals kart_campeonatos.idGrupo
+                           join kart_calendario_campeonatos in dk.Kart_Calendario_Campeonatos on kart_campeonatos.idCampeonato equals kart_calendario_campeonatos.idCampeonato
+                           where
+                             !
+                               (from a in dk.Kart_Grid_Calendarios
+                                where
+                                  a.idCalendario == kart_calendario_campeonatos.idCalendario
+                                select new
+                                {
+                                    a.idUsuario
+                                }).Contains(new { usuarios.idUsuario }) &&
+                                 kart_usuario_grupos.idGrupo == IdGrupo &&
+                                 kart_calendario_campeonatos.idCalendario == idCalendario
+                           select new
+                           {
+                               idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
+                               usuarios.Nome
+                           }).ToList();
 
             ddlGridPilotoDisponivel.DataSource = Pilotos;
             ddlGridPilotoDisponivel.DataTextField = "Nome";
@@ -266,18 +267,156 @@ namespace KartRanking.Administrador
             PanelGridEtapa.Visible = false;
         }
 
+        protected void gvGrids_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.Cells.Count > 1)
+            {
+                if (IsAdmin)
+                    e.Row.Cells[4].Visible = true;
+                else
+                    e.Row.Cells[4].Visible = false;
+            }
+        }
+
         protected void gvGrid_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            Alert("Em desenvolvimento");
+            string idGrid = e.CommandArgument.ToString();
+            HiddenIdGrid.Value = idGrid;
+            HiddenFieldOpEdit.Value = "1";
+
+            if (IsAdmin)
+            {
+                if (e.CommandName == "Alterar")
+                {
+                    var kr = (from k in dk.Kart_Grid_Calendarios
+                              where k.idGrid == Convert.ToInt16(idGrid)
+                          && k.idCalendario == IdCalendario
+                              select k).FirstOrDefault();
+
+                    if (kr != null)
+                    {
+                        HiddenIdGrid.Value = Convert.ToString(idGrid);
+                        var Usuario = (from u in dk.Usuarios where u.idUsuario == kr.idUsuario select new { u.idUsuario, u.Nome }).FirstOrDefault();
+                        ddlGridPilotoDisponivel.Items.Clear();
+                        ddlGridPilotoDisponivel.Items.Add(new ListItem(Usuario.Nome, Usuario.idUsuario.ToString(), true));
+                        txtGridPos.Text = kr.Pos.ToString();
+                        //txtVoltas.Text= kr.Volta.ToString();
+                        txtGridTempo.Text = kr.tempoMinutos.ToString().PadLeft(2, '0') + ":" + kr.tempoSegundos.ToString().PadLeft(2, '0') + ":" + kr.tempoMilisegundos.ToString().PadLeft(3, '0');
+
+                        ScriptManager.RegisterStartupScript(PanelGridEtapa, PanelGridEtapa.GetType(), "AbrirGrid", "OpenGrid(" + idGrid + ",1);", true);
+                    }
+                    else
+                    {
+                        Alert("Erro para localizar o dados na base!");
+                    }
+                }
+                else if (e.CommandName == "Exluir")
+                {
+                    var kr = (from k in dk.Kart_Grid_Calendarios
+                              where k.idGrid == Convert.ToInt16(idGrid)
+                          && k.idCalendario == IdCalendario
+                              select k).FirstOrDefault();
+                    if (kr != null)
+                    {
+                        dk.GetTable<Kart_Grid_Calendario>().DeleteOnSubmit(kr);
+                        dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+                        popularTelaEtapa(IdCalendario);
+                        Alert("Apontamento excluido com sucesso!");
+
+                        txtGridPos.Text = string.Empty;
+                        txtGridTempo.Text = string.Empty;
+                        HiddenIdGrid.Value = "0";
+                    }
+                    else
+                    {
+                        Alert("Erro para localizar o dados na base!");
+                    }
+                }
+            }
+            else
+            {
+                Alert("Você não é o administrador deste grupo!");
+            }
+        }
+
+        #region gvResultados
+        protected void gvResultados_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.Cells.Count > 1)
+            {
+                if (IsAdmin)
+                    e.Row.Cells[5].Visible = true;
+                else
+                    e.Row.Cells[5].Visible = false;
+            }
         }
 
         protected void gvResultados_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            Alert("Em desenvolvimento");
+            string idResultado = e.CommandArgument.ToString();
+            HiddenIdEtapa.Value = idResultado;
+            HiddenFieldOpEdit.Value = "2";
+            if (IsAdmin)
+            {
+                if (e.CommandName == "Alterar")
+                {
+                    var kr = (from k in dk.Kart_Resultado_Calendarios
+                              where k.idResultado == Convert.ToInt16(idResultado)
+                              && k.idCalendario == IdCalendario
+                              select k).FirstOrDefault();
+
+                    if (kr != null)
+                    {
+                        HiddenIdEtapa.Value = Convert.ToString(idResultado);
+                        var Usuario = (from u in dk.Usuarios where u.idUsuario == kr.idUsuario select new { u.idUsuario, u.Nome }).FirstOrDefault();
+                        ddlEtapaPilotoDisponivel.Items.Clear();
+                        ddlEtapaPilotoDisponivel.Items.Add(new ListItem(Usuario.Nome, Usuario.idUsuario.ToString(), true));
+                        txtEtapaPontos.Text = kr.Ponto.ToString();
+                        txtEtapaPos.Text = kr.Pos.ToString();
+                        txtEtapaTempo.Text = kr.tempoMinutos.ToString().PadLeft(2, '0') + ":" + kr.tempoSegundos.ToString().PadLeft(2, '0') + ":" + kr.tempoMilisegundos.ToString().PadLeft(3, '0');
+                        ScriptManager.RegisterStartupScript(PanelGridEtapa, PanelGridEtapa.GetType(), "AbrirEtapa", "OpenEtapa(" + idResultado + ",2);", true);
+                    }
+                    else
+                    {
+                        Alert("Erro para localizar o dados na base!");
+                    }
+                }
+                else if (e.CommandName == "Exluir")
+                {
+                    var kr = (from k in dk.Kart_Resultado_Calendarios
+                              where k.idResultado == Convert.ToInt16(idResultado)
+                              && k.idCalendario == IdCalendario
+                              select k).FirstOrDefault();
+                    if (kr != null)
+                    {
+                        dk.GetTable<Kart_Resultado_Calendario>().DeleteOnSubmit(kr);
+                        dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+                        popularTelaEtapa(IdCalendario);
+                        Alert("Apontamento excluido com sucesso!");
+
+                        HiddenIdEtapa.Value = "0";
+                        txtEtapaPos.Text = string.Empty;
+                        txtEtapaTempo.Text = string.Empty;
+                        txtEtapaPontos.Text = string.Empty;
+                    }
+                    else
+                    {
+                        Alert("Erro para localizar o dados na base!");
+                    }
+                }
+            }
+            else
+            {
+                Alert("Você não é o administrador deste grupo!");
+            }
         }
+        #endregion
 
         protected void imgAdd_Click(object sender, ImageClickEventArgs e)
         {
+            HiddenIdGrid.Value = "0";
+            HiddenIdEtapa.Value = "0";
+
             string op = ((ImageButton)sender).CommandArgument;
             if (op == "1")
                 ScriptManager.RegisterStartupScript(PanelGridEtapa, PanelGridEtapa.GetType(), "AbrirGrid", "OpenGrid(0,1);", true);
@@ -288,8 +427,152 @@ namespace KartRanking.Administrador
         protected void lnkAtualizaGridEtapa_Click(object sender, EventArgs e)
         {
             string op = HiddenFieldOpEdit.Value;
-            int idGrid = Convert.ToInt16(HiddenIdGrid.Value);
-            int idEtapa = Convert.ToInt16(HiddenIdEtapa.Value);
+            Int16 idGrid = Convert.ToInt16(HiddenIdGrid.Value);
+            Int16 idEtapa = Convert.ToInt16(HiddenIdEtapa.Value);
+            Int16 idUsuario = 0;
+            if (IsAdmin)
+            {
+                if (op == "1")
+                {
+                    idUsuario = Convert.ToInt16(ddlGridPilotoDisponivel.SelectedItem.Value);
+                    GravarGrid(idGrid, idUsuario);
+                }
+                else if (op == "2")
+                {
+                    idUsuario = Convert.ToInt16(ddlEtapaPilotoDisponivel.SelectedItem.Value);
+                    GravarEtapa(idEtapa, idUsuario);
+                }
+            }
+            else
+            {
+                Alert("Você não é o administrador deste grupo.");
+            }
+        }
+
+        private void GravarGrid(int IdGrid, int idUsuario)
+        {
+            Kart_Grid_Calendario kr = null;
+            if (IdGrid <= 0)
+                kr = new Kart_Grid_Calendario();
+            else
+                kr = (from k in dk.Kart_Grid_Calendarios where k.idGrid == IdGrid && k.idCalendario == IdCalendario select k).FirstOrDefault();
+
+            if (kr != null)
+            {
+                var equipe_usuario = (from ek in dk.Kart_Usuario_Equipe_Campeonatos
+                                      join en in dk.Kart_Equipe_Campeonatos on ek.idEquipeCampeonato equals en.idEquipeCampeonato
+                                      join eg in dk.Kart_Campeonatos on en.idCampeonato equals eg.idCampeonato
+                                      where eg.idGrupo == IdGrupo
+                                      && ek.idUsuario == idUsuario
+                                      && eg.idCampeonato == IdCampeonato
+                                      select new { ek.idUsuario, ek.idEquipeCampeonato }).FirstOrDefault();
+
+                if (equipe_usuario != null)
+                {
+                    kr.idCalendario = IdCalendario;
+                    kr.idEquipe = equipe_usuario.idEquipeCampeonato;
+                    kr.idUsuario = idUsuario;
+                    kr.Pos = String.IsNullOrEmpty(txtGridPos.Text) ? 0 : Convert.ToInt16(txtGridPos.Text);
+                    kr.Volta = 0;
+                    //M00:S00:MS000
+                    kr.tempoHoras = 0;
+                    kr.tempoMinutos = String.IsNullOrEmpty(txtGridTempo.Text) ? 0 : Convert.ToInt16(txtGridTempo.Text.Split(':')[0]);
+                    kr.tempoSegundos = String.IsNullOrEmpty(txtGridTempo.Text) ? 0 : Convert.ToInt16(txtGridTempo.Text.Split(':')[1]);
+                    kr.tempoMilisegundos = String.IsNullOrEmpty(txtGridTempo.Text) ? 0 : Convert.ToInt16(txtGridTempo.Text.Split(':')[2]);
+
+                    if (IdGrid <= 0)
+                    {
+                        kr.dtcriacao = DateTime.Now;
+                        dk.GetTable<Kart_Grid_Calendario>().InsertOnSubmit(kr);
+                    }
+
+                    dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+
+                    popularTelaEtapa(IdCalendario);
+
+                    HiddenIdGrid.Value = "0";
+
+                    txtGridPos.Text = string.Empty;
+                    txtGridTempo.Text = string.Empty;
+
+                    Alert("Apontamento salvo com sucesso");
+                }
+                else
+                {
+                    Alert("Usuário sem equipe!\n Não é possivel efetuar apontamento sem equipe!");
+                    return;
+                }
+            }
+            else
+            {
+                Alert("Não foi possivel efetuar a atualização do usuário.");
+                return;
+            }
+        }
+
+        private void GravarEtapa(int IdResultado, int idUsuario)
+        {
+            Kart_Resultado_Calendario kr = null;
+
+            if (IdResultado <= 0)
+                kr = new Kart_Resultado_Calendario();
+            else
+                kr = (from k in dk.Kart_Resultado_Calendarios where k.idResultado == IdResultado && k.idCalendario == IdCalendario select k).FirstOrDefault();
+
+            if (kr != null)
+            {
+                var equipe_usuario = (from ek in dk.Kart_Usuario_Equipe_Campeonatos
+                                      join en in dk.Kart_Equipe_Campeonatos on ek.idEquipeCampeonato equals en.idEquipeCampeonato
+                                      join eg in dk.Kart_Campeonatos on en.idCampeonato equals eg.idCampeonato
+                                      where eg.idGrupo == IdGrupo
+                                      && ek.idUsuario == idUsuario
+                                      && eg.idCampeonato == IdCampeonato
+                                      select new { ek.idUsuario, ek.idEquipeCampeonato }).FirstOrDefault();
+
+                if (equipe_usuario != null)
+                {
+                    kr.idCalendario = IdCalendario;
+                    kr.idEquipe = equipe_usuario.idEquipeCampeonato;
+                    kr.idUsuario = idUsuario;
+                    kr.Ponto = String.IsNullOrEmpty(txtEtapaPontos.Text) ? 0 : Convert.ToInt16(txtEtapaPontos.Text);
+                    kr.Pos = String.IsNullOrEmpty(txtEtapaPos.Text) ? 0 : Convert.ToInt16(txtEtapaPos.Text);
+                    kr.Voltas = 0;
+                    //M00:S00:MS000
+                    kr.tempoHoras = 0;
+                    kr.tempoMinutos = String.IsNullOrEmpty(txtEtapaTempo.Text) ? 0 : Convert.ToInt16(txtEtapaTempo.Text.Split(':')[0]);
+                    kr.tempoSegundos = String.IsNullOrEmpty(txtEtapaTempo.Text) ? 0 : Convert.ToInt16(txtEtapaTempo.Text.Split(':')[1]);
+                    kr.tempoMilisegundos = String.IsNullOrEmpty(txtEtapaTempo.Text) ? 0 : Convert.ToInt16(txtEtapaTempo.Text.Split(':')[2]);
+
+                    if (IdResultado <= 0)
+                    {
+                        kr.dtCriacao = DateTime.Now;
+                        dk.GetTable<Kart_Resultado_Calendario>().InsertOnSubmit(kr);
+                    }
+
+                    dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+
+                    popularTelaEtapa(IdCalendario);
+
+                    HiddenIdEtapa.Value = "0";
+
+                    txtEtapaPontos.Text = string.Empty;
+                    txtEtapaPos.Text = string.Empty;
+                    txtEtapaTempo.Text = string.Empty;
+
+                    Alert("Apontamento salvo com sucesso");
+                }
+                else
+                {
+                    Alert("Usuário sem equipe!\n Não é possivel efetuar apontamento sem equipe!");
+                    return;
+                }
+            }
+            else
+            {
+                Alert("Não foi possivel efetuar a atualização do usuário.");
+                return;
+            }
+
         }
     }
 }

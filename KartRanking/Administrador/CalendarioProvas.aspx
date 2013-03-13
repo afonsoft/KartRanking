@@ -162,7 +162,8 @@
             <div class="grid_12">
                 <div class="template">
                     <asp:GridView ID="gvGrid" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado de classificação"
-                        DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false" OnRowCommand="gvGrid_RowCommand">
+                        DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false" 
+                        OnRowCommand="gvGrid_RowCommand" onrowcreated="gvGrids_RowCreated">
                         <Columns>
                             <asp:BoundField HeaderText="Pos" DataField="Pos" />
                             <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
@@ -200,7 +201,8 @@
             <div class="grid_12">
                 <div class="template">
                     <asp:GridView ID="gvResultados" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado final"
-                        DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false" OnRowCommand="gvResultados_RowCommand">
+                        DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false" 
+                        OnRowCommand="gvResultados_RowCommand" onrowcreated="gvResultados_RowCreated">
                         <Columns>
                             <asp:BoundField HeaderText="Pos" DataField="Pos" />
                             <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
