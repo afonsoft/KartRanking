@@ -34,6 +34,15 @@
                         <Columns>
                             <asp:TemplateField>
                                 <HeaderTemplate>
+                                    Pos
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <span>
+                                        <%# Container.DataItemIndex + 1 %></span>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
                                     Nome
                                 </HeaderTemplate>
                                 <ItemTemplate>
@@ -79,6 +88,15 @@
                     <asp:GridView ID="gvRankigEquipe" CssClass="gridview" runat="server" DataKeyNames="idEquipeCampeonato"
                         EmptyDataText="Nenhuma pontuação encontrada." AutoGenerateColumns="false">
                         <Columns>
+                            <asp:TemplateField>
+                                <HeaderTemplate>
+                                    Pos
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <span>
+                                        <%# Container.DataItemIndex + 1 %></span>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField HeaderText="Equipe" SortExpression="Equipe" DataField="Equipe" />
                             <asp:BoundField HeaderText="Sigla" SortExpression="Sigla" DataField="Sigla" />
                             <asp:BoundField HeaderText="Pontos" SortExpression="Pontos" DataField="Pontos" />
