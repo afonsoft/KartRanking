@@ -133,7 +133,7 @@
                                     </div>
                                 <!-- Login Ends Here -->
                                     </li>          
-                                    <li><a href="">Cadastrar</a></li>                  
+                                    <li><a href="CadastroUsuarioBasico.aspx">Cadastrar</a></li>                  
                                 </ul>
                                 </nav>
                             </asp:Panel>

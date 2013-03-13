@@ -26,7 +26,7 @@
                 autoOpen: false,
                 height: 200,
                 width: 350,
-                modal: true,
+                modal: false,
                 buttons: {
                     "Upload": function() {
                         $(this).dialog("close"); __doPostBack('<%=lnkUploadFile.UniqueID %>', '');
@@ -47,7 +47,7 @@
                 autoOpen: false,
                 height: 200,
                 width: 350,
-                modal: true,
+                modal: false,
                 buttons: {
                     "Upload": function() {
                         $(this).dialog("close"); __doPostBack('<%=lnkUploadFile.UniqueID %>', '');

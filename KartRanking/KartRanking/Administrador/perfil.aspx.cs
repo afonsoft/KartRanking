@@ -42,51 +42,54 @@ namespace KartRanking.Administrador
                                 && g.idGrupo == idGrupo
                                 select p).FirstOrDefault();
                     }
-                    else
+
+                    else 
                     {
                         user = (Usuario)Session["Usuario"];
-                        
+
                         if (user != null)
                         {
                             user = (from p in dk.Usuarios
                                     where p.idUsuario == user.idUsuario
                                     select p).FirstOrDefault();
                         }
-                    }
-                    if (user != null)
-                    {
-                        IdUsuario.Value = user.idUsuario.ToString();
-                        txtNome.Text = user.Nome;
-                        txtEmail.Text = user.Email;
-                        txtEmail.ReadOnly = true;
-                        txtDtNascimento.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "";
-                        txtApelido.Text = user.Apelido;
-                        txtPeso.Text = user.Peso.ToString();
-                        txtAltura.Text = user.Altura.ToString();
-                        txtTelefone.Text = user.Telefone;
-                        txtCelular.Text = user.Celular;
-                        txtEndereco.Text = user.Endereco;
-                        txtCidade.Text = user.Cidade;
-                        if (!String.IsNullOrEmpty(user.Estado))
-                            ddlEstado.Items.FindByValue(user.Estado).Selected = true;
-                        if (user.Sexo.HasValue)
-                            ddlSexo.Items.FindByValue(user.Sexo.Value.ToString()).Selected = true;
-
-                        txtPerfilFacebook.Text = user.Perfil_Facebook;
-                        txtPerfilTwitter.Text = user.Perfil_Twitter;
-                        txtPerfilPlus.Text = user.Perfil_Plus;
-                        txtObs.Text = user.Obs;
-                        ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
 
 
-                        if (EditUser && idGrupo > 0 && idUsuario > 0 && IsAdmin)
+                        if (user != null)
                         {
-                            DesativarCampos(false);
+                            IdUsuario.Value = user.idUsuario.ToString();
+                            txtNome.Text = user.Nome;
+                            txtEmail.Text = user.Email;
+                            txtEmail.ReadOnly = true;
+                            txtDtNascimento.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "";
+                            txtApelido.Text = user.Apelido;
+                            txtPeso.Text = user.Peso.ToString();
+                            txtAltura.Text = user.Altura.ToString();
+                            txtTelefone.Text = user.Telefone;
+                            txtCelular.Text = user.Celular;
+                            txtEndereco.Text = user.Endereco;
+                            txtCidade.Text = user.Cidade;
+                            if (!String.IsNullOrEmpty(user.Estado))
+                                ddlEstado.Items.FindByValue(user.Estado).Selected = true;
+                            if (user.Sexo.HasValue)
+                                ddlSexo.Items.FindByValue(user.Sexo.Value.ToString()).Selected = true;
+
+                            txtPerfilFacebook.Text = user.Perfil_Facebook;
+                            txtPerfilTwitter.Text = user.Perfil_Twitter;
+                            txtPerfilPlus.Text = user.Perfil_Plus;
+                            txtObs.Text = user.Obs;
+                            ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
+
+
+                            if (EditUser && idGrupo > 0 && idUsuario > 0 && IsAdmin)
+                            {
+                                DesativarCampos(false);
+                            }
+                            else if (idUsuario == 0 || user.idUsuario == ((Usuario)Session["Usuario"]).idUsuario)
+                                DesativarCampos(false);
+                            else
+                                DesativarCampos(true);
                         }
-                        else if (idUsuario == 0 || user.idUsuario == ((Usuario)Session["Usuario"]).idUsuario)
-                            DesativarCampos(false);
-                        else
-                            DesativarCampos(true);
                     }
                 }
             }

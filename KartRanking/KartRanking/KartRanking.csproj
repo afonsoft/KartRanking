@@ -93,6 +93,13 @@
     <Compile Include="Administrador\AdminGrupo.aspx.designer.cs">
       <DependentUpon>AdminGrupo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\CadastroUsuarioBasico.aspx.cs">
+      <DependentUpon>CadastroUsuarioBasico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\CadastroUsuarioBasico.aspx.designer.cs">
+      <DependentUpon>CadastroUsuarioBasico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\InscricoesUsuariosGrupo.aspx.cs">
       <DependentUpon>InscricoesUsuariosGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -389,6 +396,7 @@
     <Content Include="Administrador\AdminCalendarioProvas.aspx" />
     <Content Include="Administrador\AdminCampeonato.aspx" />
     <Content Include="Administrador\AdminGrupo.aspx" />
+    <Content Include="Administrador\CadastroUsuarioBasico.aspx" />
     <Content Include="Administrador\InscricoesUsuariosGrupo.aspx" />
     <Content Include="Administrador\CalendarioProvas.aspx" />
     <Content Include="Administrador\ClassificacaoCampeonato.aspx" />
