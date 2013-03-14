@@ -36,7 +36,7 @@ namespace KartRanking.Administrador
                             join u in dk.Usuarios on n.IdUsuario equals u.idUsuario
                             where n.idGrupo == IdGrupo
                             && n.Ativo == true
-                            orderby n.dtCriacao ascending
+                            orderby n.dtCriacao descending
                             select new
                             {
                                 n.idNoticias,
@@ -45,7 +45,7 @@ namespace KartRanking.Administrador
                                 n.Titulo,
                                 n.dtCriacao,
                                 Noticia = n.Noticia.Substring(0, n.Noticia.Length > 200 ? 200 : n.Noticia.Length)
-                            });
+                            }).Take(50);
 
             RptNoticias.DataSource = noticias;
             RptNoticias.DataBind();
