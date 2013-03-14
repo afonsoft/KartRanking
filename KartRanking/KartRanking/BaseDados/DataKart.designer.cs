@@ -60,6 +60,9 @@ namespace KartRanking.BaseDados
     partial void InsertKart_log_erro(Kart_log_erro instance);
     partial void UpdateKart_log_erro(Kart_log_erro instance);
     partial void DeleteKart_log_erro(Kart_log_erro instance);
+    partial void InsertKart_Noticias_Grupo(Kart_Noticias_Grupo instance);
+    partial void UpdateKart_Noticias_Grupo(Kart_Noticias_Grupo instance);
+    partial void DeleteKart_Noticias_Grupo(Kart_Noticias_Grupo instance);
     #endregion
 		
 		public DataKartDataContext() : 
@@ -209,6 +212,14 @@ namespace KartRanking.BaseDados
 			get
 			{
 				return this.GetTable<Kart_log_erro>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Kart_Noticias_Grupo> Kart_Noticias_Grupos
+		{
+			get
+			{
+				return this.GetTable<Kart_Noticias_Grupo>();
 			}
 		}
 	}
@@ -3408,6 +3419,8 @@ namespace KartRanking.BaseDados
 		
 		private EntitySet<Kart_log_erro> _Kart_log_erros;
 		
+		private EntitySet<Kart_Noticias_Grupo> _Kart_Noticias_Grupos;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3468,6 +3481,7 @@ namespace KartRanking.BaseDados
 			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
 			this._Kart_Resultado_Calendarios = new EntitySet<Kart_Resultado_Calendario>(new Action<Kart_Resultado_Calendario>(this.attach_Kart_Resultado_Calendarios), new Action<Kart_Resultado_Calendario>(this.detach_Kart_Resultado_Calendarios));
 			this._Kart_log_erros = new EntitySet<Kart_log_erro>(new Action<Kart_log_erro>(this.attach_Kart_log_erros), new Action<Kart_log_erro>(this.detach_Kart_log_erros));
+			this._Kart_Noticias_Grupos = new EntitySet<Kart_Noticias_Grupo>(new Action<Kart_Noticias_Grupo>(this.attach_Kart_Noticias_Grupos), new Action<Kart_Noticias_Grupo>(this.detach_Kart_Noticias_Grupos));
 			OnCreated();
 		}
 		
@@ -4009,6 +4023,19 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		[Association(Name="Usuario_Kart_Noticias_Grupo", Storage="_Kart_Noticias_Grupos", ThisKey="idUsuario", OtherKey="IdUsuario")]
+		public EntitySet<Kart_Noticias_Grupo> Kart_Noticias_Grupos
+		{
+			get
+			{
+				return this._Kart_Noticias_Grupos;
+			}
+			set
+			{
+				this._Kart_Noticias_Grupos.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4096,6 +4123,18 @@ namespace KartRanking.BaseDados
 		}
 		
 		private void detach_Kart_log_erros(Kart_log_erro entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Usuario = null;
@@ -4538,6 +4577,253 @@ namespace KartRanking.BaseDados
 					else
 					{
 						this._idUsuario = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.Kart_Noticias_Grupo")]
+	public partial class Kart_Noticias_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idNoticias;
+		
+		private string _Titulo;
+		
+		private string _Noticia;
+		
+		private bool _Ativo;
+		
+		private System.Nullable<System.DateTime> _dtEvento;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private int _IdUsuario;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidNoticiasChanging(int value);
+    partial void OnidNoticiasChanged();
+    partial void OnTituloChanging(string value);
+    partial void OnTituloChanged();
+    partial void OnNoticiaChanging(string value);
+    partial void OnNoticiaChanged();
+    partial void OnAtivoChanging(bool value);
+    partial void OnAtivoChanged();
+    partial void OndtEventoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtEventoChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    partial void OnIdUsuarioChanging(int value);
+    partial void OnIdUsuarioChanged();
+    #endregion
+		
+		public Kart_Noticias_Grupo()
+		{
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_idNoticias", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idNoticias
+		{
+			get
+			{
+				return this._idNoticias;
+			}
+			set
+			{
+				if ((this._idNoticias != value))
+				{
+					this.OnidNoticiasChanging(value);
+					this.SendPropertyChanging();
+					this._idNoticias = value;
+					this.SendPropertyChanged("idNoticias");
+					this.OnidNoticiasChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Titulo", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Titulo
+		{
+			get
+			{
+				return this._Titulo;
+			}
+			set
+			{
+				if ((this._Titulo != value))
+				{
+					this.OnTituloChanging(value);
+					this.SendPropertyChanging();
+					this._Titulo = value;
+					this.SendPropertyChanged("Titulo");
+					this.OnTituloChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Noticia", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Noticia
+		{
+			get
+			{
+				return this._Noticia;
+			}
+			set
+			{
+				if ((this._Noticia != value))
+				{
+					this.OnNoticiaChanging(value);
+					this.SendPropertyChanging();
+					this._Noticia = value;
+					this.SendPropertyChanged("Noticia");
+					this.OnNoticiaChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ativo", DbType="Bit NOT NULL")]
+		public bool Ativo
+		{
+			get
+			{
+				return this._Ativo;
+			}
+			set
+			{
+				if ((this._Ativo != value))
+				{
+					this.OnAtivoChanging(value);
+					this.SendPropertyChanging();
+					this._Ativo = value;
+					this.SendPropertyChanged("Ativo");
+					this.OnAtivoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtEvento", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtEvento
+		{
+			get
+			{
+				return this._dtEvento;
+			}
+			set
+			{
+				if ((this._dtEvento != value))
+				{
+					this.OndtEventoChanging(value);
+					this.SendPropertyChanging();
+					this._dtEvento = value;
+					this.SendPropertyChanged("dtEvento");
+					this.OndtEventoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._IdUsuario = value;
+					this.SendPropertyChanged("IdUsuario");
+					this.OnIdUsuarioChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Noticias_Grupo", Storage="_Usuario", ThisKey="IdUsuario", OtherKey="idUsuario", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Kart_Noticias_Grupos.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Noticias_Grupos.Add(this);
+						this._IdUsuario = value.idUsuario;
+					}
+					else
+					{
+						this._IdUsuario = default(int);
 					}
 					this.SendPropertyChanged("Usuario");
 				}
