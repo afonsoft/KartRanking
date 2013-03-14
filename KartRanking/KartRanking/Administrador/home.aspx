@@ -1,15 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="KartRanking.Administrador.home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true"
+    CodeBehind="home.aspx.cs" Inherits="KartRanking.Administrador.home" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-<div class="container_12">
+    <div class="container_12">
         <div class="grid_12">
         </div>
         <div class="clear espaco">
             &nbsp;
         </div>
         <div class="grid_6">
-            <b>Classificação dos Pilotos</b>
+            <b>Classificação dos Pilotos (Top 10)</b>
         </div>
         <div class="grid_6">
             <b>Noticias do grupo</b>
@@ -52,7 +54,7 @@
             &nbsp;
         </div>
         <div class="grid_6">
-            <b>Classificação das Equipes</b>
+            <b>Classificação das Equipes (Top 10)</b>
         </div>
         <div class="grid_6">
             <b>Piloto em Destaque</b>
@@ -84,7 +86,7 @@
         <div class="grid_6">
             <table width="100%" cellpadding="2" cellspacing="2" border="0">
                 <tr>
-                    <td rowspan="5" style="height:170px; width:150px;">
+                    <td rowspan="5" style="height: 170px; width: 150px;">
                         <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
                     </td>
                     <td style="width: 50px;">
@@ -109,29 +111,32 @@
                     </td>
                 </tr>
                 <tr>
-                <td style="width: 50px;">
+                    <td style="width: 50px;">
                         <b>Nasicmento:</b>
                     </td>
                     <td colspan="3">
                         <asp:Label ID="lbData" runat="server" Text=""></asp:Label>
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td colspan="4">
                         &nbsp;
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td colspan="4">
-                        <asp:LinkButton ID="lnkMaisInfo" runat="server" onclick="lnkMaisInfo_Click">Mais informações do piloto</asp:LinkButton>
+                        <asp:LinkButton ID="lnkMaisInfo" runat="server" OnClick="lnkMaisInfo_Click">Mais informações do piloto</asp:LinkButton>
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td colspan="5">
                         &nbsp;
                     </td>
                 </tr>
             </table>
+        </div>
+        <div class="clear espaco">
+            &nbsp;
         </div>
     </div>
 </asp:Content>

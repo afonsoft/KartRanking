@@ -46,6 +46,7 @@ namespace KartRanking.Administrador
                     Usuario user = users[UsuarioSelecionado];
                     lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "";
                     lbNome.Text = user.Nome;
+                    ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
                     lbEquipe.Text = "TESTE";
                     lbPontos.Text = "0";
                     ViewState["UsuarioSelecionado"] = user.idUsuario;
@@ -59,21 +60,21 @@ namespace KartRanking.Administrador
             if (IdGrupo > 0 && IdCampeonato > 0)
             {
                 //View para popular o grid (Ranking do Campeonato)
-                var RankingC = from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
-                               where vp.idCampeonato == IdCampeonato
-                               && vp.idGrupo == IdGrupo
-                               orderby vp.Pontos descending
-                               select vp;
+                var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                                where vp.idCampeonato == IdCampeonato
+                                && vp.idGrupo == IdGrupo
+                                orderby vp.Pontos descending
+                                select vp).Take(10);
 
                 gvRankigCampeonato.DataSource = RankingC;
                 gvRankigCampeonato.DataBind();
 
                 //View para popular o grid (Ranking das equipe)
-                var RankingE = from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
-                               where ve.idCampeonato == IdCampeonato
-                               && ve.idGrupo == IdGrupo
-                               orderby ve.Pontos descending
-                               select ve;
+                var RankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
+                                where ve.idCampeonato == IdCampeonato
+                                && ve.idGrupo == IdGrupo
+                                orderby ve.Pontos descending
+                                select ve).Take(10);
 
                 gvRankigEquipe.DataSource = RankingE;
                 gvRankigEquipe.DataBind();
