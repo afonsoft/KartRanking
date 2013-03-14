@@ -131,7 +131,7 @@ namespace KartRanking.Administrador
             {
                 if (IsAdmin)
                 {
-
+                    Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
                 }
                 else
                 {
