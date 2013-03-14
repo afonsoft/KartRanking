@@ -123,7 +123,7 @@ namespace KartRanking.Administrador
                     cookie.Expires = DateTime.Now.AddMonths(1);
                     Response.Cookies.Add(cookie);
                 }
-                Response.Redirect("home.aspx");
+                Response.Redirect("~/Administrador/home.aspx");
             }
             catch (Exception ex)
             {
