@@ -78,7 +78,8 @@
 	                                                <li><a href="CalendarioProvas.aspx">Calendário das Provas</a></li>
 	                                            </ul>
 	                                        </li>
-	                                        <li><a href="Noticias.aspx">Noticias</a></li>
+	                                        <li><a href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
+	                                        <li><a href="PermissaoGrupo.aspx">Permissões do Grupo</a></li>
 	                                    </ul>
 	                                </li>
 	                                <li>
@@ -94,8 +95,7 @@
 	                                        <li><a href="PilotosEquipesGrupo.aspx?op=2">Equipes do Campeonato</a></li>
 	                                    </ul>
 	                                </li>
-	                                <li><a href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
-	                                <li><a href="PermissaoGrupo.aspx">Permissões do Grupo</a></li>
+	                                <li><a href="Noticias.aspx">Noticias</a></li>
 	                                 <li><asp:LinkButton ID="lnkSair" runat="server" onclick="lnkSair_Click">Sair</asp:LinkButton></li>
 	                            </ul>
 	                        </nav>
