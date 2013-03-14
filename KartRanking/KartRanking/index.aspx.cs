@@ -33,7 +33,8 @@ namespace KartRanking
                     throw new Exception("Usuário ou Senha inválidos!");
 
                 Session[ "Usuario" ] = user;
-                Response.Redirect( "~/Admin/PainelControle.aspx?idUsuario=" + user.idUsuario );
+                //Response.Redirect( "~/Admin/PainelControle.aspx?idUsuario=" + user.idUsuario );
+                Response.Redirect("~/Administrador/home.aspx");
                 
             }
             catch ( Exception ex )

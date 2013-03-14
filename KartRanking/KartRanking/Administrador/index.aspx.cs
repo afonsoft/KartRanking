@@ -25,7 +25,7 @@ namespace KartRanking.Administrador
 
             if (Session["Usuario"] != null)
             {
-                Response.Redirect("home.aspx");
+                Response.Redirect("~/Administrador/home.aspx");
             }
         }
     }
