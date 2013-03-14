@@ -1519,6 +1519,8 @@ namespace KartRanking.BaseDados
 		
 		private EntitySet<Kart_Usuario_Grupo> _Kart_Usuario_Grupos;
 		
+		private EntitySet<Kart_Noticias_Grupo> _Kart_Noticias_Grupos;
+		
 		private EntityRef<Usuario> _Usuario;
 		
     #region Extensibility Method Definitions
@@ -1551,6 +1553,7 @@ namespace KartRanking.BaseDados
 		{
 			this._Kart_Campeonatos = new EntitySet<Kart_Campeonato>(new Action<Kart_Campeonato>(this.attach_Kart_Campeonatos), new Action<Kart_Campeonato>(this.detach_Kart_Campeonatos));
 			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
+			this._Kart_Noticias_Grupos = new EntitySet<Kart_Noticias_Grupo>(new Action<Kart_Noticias_Grupo>(this.attach_Kart_Noticias_Grupos), new Action<Kart_Noticias_Grupo>(this.detach_Kart_Noticias_Grupos));
 			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
@@ -1785,6 +1788,19 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		[Association(Name="Kart_Grupo_Kart_Noticias_Grupo", Storage="_Kart_Noticias_Grupos", ThisKey="idGrupo", OtherKey="idGrupo")]
+		public EntitySet<Kart_Noticias_Grupo> Kart_Noticias_Grupos
+		{
+			get
+			{
+				return this._Kart_Noticias_Grupos;
+			}
+			set
+			{
+				this._Kart_Noticias_Grupos.Assign(value);
+			}
+		}
+		
 		[Association(Name="Usuario_Kart_Grupo", Storage="_Usuario", ThisKey="Id_Usuario_Lider", OtherKey="idUsuario", IsForeignKey=true)]
 		public Usuario Usuario
 		{
@@ -1858,6 +1874,18 @@ namespace KartRanking.BaseDados
 		}
 		
 		private void detach_Kart_Usuario_Grupos(Kart_Usuario_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Grupo = null;
+		}
+		
+		private void attach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Grupo = this;
+		}
+		
+		private void detach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Kart_Grupo = null;
@@ -4612,6 +4640,8 @@ namespace KartRanking.BaseDados
 		
 		private int _idNoticias;
 		
+		private int _idGrupo;
+		
 		private string _Titulo;
 		
 		private string _Noticia;
@@ -4624,6 +4654,8 @@ namespace KartRanking.BaseDados
 		
 		private int _IdUsuario;
 		
+		private EntityRef<Kart_Grupo> _Kart_Grupo;
+		
 		private EntityRef<Usuario> _Usuario;
 		
     #region Extensibility Method Definitions
@@ -4632,6 +4664,8 @@ namespace KartRanking.BaseDados
     partial void OnCreated();
     partial void OnidNoticiasChanging(int value);
     partial void OnidNoticiasChanged();
+    partial void OnidGrupoChanging(int value);
+    partial void OnidGrupoChanged();
     partial void OnTituloChanging(string value);
     partial void OnTituloChanged();
     partial void OnNoticiaChanging(string value);
@@ -4648,6 +4682,7 @@ namespace KartRanking.BaseDados
 		
 		public Kart_Noticias_Grupo()
 		{
+			this._Kart_Grupo = default(EntityRef<Kart_Grupo>);
 			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
@@ -4668,6 +4703,30 @@ namespace KartRanking.BaseDados
 					this._idNoticias = value;
 					this.SendPropertyChanged("idNoticias");
 					this.OnidNoticiasChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					if (this._Kart_Grupo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidGrupoChanging(value);
+					this.SendPropertyChanging();
+					this._idGrupo = value;
+					this.SendPropertyChanged("idGrupo");
+					this.OnidGrupoChanged();
 				}
 			}
 		}
@@ -4792,6 +4851,40 @@ namespace KartRanking.BaseDados
 					this._IdUsuario = value;
 					this.SendPropertyChanged("IdUsuario");
 					this.OnIdUsuarioChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Kart_Grupo_Kart_Noticias_Grupo", Storage="_Kart_Grupo", ThisKey="idGrupo", OtherKey="idGrupo", IsForeignKey=true)]
+		public Kart_Grupo Kart_Grupo
+		{
+			get
+			{
+				return this._Kart_Grupo.Entity;
+			}
+			set
+			{
+				Kart_Grupo previousValue = this._Kart_Grupo.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Grupo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Grupo.Entity = null;
+						previousValue.Kart_Noticias_Grupos.Remove(this);
+					}
+					this._Kart_Grupo.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Noticias_Grupos.Add(this);
+						this._idGrupo = value.idGrupo;
+					}
+					else
+					{
+						this._idGrupo = default(int);
+					}
+					this.SendPropertyChanged("Kart_Grupo");
 				}
 			}
 		}
