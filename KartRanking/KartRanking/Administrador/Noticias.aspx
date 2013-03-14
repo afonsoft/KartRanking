@@ -3,9 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
     <link href="/css/jquery-te-1.3.3.css" rel="stylesheet" type="text/css" />
-
     <script src="/js/jquery-te-1.3.3.min.js" type="text/javascript"></script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelNoticias" runat="server">
@@ -38,24 +36,24 @@
         </div>
 
         <script type="text/javascript">
-             $('.jqte').jqte();
+            $('.jqte').jqte();
 
-             function CadastrarNoticia() {
-                 $('#OpenCadastro').dialog({
-                     autoOpen: false, hide: 'explode', modal: false, show: 'slide',
-                     buttons: {
-                         "Salvar": function() {
-                             $('#OpenCadastro').dialog("close");
-                             __doPostBack('<%= lnkCadastrar.UniqueID %>', '');
-                             return true;
-                         },
-                         "Sair": function() { $('#OpenCadastro').dialog("close"); return true; }
-                     }
-                 });
-                 $('#OpenCadastro').dialog({ width: 750, height: 500 });
-                 $('#OpenCadastro').parent().appendTo($("form:first"));
-                 $('#OpenCadastro').dialog('open');
-             }
+            function CadastrarNoticia() {
+                $('#OpenCadastro').dialog({
+                    autoOpen: false, hide: 'explode', modal: false, show: 'slide',
+                    buttons: {
+                        "Salvar": function() {
+                            $('#OpenCadastro').dialog("close");
+                            __doPostBack('<%= lnkCadastrar.UniqueID %>', '');
+                            return true;
+                        },
+                        "Sair": function() { $('#OpenCadastro').dialog("close"); return true; }
+                    }
+                });
+                $('#OpenCadastro').dialog({ width: 750, height: 500 });
+                $('#OpenCadastro').parent().appendTo($("form:first"));
+                $('#OpenCadastro').dialog('open');
+            }
         </script>
 
         <div class="container_12">
