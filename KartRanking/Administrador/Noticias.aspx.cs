@@ -15,6 +15,7 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
+                HiddenFieldIdNoticia.Value = "0";
                 if (Request.QueryString["id"] != null)
                 {
                     popularNoticia(Convert.ToInt32(Request.QueryString["id"]));
@@ -87,6 +88,17 @@ namespace KartRanking.Administrador
             {
                 popularNoticia(idNoticia);
             }
+            else if (e.CommandName == "Alterar")
+            {
+                if (IsAdmin)
+                {
+                    popularEditNoticia(idNoticia);
+                }
+                else
+                {
+                    Alert("Você não possue permissão para editar noticias deste grupo!");
+                }
+            }
             else if (e.CommandName == "Deletar")
             {
                 if (IsAdmin)
@@ -98,6 +110,29 @@ namespace KartRanking.Administrador
                     Alert("Você não possue permissão para editar noticias deste grupo!");
                 }
             }
+        }
+
+        private void popularEditNoticia(int idNoticia)
+        {
+
+             var noticia = (from n in dk.Kart_Noticias_Grupos
+                            where n.idGrupo == IdGrupo
+                            && n.idNoticias == idNoticia
+                            orderby n.dtCriacao ascending
+                            select n).FirstOrDefault();
+
+             if (noticia != null)
+             {
+
+                 HiddenFieldIdNoticia.Value = noticia.idNoticias.ToString();
+                 txtTitulo.Text = noticia.Titulo;
+                 textarea.Value = noticia.Noticia;
+                 Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
+             }
+             else
+             {
+                 Alert("Não foi possivel abrir essa noticia para edição!");
+             }
         }
 
         private void deletarNoticia(int idNoticia)
@@ -131,6 +166,9 @@ namespace KartRanking.Administrador
             {
                 if (IsAdmin)
                 {
+                    HiddenFieldIdNoticia.Value = "0";
+                    txtTitulo.Text = "";
+                    textarea.Value = "";
                     Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
                 }
                 else
@@ -141,6 +179,43 @@ namespace KartRanking.Administrador
             catch (Exception ex)
             {
                 Alert(ex.Message, ex);
+            }
+        }
+
+        protected void lnkCadastrar_Click(object sender, EventArgs e)
+        {
+            if (IsAdmin)
+            {
+                Kart_Noticias_Grupo noticia = null;
+                int idNoticia = Convert.ToInt32(HiddenFieldIdNoticia.Value);
+
+                if (idNoticia <= 0)
+                    noticia = new Kart_Noticias_Grupo();
+                else
+                    noticia = (from n in dk.Kart_Noticias_Grupos
+                               where n.idNoticias == idNoticia
+                               select n).FirstOrDefault();
+
+                if(noticia == null)
+                    noticia = new Kart_Noticias_Grupo();
+
+                noticia.idGrupo = IdGrupo;
+                noticia.dtCriacao = DateTime.Now;
+                noticia.Ativo = true;
+                noticia.IdUsuario = UsuarioLogado.idUsuario;
+                noticia.Titulo = txtTitulo.Text;
+                noticia.Noticia = textarea.Value;
+                
+                if (idNoticia > 0)
+                    dk.Kart_Noticias_Grupos.InsertOnSubmit(noticia);
+
+                dk.SubmitChanges();
+                popularNoticias();
+                Alert("Operação efetuado com sucesso!");
+            }
+            else
+            {
+                Alert("Você não possue permissão para editar noticias deste grupo!");
             }
         }
     }

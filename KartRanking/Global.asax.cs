@@ -81,6 +81,10 @@ namespace KartRanking
                     Context.Items["StatusCode"] = ctx.Response.StatusCode;
                     Context.Items["AllKeys"] = Request.Form.AllKeys;
 
+                    Session["Exception"] = exception;
+                    Session["StatusCode"] = ctx.Response.StatusCode;
+                    Session["AllKeys"] = Request.Form.AllKeys;
+
                     try
                     {
                         try
