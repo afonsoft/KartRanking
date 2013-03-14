@@ -14,7 +14,10 @@ namespace KartRanking.LogErro
 
         public static void Logar(Exception ex, System.Web.HttpContext Current)
         {
-            Logar(ex.Message, ex, Current);
+            if (ex != null)
+            {
+                Logar(ex.Message, ex, Current);
+            }
         }
        
         public static void Logar(string msg, Exception ex, System.Web.HttpContext Current)

@@ -656,6 +656,7 @@
     <Content Include="Admin\PilotosGrupo.aspx" />
     <Content Include="js\login.js" />
     <Content Include="js\PIE.htc" />
+    <Content Include="js\whizzywig63.js" />
     <Content Include="PageError.aspx" />
     <Content Include="piloto-sem-foto.jpg" />
     <Content Include="References\AjaxControlToolkit.dll" />

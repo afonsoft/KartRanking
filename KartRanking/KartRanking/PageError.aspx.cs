@@ -17,10 +17,10 @@ namespace KartRanking
 
                 if (Context.Items["Exception"] != null)
                     ex1 = (Exception)(Context.Items["Exception"]);
-                else if (Server.GetLastError() != null)
-                    ex1 = Server.GetLastError();
                 else if (Session["Exception"] != null)
                     ex1 = (Exception)(Session["Exception"]);
+                else if (ex1 == null)
+                    ex1 = Server.GetLastError();
 
                 int StatusCode = 0;
                 string _StatusCode = "";
@@ -39,6 +39,8 @@ namespace KartRanking
 
                 string[] Keys = null;
                 if (Context.Items["AllKeys"] != null)
+                    Keys = (string[])Context.Items["AllKeys"];
+                else if (Session["AllKeys"] != null)
                     Keys = (string[])Context.Items["AllKeys"];
                 else
                     Keys = Request.Form.AllKeys;
