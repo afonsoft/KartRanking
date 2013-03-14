@@ -2,8 +2,64 @@
     CodeBehind="home.aspx.cs" Inherits="KartRanking.Administrador.home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <style type="text/css">
+        #slider, #slider li
+        {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        #slider li p
+        {
+            padding-bottom: 15px;
+        }
+        span#prevBtn
+        {
+            text-decoration: none;
+            font-style: normal;
+        }
+        span#nextBtn
+        {
+            text-decoration: none;
+            font-style: normal;
+        }
+         .sliderSinopise
+        {
+            padding: 0px 5px 5px 5px;
+            color: #666666;
+            font-size: 10px;
+        }
+        .sliderTitulo
+        {
+            font-size: 11px;
+            color: Black;
+            font-weight: bold;
+            margin: 0px;
+            padding: 2px 5px;
+        }
+    </style>
+
+    <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#slider").easySlider({
+                loop: true,                           // Looping
+                orientation: 'vertical',              // Fading
+                autoplayDuration: 6500,               // Autoplay with 1 second intervals
+                autogeneratePagination: true,         // Automatically generate pagination links
+                restartDuration: 1500,                // In case of user interaction, restart the autoplay after 2.5 seconds
+                nextId: 'next',
+                prevId: 'prev',
+                pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
+            });
+        });
+    </script>
+
     <div class="container_12">
         <div class="grid_12">
         </div>
@@ -49,6 +105,7 @@
         </div>
         <div class="grid_6">
             <div style="width: 100%; height: 270px; border: solid 1px #dbddff;">
+                <asp:Literal ID="ltNoticias" runat="server"></asp:Literal>
                 &nbsp;
             </div>
         </div>

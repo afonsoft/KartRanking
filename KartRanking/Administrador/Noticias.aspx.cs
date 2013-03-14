@@ -206,7 +206,7 @@ namespace KartRanking.Administrador
                 noticia.Titulo = txtTitulo.Text;
                 noticia.Noticia = textarea.Value;
                 
-                if (idNoticia > 0)
+                if (idNoticia <= 0)
                     dk.Kart_Noticias_Grupos.InsertOnSubmit(noticia);
 
                 dk.SubmitChanges();
