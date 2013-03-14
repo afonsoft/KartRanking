@@ -43,13 +43,27 @@ namespace KartRanking.Administrador
 
                 if (users != null)
                 {
+
                     int UsuarioSelecionado = rnd.Next(users.Count());
                     Usuario user = users[UsuarioSelecionado];
+
+                    string Equipe = (from e in dk.Kart_Equipe_Campeonatos
+                                     join eu in dk.Kart_Usuario_Equipe_Campeonatos on e.idEquipeCampeonato equals eu.idEquipeCampeonato
+                                     where e.idCampeonato == IdCampeonato
+                                     && eu.idUsuario == user.idUsuario
+                                     select e.NomeEquipe).FirstOrDefault();
+
+                    int? Pontos = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                                  where vp.idCampeonato == IdCampeonato
+                                  && vp.idGrupo == IdGrupo
+                                  && vp.idUsuario == user.idUsuario
+                                  select vp.Pontos).FirstOrDefault();
+
                     lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "";
                     lbNome.Text = user.Nome;
                     ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
-                    lbEquipe.Text = "TESTE";
-                    lbPontos.Text = "0";
+                    lbEquipe.Text = Equipe;
+                    lbPontos.Text = Pontos.HasValue ? Pontos.Value.ToString() : "0";
                     ViewState["UsuarioSelecionado"] = user.idUsuario;
                 }
 
