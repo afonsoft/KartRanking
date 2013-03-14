@@ -145,6 +145,13 @@
     <Compile Include="Administrador\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\Noticias.aspx.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Noticias.aspx.designer.cs">
+      <DependentUpon>Noticias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\perfil.aspx.cs">
       <DependentUpon>perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -421,6 +428,7 @@
       <DependentUpon>DataKart.dbml</DependentUpon>
     </None>
     <Content Include="Administrador\index.aspx" />
+    <Content Include="Administrador\Noticias.aspx" />
     <Content Include="Administrador\perfil.aspx" />
     <Content Include="Administrador\PermissaoGrupo.aspx" />
     <Content Include="Administrador\PilotosEquipesGrupo.aspx" />

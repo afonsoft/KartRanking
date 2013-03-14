@@ -48,7 +48,9 @@
             </div>
         </div>
         <div class="grid_6">
-            &nbsp;
+            <div style="width: 100%; height: 270px; border: solid 1px #dbddff;">
+                &nbsp;
+            </div>
         </div>
         <div class="clear espaco">
             &nbsp;
