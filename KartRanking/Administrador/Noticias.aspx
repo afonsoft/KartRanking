@@ -2,9 +2,17 @@
     CodeBehind="Noticias.aspx.cs" Inherits="KartRanking.Administrador.Noticias" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link href="/css/jquery-te-1.3.3.css" rel="stylesheet" type="text/css" />
+    <script src="/js/jquery-te-1.3.3.min.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelNoticias" runat="server">
+    
+    <script type="text/javascript">
+        function CadastrarNoticia() {
+        }
+    </script>
+        
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="titulo">
