@@ -125,6 +125,7 @@ namespace KartRanking.Administrador
             txtPerfilPlus.ReadOnly = op;
             txtObs.ReadOnly = op;
             btnAtualizar.Enabled = !op;
+            lnkFile.Enabled = !op;
         }
 
         protected void btnAtualizar_Click(object sender, EventArgs e)
@@ -217,6 +218,11 @@ namespace KartRanking.Administrador
             {
                 Alert("O upload da foto tem de ser JPG, JPEG ou GIF");
             }
+        }
+
+        protected void lnkFile_Click(object sender, EventArgs e)
+        {
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "Open", "OpenFileUpload();", true);
         }
     }
 }
