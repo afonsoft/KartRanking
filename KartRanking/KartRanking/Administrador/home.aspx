@@ -23,7 +23,7 @@
             text-decoration: none;
             font-style: normal;
         }
-         .sliderSinopise
+        .sliderSinopise
         {
             padding: 0px 5px 5px 5px;
             color: #666666;
@@ -40,7 +40,7 @@
     </style>
 
     <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
-    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
 
@@ -143,56 +143,58 @@
             </div>
         </div>
         <div class="grid_6">
-            <table width="100%" cellpadding="2" cellspacing="2" border="0">
-                <tr>
-                    <td rowspan="5" style="height: 170px; width: 150px;">
-                        <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
-                    </td>
-                    <td style="width: 50px;">
-                        <b>Nome:</b>
-                    </td>
-                    <td style="min-width: 250px;" colspan="3">
-                        <asp:Label ID="lbNome" runat="server" Text=""></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50px;">
-                        <b>Equipe:</b>
-                    </td>
-                    <td>
-                        <asp:Label ID="lbEquipe" runat="server" Text=""></asp:Label>
-                    </td>
-                    <td style="width: 50px;">
-                        <b>Pontos:</b>
-                    </td>
-                    <td>
-                        <asp:Label ID="lbPontos" runat="server" Text=""></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 50px;">
-                        <b>Nasicmento:</b>
-                    </td>
-                    <td colspan="3">
-                        <asp:Label ID="lbData" runat="server" Text=""></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        &nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <asp:LinkButton ID="lnkMaisInfo" runat="server" OnClick="lnkMaisInfo_Click">Mais informações do piloto</asp:LinkButton>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        &nbsp;
-                    </td>
-                </tr>
-            </table>
+            <div style="width: 100%; height: 270px; border: solid 1px #dbddff;">
+                <table width="100%" cellpadding="2" cellspacing="2" border="0">
+                    <tr>
+                        <td rowspan="5" style="height: 170px; width: 150px;">
+                            <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
+                        </td>
+                        <td style="width: 50px;">
+                            <b>Nome:</b>
+                        </td>
+                        <td style="min-width: 200px;" colspan="3">
+                            <asp:Label ID="lbNome" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50px;">
+                            <b>Equipe:</b>
+                        </td>
+                        <td>
+                            <asp:Label ID="lbEquipe" runat="server" Text=""></asp:Label>
+                        </td>
+                        <td style="width: 50px;">
+                            <b>Pontos:</b>
+                        </td>
+                        <td>
+                            <asp:Label ID="lbPontos" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50px;">
+                            <b>Nasicmento:</b>
+                        </td>
+                        <td colspan="3">
+                            <asp:Label ID="lbData" runat="server" Text=""></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <asp:LinkButton ID="lnkMaisInfo" runat="server" OnClick="lnkMaisInfo_Click">Mais informações do piloto</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="clear espaco">
             &nbsp;
