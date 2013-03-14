@@ -123,7 +123,7 @@ namespace KartRanking.Administrador
                     cookie.Expires = DateTime.Now.AddMonths(1);
                     Response.Cookies.Add(cookie);
                 }
-
+                Response.Redirect("home.aspx");
             }
             catch (Exception ex)
             {
@@ -145,8 +145,9 @@ namespace KartRanking.Administrador
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnInit(EventArgs e)
         {
+            base.OnInit(e);
             if (!IsPostBack)
             {
                 HiddenidGrupo.Value = "0";
@@ -157,7 +158,7 @@ namespace KartRanking.Administrador
                 }
                 if (Session["IdGrupo"] != null)
                     HiddenidGrupo.Value = Session["IdGrupo"].ToString();
-               
+
                 AutoLogin();
                 if (Session["Usuario"] != null)
                 {
@@ -170,7 +171,7 @@ namespace KartRanking.Administrador
                 {
                     lblNomeUsuario.Text = "Visitante";
                     pnlMenu.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = false;
-                    pnlLogin.Visible =  true;
+                    pnlLogin.Visible = true;
 
                     pnlConteudo.Visible = ConteudoVisible;
                     pnlNotLogin.Visible = !ConteudoVisible;
