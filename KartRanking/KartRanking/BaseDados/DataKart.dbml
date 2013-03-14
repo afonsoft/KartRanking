@@ -73,6 +73,7 @@
       <Column Name="Ativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Kart_Grupo_Kart_Campeonato" Member="Kart_Campeonatos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Campeonato" />
       <Association Name="Kart_Grupo_Kart_Usuario_Grupo" Member="Kart_Usuario_Grupos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Usuario_Grupo" />
+      <Association Name="Kart_Grupo_Kart_Noticias_Grupo" Member="Kart_Noticias_Grupos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Noticias_Grupo" />
       <Association Name="Usuario_Kart_Grupo" Member="Usuario" ThisKey="Id_Usuario_Lider" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
@@ -225,12 +226,14 @@
   <Table Name="afonsoftcombr.Kart_Noticias_Grupo" Member="Kart_Noticias_Grupos">
     <Type Name="Kart_Noticias_Grupo">
       <Column Name="idNoticias" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Titulo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Noticia" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Ativo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="dtEvento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Kart_Grupo_Kart_Noticias_Grupo" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
       <Association Name="Usuario_Kart_Noticias_Grupo" Member="Usuario" ThisKey="IdUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
