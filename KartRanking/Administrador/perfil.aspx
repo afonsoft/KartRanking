@@ -84,7 +84,7 @@
                     &nbsp;
                 </div>
                 <div class="grid_12">
-                    <a id="btnOpenUpload" href="#" onclick="OpenFileUpload();">Atualizara Foto</a>
+                    <asp:LinkButton ID="lnkFile" runat="server" onclick="lnkFile_Click">Atualizara Foto</asp:LinkButton>
                 </div>
                 <div class="clear espaco_mini">
                     &nbsp;

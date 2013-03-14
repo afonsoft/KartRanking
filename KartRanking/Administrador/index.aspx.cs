@@ -22,6 +22,11 @@ namespace KartRanking.Administrador
                     Session["Msg"] = null;
                 }
             }
+
+            if (Session["Usuario"] != null)
+            {
+                Response.Redirect("home.aspx");
+            }
         }
     }
 }
