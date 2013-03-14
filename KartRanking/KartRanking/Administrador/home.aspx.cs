@@ -59,7 +59,7 @@ namespace KartRanking.Administrador
                                   && vp.idUsuario == user.idUsuario
                                   select vp.Pontos).FirstOrDefault();
 
-                    lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "";
+                    lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "--/--/----";
                     lbNome.Text = user.Nome;
                     ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
                     lbEquipe.Text = Equipe;
