@@ -52,5 +52,6 @@ namespace KartRanking.Page
                 LogErro.Log.Logar(ex, HttpContext.Current);
 
         }
+
     }
 }

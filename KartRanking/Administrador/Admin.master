@@ -65,7 +65,7 @@
                             <asp:Panel ID="pnlMenu" runat="server">
                                 <nav id="menu-wrap">    
 	                            <ul id="menu">
-	                                <li><a href="index.aspx">Home</a></li>
+	                                <li><a href="home.aspx">Home</a></li>
 	                                <li><a href="perfil.aspx">Seu Perfil</a></li>
 	                                <li>
 	                                    <a href="#">Administração</a>

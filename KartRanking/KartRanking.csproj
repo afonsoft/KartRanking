@@ -107,6 +107,13 @@
     <Compile Include="Administrador\Captcha.aspx.designer.cs">
       <DependentUpon>Captcha.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\InscricoesUsuariosGrupo.aspx.cs">
       <DependentUpon>InscricoesUsuariosGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -405,6 +412,7 @@
     <Content Include="Administrador\AdminGrupo.aspx" />
     <Content Include="Administrador\CadastroUsuarioBasico.aspx" />
     <Content Include="Administrador\Captcha.aspx" />
+    <Content Include="Administrador\home.aspx" />
     <Content Include="Administrador\InscricoesUsuariosGrupo.aspx" />
     <Content Include="Administrador\CalendarioProvas.aspx" />
     <Content Include="Administrador\ClassificacaoCampeonato.aspx" />
