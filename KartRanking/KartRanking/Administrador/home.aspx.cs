@@ -17,6 +17,7 @@ namespace KartRanking.Administrador
             {
                 PilotoDestaque();
                 PopularGrid();
+                CarregarNoticias();
             }
         }
 
@@ -79,6 +80,110 @@ namespace KartRanking.Administrador
                 gvRankigEquipe.DataSource = RankingE;
                 gvRankigEquipe.DataBind();
             }
+        }
+
+        private void CarregarNoticias()
+        {
+            string strHtml = "";
+            string strLista = "";
+
+            var noticias = (from n in dk.Kart_Noticias_Grupos
+                            where n.idGrupo == IdGrupo
+                            && n.dtCriacao >= DateTime.Now.AddMonths(-1)
+                            orderby n.dtCriacao ascending
+                            select n);
+
+            strHtml += " <div id='slider'> ";
+            strHtml += " <ul>  ";
+
+            int iFormatar = 0;
+            foreach (var n in noticias)
+            {
+                if (iFormatar == 0)
+                {
+                    strLista += "         <li>";
+                    strLista += "             <div class='sliderTitulo' style='padding: 1px 1px 1px 1px;'> ";
+                    strLista += n.Titulo;
+                    strLista += "             </div> ";
+                    strLista += "             <div class='sliderSinopise' style='padding: 0px 0px 1px 0px;'>";
+                    strLista += Sinopse(n.Noticia, n.idNoticias, n.dtCriacao.Value.ToString("dd/MM/yyyy"));
+                    strLista += "             </div> ";
+                }
+                else
+                {
+                    strLista += "             <div class='sliderTitulo' style='padding: 1px 1px 1px 1px;'> ";
+                    strLista += n.Titulo;
+                    strLista += "             </div> ";
+                    strLista += "             <div class='sliderSinopise' style='padding: 0px 0px 1px 0px;'>";
+                    strLista += Sinopse(n.Noticia, n.idNoticias, n.dtCriacao.Value.ToString("dd/MM/yyyy"));
+                    strLista += "             </div> ";
+                }
+                if (iFormatar == 3)
+                {
+                    strLista += "         </li> ";
+                    strHtml += strLista;
+                    strLista = "";
+                    iFormatar = 0;
+                }
+                else
+                {
+                    iFormatar++;
+                }
+            }
+
+            if (iFormatar < 3)
+            {
+                strLista += "         </li> ";
+                strHtml += strLista;
+                strLista = "";
+            }
+           
+            strHtml += "     </ul> ";
+            strHtml += " </div>       ";
+
+            ltNoticias.Text = strHtml;
+        }
+
+        private string Sinopse(string texto, int id, string data)
+        {
+            string r = "";
+            if (texto.Length >= 97)
+                r = texto.Substring(0, 97) + "...";
+            else
+                r = texto;
+
+            return StripTagsCharArray(r) + "<br/>" + data + " - <a href='Noticias.aspx?id=" + id + "'\">Continuar lendo...</a>";
+        }
+
+        /// <summary>
+        /// Remove HTML tags from string using char array.
+        /// </summary>
+        public static string StripTagsCharArray(string source)
+        {
+            char[] array = new char[source.Length];
+            int arrayIndex = 0;
+            bool inside = false;
+
+            for (int i = 0; i < source.Length; i++)
+            {
+                char let = source[i];
+                if (let == '<')
+                {
+                    inside = true;
+                    continue;
+                }
+                if (let == '>')
+                {
+                    inside = false;
+                    continue;
+                }
+                if (!inside)
+                {
+                    array[arrayIndex] = let;
+                    arrayIndex++;
+                }
+            }
+            return new string(array, 0, arrayIndex);
         }
 
     }
