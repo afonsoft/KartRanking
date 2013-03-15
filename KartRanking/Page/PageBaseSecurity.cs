@@ -155,38 +155,36 @@ namespace KartRanking.Page
         {
             base.OnInit(e);
 
-            if (Session["Usuario"] == null && ViewState["Usuario"] == null)
-                Response.Redirect("~/index.aspx");
-            else if (ViewState["Usuario"] != null && Session["Usuario"] == null)
+            if (ViewState["Usuario"] != null && Session["Usuario"] == null)
             {
                 Session["Usuario"] = ViewState["Usuario"];
             }
-            else if (Session["Usuario"].GetType() != typeof(BaseDados.Usuario))
+            if (Session["Usuario"].GetType() != typeof(BaseDados.Usuario))
             {
                 Session["Usuario"] = null;
-                Response.Redirect("~/index.aspx");
+                Response.Redirect("~/Administrador/index.aspx");
+            }
+            if (Session["Usuario"] == null && ViewState["Usuario"] == null)
+                Response.Redirect("~/Administrador/index.aspx");
+
+            ViewState["Usuario"] = Session["Usuario"];
+            //Verificar se o Usuario pertence ao grupo
+            if (!IsThisGroup)
+            {
+                Session["Msg"] = "Você não possue permissão para acessar este grupo.";
+                Response.Redirect("~/Administrador/index.aspx");
             }
             else
             {
-                ViewState["Usuario"] = Session["Usuario"];
-                //Verificar se o Usuario pertence ao grupo
-                if (!IsThisGroup)
+                if (ValidarSeAtivo())
                 {
-                    Session["Msg"] = "Você não possue permissão para acessar este grupo.";
-                    Response.Redirect("~/Administrador/index.aspx");
-                }
-                else
-                {
-                    if (ValidarSeAtivo())
+                    if (Request.QueryString["IdGrupo"] != null)
                     {
-                        if (Request.QueryString["IdGrupo"] != null)
-                        {
-                            IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
-                        }
+                        IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
                     }
                 }
-
             }
+
         }
 
         public Usuario UsuarioLogado

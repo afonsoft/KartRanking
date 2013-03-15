@@ -66,11 +66,17 @@
         <div class="clear espaco">
             &nbsp;
         </div>
-        <div class="grid_6">
-            <b>Classificação dos Pilotos (Top 10)</b>&nbsp;<a href="ClassificacaoCampeonato.aspx?op=1">Mais...</a>
+        <div class="grid_4">
+            <b>Classificação dos Pilotos (Top 10)</b>
         </div>
-        <div class="grid_6">
-            <b>Noticias do grupo</b>&nbsp;<a href="Noticias.aspx">Mais...</a>
+        <div class="grid_2" style="text-align: right;">
+            <a href="ClassificacaoCampeonato.aspx?op=1">Rank Completo</a>
+        </div>
+        <div class="grid_4">
+            &nbsp;<b>Noticias do grupo</b>
+        </div>
+        <div class="grid_2" style="text-align: right;">
+            <a href="Noticias.aspx">Mais Noticias</a>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -112,11 +118,17 @@
         <div class="clear espaco">
             &nbsp;
         </div>
-        <div class="grid_6">
-            <b>Classificação das Equipes (Top 10)</b>&nbsp;<a href="ClassificacaoCampeonato.aspx?op=2">Mais...</a>
+        <div class="grid_4">
+            <b>Classificação das Equipes (Top 10)</b>
         </div>
-        <div class="grid_6">
-            <b>Piloto em Destaque</b>&nbsp;<a href="PilotosEquipesGrupo.aspx?op=1">Mais...</a>
+        <div class="grid_2" style="text-align: right;">
+            <a href="ClassificacaoCampeonato.aspx?op=2">Rank de Equipe</a>
+        </div>
+        <div class="grid_4">
+            &nbsp;<b>Piloto em Destaque</b>
+        </div>
+        <div class="grid_2" style="text-align: right;">
+            <a href="PilotosEquipesGrupo.aspx?op=1">Todos os Pilotos</a>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -146,7 +158,7 @@
             <div style="width: 100%; height: 270px; border: solid 1px #dbddff;">
                 <table width="100%" cellpadding="2" cellspacing="2" border="0">
                     <tr>
-                        <td rowspan="5" style="height: 170px; width: 150px;">
+                        <td rowspan="6" style="height: 170px; width: 150px;">
                             <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
                         </td>
                         <td style="width: 50px;">
@@ -166,7 +178,7 @@
                         <td style="width: 50px;">
                             <b>Pontos:</b>
                         </td>
-                        <td>
+                        <td style="width: 50px;">
                             <asp:Label ID="lbPontos" runat="server" Text=""></asp:Label>
                         </td>
                     </tr>
@@ -185,12 +197,17 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <asp:LinkButton ID="lnkMaisInfo" runat="server" OnClick="lnkMaisInfo_Click">Mais informações do piloto</asp:LinkButton>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            &nbsp;
                         </td>
                     </tr>
                     <tr>
                         <td colspan="5">
-                            &nbsp;
+                            <asp:LinkButton ID="lnkMaisInfo" runat="server" OnClick="lnkMaisInfo_Click">Mais informações do piloto</asp:LinkButton>
                         </td>
                     </tr>
                 </table>
