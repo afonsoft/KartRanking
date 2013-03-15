@@ -67,10 +67,10 @@
             &nbsp;
         </div>
         <div class="grid_6">
-            <b>Classificação dos Pilotos (Top 10)</b>
+            <b>Classificação dos Pilotos (Top 10)</b>&nbsp;<a href="ClassificacaoCampeonato.aspx?op=1">Mais...</a>
         </div>
         <div class="grid_6">
-            <b>Noticias do grupo</b>
+            <b>Noticias do grupo</b>&nbsp;<a href="Noticias.aspx">Mais...</a>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -113,10 +113,10 @@
             &nbsp;
         </div>
         <div class="grid_6">
-            <b>Classificação das Equipes (Top 10)</b>
+            <b>Classificação das Equipes (Top 10)</b>&nbsp;<a href="ClassificacaoCampeonato.aspx?op=2">Mais...</a>
         </div>
         <div class="grid_6">
-            <b>Piloto em Destaque</b>
+            <b>Piloto em Destaque</b>&nbsp;<a href="PilotosEquipesGrupo.aspx?op=1">Mais...</a>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
