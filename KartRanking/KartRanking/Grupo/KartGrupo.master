@@ -43,8 +43,15 @@
     <aside>
         <div class="main">
             <figure>
-                <a href="#">
-                    <img src="/images/banner.png" width="940" height="103" alt="" /></a></figure>
+                <script type="text/javascript">
+                    google_ad_client = "ca-pub-2122647083447667";
+                    /* CabecalhoGrupoKart */
+                    google_ad_slot = "5191731603";
+                    google_ad_width = 728;
+                    google_ad_height = 90;
+                </script>
+                <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>    
+            </figure>
             <div>
                 <h4>
                     <b>
