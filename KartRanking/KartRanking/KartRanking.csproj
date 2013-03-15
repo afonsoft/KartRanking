@@ -173,6 +173,13 @@
     <Compile Include="Administrador\PilotosEquipesGrupo.aspx.designer.cs">
       <DependentUpon>PilotosEquipesGrupo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\RecuperarSenha.aspx.cs">
+      <DependentUpon>RecuperarSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\RecuperarSenha.aspx.designer.cs">
+      <DependentUpon>RecuperarSenha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\TesteMenu.aspx.cs">
       <DependentUpon>TesteMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -432,6 +439,7 @@
     <Content Include="Administrador\perfil.aspx" />
     <Content Include="Administrador\PermissaoGrupo.aspx" />
     <Content Include="Administrador\PilotosEquipesGrupo.aspx" />
+    <Content Include="Administrador\RecuperarSenha.aspx" />
     <Content Include="Administrador\TesteMenu.aspx" />
     <Content Include="Admin\PermissoesGrupo.aspx" />
     <Content Include="css\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
