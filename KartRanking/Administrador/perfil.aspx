@@ -38,7 +38,10 @@
             });
             $("#dialog-modal").parent().appendTo($("form:first"));
 
-            $('#<%= txtAltura.ClientID%>, #<%= txtPeso.ClientID%>').numeric(",");
+            //$('#<%= txtAltura.ClientID%>, #<%= txtPeso.ClientID%>').numeric(",");
+            $("#<%= txtAltura.ClientID%>").mask("9,99");
+            $("#<%= txtPeso.ClientID%>").mask("99,9");
+            
 
         });
 
@@ -129,7 +132,7 @@
                 <div class="grid_2">
                     <span class="label">Peso:</span></div>
                 <div class="grid_3">
-                    <asp:TextBox ID="txtPeso" MaxLength="6" runat="server" CssClass="text"></asp:TextBox>
+                    <asp:TextBox ID="txtPeso" MaxLength="5" runat="server" CssClass="text"></asp:TextBox>
                 </div>
                 <div class="grid_2">
                     <span class="label">Sexo:</span></div>

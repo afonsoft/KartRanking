@@ -191,8 +191,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="4">
-                            &nbsp;
+                    <td style="width: 50px;">
+                        <b>Facebook:</b>
+                    </td>
+                        <td colspan="3">
+                            <asp:Literal ID="ltPerfilFace" runat="server" Text=""></asp:Literal> &nbsp;
                         </td>
                     </tr>
                     <tr>

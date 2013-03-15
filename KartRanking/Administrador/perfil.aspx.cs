@@ -164,6 +164,8 @@ namespace KartRanking.Administrador
                     u.Ativo = true;
 
                     dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+
+                    Alert("Perfil atualizado com sucesso!", null, "/Administrador/home.aspx");
                 }
                 else
                     throw new Exception("Usuario não localizado na base!");

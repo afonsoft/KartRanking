@@ -3,6 +3,14 @@
 	Copyright (c) 2007-2013 Josh Bush (digitalbush.com)
 	Licensed under the MIT license (http://digitalbush.com/projects/masked-input-plugin/#license)
 	Version: 1.3.1
+	
+	jQuery(function($){
+       $("#date").mask("99/99/9999");
+       $("#phone").mask("(999) 999-9999");
+       $("#tin").mask("99-9999999");
+       $("#ssn").mask("999-99-9999");
+    });
+
 */
 (function($) {
 	function getPasteEvent() {
