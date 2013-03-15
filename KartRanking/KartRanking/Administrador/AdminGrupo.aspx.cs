@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.email;
 using KartRanking.BaseDados;
+using KartRanking.Tools;
 
 namespace KartRanking.Administrador
 {
@@ -170,6 +171,9 @@ namespace KartRanking.Administrador
 
                     Alert("Cadastro do Grupo efetuado com sucesso!");
                     DisableEditGrupo(true);
+
+                    List<Kart_Grupo> lstGrupos = (from g in new DataKartDataContext().Kart_Grupos where g.Ativo == true select g).ToList();
+                   CacheHelper.Add(lstGrupos, "AllGrupo");
                 }
                 else
                 {
