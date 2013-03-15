@@ -260,5 +260,10 @@ namespace KartRanking.Administrador
                 return url + rurl + "?IdGrupo=" + idGrupo;
         }
 
+        protected void imgAssociarGrupo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("~/Administrador/ListarGrupos.aspx");
+        }
+
     }
 }

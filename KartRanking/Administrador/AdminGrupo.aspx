@@ -138,7 +138,9 @@
         </tr>
         <tr>
             <td colspan="3">
-                &nbsp;&nbsp;&nbsp;
+                <a href="ListarGrupos.aspx">
+                    <img height="16px" width="16px" src="/images/Group.png" />&nbsp;Associa-se a um
+                    grupo</a>
             </td>
             <td colspan="3" style="text-align: right;">
                 &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"

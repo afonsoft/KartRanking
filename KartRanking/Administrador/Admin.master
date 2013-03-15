@@ -175,7 +175,9 @@
                         </td>
                         <td style="background-color: #F5F5F5; width: 3%; height: 20px; text-align: right;
                             vertical-align: middle;">
-                            <asp:ImageButton ID="imgAssociarGrupo" runat="server" Width="20px" Height="20px" />
+                            <asp:ImageButton ID="imgAssociarGrupo" runat="server" Width="20px" Height="20px"
+                                ImageUrl="~/images/Group.png" ToolTip="Associar-se a um grupo" 
+                                AlternateText="Grupos" onclick="imgAssociarGrupo_Click" />
                         </td>
                         <td style="background-color: #F5F5F5; width: 1%; height: 20px;">
                         </td>
@@ -189,7 +191,8 @@
                     <tr>
                         <td>
                             <div style="width: 98%; height: 100% auto; padding: 10px;">
-                                <div style="width: 100%; text-align:center;">
+                                <div style="width: 100%; text-align: center;">
+
                                     <script type="text/javascript">
                                         google_ad_client = "ca-pub-2122647083447667";
                                         /* Banner */
@@ -197,6 +200,7 @@
                                         google_ad_width = 468;
                                         google_ad_height = 60;
                                 </script>
+
                                     <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                                 </script>
 
