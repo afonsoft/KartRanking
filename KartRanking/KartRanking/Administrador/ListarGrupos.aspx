@@ -34,6 +34,12 @@
                         <asp:BoundField DataField="Estado" SortExpression="Estado" HeaderText="Estado" />
                         <asp:TemplateField>
                             <HeaderTemplate>
+                                Aprovado</HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Convert.ToBoolean(Eval("Aprovado")) == true ? "Sim" : "Não"%></ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
                                 Ativo</HeaderTemplate>
                             <ItemTemplate>
                                 <%# Convert.ToBoolean(Eval("Ativo")) == true ? "Sim" : "Não" %></ItemTemplate>
@@ -76,7 +82,9 @@
             <asp:TextBox ID="txtFiltrar" Width="98%" runat="server"></asp:TextBox>
         </div>
         <div class="grid_3">
-            <asp:Button ID="btnConsultar" runat="server" Text="Consultar" />
+            <asp:Button ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
+            &nbsp;
+            <asp:Button ID="btnLimpar" runat="server" Text="Limpar" OnClick="btnLimpar_Click" />
         </div>
         <div class="clear espaco_mini">
             &nbsp;
@@ -85,7 +93,7 @@
             <div class="template">
                 <asp:GridView ID="gvGruposDisponiveis" AutoGenerateColumns="false" DataKeyNames="idGrupo"
                     CssClass="gridview" runat="server" EmptyDataText="Nenhum campeonato neste grupo"
-                    AllowPaging="true" OnRowCommand="gvGrupos_RowCommand">
+                    AllowPaging="true" OnRowCommand="gvGrupos_RowCommand" OnPageIndexChanging="gvGruposDisponiveis_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="NomeGrupo" SortExpression="NomeGrupo" HeaderText="Nome do Grupo" />
                         <asp:BoundField DataField="Sigla" SortExpression="Sigla" HeaderText="Sigla" />

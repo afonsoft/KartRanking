@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
+using System.Data.Linq;
 
 namespace KartRanking.Administrador
 {
@@ -37,13 +38,16 @@ namespace KartRanking.Administrador
                                                  Estado = g.Estado,
                                                  Ativo = g.Ativo.Value,
                                                  dtCriacao = g.dtCriacao.Value,
-                                                 Nome = u.Nome
+                                                 Nome = u.Nome,
+                                                 Aprovado = gu.Aprovado.Value
                                              }).Distinct().ToList();
 
             gvGruposAssociados.DataSource = GruposAssociados;
+            gvGruposAssociados.PageIndex = 0;
             gvGruposAssociados.DataBind();
 
-            gvGruposDisponiveis.DataSource = PopularGrupoDisponivel(null); 
+            gvGruposDisponiveis.DataSource = PopularGrupoDisponivel(null);
+            gvGruposDisponiveis.PageIndex = 0;
             gvGruposDisponiveis.DataBind();
         }
 
@@ -68,10 +72,11 @@ namespace KartRanking.Administrador
                             Estado = g.Estado,
                             Ativo = g.Ativo.Value,
                             dtCriacao = g.dtCriacao.Value,
-                            Nome = u.Nome
+                            Nome = u.Nome,
+                            Aprovado = false
                         }).Distinct().ToList();
 
-                
+
             }
             else
             {
@@ -93,15 +98,71 @@ namespace KartRanking.Administrador
                             Estado = g.Estado,
                             Ativo = g.Ativo.Value,
                             dtCriacao = g.dtCriacao.Value,
-                            Nome = u.Nome
+                            Nome = u.Nome,
+                            Aprovado = false
                         }).Distinct().ToList();
-
             }
         }
 
         protected void gvGrupos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            try
+            {
+                int idGrupo = Convert.ToInt32(e.CommandArgument);
 
+                if (e.CommandName == "Sair")
+                {
+                    Kart_Usuario_Grupo kug = (from ug in dk.Kart_Usuario_Grupos
+                                              where ug.idGrupo == idGrupo
+                                              && ug.idUsuario == UsuarioLogado.idUsuario
+                                              select ug).FirstOrDefault();
+                    if (kug != null)
+                    {
+                        dk.Kart_Usuario_Grupos.DeleteOnSubmit(kug);
+                        dk.SubmitChanges();
+                        Alert("Usuário excluido com suceso!");
+                    }
+
+                }
+                else if (e.CommandName == "Associar")
+                {
+                    Kart_Usuario_Grupo kug = new Kart_Usuario_Grupo();
+                    kug.Admin = false;
+                    kug.Aprovado = false;
+                    kug.idGrupo = idGrupo;
+                    kug.idUsuario = UsuarioLogado.idUsuario;
+                    kug.dtCriacao = DateTime.Now;
+
+                    dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
+                    dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                    Alert("Usuário incluido com suceso!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
+        }
+        protected void gvGruposDisponiveis_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvGruposDisponiveis.DataSource = PopularGrupoDisponivel(txtFiltrar.Text);
+            gvGruposDisponiveis.PageIndex = e.NewPageIndex;
+            gvGruposDisponiveis.DataBind();
+        }
+
+        protected void btnConsultar_Click(object sender, EventArgs e)
+        {
+            gvGruposDisponiveis.DataSource = PopularGrupoDisponivel(txtFiltrar.Text);
+            gvGruposDisponiveis.PageIndex = 0;
+            gvGruposDisponiveis.DataBind();
+        }
+
+        protected void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtFiltrar.Text = string.Empty;
+            gvGruposDisponiveis.DataSource = PopularGrupoDisponivel(null);
+            gvGruposDisponiveis.PageIndex = 0;
+            gvGruposDisponiveis.DataBind();
         }
     }
 
@@ -115,6 +176,7 @@ namespace KartRanking.Administrador
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public bool Ativo { get; set; }
+        public bool Aprovado { get; set; }
         public DateTime dtCriacao { get; set; }
         public string Nome { get; set; }
     }
