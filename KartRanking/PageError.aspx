@@ -45,6 +45,15 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+            <td><hr /></td>
+            </tr>
+            <tr>
+            <td style="text-align:left;">
+                <asp:Button ID="btnEnviar" runat="server" 
+                    Text="Reportar esse erro ao adiministrador!" onclick="btnEnviar_Click" />
+            </td>
+            </tr>
         </table>
     </div>
     </form>
