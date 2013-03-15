@@ -38,12 +38,46 @@
             });
             $("#dialog-modal").parent().appendTo($("form:first"));
 
-            //$('#<%= txtAltura.ClientID%>, #<%= txtPeso.ClientID%>').numeric(",");
+            $("#dialog-modalSenha").dialog({
+                autoOpen: false,
+                height: 200,
+                width: 350,
+                modal: false,
+                buttons: {
+                    "Upload": function() {
+                        $(this).dialog("close"); __doPostBack('<%=lnkAlterarSenha.UniqueID %>', '');
+                    },
+                    "Cancelar": function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#dialog-modalSenha").parent().appendTo($("form:first"));
+            
             $("#<%= txtAltura.ClientID%>").mask("9,99");
             $("#<%= txtPeso.ClientID%>").mask("99,9");
-            
+
 
         });
+
+        function AlterarSenha() {
+            $("#dialog-modalSenha").dialog({
+                autoOpen: false,
+                height: 200,
+                width: 350,
+                modal: false,
+                buttons: {
+                    "Upload": function() {
+                        $(this).dialog("close"); __doPostBack('<%=lnkAlterarSenha.UniqueID %>', '');
+                    },
+                    "Cancelar": function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#dialog-modalSenha").parent().appendTo($("form:first"));
+            $('#dialog-modalSenha').dialog('open');
+        }
 
         function OpenFileUpload() {
             $("#dialog-modal").dialog({
@@ -87,7 +121,7 @@
                     &nbsp;
                 </div>
                 <div class="grid_12">
-                    <asp:LinkButton ID="lnkFile" runat="server" onclick="lnkFile_Click">Atualizara Foto</asp:LinkButton>
+                    <asp:LinkButton ID="lnkFile" runat="server" OnClick="lnkFile_Click">Atualizara Foto</asp:LinkButton>
                 </div>
                 <div class="clear espaco_mini">
                     &nbsp;
@@ -249,10 +283,44 @@
         </div>
         <div class="grid_12">
             <asp:Button ID="btnAtualizar" runat="server" Text="Atualizar" Width="150px" OnClick="btnAtualizar_Click"
-                CssClass="button" />
+                CssClass="button" />&nbsp;
+            <input id="Button1" type="button" value="Alterara Senha" onclick="AlterarSenha();" />
         </div>
         <div class="clear espaco_mini">
             &nbsp;
+        </div>
+    </div>
+    <div id="dialog-modalSenha" title="Alterar a Senha" style="display: none; font-size: x-small;
+        color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+        class="ui-dialog ui-resizable-handle">
+        <table width="100%" cellpadding="1" cellspacing="1" border="1">
+            <tr>
+                <td style="width: 100px;">
+                    <b>Senha Antiga:</b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtSenhaAntiga" runat="server" Width="100%"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px;">
+                    <b>Senha Nova:</b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtSenhaNova1" runat="server" Width="100%"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px;">
+                    <b>Senha Nova:</b>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtSenhaNova2" runat="server" Width="100%"></asp:TextBox>
+                </td>
+            </tr>
+        </table>
+        <div style="display: none;">
+            <asp:LinkButton ID="lnkAlterarSenha" runat="server" OnClick="lnkAlterarSenha_Click"></asp:LinkButton>
         </div>
     </div>
     <div id="dialog-modal" title="Upload" style="display: none; font-size: x-small; color: Black;
