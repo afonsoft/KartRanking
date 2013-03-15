@@ -152,6 +152,10 @@ namespace KartRanking.Administrador
                     u.Senha = txtSenhaNova1.Text;
                     dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
                     EMail.EnviarEmailBemvido(u, IdGrupo);
+                    
+                    txtSenhaAntiga.Text = "";
+                    txtSenhaNova1.Text = "";
+                    txtSenhaNova2.Text = "";
                 }
                 else
                 {
