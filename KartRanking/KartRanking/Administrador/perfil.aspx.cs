@@ -8,6 +8,7 @@ using KartRanking.Page;
 using KartRanking.BaseDados;
 using System.Data.Linq;
 using KartRanking.Tools;
+using KartRanking.email;
 
 namespace KartRanking.Administrador
 {
@@ -150,6 +151,7 @@ namespace KartRanking.Administrador
                     }
                     u.Senha = txtSenhaNova1.Text;
                     dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                    EMail.EnviarEmailBemvido(u, IdGrupo);
                 }
                 else
                 {
