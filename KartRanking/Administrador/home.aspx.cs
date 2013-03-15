@@ -67,7 +67,16 @@ namespace KartRanking.Administrador
                     ltPerfilFace.Text = string.IsNullOrEmpty(user.Perfil_Facebook) ? "------------" : "<a href='" + user.Perfil_Facebook + "' target='_blank'>" + (user.Perfil_Facebook.Length > 30 ? user.Perfil_Facebook.Substring(0, 30) + "..." : user.Perfil_Facebook) + "</a>";
                     ViewState["UsuarioSelecionado"] = user.idUsuario;
                 }
-
+            }
+            else
+            {
+                lbData.Text = "--/--/----";
+                lbNome.Text = "Nenhum piloto";
+                ImgPerfil.ImageUrl = "";
+                lbEquipe.Text = "---";
+                lbPontos.Text = "0";
+                ltPerfilFace.Text = "------------" ;
+                ViewState["UsuarioSelecionado"] = 0;
             }
         }
 
@@ -95,6 +104,14 @@ namespace KartRanking.Administrador
                 gvRankigEquipe.DataSource = RankingE;
                 gvRankigEquipe.DataBind();
             }
+            else
+            {
+                gvRankigCampeonato.DataSource = null;
+                gvRankigCampeonato.DataBind();
+
+                gvRankigEquipe.DataSource = null;
+                gvRankigEquipe.DataBind();
+            }
         }
 
         private void CarregarNoticias()
@@ -110,10 +127,11 @@ namespace KartRanking.Administrador
 
             strHtml += " <div id='slider'> ";
             strHtml += " <ul>  ";
-
+            int total = 0;
             int iFormatar = 0;
             foreach (var n in noticias)
             {
+                total++;
                 if (iFormatar == 0)
                 {
                     strLista += "         <li>";
@@ -148,6 +166,9 @@ namespace KartRanking.Administrador
 
             if (iFormatar < 3)
             {
+                if (total == 0)
+                    strLista += "<div class='sliderTitulo' style='padding: 1px 1px 1px 1px;'> Nenhuma Noticias</div>";
+
                 strLista += "         </li> ";
                 strHtml += strLista;
                 strLista = "";
