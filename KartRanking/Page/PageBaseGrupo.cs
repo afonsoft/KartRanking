@@ -7,21 +7,47 @@ namespace KartRanking.Page
 {
     public class PageBaseGrupo : PageBase
     {
-        public int idGrupo { get; set; }
+        public int IdGrupo
+        {
+            get
+            {
+                if (Session["idGrupoGrupos"] != null)
+                    return Convert.ToInt32(Session["idGrupoGrupos"]);
+                else
+                    Session["idGrupoGrupos"] = 0;
+                return 0;
+            }
+            set
+            {
+                Session["idGrupoGrupos"] = value.ToString();
+            }
+        }
+
+        public int IdCampeonato
+        {
+            get
+            {
+                if (Session["IdCampeonatoGrupos"] != null)
+                    return Convert.ToInt32(Session["IdCampeonatoGrupos"]);
+                else
+                    Session["IdCampeonatoGrupos"] = 0;
+                return 0;
+            }
+            set
+            {
+                Session["IdCampeonatoGrupos"] = value.ToString();
+            }
+        }
         
         protected override void OnInit(EventArgs e)
         {
-            idGrupo = 0;
+            IdGrupo = 0;
 
-            if (Request.QueryString["IdGrupo"] != null && idGrupo == 0)
-                idGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
-            if (Session["idGrupoGrupos"] != null && idGrupo == 0)
-                idGrupo = Convert.ToInt16(Session["idGrupoGrupos"]);          
+            if (Request.QueryString["IdGrupo"] != null)
+                IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);              
 
-            if(idGrupo <= 0)
-                Response.Redirect("~/index.aspx");
-            else
-                Session["idGrupoGrupos"] = idGrupo;
+            if (IdGrupo <= 0)
+                Response.Redirect("~/Administrador/index.aspx");
 
             base.OnInit(e);
         }
