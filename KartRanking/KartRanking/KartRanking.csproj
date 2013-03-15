@@ -145,6 +145,13 @@
     <Compile Include="Administrador\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\ListarGrupos.aspx.cs">
+      <DependentUpon>ListarGrupos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ListarGrupos.aspx.designer.cs">
+      <DependentUpon>ListarGrupos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Noticias.aspx.cs">
       <DependentUpon>Noticias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -435,6 +442,7 @@
       <DependentUpon>DataKart.dbml</DependentUpon>
     </None>
     <Content Include="Administrador\index.aspx" />
+    <Content Include="Administrador\ListarGrupos.aspx" />
     <Content Include="Administrador\Noticias.aspx" />
     <Content Include="Administrador\perfil.aspx" />
     <Content Include="Administrador\PermissaoGrupo.aspx" />
@@ -572,6 +580,7 @@
     <Content Include="images\Edit16px.png" />
     <Content Include="images\figcaption-bg.png" />
     <Content Include="images\footer-tail.gif" />
+    <Content Include="images\Group.png" />
     <Content Include="images\Grupo.png" />
     <Content Include="images\GrupoAdd.png" />
     <Content Include="images\GrupoSearch.png" />
