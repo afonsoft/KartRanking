@@ -164,7 +164,10 @@ namespace KartRanking.Administrador
                     u.Ativo = true;
 
                     dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
-
+                    
+                    if (UsuarioLogado.idUsuario == u.idUsuario)
+                        Session["Usuario"] = u;
+                    
                     Alert("Perfil atualizado com sucesso!", null, "/Administrador/home.aspx");
                 }
                 else
