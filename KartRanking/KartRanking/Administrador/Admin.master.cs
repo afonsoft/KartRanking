@@ -148,6 +148,7 @@ namespace KartRanking.Administrador
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+
             if (!IsPostBack)
             {
                 HiddenidGrupo.Value = "0";
@@ -166,6 +167,12 @@ namespace KartRanking.Administrador
                     pnlMenu.Visible = pnlConteudo.Visible = true;
                     pnlLogin.Visible = pnlNotLogin.Visible = false;
                     CarregarGruposUsuario();
+
+                    if (!((Usuario)Session["Usuario"]).Ativo.Value)
+                    {
+                        Response.Redirect("~/Administrador/perfil.aspx?idUsuario=" + ((Usuario)Session["Usuario"]).idUsuario);
+                    }
+
                 }
                 else
                 {
