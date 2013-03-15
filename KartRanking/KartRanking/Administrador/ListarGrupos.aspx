@@ -42,8 +42,8 @@
                             <HeaderTemplate>
                                 Url</HeaderTemplate>
                             <ItemTemplate>
-                                <a href='/Grupo/<%# Eval("NomeGrupo")%>'>
-                                    <%# Eval("NomeGrupo")%></a>
+                                <a href='/Grupo/<%# Eval("UrlAcesso")%>'>
+                                    <%# Eval("UrlAcesso")%></a>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="dtCriacao" SortExpression="dtCriacao" HeaderText="dtCriacao"
@@ -69,6 +69,18 @@
         <div class="clear espaco_mini">
             &nbsp;
         </div>
+        <div class="grid_2">
+            <b>Nome</b>
+        </div>
+        <div class="grid_7">
+            <asp:TextBox ID="txtFiltrar" Width="98%" runat="server"></asp:TextBox>
+        </div>
+        <div class="grid_3">
+            <asp:Button ID="btnConsultar" runat="server" Text="Consultar" />
+        </div>
+        <div class="clear espaco_mini">
+            &nbsp;
+        </div>
         <div class="grid_12">
             <div class="template">
                 <asp:GridView ID="gvGruposDisponiveis" AutoGenerateColumns="false" DataKeyNames="idGrupo"
@@ -89,8 +101,8 @@
                             <HeaderTemplate>
                                 Url</HeaderTemplate>
                             <ItemTemplate>
-                                <a href='/Grupo/<%# Eval("NomeGrupo")%>'>
-                                    <%# Eval("NomeGrupo")%></a>
+                                <a href='/Grupo/<%# Eval("UrlAcesso")%>'>
+                                    <%# Eval("UrlAcesso")%></a>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="dtCriacao" SortExpression="dtCriacao" HeaderText="dtCriacao"

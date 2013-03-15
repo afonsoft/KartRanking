@@ -23,6 +23,24 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.GridView gvGruposAssociados;
         
         /// <summary>
+        /// txtFiltrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFiltrar;
+        
+        /// <summary>
+        /// btnConsultar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnConsultar;
+        
+        /// <summary>
         /// gvGruposDisponiveis control.
         /// </summary>
         /// <remarks>
