@@ -189,6 +189,18 @@
                     <tr>
                         <td>
                             <div style="width: 98%; height: 100% auto; padding: 10px;">
+                                <div style="width: 100%; text-align:center;">
+                                    <script type="text/javascript">
+                                        google_ad_client = "ca-pub-2122647083447667";
+                                        /* Banner */
+                                        google_ad_slot = "3016994400";
+                                        google_ad_width = 468;
+                                        google_ad_height = 60;
+                                </script>
+                                    <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                                </script>
+
+                                </div>
                                 <asp:Panel ID="pnlConteudo" Visible="false" runat="server">
                                     <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
                                     </asp:ContentPlaceHolder>
@@ -214,7 +226,8 @@
                                         O cadastro leva aproximadamente 3 minutos e você terá a sua disposição um gestor
                                         de conteúdo para publicar todas as informações do seu evento na internet de forma
                                         muito simples.
-                                        <br /><br />
+                                        <br />
+                                        <br />
                                     </span>
                                     <!-- Place this tag where you want the +1 button to render. -->
                                     <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300">
