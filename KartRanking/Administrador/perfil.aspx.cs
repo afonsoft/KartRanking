@@ -130,7 +130,36 @@ namespace KartRanking.Administrador
 
         protected void lnkAlterarSenha_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Usuario u = (from p in dk.Usuarios
+                             where p.idUsuario == Convert.ToInt16(IdUsuario.Value)
+                             select p).FirstOrDefault();
 
+                if (u != null)
+                {
+                    if (u.Senha != txtSenhaAntiga.Text)
+                    {
+                        Alert("A senha antiga não confere!");
+                        return;
+                    }
+                    if (txtSenhaNova1.Text != txtSenhaNova2.Text)
+                    {
+                        Alert("A senhas novas não confere!");
+                        return;
+                    }
+                    u.Senha = txtSenhaNova1.Text;
+                    dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                }
+                else
+                {
+                    Alert("Erro para alterar a senha!\nTente mais tarde!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
         }
         protected void btnAtualizar_Click(object sender, EventArgs e)
         {
