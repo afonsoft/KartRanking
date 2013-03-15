@@ -128,6 +128,10 @@ namespace KartRanking.Administrador
             lnkFile.Enabled = !op;
         }
 
+        protected void lnkAlterarSenha_Click(object sender, EventArgs e)
+        {
+
+        }
         protected void btnAtualizar_Click(object sender, EventArgs e)
         {
 

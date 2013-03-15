@@ -194,6 +194,42 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.Button btnAtualizar;
         
         /// <summary>
+        /// txtSenhaAntiga control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSenhaAntiga;
+        
+        /// <summary>
+        /// txtSenhaNova1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSenhaNova1;
+        
+        /// <summary>
+        /// txtSenhaNova2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSenhaNova2;
+        
+        /// <summary>
+        /// lnkAlterarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAlterarSenha;
+        
+        /// <summary>
         /// flUpload control.
         /// </summary>
         /// <remarks>
