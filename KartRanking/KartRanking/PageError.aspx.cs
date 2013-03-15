@@ -98,5 +98,11 @@ namespace KartRanking
 
             dvError.InnerHtml = strBody;
         }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            email.EMail.EnviaEmail("afonsoft@hotmail.com;afonsoft@gmail.com", dvError.InnerHtml, "Erro no Sistema Kart", "marcelo.analista@bol.com.br");
+            Response.Redirect("~/Administrador/index.aspx");
+        }
     }
 }
