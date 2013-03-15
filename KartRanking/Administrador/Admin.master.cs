@@ -168,7 +168,7 @@ namespace KartRanking.Administrador
                     pnlLogin.Visible = pnlNotLogin.Visible = false;
                     CarregarGruposUsuario();
 
-                    if (!((Usuario)Session["Usuario"]).Ativo.Value)
+                    if (!((Usuario)Session["Usuario"]).Ativo.Value && Request.Path.IndexOf("perfil") < 0)
                     {
                         Response.Redirect("~/Administrador/perfil.aspx?idUsuario=" + ((Usuario)Session["Usuario"]).idUsuario);
                     }
