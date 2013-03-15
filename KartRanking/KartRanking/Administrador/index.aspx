@@ -4,5 +4,5 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-    
+    <b>Aguarde carregando a tela...</b>
 </asp:Content>

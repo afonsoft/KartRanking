@@ -11,7 +11,6 @@ namespace KartRanking.Administrador
 {
     public partial class index : PageBase
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] != null)
@@ -22,7 +21,6 @@ namespace KartRanking.Administrador
                     Session["Msg"] = null;
                 }
             }
-
             if (Session["Usuario"] != null)
             {
                 Response.Redirect("~/Administrador/home.aspx");
