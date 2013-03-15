@@ -54,16 +54,17 @@ namespace KartRanking.Administrador
                                      select e.NomeEquipe).FirstOrDefault();
 
                     int? Pontos = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
-                                  where vp.idCampeonato == IdCampeonato
-                                  && vp.idGrupo == IdGrupo
-                                  && vp.idUsuario == user.idUsuario
-                                  select vp.Pontos).FirstOrDefault();
+                                   where vp.idCampeonato == IdCampeonato
+                                   && vp.idGrupo == IdGrupo
+                                   && vp.idUsuario == user.idUsuario
+                                   select vp.Pontos).FirstOrDefault();
 
                     lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "--/--/----";
                     lbNome.Text = user.Nome;
                     ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
                     lbEquipe.Text = Equipe;
                     lbPontos.Text = Pontos.HasValue ? Pontos.Value.ToString() : "0";
+                    ltPerfilFace.Text = string.IsNullOrEmpty(user.Perfil_Facebook) ? "------------" : "<a href='" + user.Perfil_Facebook + "' target='_blank'>" + (user.Perfil_Facebook.Length > 30 ? user.Perfil_Facebook.Substring(0, 30) + "..." : user.Perfil_Facebook) + "</a>";
                     ViewState["UsuarioSelecionado"] = user.idUsuario;
                 }
 
@@ -151,7 +152,7 @@ namespace KartRanking.Administrador
                 strHtml += strLista;
                 strLista = "";
             }
-           
+
             strHtml += "     </ul> ";
             strHtml += " </div>       ";
 
@@ -199,6 +200,5 @@ namespace KartRanking.Administrador
             }
             return new string(array, 0, arrayIndex);
         }
-
     }
 }
