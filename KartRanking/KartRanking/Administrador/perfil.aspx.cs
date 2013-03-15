@@ -139,23 +139,24 @@ namespace KartRanking.Administrador
 
                 if (u != null)
                 {
-                    if (u.Senha != txtSenhaAntiga.Text)
+                    if (u.Senha.Trim() != txtSenhaAntiga.Text.Trim())
                     {
                         Alert("A senha antiga não confere!");
                         return;
                     }
-                    if (txtSenhaNova1.Text != txtSenhaNova2.Text)
+                    if (txtSenhaNova1.Text.Trim() != txtSenhaNova2.Text.Trim())
                     {
                         Alert("A senhas novas não confere!");
                         return;
                     }
-                    u.Senha = txtSenhaNova1.Text;
+                    u.Senha = txtSenhaNova1.Text.Trim();
                     dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
                     EMail.EnviarEmailBemvido(u, IdGrupo);
                     
                     txtSenhaAntiga.Text = "";
                     txtSenhaNova1.Text = "";
                     txtSenhaNova2.Text = "";
+                    Alert("Senha alterada com sucesso!");
                 }
                 else
                 {

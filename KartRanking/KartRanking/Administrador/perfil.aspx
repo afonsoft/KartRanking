@@ -67,7 +67,7 @@
                 width: 260,
                 modal: false,
                 buttons: {
-                    "Upload": function() {
+                    "Alterar": function() {
                         $(this).dialog("close"); __doPostBack('<%=lnkAlterarSenha.UniqueID %>', '');
                     },
                     "Cancelar": function() {
@@ -299,7 +299,7 @@
                     <b>Senha Antiga:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSenhaAntiga" runat="server" Width="98%"></asp:TextBox>
+                    <asp:TextBox ID="txtSenhaAntiga" TextMode="Password" runat="server" Width="98%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -307,7 +307,7 @@
                     <b>Senha Nova:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSenhaNova1" runat="server" Width="98%"></asp:TextBox>
+                    <asp:TextBox ID="txtSenhaNova1" TextMode="Password" runat="server" Width="98%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -315,7 +315,7 @@
                     <b>Senha Nova:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSenhaNova2" runat="server" Width="98%"></asp:TextBox>
+                    <asp:TextBox ID="txtSenhaNova2" TextMode="Password" runat="server" Width="98%"></asp:TextBox>
                 </td>
             </tr>
         </table>
