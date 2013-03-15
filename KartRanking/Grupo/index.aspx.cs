@@ -69,7 +69,7 @@ namespace KartRanking.Grupo
                                   && i.idCampeonato == IdCampeonato
                                   && i.Data >= DateTime.Now.AddMonths(-1)
                                   orderby i.Data ascending
-                                  select new { i.idCalendario, i.idCampeonato, i.Nome, i.Data, i.Horario }).Take(10);
+                                  select new { i.idCalendario, i.idCampeonato, i.Nome, i.Data, i.Horario }).Take(10).ToList();
 
                 if (resultados != null && resultados.Count() > 0)
                 {
