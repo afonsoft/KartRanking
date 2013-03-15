@@ -129,7 +129,7 @@
                                                 <label for="checkbox">
                                                     <input type="checkbox" id="chkLembrar" class="checkbox" runat="server" >Lembra-me</input>
                                             </fieldset>
-                                            <span><a href="#">Esqueceu a senha?</a></span>
+                                            <span><a href="RecuperarSenha.aspx">Esqueceu a senha?</a></span>
                                         </div>
                                     </div>
                                 <!-- Login Ends Here -->
