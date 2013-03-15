@@ -40,11 +40,11 @@
 
             $("#dialog-modalSenha").dialog({
                 autoOpen: false,
-                height: 200,
-                width: 350,
+                height: 170,
+                width: 260,
                 modal: false,
                 buttons: {
-                    "Upload": function() {
+                    "Alterar": function() {
                         $(this).dialog("close"); __doPostBack('<%=lnkAlterarSenha.UniqueID %>', '');
                     },
                     "Cancelar": function() {
@@ -53,7 +53,7 @@
                 }
             });
             $("#dialog-modalSenha").parent().appendTo($("form:first"));
-            
+
             $("#<%= txtAltura.ClientID%>").mask("9,99");
             $("#<%= txtPeso.ClientID%>").mask("99,9");
 
@@ -63,8 +63,8 @@
         function AlterarSenha() {
             $("#dialog-modalSenha").dialog({
                 autoOpen: false,
-                height: 200,
-                width: 350,
+                height: 170,
+                width: 260,
                 modal: false,
                 buttons: {
                     "Upload": function() {
@@ -293,13 +293,13 @@
     <div id="dialog-modalSenha" title="Alterar a Senha" style="display: none; font-size: x-small;
         color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
         class="ui-dialog ui-resizable-handle">
-        <table width="100%" cellpadding="1" cellspacing="1" border="1">
+        <table width="100%" cellpadding="1" cellspacing="1" border="0">
             <tr>
                 <td style="width: 100px;">
                     <b>Senha Antiga:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSenhaAntiga" runat="server" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="txtSenhaAntiga" runat="server" Width="98%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -307,7 +307,7 @@
                     <b>Senha Nova:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSenhaNova1" runat="server" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="txtSenhaNova1" runat="server" Width="98%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -315,7 +315,7 @@
                     <b>Senha Nova:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSenhaNova2" runat="server" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="txtSenhaNova2" runat="server" Width="98%"></asp:TextBox>
                 </td>
             </tr>
         </table>
