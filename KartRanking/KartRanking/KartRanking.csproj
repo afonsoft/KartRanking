@@ -194,85 +194,12 @@
     <Compile Include="Administrador\TesteMenu.aspx.designer.cs">
       <DependentUpon>TesteMenu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\listarGrupos.aspx.cs">
-      <DependentUpon>listarGrupos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\listarGrupos.aspx.designer.cs">
-      <DependentUpon>listarGrupos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\PermissoesGrupo.aspx.cs">
-      <DependentUpon>PermissoesGrupo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\PermissoesGrupo.aspx.designer.cs">
-      <DependentUpon>PermissoesGrupo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="BaseDados\DataKart.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataKart.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Admin\CadastroCalendario.aspx.cs">
-      <DependentUpon>CadastroCalendario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\CadastroCalendario.aspx.designer.cs">
-      <DependentUpon>CadastroCalendario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CadastroCampeonato.aspx.cs">
-      <DependentUpon>CadastroCampeonato.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\CadastroCampeonato.aspx.designer.cs">
-      <DependentUpon>CadastroCampeonato.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CadastroGrupo.aspx.cs">
-      <DependentUpon>CadastroGrupo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\CadastroGrupo.aspx.designer.cs">
-      <DependentUpon>CadastroGrupo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CadastroUsuario.aspx.cs">
-      <DependentUpon>CadastroUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CadastroUsuario.aspx.designer.cs">
-      <DependentUpon>CadastroUsuario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CalendarioCampeonato.aspx.cs">
-      <DependentUpon>CalendarioCampeonato.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\CalendarioCampeonato.aspx.designer.cs">
-      <DependentUpon>CalendarioCampeonato.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cryptographic\Encryption.cs" />
-    <Compile Include="Admin\EtapaCampeonato.aspx.cs">
-      <DependentUpon>EtapaCampeonato.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\EtapaCampeonato.aspx.designer.cs">
-      <DependentUpon>EtapaCampeonato.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\GridCampeonato.aspx.cs">
-      <DependentUpon>GridCampeonato.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\GridCampeonato.aspx.designer.cs">
-      <DependentUpon>GridCampeonato.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ImageHandler.ashx.cs">
-      <DependentUpon>ImageHandler.ashx</DependentUpon>
-    </Compile>
     <Compile Include="email\EMail.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -333,13 +260,6 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\InscricoesGrupo.aspx.cs">
-      <DependentUpon>InscricoesGrupo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\InscricoesGrupo.aspx.designer.cs">
-      <DependentUpon>InscricoesGrupo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="KartRanking.Master.cs">
       <DependentUpon>KartRanking.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -348,13 +268,6 @@
       <DependentUpon>KartRanking.Master</DependentUpon>
     </Compile>
     <Compile Include="LogErro\Log.cs" />
-    <Compile Include="Admin\MeusDados.aspx.cs">
-      <DependentUpon>MeusDados.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\MeusDados.aspx.designer.cs">
-      <DependentUpon>MeusDados.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ObjectSerializer\GenericXmlSerializer.cs" />
     <Compile Include="PageError.aspx.cs">
       <DependentUpon>PageError.aspx</DependentUpon>
@@ -371,27 +284,6 @@
     </Compile>
     <Compile Include="Page\PageBaseSecurity.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\PainelControle.aspx.cs">
-      <DependentUpon>PainelControle.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\PainelControle.aspx.designer.cs">
-      <DependentUpon>PainelControle.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\PainelMenu.master.cs">
-      <DependentUpon>PainelMenu.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\PainelMenu.master.designer.cs">
-      <DependentUpon>PainelMenu.master</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\PilotosGrupo.aspx.cs">
-      <DependentUpon>PilotosGrupo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\PilotosGrupo.aspx.designer.cs">
-      <DependentUpon>PilotosGrupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\CacheHelper.cs" />
@@ -449,7 +341,6 @@
     <Content Include="Administrador\PilotosEquipesGrupo.aspx" />
     <Content Include="Administrador\RecuperarSenha.aspx" />
     <Content Include="Administrador\TesteMenu.aspx" />
-    <Content Include="Admin\PermissoesGrupo.aspx" />
     <Content Include="css\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />
@@ -532,16 +423,6 @@
     <Content Include="Grupo\index.aspx" />
     <Content Include="Grupo\informacoes.aspx" />
     <Content Include="Grupo\KartGrupo.master" />
-    <Content Include="Admin\GridCampeonato.aspx" />
-    <Content Include="Admin\ImageHandler.ashx" />
-    <Content Include="Admin\CadastroCalendario.aspx" />
-    <Content Include="Admin\CadastroCampeonato.aspx" />
-    <Content Include="Admin\CadastroGrupo.aspx" />
-    <Content Include="Admin\index.aspx" />
-    <Content Include="Admin\listarGrupos.aspx" />
-    <Content Include="CadastroUsuario.aspx" />
-    <Content Include="Admin\CalendarioCampeonato.aspx" />
-    <Content Include="Admin\EtapaCampeonato.aspx" />
     <Content Include="email\AssociadoGrupo.htm" />
     <Content Include="email\AssociadoGrupoAdmin.htm" />
     <Content Include="email\benvindo.htm" />
@@ -604,7 +485,6 @@
     <Content Include="images\pict-1.jpg" />
     <Content Include="images\pict-2.jpg" />
     <Content Include="images\piloto-sem-foto.jpg" />
-    <Content Include="Admin\InscricoesGrupo.aspx" />
     <Content Include="images\Positioning.png" />
     <Content Include="images\prettyPhoto\dark_rounded\btnNext.png" />
     <Content Include="images\prettyPhoto\dark_rounded\btnPrevious.png" />
@@ -667,11 +547,6 @@
     <Content Include="js\jquery.numeric.js" />
     <Content Include="js\jquery.prettyPhoto.js" />
     <Content Include="js\jquery.superfish.js" />
-    <Content Include="Admin\MeusDados.aspx" />
-    <Content Include="Admin\PainelControle.aspx" />
-    <Content Include="Admin\PainelMenu.master" />
-    <Content Include="Admin\piloto-sem-foto.jpg" />
-    <Content Include="Admin\PilotosGrupo.aspx" />
     <Content Include="js\login.js" />
     <Content Include="js\PIE.htc" />
     <Content Include="js\whizzywig63.js" />
