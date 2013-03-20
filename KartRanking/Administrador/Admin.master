@@ -98,6 +98,7 @@
 	                                    </ul>
 	                                </li>
 	                                <li><a href="Noticias.aspx">Noticias</a></li>
+	                                <li><a href="http://kart.afonsoft.com.br/forum/">Forum</a></li>
 	                                 <li><asp:LinkButton ID="lnkSair" runat="server" onclick="lnkSair_Click">Sair</asp:LinkButton></li>
 	                                 <li style="vertical-align:middle;padding-top: 10px; padding-left: 10px; ">
 	                                    <!-- Place this tag where you want the +1 button to render. -->
