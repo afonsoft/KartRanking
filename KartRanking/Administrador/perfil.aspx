@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="grid_9">
-            <div class="container_12">
+            <div class="container_12" style="margin-right:0px;margin-left:0px; width:100%;">
                 <div class="grid_2">
                     <span class="label">Nome:</span><asp:HiddenField ID="IdUsuario" runat="server" />
                 </div>
@@ -275,7 +275,7 @@
         <div class="grid_2">
             <span class="label">Obs:</span></div>
         <div class="grid_10">
-            <asp:TextBox ID="txtObs" Height="100px" Width="98%" MaxLength="8000" TextMode="MultiLine"
+            <asp:TextBox ID="txtObs" Height="100px" Width="100%" MaxLength="8000" TextMode="MultiLine"
                 CssClass="text" runat="server"></asp:TextBox>
         </div>
         <div class="clear espaco_mini">
@@ -284,7 +284,7 @@
         <div class="grid_12">
             <asp:Button ID="btnAtualizar" runat="server" Text="Atualizar" Width="150px" OnClick="btnAtualizar_Click"
                 CssClass="button" />&nbsp;
-            <input id="Button1" type="button" value="Alterara Senha" onclick="AlterarSenha();" />
+            <input id="btnAlterSenha" type="button" value="Alterara Senha" onclick="AlterarSenha();" runat="server"/>
         </div>
         <div class="clear espaco_mini">
             &nbsp;

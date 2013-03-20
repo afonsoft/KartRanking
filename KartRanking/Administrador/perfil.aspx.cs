@@ -127,6 +127,7 @@ namespace KartRanking.Administrador
             txtObs.ReadOnly = op;
             btnAtualizar.Enabled = !op;
             lnkFile.Enabled = !op;
+            btnAlterSenha.Visible = !op;
         }
 
         protected void lnkAlterarSenha_Click(object sender, EventArgs e)
