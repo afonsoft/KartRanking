@@ -85,6 +85,7 @@
 	                                <li>
 	                                    <a href="#">Pilotos</a>
 	                                    <ul>
+	                                        <li><a href="ClassificacaoCampeonato.aspx?op=1">Classificação dos Pilotos</a></li>
 	                                        <li><a href="PilotosEquipesGrupo.aspx?op=1">Pilotos do Grupo</a></li>
 	                                        <li><a href="InscricoesUsuariosGrupo.aspx">Cadastrar / Remover</a></li>
 	                                    </ul>
@@ -92,6 +93,7 @@
 	                                <li>
 	                                    <a href="#">Equipes</a>
 	                                    <ul>
+	                                        <li><a href="ClassificacaoCampeonato.aspx?op=2">Classificação das Equipes</a></li>
 	                                        <li><a href="PilotosEquipesGrupo.aspx?op=2">Equipes do Campeonato</a></li>
 	                                    </ul>
 	                                </li>
