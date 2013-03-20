@@ -17,8 +17,47 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
-                PopularAlbuns();
+                if (Request.QueryString["idalbum"] == null)
+                {
+                    PanelAlbum.Visible = false;
+                    PanelListAlbum.Visible = true;
+                    PopularAlbuns();
+                }
+                else
+                {
+                    int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
+                    PanelAlbum.Visible = false;
+                    PanelListAlbum.Visible = true;
+                    PopularAlbum(idAlbum);
+                }
             }
+        }
+
+        private void PopularAlbum(int idAlbum)
+        {
+            List<Album> Albuns = new List<Album>();
+            var ft = (from f in dk.Kart_Album_Grupos
+                      where f.idGrupo == IdGrupo
+                      && f.idAlbum == idAlbum
+                      select f);
+            
+            foreach (var f in ft)
+            {
+                Albuns.Add(new Album()
+                {
+                    dtEvento = f.dtEvento,
+                    idAlbum = f.idAlbum,
+                    idGrupo = f.idGrupo,
+                    NomeAlbum = f.NomeAlbum,
+                    PathFotos = f.PathFotos,
+                    UrlFotos = f.UrlFotos,
+                    Itens = RecuperarTodosItens(f.PathFotos, f.UrlFotos)
+                });
+            }
+
+            RepeaterAlbum.DataSource = Albuns;
+            RepeaterAlbum.DataBind();
+
         }
 
         private void PopularAlbuns()
@@ -44,6 +83,28 @@ namespace KartRanking.Administrador
 
             RepeaterAlbum.DataSource = Albuns;
             RepeaterAlbum.DataBind();
+        }
+
+        private List<Item> RecuperarTodosItens(string path, string url)
+        {
+            List<Item> Itens = new List<Item>();
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            string[] str = Directory.GetFiles(path);
+
+            foreach (string i in str)
+            {
+                Itens.Add(new Item()
+                {
+                    Foto = url + "\\" + i,
+                    Nome = i,
+                    Ativo = true
+                });
+            }
+
+            return Itens;
         }
 
         private List<Item> RecuperarItens(string path, string url)
@@ -126,6 +187,7 @@ namespace KartRanking.Administrador
         public string PathFotos { get; set; }
         public string UrlFotos { get; set; }
         public List<Item> Itens { get; set; }
+        public int TotalItens { get { return Itens == null ? 0 : Itens.Count(); } }
     }
 
     [Serializable]
