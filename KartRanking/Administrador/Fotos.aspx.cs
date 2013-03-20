@@ -13,22 +13,24 @@ namespace KartRanking.Administrador
 {
     public partial class Fotos : PageBaseSecurity
     {
+        public int TotalCol { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if (Request.QueryString["idalbum"] == null)
                 {
+                    PopularAlbuns();
                     PanelAlbum.Visible = false;
                     PanelListAlbum.Visible = true;
-                    PopularAlbuns();
                 }
                 else
                 {
                     int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
-                    PanelAlbum.Visible = false;
-                    PanelListAlbum.Visible = true;
                     PopularAlbum(idAlbum);
+                    PanelAlbum.Visible = true;
+                    PanelListAlbum.Visible = false;
                 }
             }
         }
@@ -43,6 +45,9 @@ namespace KartRanking.Administrador
             
             foreach (var f in ft)
             {
+                lbDtEvento.Text = f.dtEvento.ToString("dd/MM/yyyy");
+                lbTituloAlbum.Text = f.NomeAlbum;
+
                 Albuns.Add(new Album()
                 {
                     dtEvento = f.dtEvento,
@@ -54,7 +59,7 @@ namespace KartRanking.Administrador
                     Itens = RecuperarTodosItens(f.PathFotos, f.UrlFotos)
                 });
             }
-
+            TotalCol = 0;
             RepeaterAlbum.DataSource = Albuns;
             RepeaterAlbum.DataBind();
 
