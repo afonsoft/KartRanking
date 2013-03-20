@@ -73,9 +73,9 @@
 	                                        <li><a href="AdminGrupo.aspx">Grupo</a></li>
 	                                        <li><a href="AdminCampeonato.aspx">Campeonatos</a>
 	                                            <ul>
+	                                                <li><a href="CalendarioProvas.aspx">Calendário das Provas</a></li>
 	                                                <li><a href="ClassificacaoCampeonato.aspx?op=1">Classificação dos Pilotos</a></li>
 	                                                <li><a href="ClassificacaoCampeonato.aspx?op=2">Classificação das Equipes</a></li>
-	                                                <li><a href="CalendarioProvas.aspx">Calendário das Provas</a></li>
 	                                            </ul>
 	                                        </li>
 	                                        <li><a href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
@@ -179,8 +179,8 @@
                         <td style="background-color: #F5F5F5; width: 3%; height: 20px; text-align: right;
                             vertical-align: middle;">
                             <asp:ImageButton ID="imgAssociarGrupo" runat="server" Width="20px" Height="20px"
-                                ImageUrl="~/images/Group.png" ToolTip="Associar-se a um grupo" 
-                                AlternateText="Grupos" onclick="imgAssociarGrupo_Click" />
+                                ImageUrl="~/images/Group.png" ToolTip="Associar-se a um grupo" AlternateText="Grupos"
+                                OnClick="imgAssociarGrupo_Click" />
                         </td>
                         <td style="background-color: #F5F5F5; width: 1%; height: 20px;">
                         </td>
