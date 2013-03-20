@@ -95,6 +95,24 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.LinkButton lnkConfirmar;
         
         /// <summary>
+        /// ddlTodosCampeonatos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTodosCampeonatos;
+        
+        /// <summary>
+        /// lnkConfirmarAlter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkConfirmarAlter;
+        
+        /// <summary>
         /// gvEquipes control.
         /// </summary>
         /// <remarks>

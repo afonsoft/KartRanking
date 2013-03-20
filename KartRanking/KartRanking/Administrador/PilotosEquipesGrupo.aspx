@@ -99,8 +99,7 @@
         
             jQuery('#CadEquipe').dialog({
                 autoOpen: false, bgiframe: false, hide: 'explode', resizable: false, draggable: false,
-                modal: false, show: 'slide', minHeight: 200, minWidth: 300,
-                maxHeight: 300, maxWidth: 500, title: "Aviso",
+                modal: false, show: 'slide', title: "Aviso",
                 buttons: {
                     "Salvar": function() { jQuery('#CadEquipe').dialog("close"); __doPostBack('<%= lnkConfirmar.UniqueID %>', ''); return true; },
                     "Sair": function() { jQuery('#CadEquipe').dialog("close"); return true; }
@@ -109,7 +108,21 @@
             jQuery('#CadEquipe').dialog({ width: 300, height: 160 });
             jQuery("#CadEquipe").parent().appendTo(jQuery("form:first"));
             jQuery('#CadEquipe').dialog('open');
-        }      
+        }
+        function OpenCampeonato() {
+
+            jQuery('#CopyCampeonatos').dialog({
+                autoOpen: false, bgiframe: false, hide: 'explode', resizable: false, draggable: false,
+                modal: false, show: 'slide', title: "Aviso",
+                buttons: {
+                    "Copiar": function() { jQuery('#CopyCampeonatos').dialog("close"); __doPostBack('<%= lnkConfirmarAlter.UniqueID %>', ''); return true; },
+                    "Sair": function() { jQuery('#CopyCampeonatos').dialog("close"); return true; }
+                }
+            });
+            jQuery('#CopyCampeonatos').dialog({ width: 350, height: 150 });
+            jQuery("#CopyCampeonatos").parent().appendTo(jQuery("form:first"));
+            jQuery('#CopyCampeonatos').dialog('open');
+        }    
     </script>
     
         <div class="container_12">
@@ -135,7 +148,7 @@
                 &nbsp;
             </div>
             <div class="grid_12" style="text-align: right;">
-                <input id="Button1" type="button" value="Adicionar" onclick="OpenCadastro(1);" />
+                <input id="Button2" type="button" value="Copiar Equipes" onclick="OpenCampeonato();" />&nbsp;<input id="Button1" type="button" value="Adicionar" onclick="OpenCadastro(1);" />
                 <!-- Dialog Cadastro -->
                 <asp:HiddenField ID="HiddenIdEquipeCampeonato" runat="server" />
                 <div id="CadEquipe" title="Cadastrar / Alterar Equipe" style="display: none; font-size: x-small;
@@ -165,6 +178,27 @@
                 </div>
             </div>
             <!-- Fim Dialog Cadastro -->
+            <!-- Dialog copiar -->
+            <div id="CopyCampeonatos" title="Copiar as equipes" style="display: none; font-size: x-small;
+                    color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+                    class="ui-dialog ui-resizable-handle">
+                    <table width="98%" cellpadding="1" cellspacing="1" border="0">
+                        
+                        <tr>
+                            <td>
+                                <span ><b>Campeonato:</b></span>
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="ddlTodosCampeonatos" runat="server" Width="100%">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="display: none;">
+                        <asp:LinkButton ID="lnkConfirmarAlter" runat="server" OnClick="lnkConfirmarAlter_Click"></asp:LinkButton>
+                    </div>
+            </div>
+            <!-- Fim -->
         <div class="clear espaco_mini">
             &nbsp;
         </div>
