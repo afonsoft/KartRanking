@@ -372,7 +372,7 @@ namespace KartRanking.Administrador
                     {
                         bool JaExiste = (from g in dk.Kart_Equipe_Campeonatos
                                          where g.idCampeonato == IdCampeonato
-                                         && g.NomeEquipe.Contains(equipe.NomeEquipe) || g.Sigla.Contains(equipe.Sigla)
+                                         && (g.NomeEquipe.Contains(equipe.NomeEquipe) || g.Sigla.Contains(equipe.Sigla))
                                          select g).Count() > 0;
                         //Se não existir incluir
                         if (!JaExiste)
@@ -390,6 +390,11 @@ namespace KartRanking.Administrador
                             msg += "Já existe uma equipe parecida no sistema!\nNome: " + equipe.NomeEquipe + "\nSigla: " + equipe.Sigla + "\n";
                         }
                     }
+
+                    PopularEquipes();
+
+                    Alert("Copia efetua com sucesso!\n" + msg);
+
                 }
                 else
                     Alert("Você não é o administrador do grupo para efetuar essa operação!");
