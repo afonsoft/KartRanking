@@ -71,13 +71,14 @@ namespace KartRanking.Administrador
                                 where !(from a in dk.Kart_Resultado_Calendarios
                                         where a.idCalendario == kart_calendario_campeonatos.idCalendario
                                         select new { a.idUsuario }).Contains(new { usuarios.idUsuario })
-                                     && kart_usuario_grupos.idGrupo == IdGrupo
-                                     && kart_calendario_campeonatos.idCalendario == idCalendario
+                                && kart_usuario_grupos.idGrupo == IdGrupo
+                                && kart_calendario_campeonatos.idCalendario == idCalendario
+                                orderby usuarios.Nome ascending
                                 select new
                                 {
                                     idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
                                     usuarios.Nome
-                                }).ToList();
+                                });
 
             ddlEtapaPilotoDisponivel.DataSource = PilotosEtapa;
             ddlEtapaPilotoDisponivel.DataTextField = "Nome";
@@ -99,11 +100,12 @@ namespace KartRanking.Administrador
                                 }).Contains(new { usuarios.idUsuario }) &&
                                  kart_usuario_grupos.idGrupo == IdGrupo &&
                                  kart_calendario_campeonatos.idCalendario == idCalendario
+                           orderby usuarios.Nome ascending
                            select new
                            {
                                idUsuario = (System.Int32?)kart_usuario_grupos.idUsuario,
                                usuarios.Nome
-                           }).ToList();
+                           });
 
             ddlGridPilotoDisponivel.DataSource = Pilotos;
             ddlGridPilotoDisponivel.DataTextField = "Nome";
