@@ -114,7 +114,6 @@ namespace KartRanking.Administrador
                 pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
                 pnlLogin.Visible = pnlNotLogin.Visible = false;
 
-                CarregarGruposUsuario();
 
                 if (chkLembrar.Checked)
                 {
@@ -123,6 +122,9 @@ namespace KartRanking.Administrador
                     cookie.Expires = DateTime.Now.AddMonths(1);
                     Response.Cookies.Add(cookie);
                 }
+
+                CarregarGruposUsuario();
+
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.location.href='/Administrador/home.aspx';", true);
             }
             catch (Exception ex)
@@ -218,6 +220,7 @@ namespace KartRanking.Administrador
             else
             {
                 ddlGrupos.Items.Insert(0, new ListItem("Nenhum Grupo associado", "0", true));
+                Response.Redirect("~/Administrador/AdminGrupo.aspx");
             }
 
         }
