@@ -11,6 +11,8 @@ namespace KartRanking
 {
     public partial class index : PageBase
     {
+        //Fontes: http://rankingkart.codeplex.com/
+
         protected void Page_Load( object sender, EventArgs e )
         {
             Response.Redirect("~/Administrador/index.aspx");

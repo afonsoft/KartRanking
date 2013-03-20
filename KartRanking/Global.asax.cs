@@ -11,7 +11,7 @@ namespace KartRanking
 {
     public class Global : System.Web.HttpApplication
     {
-
+        //Fontes: http://rankingkart.codeplex.com/
         protected void Application_Start(object sender, EventArgs e)
         {
 
