@@ -14,7 +14,7 @@
                 <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
                     border-right: #ccc 1px dashed;" />
             </div>
-            <div class="clear espaco">
+            <div class="clear espaco"> 
                 &nbsp;
             </div>
             <div class="grid_3">
