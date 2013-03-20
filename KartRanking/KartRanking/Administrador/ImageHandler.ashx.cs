@@ -4,17 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Drawing;
-using System.Drawing.Imaging;
-using KartRanking.Tools;
 using KartRanking.BaseDados;
+using KartRanking.Tools;
+using System.Drawing.Imaging;
 
 namespace KartRanking.Administrador
 {
     /// <summary>
     /// Summary description for $codebehindclassname$
     /// </summary>
-    [WebService( Namespace="http://kart.afonsoft.com.br/" )]
-    [WebServiceBinding( ConformsTo=WsiProfiles.BasicProfile1_1 )]
+    [WebService(Namespace = "http://kart.afonsoft.com.br/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class ImageHandler : IHttpHandler
     {
 

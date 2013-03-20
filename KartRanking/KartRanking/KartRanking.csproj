@@ -114,6 +114,9 @@
     <Compile Include="Administrador\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\ImageHandler.ashx.cs">
+      <DependentUpon>ImageHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\InscricoesUsuariosGrupo.aspx.cs">
       <DependentUpon>InscricoesUsuariosGrupo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,9 +137,6 @@
     </Compile>
     <Compile Include="Administrador\ClassificacaoCampeonato.aspx.designer.cs">
       <DependentUpon>ClassificacaoCampeonato.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\ImageHandler.ashx.cs">
-      <DependentUpon>ImageHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
