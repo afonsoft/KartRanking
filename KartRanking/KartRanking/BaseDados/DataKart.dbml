@@ -1,6 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Database Name="afonsoftcombr_db" Class="DataKartDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.afonsoft.com.br;Initial Catalog=afonsoftcombr_db;Persist Security Info=True;User ID=afonsoftcombr;Connect Timeout=360;Load Balance Timeout=360" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="afonsoftcombr_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="afonsoftcombr.Kart_Album_Grupo" Member="Kart_Album_Grupos">
+    <Type Name="Kart_Album_Grupo">
+      <Column Name="idAlbum" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NomeAlbum" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Descricao" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="dtEvento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PathFotos" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Usuario_Kart_Album_Grupo" Member="Usuario" ThisKey="IdUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Kart_Grupo_Kart_Album_Grupo" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Usuarios" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Apelido" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Senha" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sexo" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
+      <Column Name="Peso" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="DtNascimento" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="MostarInfo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Altura" Type="System.Decimal" DbType="Decimal(3,2)" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Cidade" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Perfil_Facebook" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Perfil_Twitter" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Perfil_Plus" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Perfil_Outros" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Obs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Ativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Usuario_Kart_Album_Grupo" Member="Kart_Album_Grupos" ThisKey="idUsuario" OtherKey="IdUsuario" Type="Kart_Album_Grupo" />
+      <Association Name="Usuario_Kart_Grid_Calendario" Member="Kart_Grid_Calendarios" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Grid_Calendario" />
+      <Association Name="Usuario_Kart_Grupo" Member="Kart_Grupos" ThisKey="idUsuario" OtherKey="Id_Usuario_Lider" Type="Kart_Grupo" />
+      <Association Name="Usuario_Kart_log_erro" Member="Kart_log_erros" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_log_erro" />
+      <Association Name="Usuario_Kart_Noticias_Grupo" Member="Kart_Noticias_Grupos" ThisKey="idUsuario" OtherKey="IdUsuario" Type="Kart_Noticias_Grupo" />
+      <Association Name="Usuario_Kart_Resultado_Calendario" Member="Kart_Resultado_Calendarios" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Resultado_Calendario" />
+      <Association Name="Usuario_Kart_Usuario_Equipe_Campeonato" Member="Kart_Usuario_Equipe_Campeonatos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Usuario_Equipe_Campeonato" />
+      <Association Name="Usuario_Kart_Usuario_Grupo" Member="Kart_Usuario_Grupos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Usuario_Grupo" />
+    </Type>
+  </Table>
   <Table Name="afonsoftcombr.Kart_Calendario_Campeonato" Member="Kart_Calendario_Campeonatos">
     <Type Name="Kart_Calendario_Campeonato">
       <Column Name="idCalendario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -71,135 +120,12 @@
       <Column Name="Cidade" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Estado" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
       <Column Name="Ativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Kart_Grupo_Kart_Album_Grupo" Member="Kart_Album_Grupos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Album_Grupo" />
       <Association Name="Kart_Grupo_Kart_Campeonato" Member="Kart_Campeonatos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Campeonato" />
-      <Association Name="Kart_Grupo_Kart_Usuario_Grupo" Member="Kart_Usuario_Grupos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Usuario_Grupo" />
       <Association Name="Kart_Grupo_Kart_Noticias_Grupo" Member="Kart_Noticias_Grupos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Noticias_Grupo" />
+      <Association Name="Kart_Grupo_Kart_Ponto_Grupo" Member="Kart_Ponto_Grupos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Ponto_Grupo" />
+      <Association Name="Kart_Grupo_Kart_Usuario_Grupo" Member="Kart_Usuario_Grupos" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Usuario_Grupo" />
       <Association Name="Usuario_Kart_Grupo" Member="Usuario" ThisKey="Id_Usuario_Lider" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.Kart_Usuario_Equipe_Campeonato" Member="Kart_Usuario_Equipe_Campeonatos">
-    <Type Name="Kart_Usuario_Equipe_Campeonato">
-      <Column Name="idUsuarioEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Kart_Equipe_Campeonato_Kart_Usuario_Equipe_Campeonato" Member="Kart_Equipe_Campeonato" ThisKey="idEquipeCampeonato" OtherKey="idEquipeCampeonato" Type="Kart_Equipe_Campeonato" IsForeignKey="true" />
-      <Association Name="Usuario_Kart_Usuario_Equipe_Campeonato" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.Kart_Usuario_Grupo" Member="Kart_Usuario_Grupos">
-    <Type Name="Kart_Usuario_Grupo">
-      <Column Name="idGrupoUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Aprovado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Kart_Grupo_Kart_Usuario_Grupo" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
-      <Association Name="Usuario_Kart_Usuario_Grupo" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.View_Kart_Equipe_Pontos_Campeonato" Member="View_Kart_Equipe_Pontos_Campeonatos">
-    <Type Name="View_Kart_Equipe_Pontos_Campeonato">
-      <Column Name="idEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Equipe" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Sigla" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Grupo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Campeonato" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.View_Kart_Usuario_Pontos_Grupo" Member="View_Kart_Usuario_Pontos_Grupos">
-    <Type Name="View_Kart_Usuario_Pontos_Grupo">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Grupo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.View_Kart_Usuario_Historico" Member="View_Kart_Usuario_Historicos">
-    <Type Name="View_Kart_Usuario_Historico">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Provas" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Vitorias" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Podios" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato" Member="View_Kart_Usuario_Pontos_Campeonatos">
-    <Type Name="View_Kart_Usuario_Pontos_Campeonato">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Grupo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Campeonato" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.Kart_Resultado_Calendario" Member="Kart_Resultado_Calendarios">
-    <Type Name="Kart_Resultado_Calendario">
-      <Column Name="idResultado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idCalendario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Pos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idEquipe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tempoHoras" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tempoMinutos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tempoSegundos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tempoMilisegundos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Ponto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Voltas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Kart_Calendario_Campeonato_Kart_Resultado_Calendario" Member="Kart_Calendario_Campeonato" ThisKey="idCalendario" OtherKey="idCalendario" Type="Kart_Calendario_Campeonato" IsForeignKey="true" />
-      <Association Name="Usuario_Kart_Resultado_Calendario" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.View_Equipe_Usuario" Member="View_Equipe_Usuarios">
-    <Type Name="View_Equipe_Usuario">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NomeEquipe" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Sigla" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="idEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="afonsoftcombr.Usuarios" Member="Usuarios">
-    <Type Name="Usuario">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Apelido" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Senha" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Sexo" Type="System.Char" DbType="NChar(1)" CanBeNull="true" />
-      <Column Name="Peso" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
-      <Column Name="DtNascimento" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="MostarInfo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Altura" Type="System.Decimal" DbType="Decimal(3,2)" CanBeNull="true" />
-      <Column Name="Telefone" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="Celular" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
-      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Cidade" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Estado" Type="System.String" DbType="NChar(2)" CanBeNull="true" />
-      <Column Name="Endereco" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Perfil_Facebook" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Perfil_Twitter" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Perfil_Plus" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Perfil_Outros" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Obs" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Ativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Usuario_Kart_Grid_Calendario" Member="Kart_Grid_Calendarios" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Grid_Calendario" />
-      <Association Name="Usuario_Kart_Grupo" Member="Kart_Grupos" ThisKey="idUsuario" OtherKey="Id_Usuario_Lider" Type="Kart_Grupo" />
-      <Association Name="Usuario_Kart_Usuario_Equipe_Campeonato" Member="Kart_Usuario_Equipe_Campeonatos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Usuario_Equipe_Campeonato" />
-      <Association Name="Usuario_Kart_Usuario_Grupo" Member="Kart_Usuario_Grupos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Usuario_Grupo" />
-      <Association Name="Usuario_Kart_Resultado_Calendario" Member="Kart_Resultado_Calendarios" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Resultado_Calendario" />
-      <Association Name="Usuario_Kart_log_erro" Member="Kart_log_erros" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_log_erro" />
-      <Association Name="Usuario_Kart_Noticias_Grupo" Member="Kart_Noticias_Grupos" ThisKey="idUsuario" OtherKey="IdUsuario" Type="Kart_Noticias_Grupo" />
     </Type>
   </Table>
   <Table Name="afonsoftcombr.Kart_log_erro" Member="Kart_log_erros">
@@ -235,6 +161,109 @@
       <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Kart_Grupo_Kart_Noticias_Grupo" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
       <Association Name="Usuario_Kart_Noticias_Grupo" Member="Usuario" ThisKey="IdUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Kart_Ponto_Grupo" Member="Kart_Ponto_Grupos">
+    <Type Name="Kart_Ponto_Grupo">
+      <Column Name="idPontoGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ponto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idUsuarioCadastro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Kart_Grupo_Kart_Ponto_Grupo" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Kart_Resultado_Calendario" Member="Kart_Resultado_Calendarios">
+    <Type Name="Kart_Resultado_Calendario">
+      <Column Name="idResultado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCalendario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEquipe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tempoHoras" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tempoMinutos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tempoSegundos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tempoMilisegundos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ponto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Voltas" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Kart_Calendario_Campeonato_Kart_Resultado_Calendario" Member="Kart_Calendario_Campeonato" ThisKey="idCalendario" OtherKey="idCalendario" Type="Kart_Calendario_Campeonato" IsForeignKey="true" />
+      <Association Name="Usuario_Kart_Resultado_Calendario" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Kart_Usuario_Equipe_Campeonato" Member="Kart_Usuario_Equipe_Campeonatos">
+    <Type Name="Kart_Usuario_Equipe_Campeonato">
+      <Column Name="idUsuarioEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Kart_Equipe_Campeonato_Kart_Usuario_Equipe_Campeonato" Member="Kart_Equipe_Campeonato" ThisKey="idEquipeCampeonato" OtherKey="idEquipeCampeonato" Type="Kart_Equipe_Campeonato" IsForeignKey="true" />
+      <Association Name="Usuario_Kart_Usuario_Equipe_Campeonato" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Kart_Usuario_Grupo" Member="Kart_Usuario_Grupos">
+    <Type Name="Kart_Usuario_Grupo">
+      <Column Name="idGrupoUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Principal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Aprovado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Kart_Grupo_Kart_Usuario_Grupo" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
+      <Association Name="Usuario_Kart_Usuario_Grupo" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.View_Equipe_Usuario" Member="View_Equipe_Usuarios">
+    <Type Name="View_Equipe_Usuario">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NomeEquipe" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Sigla" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="idEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.View_Kart_Usuario_Pontos_Grupo" Member="View_Kart_Usuario_Pontos_Grupos">
+    <Type Name="View_Kart_Usuario_Pontos_Grupo">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Grupo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.View_Kart_Equipe_Pontos_Campeonato" Member="View_Kart_Equipe_Pontos_Campeonatos">
+    <Type Name="View_Kart_Equipe_Pontos_Campeonato">
+      <Column Name="idEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Equipe" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Sigla" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Grupo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Campeonato" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.View_Kart_Usuario_Historico" Member="View_Kart_Usuario_Historicos">
+    <Type Name="View_Kart_Usuario_Historico">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Provas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Vitorias" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Podios" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato" Member="View_Kart_Usuario_Pontos_Campeonatos">
+    <Type Name="View_Kart_Usuario_Pontos_Campeonato">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Grupo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Campeonato" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

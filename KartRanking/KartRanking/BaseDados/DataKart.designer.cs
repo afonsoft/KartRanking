@@ -30,6 +30,12 @@ namespace KartRanking.BaseDados
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertKart_Album_Grupo(Kart_Album_Grupo instance);
+    partial void UpdateKart_Album_Grupo(Kart_Album_Grupo instance);
+    partial void DeleteKart_Album_Grupo(Kart_Album_Grupo instance);
+    partial void InsertUsuario(Usuario instance);
+    partial void UpdateUsuario(Usuario instance);
+    partial void DeleteUsuario(Usuario instance);
     partial void InsertKart_Calendario_Campeonato(Kart_Calendario_Campeonato instance);
     partial void UpdateKart_Calendario_Campeonato(Kart_Calendario_Campeonato instance);
     partial void DeleteKart_Calendario_Campeonato(Kart_Calendario_Campeonato instance);
@@ -45,24 +51,24 @@ namespace KartRanking.BaseDados
     partial void InsertKart_Grupo(Kart_Grupo instance);
     partial void UpdateKart_Grupo(Kart_Grupo instance);
     partial void DeleteKart_Grupo(Kart_Grupo instance);
-    partial void InsertKart_Usuario_Equipe_Campeonato(Kart_Usuario_Equipe_Campeonato instance);
-    partial void UpdateKart_Usuario_Equipe_Campeonato(Kart_Usuario_Equipe_Campeonato instance);
-    partial void DeleteKart_Usuario_Equipe_Campeonato(Kart_Usuario_Equipe_Campeonato instance);
-    partial void InsertKart_Usuario_Grupo(Kart_Usuario_Grupo instance);
-    partial void UpdateKart_Usuario_Grupo(Kart_Usuario_Grupo instance);
-    partial void DeleteKart_Usuario_Grupo(Kart_Usuario_Grupo instance);
-    partial void InsertKart_Resultado_Calendario(Kart_Resultado_Calendario instance);
-    partial void UpdateKart_Resultado_Calendario(Kart_Resultado_Calendario instance);
-    partial void DeleteKart_Resultado_Calendario(Kart_Resultado_Calendario instance);
-    partial void InsertUsuario(Usuario instance);
-    partial void UpdateUsuario(Usuario instance);
-    partial void DeleteUsuario(Usuario instance);
     partial void InsertKart_log_erro(Kart_log_erro instance);
     partial void UpdateKart_log_erro(Kart_log_erro instance);
     partial void DeleteKart_log_erro(Kart_log_erro instance);
     partial void InsertKart_Noticias_Grupo(Kart_Noticias_Grupo instance);
     partial void UpdateKart_Noticias_Grupo(Kart_Noticias_Grupo instance);
     partial void DeleteKart_Noticias_Grupo(Kart_Noticias_Grupo instance);
+    partial void InsertKart_Ponto_Grupo(Kart_Ponto_Grupo instance);
+    partial void UpdateKart_Ponto_Grupo(Kart_Ponto_Grupo instance);
+    partial void DeleteKart_Ponto_Grupo(Kart_Ponto_Grupo instance);
+    partial void InsertKart_Resultado_Calendario(Kart_Resultado_Calendario instance);
+    partial void UpdateKart_Resultado_Calendario(Kart_Resultado_Calendario instance);
+    partial void DeleteKart_Resultado_Calendario(Kart_Resultado_Calendario instance);
+    partial void InsertKart_Usuario_Equipe_Campeonato(Kart_Usuario_Equipe_Campeonato instance);
+    partial void UpdateKart_Usuario_Equipe_Campeonato(Kart_Usuario_Equipe_Campeonato instance);
+    partial void DeleteKart_Usuario_Equipe_Campeonato(Kart_Usuario_Equipe_Campeonato instance);
+    partial void InsertKart_Usuario_Grupo(Kart_Usuario_Grupo instance);
+    partial void UpdateKart_Usuario_Grupo(Kart_Usuario_Grupo instance);
+    partial void DeleteKart_Usuario_Grupo(Kart_Usuario_Grupo instance);
     #endregion
 		
 		public DataKartDataContext() : 
@@ -93,6 +99,22 @@ namespace KartRanking.BaseDados
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Kart_Album_Grupo> Kart_Album_Grupos
+		{
+			get
+			{
+				return this.GetTable<Kart_Album_Grupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Usuario> Usuarios
+		{
+			get
+			{
+				return this.GetTable<Usuario>();
+			}
 		}
 		
 		public System.Data.Linq.Table<Kart_Calendario_Campeonato> Kart_Calendario_Campeonatos
@@ -135,6 +157,38 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		public System.Data.Linq.Table<Kart_log_erro> Kart_log_erros
+		{
+			get
+			{
+				return this.GetTable<Kart_log_erro>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Kart_Noticias_Grupo> Kart_Noticias_Grupos
+		{
+			get
+			{
+				return this.GetTable<Kart_Noticias_Grupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Kart_Ponto_Grupo> Kart_Ponto_Grupos
+		{
+			get
+			{
+				return this.GetTable<Kart_Ponto_Grupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Kart_Resultado_Calendario> Kart_Resultado_Calendarios
+		{
+			get
+			{
+				return this.GetTable<Kart_Resultado_Calendario>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Kart_Usuario_Equipe_Campeonato> Kart_Usuario_Equipe_Campeonatos
 		{
 			get
@@ -151,11 +205,11 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
-		public System.Data.Linq.Table<View_Kart_Equipe_Pontos_Campeonato> View_Kart_Equipe_Pontos_Campeonatos
+		public System.Data.Linq.Table<View_Equipe_Usuario> View_Equipe_Usuarios
 		{
 			get
 			{
-				return this.GetTable<View_Kart_Equipe_Pontos_Campeonato>();
+				return this.GetTable<View_Equipe_Usuario>();
 			}
 		}
 		
@@ -164,6 +218,14 @@ namespace KartRanking.BaseDados
 			get
 			{
 				return this.GetTable<View_Kart_Usuario_Pontos_Grupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Equipe_Pontos_Campeonato> View_Kart_Equipe_Pontos_Campeonatos
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Equipe_Pontos_Campeonato>();
 			}
 		}
 		
@@ -182,45 +244,1131 @@ namespace KartRanking.BaseDados
 				return this.GetTable<View_Kart_Usuario_Pontos_Campeonato>();
 			}
 		}
+	}
+	
+	[Table(Name="afonsoftcombr.Kart_Album_Grupo")]
+	public partial class Kart_Album_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<Kart_Resultado_Calendario> Kart_Resultado_Calendarios
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idAlbum;
+		
+		private int _idGrupo;
+		
+		private string _NomeAlbum;
+		
+		private string _Descricao;
+		
+		private System.DateTime _dtEvento;
+		
+		private int _IdUsuario;
+		
+		private string _PathFotos;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+		private EntityRef<Kart_Grupo> _Kart_Grupo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidAlbumChanging(int value);
+    partial void OnidAlbumChanged();
+    partial void OnidGrupoChanging(int value);
+    partial void OnidGrupoChanged();
+    partial void OnNomeAlbumChanging(string value);
+    partial void OnNomeAlbumChanged();
+    partial void OnDescricaoChanging(string value);
+    partial void OnDescricaoChanged();
+    partial void OndtEventoChanging(System.DateTime value);
+    partial void OndtEventoChanged();
+    partial void OnIdUsuarioChanging(int value);
+    partial void OnIdUsuarioChanged();
+    partial void OnPathFotosChanging(string value);
+    partial void OnPathFotosChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    #endregion
+		
+		public Kart_Album_Grupo()
+		{
+			this._Usuario = default(EntityRef<Usuario>);
+			this._Kart_Grupo = default(EntityRef<Kart_Grupo>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_idAlbum", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idAlbum
 		{
 			get
 			{
-				return this.GetTable<Kart_Resultado_Calendario>();
+				return this._idAlbum;
+			}
+			set
+			{
+				if ((this._idAlbum != value))
+				{
+					this.OnidAlbumChanging(value);
+					this.SendPropertyChanging();
+					this._idAlbum = value;
+					this.SendPropertyChanged("idAlbum");
+					this.OnidAlbumChanged();
+				}
 			}
 		}
 		
-		public System.Data.Linq.Table<View_Equipe_Usuario> View_Equipe_Usuarios
+		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
 		{
 			get
 			{
-				return this.GetTable<View_Equipe_Usuario>();
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					if (this._Kart_Grupo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidGrupoChanging(value);
+					this.SendPropertyChanging();
+					this._idGrupo = value;
+					this.SendPropertyChanged("idGrupo");
+					this.OnidGrupoChanged();
+				}
 			}
 		}
 		
-		public System.Data.Linq.Table<Usuario> Usuarios
+		[Column(Storage="_NomeAlbum", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string NomeAlbum
 		{
 			get
 			{
-				return this.GetTable<Usuario>();
+				return this._NomeAlbum;
+			}
+			set
+			{
+				if ((this._NomeAlbum != value))
+				{
+					this.OnNomeAlbumChanging(value);
+					this.SendPropertyChanging();
+					this._NomeAlbum = value;
+					this.SendPropertyChanged("NomeAlbum");
+					this.OnNomeAlbumChanged();
+				}
 			}
 		}
 		
-		public System.Data.Linq.Table<Kart_log_erro> Kart_log_erros
+		[Column(Storage="_Descricao", DbType="NVarChar(MAX)")]
+		public string Descricao
 		{
 			get
 			{
-				return this.GetTable<Kart_log_erro>();
+				return this._Descricao;
+			}
+			set
+			{
+				if ((this._Descricao != value))
+				{
+					this.OnDescricaoChanging(value);
+					this.SendPropertyChanging();
+					this._Descricao = value;
+					this.SendPropertyChanged("Descricao");
+					this.OnDescricaoChanged();
+				}
 			}
 		}
 		
-		public System.Data.Linq.Table<Kart_Noticias_Grupo> Kart_Noticias_Grupos
+		[Column(Storage="_dtEvento", DbType="DateTime NOT NULL")]
+		public System.DateTime dtEvento
 		{
 			get
 			{
-				return this.GetTable<Kart_Noticias_Grupo>();
+				return this._dtEvento;
 			}
+			set
+			{
+				if ((this._dtEvento != value))
+				{
+					this.OndtEventoChanging(value);
+					this.SendPropertyChanging();
+					this._dtEvento = value;
+					this.SendPropertyChanged("dtEvento");
+					this.OndtEventoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_IdUsuario", DbType="Int NOT NULL")]
+		public int IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._IdUsuario = value;
+					this.SendPropertyChanged("IdUsuario");
+					this.OnIdUsuarioChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_PathFotos", DbType="NVarChar(MAX)")]
+		public string PathFotos
+		{
+			get
+			{
+				return this._PathFotos;
+			}
+			set
+			{
+				if ((this._PathFotos != value))
+				{
+					this.OnPathFotosChanging(value);
+					this.SendPropertyChanging();
+					this._PathFotos = value;
+					this.SendPropertyChanged("PathFotos");
+					this.OnPathFotosChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Album_Grupo", Storage="_Usuario", ThisKey="IdUsuario", OtherKey="idUsuario", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Kart_Album_Grupos.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Album_Grupos.Add(this);
+						this._IdUsuario = value.idUsuario;
+					}
+					else
+					{
+						this._IdUsuario = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		[Association(Name="Kart_Grupo_Kart_Album_Grupo", Storage="_Kart_Grupo", ThisKey="idGrupo", OtherKey="idGrupo", IsForeignKey=true)]
+		public Kart_Grupo Kart_Grupo
+		{
+			get
+			{
+				return this._Kart_Grupo.Entity;
+			}
+			set
+			{
+				Kart_Grupo previousValue = this._Kart_Grupo.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Grupo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Grupo.Entity = null;
+						previousValue.Kart_Album_Grupos.Remove(this);
+					}
+					this._Kart_Grupo.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Album_Grupos.Add(this);
+						this._idGrupo = value.idGrupo;
+					}
+					else
+					{
+						this._idGrupo = default(int);
+					}
+					this.SendPropertyChanged("Kart_Grupo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.Usuarios")]
+	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private string _Apelido;
+		
+		private string _Email;
+		
+		private string _Senha;
+		
+		private System.Nullable<char> _Sexo;
+		
+		private System.Nullable<decimal> _Peso;
+		
+		private System.Nullable<System.DateTime> _DtNascimento;
+		
+		private System.Nullable<bool> _MostarInfo;
+		
+		private System.Nullable<decimal> _Altura;
+		
+		private string _Telefone;
+		
+		private string _Celular;
+		
+		private System.Data.Linq.Binary _Foto;
+		
+		private string _Cidade;
+		
+		private string _Estado;
+		
+		private string _Endereco;
+		
+		private string _Perfil_Facebook;
+		
+		private string _Perfil_Twitter;
+		
+		private string _Perfil_Plus;
+		
+		private string _Perfil_Outros;
+		
+		private string _Obs;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private System.Nullable<bool> _Ativo;
+		
+		private EntitySet<Kart_Album_Grupo> _Kart_Album_Grupos;
+		
+		private EntitySet<Kart_Grid_Calendario> _Kart_Grid_Calendarios;
+		
+		private EntitySet<Kart_Grupo> _Kart_Grupos;
+		
+		private EntitySet<Kart_log_erro> _Kart_log_erros;
+		
+		private EntitySet<Kart_Noticias_Grupo> _Kart_Noticias_Grupos;
+		
+		private EntitySet<Kart_Resultado_Calendario> _Kart_Resultado_Calendarios;
+		
+		private EntitySet<Kart_Usuario_Equipe_Campeonato> _Kart_Usuario_Equipe_Campeonatos;
+		
+		private EntitySet<Kart_Usuario_Grupo> _Kart_Usuario_Grupos;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidUsuarioChanging(int value);
+    partial void OnidUsuarioChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnApelidoChanging(string value);
+    partial void OnApelidoChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnSenhaChanging(string value);
+    partial void OnSenhaChanged();
+    partial void OnSexoChanging(System.Nullable<char> value);
+    partial void OnSexoChanged();
+    partial void OnPesoChanging(System.Nullable<decimal> value);
+    partial void OnPesoChanged();
+    partial void OnDtNascimentoChanging(System.Nullable<System.DateTime> value);
+    partial void OnDtNascimentoChanged();
+    partial void OnMostarInfoChanging(System.Nullable<bool> value);
+    partial void OnMostarInfoChanged();
+    partial void OnAlturaChanging(System.Nullable<decimal> value);
+    partial void OnAlturaChanged();
+    partial void OnTelefoneChanging(string value);
+    partial void OnTelefoneChanged();
+    partial void OnCelularChanging(string value);
+    partial void OnCelularChanged();
+    partial void OnFotoChanging(System.Data.Linq.Binary value);
+    partial void OnFotoChanged();
+    partial void OnCidadeChanging(string value);
+    partial void OnCidadeChanged();
+    partial void OnEstadoChanging(string value);
+    partial void OnEstadoChanged();
+    partial void OnEnderecoChanging(string value);
+    partial void OnEnderecoChanged();
+    partial void OnPerfil_FacebookChanging(string value);
+    partial void OnPerfil_FacebookChanged();
+    partial void OnPerfil_TwitterChanging(string value);
+    partial void OnPerfil_TwitterChanged();
+    partial void OnPerfil_PlusChanging(string value);
+    partial void OnPerfil_PlusChanged();
+    partial void OnPerfil_OutrosChanging(string value);
+    partial void OnPerfil_OutrosChanged();
+    partial void OnObsChanging(string value);
+    partial void OnObsChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    partial void OnAtivoChanging(System.Nullable<bool> value);
+    partial void OnAtivoChanged();
+    #endregion
+		
+		public Usuario()
+		{
+			this._Kart_Album_Grupos = new EntitySet<Kart_Album_Grupo>(new Action<Kart_Album_Grupo>(this.attach_Kart_Album_Grupos), new Action<Kart_Album_Grupo>(this.detach_Kart_Album_Grupos));
+			this._Kart_Grid_Calendarios = new EntitySet<Kart_Grid_Calendario>(new Action<Kart_Grid_Calendario>(this.attach_Kart_Grid_Calendarios), new Action<Kart_Grid_Calendario>(this.detach_Kart_Grid_Calendarios));
+			this._Kart_Grupos = new EntitySet<Kart_Grupo>(new Action<Kart_Grupo>(this.attach_Kart_Grupos), new Action<Kart_Grupo>(this.detach_Kart_Grupos));
+			this._Kart_log_erros = new EntitySet<Kart_log_erro>(new Action<Kart_log_erro>(this.attach_Kart_log_erros), new Action<Kart_log_erro>(this.detach_Kart_log_erros));
+			this._Kart_Noticias_Grupos = new EntitySet<Kart_Noticias_Grupo>(new Action<Kart_Noticias_Grupo>(this.attach_Kart_Noticias_Grupos), new Action<Kart_Noticias_Grupo>(this.detach_Kart_Noticias_Grupos));
+			this._Kart_Resultado_Calendarios = new EntitySet<Kart_Resultado_Calendario>(new Action<Kart_Resultado_Calendario>(this.attach_Kart_Resultado_Calendarios), new Action<Kart_Resultado_Calendario>(this.detach_Kart_Resultado_Calendarios));
+			this._Kart_Usuario_Equipe_Campeonatos = new EntitySet<Kart_Usuario_Equipe_Campeonato>(new Action<Kart_Usuario_Equipe_Campeonato>(this.attach_Kart_Usuario_Equipe_Campeonatos), new Action<Kart_Usuario_Equipe_Campeonato>(this.detach_Kart_Usuario_Equipe_Campeonatos));
+			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
+			OnCreated();
+		}
+		
+		[Column(Storage="_idUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this.OnidUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuario = value;
+					this.SendPropertyChanged("idUsuario");
+					this.OnidUsuarioChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Apelido", DbType="NChar(30)")]
+		public string Apelido
+		{
+			get
+			{
+				return this._Apelido;
+			}
+			set
+			{
+				if ((this._Apelido != value))
+				{
+					this.OnApelidoChanging(value);
+					this.SendPropertyChanging();
+					this._Apelido = value;
+					this.SendPropertyChanged("Apelido");
+					this.OnApelidoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Email", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Senha", DbType="NChar(50) NOT NULL", CanBeNull=false)]
+		public string Senha
+		{
+			get
+			{
+				return this._Senha;
+			}
+			set
+			{
+				if ((this._Senha != value))
+				{
+					this.OnSenhaChanging(value);
+					this.SendPropertyChanging();
+					this._Senha = value;
+					this.SendPropertyChanged("Senha");
+					this.OnSenhaChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Sexo", DbType="NChar(1)")]
+		public System.Nullable<char> Sexo
+		{
+			get
+			{
+				return this._Sexo;
+			}
+			set
+			{
+				if ((this._Sexo != value))
+				{
+					this.OnSexoChanging(value);
+					this.SendPropertyChanging();
+					this._Sexo = value;
+					this.SendPropertyChanged("Sexo");
+					this.OnSexoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Peso", DbType="Decimal(5,2)")]
+		public System.Nullable<decimal> Peso
+		{
+			get
+			{
+				return this._Peso;
+			}
+			set
+			{
+				if ((this._Peso != value))
+				{
+					this.OnPesoChanging(value);
+					this.SendPropertyChanging();
+					this._Peso = value;
+					this.SendPropertyChanged("Peso");
+					this.OnPesoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_DtNascimento", DbType="SmallDateTime")]
+		public System.Nullable<System.DateTime> DtNascimento
+		{
+			get
+			{
+				return this._DtNascimento;
+			}
+			set
+			{
+				if ((this._DtNascimento != value))
+				{
+					this.OnDtNascimentoChanging(value);
+					this.SendPropertyChanging();
+					this._DtNascimento = value;
+					this.SendPropertyChanged("DtNascimento");
+					this.OnDtNascimentoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_MostarInfo", DbType="Bit")]
+		public System.Nullable<bool> MostarInfo
+		{
+			get
+			{
+				return this._MostarInfo;
+			}
+			set
+			{
+				if ((this._MostarInfo != value))
+				{
+					this.OnMostarInfoChanging(value);
+					this.SendPropertyChanging();
+					this._MostarInfo = value;
+					this.SendPropertyChanged("MostarInfo");
+					this.OnMostarInfoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Altura", DbType="Decimal(3,2)")]
+		public System.Nullable<decimal> Altura
+		{
+			get
+			{
+				return this._Altura;
+			}
+			set
+			{
+				if ((this._Altura != value))
+				{
+					this.OnAlturaChanging(value);
+					this.SendPropertyChanging();
+					this._Altura = value;
+					this.SendPropertyChanged("Altura");
+					this.OnAlturaChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Telefone", DbType="NChar(50)")]
+		public string Telefone
+		{
+			get
+			{
+				return this._Telefone;
+			}
+			set
+			{
+				if ((this._Telefone != value))
+				{
+					this.OnTelefoneChanging(value);
+					this.SendPropertyChanging();
+					this._Telefone = value;
+					this.SendPropertyChanged("Telefone");
+					this.OnTelefoneChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Celular", DbType="NChar(50)")]
+		public string Celular
+		{
+			get
+			{
+				return this._Celular;
+			}
+			set
+			{
+				if ((this._Celular != value))
+				{
+					this.OnCelularChanging(value);
+					this.SendPropertyChanging();
+					this._Celular = value;
+					this.SendPropertyChanged("Celular");
+					this.OnCelularChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Foto", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Foto
+		{
+			get
+			{
+				return this._Foto;
+			}
+			set
+			{
+				if ((this._Foto != value))
+				{
+					this.OnFotoChanging(value);
+					this.SendPropertyChanging();
+					this._Foto = value;
+					this.SendPropertyChanged("Foto");
+					this.OnFotoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Cidade", DbType="NVarChar(200)")]
+		public string Cidade
+		{
+			get
+			{
+				return this._Cidade;
+			}
+			set
+			{
+				if ((this._Cidade != value))
+				{
+					this.OnCidadeChanging(value);
+					this.SendPropertyChanging();
+					this._Cidade = value;
+					this.SendPropertyChanged("Cidade");
+					this.OnCidadeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Estado", DbType="NChar(2)")]
+		public string Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this.OnEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._Estado = value;
+					this.SendPropertyChanged("Estado");
+					this.OnEstadoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Endereco", DbType="NVarChar(MAX)")]
+		public string Endereco
+		{
+			get
+			{
+				return this._Endereco;
+			}
+			set
+			{
+				if ((this._Endereco != value))
+				{
+					this.OnEnderecoChanging(value);
+					this.SendPropertyChanging();
+					this._Endereco = value;
+					this.SendPropertyChanged("Endereco");
+					this.OnEnderecoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Perfil_Facebook", DbType="NVarChar(200)")]
+		public string Perfil_Facebook
+		{
+			get
+			{
+				return this._Perfil_Facebook;
+			}
+			set
+			{
+				if ((this._Perfil_Facebook != value))
+				{
+					this.OnPerfil_FacebookChanging(value);
+					this.SendPropertyChanging();
+					this._Perfil_Facebook = value;
+					this.SendPropertyChanged("Perfil_Facebook");
+					this.OnPerfil_FacebookChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Perfil_Twitter", DbType="NVarChar(200)")]
+		public string Perfil_Twitter
+		{
+			get
+			{
+				return this._Perfil_Twitter;
+			}
+			set
+			{
+				if ((this._Perfil_Twitter != value))
+				{
+					this.OnPerfil_TwitterChanging(value);
+					this.SendPropertyChanging();
+					this._Perfil_Twitter = value;
+					this.SendPropertyChanged("Perfil_Twitter");
+					this.OnPerfil_TwitterChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Perfil_Plus", DbType="NVarChar(200)")]
+		public string Perfil_Plus
+		{
+			get
+			{
+				return this._Perfil_Plus;
+			}
+			set
+			{
+				if ((this._Perfil_Plus != value))
+				{
+					this.OnPerfil_PlusChanging(value);
+					this.SendPropertyChanging();
+					this._Perfil_Plus = value;
+					this.SendPropertyChanged("Perfil_Plus");
+					this.OnPerfil_PlusChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Perfil_Outros", DbType="NVarChar(200)")]
+		public string Perfil_Outros
+		{
+			get
+			{
+				return this._Perfil_Outros;
+			}
+			set
+			{
+				if ((this._Perfil_Outros != value))
+				{
+					this.OnPerfil_OutrosChanging(value);
+					this.SendPropertyChanging();
+					this._Perfil_Outros = value;
+					this.SendPropertyChanged("Perfil_Outros");
+					this.OnPerfil_OutrosChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Obs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Obs
+		{
+			get
+			{
+				return this._Obs;
+			}
+			set
+			{
+				if ((this._Obs != value))
+				{
+					this.OnObsChanging(value);
+					this.SendPropertyChanging();
+					this._Obs = value;
+					this.SendPropertyChanged("Obs");
+					this.OnObsChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ativo", DbType="Bit")]
+		public System.Nullable<bool> Ativo
+		{
+			get
+			{
+				return this._Ativo;
+			}
+			set
+			{
+				if ((this._Ativo != value))
+				{
+					this.OnAtivoChanging(value);
+					this.SendPropertyChanging();
+					this._Ativo = value;
+					this.SendPropertyChanged("Ativo");
+					this.OnAtivoChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Album_Grupo", Storage="_Kart_Album_Grupos", ThisKey="idUsuario", OtherKey="IdUsuario")]
+		public EntitySet<Kart_Album_Grupo> Kart_Album_Grupos
+		{
+			get
+			{
+				return this._Kart_Album_Grupos;
+			}
+			set
+			{
+				this._Kart_Album_Grupos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Grid_Calendario", Storage="_Kart_Grid_Calendarios", ThisKey="idUsuario", OtherKey="idUsuario")]
+		public EntitySet<Kart_Grid_Calendario> Kart_Grid_Calendarios
+		{
+			get
+			{
+				return this._Kart_Grid_Calendarios;
+			}
+			set
+			{
+				this._Kart_Grid_Calendarios.Assign(value);
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Grupo", Storage="_Kart_Grupos", ThisKey="idUsuario", OtherKey="Id_Usuario_Lider")]
+		public EntitySet<Kart_Grupo> Kart_Grupos
+		{
+			get
+			{
+				return this._Kart_Grupos;
+			}
+			set
+			{
+				this._Kart_Grupos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_log_erro", Storage="_Kart_log_erros", ThisKey="idUsuario", OtherKey="idUsuario")]
+		public EntitySet<Kart_log_erro> Kart_log_erros
+		{
+			get
+			{
+				return this._Kart_log_erros;
+			}
+			set
+			{
+				this._Kart_log_erros.Assign(value);
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Noticias_Grupo", Storage="_Kart_Noticias_Grupos", ThisKey="idUsuario", OtherKey="IdUsuario")]
+		public EntitySet<Kart_Noticias_Grupo> Kart_Noticias_Grupos
+		{
+			get
+			{
+				return this._Kart_Noticias_Grupos;
+			}
+			set
+			{
+				this._Kart_Noticias_Grupos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Resultado_Calendario", Storage="_Kart_Resultado_Calendarios", ThisKey="idUsuario", OtherKey="idUsuario")]
+		public EntitySet<Kart_Resultado_Calendario> Kart_Resultado_Calendarios
+		{
+			get
+			{
+				return this._Kart_Resultado_Calendarios;
+			}
+			set
+			{
+				this._Kart_Resultado_Calendarios.Assign(value);
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Usuario_Equipe_Campeonato", Storage="_Kart_Usuario_Equipe_Campeonatos", ThisKey="idUsuario", OtherKey="idUsuario")]
+		public EntitySet<Kart_Usuario_Equipe_Campeonato> Kart_Usuario_Equipe_Campeonatos
+		{
+			get
+			{
+				return this._Kart_Usuario_Equipe_Campeonatos;
+			}
+			set
+			{
+				this._Kart_Usuario_Equipe_Campeonatos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Usuario_Grupo", Storage="_Kart_Usuario_Grupos", ThisKey="idUsuario", OtherKey="idUsuario")]
+		public EntitySet<Kart_Usuario_Grupo> Kart_Usuario_Grupos
+		{
+			get
+			{
+				return this._Kart_Usuario_Grupos;
+			}
+			set
+			{
+				this._Kart_Usuario_Grupos.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Kart_Album_Grupos(Kart_Album_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Album_Grupos(Kart_Album_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_Grid_Calendarios(Kart_Grid_Calendario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Grid_Calendarios(Kart_Grid_Calendario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_Grupos(Kart_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Grupos(Kart_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_log_erros(Kart_log_erro entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_log_erros(Kart_log_erro entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_Resultado_Calendarios(Kart_Resultado_Calendario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Resultado_Calendarios(Kart_Resultado_Calendario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_Usuario_Equipe_Campeonatos(Kart_Usuario_Equipe_Campeonato entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Usuario_Equipe_Campeonatos(Kart_Usuario_Equipe_Campeonato entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Kart_Usuario_Grupos(Kart_Usuario_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Usuario_Grupos(Kart_Usuario_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
 		}
 	}
 	
@@ -1515,11 +2663,15 @@ namespace KartRanking.BaseDados
 		
 		private System.Nullable<bool> _Ativo;
 		
+		private EntitySet<Kart_Album_Grupo> _Kart_Album_Grupos;
+		
 		private EntitySet<Kart_Campeonato> _Kart_Campeonatos;
 		
-		private EntitySet<Kart_Usuario_Grupo> _Kart_Usuario_Grupos;
-		
 		private EntitySet<Kart_Noticias_Grupo> _Kart_Noticias_Grupos;
+		
+		private EntitySet<Kart_Ponto_Grupo> _Kart_Ponto_Grupos;
+		
+		private EntitySet<Kart_Usuario_Grupo> _Kart_Usuario_Grupos;
 		
 		private EntityRef<Usuario> _Usuario;
 		
@@ -1551,9 +2703,11 @@ namespace KartRanking.BaseDados
 		
 		public Kart_Grupo()
 		{
+			this._Kart_Album_Grupos = new EntitySet<Kart_Album_Grupo>(new Action<Kart_Album_Grupo>(this.attach_Kart_Album_Grupos), new Action<Kart_Album_Grupo>(this.detach_Kart_Album_Grupos));
 			this._Kart_Campeonatos = new EntitySet<Kart_Campeonato>(new Action<Kart_Campeonato>(this.attach_Kart_Campeonatos), new Action<Kart_Campeonato>(this.detach_Kart_Campeonatos));
-			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
 			this._Kart_Noticias_Grupos = new EntitySet<Kart_Noticias_Grupo>(new Action<Kart_Noticias_Grupo>(this.attach_Kart_Noticias_Grupos), new Action<Kart_Noticias_Grupo>(this.detach_Kart_Noticias_Grupos));
+			this._Kart_Ponto_Grupos = new EntitySet<Kart_Ponto_Grupo>(new Action<Kart_Ponto_Grupo>(this.attach_Kart_Ponto_Grupos), new Action<Kart_Ponto_Grupo>(this.detach_Kart_Ponto_Grupos));
+			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
 			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
@@ -1762,6 +2916,19 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		[Association(Name="Kart_Grupo_Kart_Album_Grupo", Storage="_Kart_Album_Grupos", ThisKey="idGrupo", OtherKey="idGrupo")]
+		public EntitySet<Kart_Album_Grupo> Kart_Album_Grupos
+		{
+			get
+			{
+				return this._Kart_Album_Grupos;
+			}
+			set
+			{
+				this._Kart_Album_Grupos.Assign(value);
+			}
+		}
+		
 		[Association(Name="Kart_Grupo_Kart_Campeonato", Storage="_Kart_Campeonatos", ThisKey="idGrupo", OtherKey="idGrupo")]
 		public EntitySet<Kart_Campeonato> Kart_Campeonatos
 		{
@@ -1775,19 +2942,6 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
-		[Association(Name="Kart_Grupo_Kart_Usuario_Grupo", Storage="_Kart_Usuario_Grupos", ThisKey="idGrupo", OtherKey="idGrupo")]
-		public EntitySet<Kart_Usuario_Grupo> Kart_Usuario_Grupos
-		{
-			get
-			{
-				return this._Kart_Usuario_Grupos;
-			}
-			set
-			{
-				this._Kart_Usuario_Grupos.Assign(value);
-			}
-		}
-		
 		[Association(Name="Kart_Grupo_Kart_Noticias_Grupo", Storage="_Kart_Noticias_Grupos", ThisKey="idGrupo", OtherKey="idGrupo")]
 		public EntitySet<Kart_Noticias_Grupo> Kart_Noticias_Grupos
 		{
@@ -1798,6 +2952,32 @@ namespace KartRanking.BaseDados
 			set
 			{
 				this._Kart_Noticias_Grupos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Kart_Grupo_Kart_Ponto_Grupo", Storage="_Kart_Ponto_Grupos", ThisKey="idGrupo", OtherKey="idGrupo")]
+		public EntitySet<Kart_Ponto_Grupo> Kart_Ponto_Grupos
+		{
+			get
+			{
+				return this._Kart_Ponto_Grupos;
+			}
+			set
+			{
+				this._Kart_Ponto_Grupos.Assign(value);
+			}
+		}
+		
+		[Association(Name="Kart_Grupo_Kart_Usuario_Grupo", Storage="_Kart_Usuario_Grupos", ThisKey="idGrupo", OtherKey="idGrupo")]
+		public EntitySet<Kart_Usuario_Grupo> Kart_Usuario_Grupos
+		{
+			get
+			{
+				return this._Kart_Usuario_Grupos;
+			}
+			set
+			{
+				this._Kart_Usuario_Grupos.Assign(value);
 			}
 		}
 		
@@ -1855,6 +3035,18 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		private void attach_Kart_Album_Grupos(Kart_Album_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Grupo = this;
+		}
+		
+		private void detach_Kart_Album_Grupos(Kart_Album_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Grupo = null;
+		}
+		
 		private void attach_Kart_Campeonatos(Kart_Campeonato entity)
 		{
 			this.SendPropertyChanging();
@@ -1867,18 +3059,6 @@ namespace KartRanking.BaseDados
 			entity.Kart_Grupo = null;
 		}
 		
-		private void attach_Kart_Usuario_Grupos(Kart_Usuario_Grupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Kart_Grupo = this;
-		}
-		
-		private void detach_Kart_Usuario_Grupos(Kart_Usuario_Grupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Kart_Grupo = null;
-		}
-		
 		private void attach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
 		{
 			this.SendPropertyChanging();
@@ -1890,2282 +3070,29 @@ namespace KartRanking.BaseDados
 			this.SendPropertyChanging();
 			entity.Kart_Grupo = null;
 		}
-	}
-	
-	[Table(Name="afonsoftcombr.Kart_Usuario_Equipe_Campeonato")]
-	public partial class Kart_Usuario_Equipe_Campeonato : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idUsuarioEquipeCampeonato;
-		
-		private int _idEquipeCampeonato;
-		
-		private int _idUsuario;
-		
-		private System.Nullable<System.DateTime> _dtCriacao;
-		
-		private EntityRef<Kart_Equipe_Campeonato> _Kart_Equipe_Campeonato;
-		
-		private EntityRef<Usuario> _Usuario;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidUsuarioEquipeCampeonatoChanging(int value);
-    partial void OnidUsuarioEquipeCampeonatoChanged();
-    partial void OnidEquipeCampeonatoChanging(int value);
-    partial void OnidEquipeCampeonatoChanged();
-    partial void OnidUsuarioChanging(int value);
-    partial void OnidUsuarioChanged();
-    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
-    partial void OndtCriacaoChanged();
-    #endregion
-		
-		public Kart_Usuario_Equipe_Campeonato()
-		{
-			this._Kart_Equipe_Campeonato = default(EntityRef<Kart_Equipe_Campeonato>);
-			this._Usuario = default(EntityRef<Usuario>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_idUsuarioEquipeCampeonato", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idUsuarioEquipeCampeonato
-		{
-			get
-			{
-				return this._idUsuarioEquipeCampeonato;
-			}
-			set
-			{
-				if ((this._idUsuarioEquipeCampeonato != value))
-				{
-					this.OnidUsuarioEquipeCampeonatoChanging(value);
-					this.SendPropertyChanging();
-					this._idUsuarioEquipeCampeonato = value;
-					this.SendPropertyChanged("idUsuarioEquipeCampeonato");
-					this.OnidUsuarioEquipeCampeonatoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
-		public int idEquipeCampeonato
-		{
-			get
-			{
-				return this._idEquipeCampeonato;
-			}
-			set
-			{
-				if ((this._idEquipeCampeonato != value))
-				{
-					if (this._Kart_Equipe_Campeonato.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidEquipeCampeonatoChanging(value);
-					this.SendPropertyChanging();
-					this._idEquipeCampeonato = value;
-					this.SendPropertyChanged("idEquipeCampeonato");
-					this.OnidEquipeCampeonatoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					if (this._Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._idUsuario = value;
-					this.SendPropertyChanged("idUsuario");
-					this.OnidUsuarioChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_dtCriacao", DbType="DateTime")]
-		public System.Nullable<System.DateTime> dtCriacao
-		{
-			get
-			{
-				return this._dtCriacao;
-			}
-			set
-			{
-				if ((this._dtCriacao != value))
-				{
-					this.OndtCriacaoChanging(value);
-					this.SendPropertyChanging();
-					this._dtCriacao = value;
-					this.SendPropertyChanged("dtCriacao");
-					this.OndtCriacaoChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Kart_Equipe_Campeonato_Kart_Usuario_Equipe_Campeonato", Storage="_Kart_Equipe_Campeonato", ThisKey="idEquipeCampeonato", OtherKey="idEquipeCampeonato", IsForeignKey=true)]
-		public Kart_Equipe_Campeonato Kart_Equipe_Campeonato
-		{
-			get
-			{
-				return this._Kart_Equipe_Campeonato.Entity;
-			}
-			set
-			{
-				Kart_Equipe_Campeonato previousValue = this._Kart_Equipe_Campeonato.Entity;
-				if (((previousValue != value) 
-							|| (this._Kart_Equipe_Campeonato.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Kart_Equipe_Campeonato.Entity = null;
-						previousValue.Kart_Usuario_Equipe_Campeonatos.Remove(this);
-					}
-					this._Kart_Equipe_Campeonato.Entity = value;
-					if ((value != null))
-					{
-						value.Kart_Usuario_Equipe_Campeonatos.Add(this);
-						this._idEquipeCampeonato = value.idEquipeCampeonato;
-					}
-					else
-					{
-						this._idEquipeCampeonato = default(int);
-					}
-					this.SendPropertyChanged("Kart_Equipe_Campeonato");
-				}
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Usuario_Equipe_Campeonato", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
-		public Usuario Usuario
-		{
-			get
-			{
-				return this._Usuario.Entity;
-			}
-			set
-			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.Kart_Usuario_Equipe_Campeonatos.Remove(this);
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Kart_Usuario_Equipe_Campeonatos.Add(this);
-						this._idUsuario = value.idUsuario;
-					}
-					else
-					{
-						this._idUsuario = default(int);
-					}
-					this.SendPropertyChanged("Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.Kart_Usuario_Grupo")]
-	public partial class Kart_Usuario_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idGrupoUsuario;
-		
-		private int _idGrupo;
-		
-		private int _idUsuario;
-		
-		private System.Nullable<bool> _Admin;
-		
-		private System.Nullable<bool> _Aprovado;
-		
-		private System.Nullable<System.DateTime> _dtCriacao;
-		
-		private EntityRef<Kart_Grupo> _Kart_Grupo;
-		
-		private EntityRef<Usuario> _Usuario;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidGrupoUsuarioChanging(int value);
-    partial void OnidGrupoUsuarioChanged();
-    partial void OnidGrupoChanging(int value);
-    partial void OnidGrupoChanged();
-    partial void OnidUsuarioChanging(int value);
-    partial void OnidUsuarioChanged();
-    partial void OnAdminChanging(System.Nullable<bool> value);
-    partial void OnAdminChanged();
-    partial void OnAprovadoChanging(System.Nullable<bool> value);
-    partial void OnAprovadoChanged();
-    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
-    partial void OndtCriacaoChanged();
-    #endregion
-		
-		public Kart_Usuario_Grupo()
-		{
-			this._Kart_Grupo = default(EntityRef<Kart_Grupo>);
-			this._Usuario = default(EntityRef<Usuario>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_idGrupoUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idGrupoUsuario
-		{
-			get
-			{
-				return this._idGrupoUsuario;
-			}
-			set
-			{
-				if ((this._idGrupoUsuario != value))
-				{
-					this.OnidGrupoUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._idGrupoUsuario = value;
-					this.SendPropertyChanged("idGrupoUsuario");
-					this.OnidGrupoUsuarioChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					if (this._Kart_Grupo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidGrupoChanging(value);
-					this.SendPropertyChanging();
-					this._idGrupo = value;
-					this.SendPropertyChanged("idGrupo");
-					this.OnidGrupoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					if (this._Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._idUsuario = value;
-					this.SendPropertyChanged("idUsuario");
-					this.OnidUsuarioChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Admin", DbType="Bit")]
-		public System.Nullable<bool> Admin
-		{
-			get
-			{
-				return this._Admin;
-			}
-			set
-			{
-				if ((this._Admin != value))
-				{
-					this.OnAdminChanging(value);
-					this.SendPropertyChanging();
-					this._Admin = value;
-					this.SendPropertyChanged("Admin");
-					this.OnAdminChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Aprovado", DbType="Bit")]
-		public System.Nullable<bool> Aprovado
-		{
-			get
-			{
-				return this._Aprovado;
-			}
-			set
-			{
-				if ((this._Aprovado != value))
-				{
-					this.OnAprovadoChanging(value);
-					this.SendPropertyChanging();
-					this._Aprovado = value;
-					this.SendPropertyChanged("Aprovado");
-					this.OnAprovadoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_dtCriacao", DbType="DateTime")]
-		public System.Nullable<System.DateTime> dtCriacao
-		{
-			get
-			{
-				return this._dtCriacao;
-			}
-			set
-			{
-				if ((this._dtCriacao != value))
-				{
-					this.OndtCriacaoChanging(value);
-					this.SendPropertyChanging();
-					this._dtCriacao = value;
-					this.SendPropertyChanged("dtCriacao");
-					this.OndtCriacaoChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Kart_Grupo_Kart_Usuario_Grupo", Storage="_Kart_Grupo", ThisKey="idGrupo", OtherKey="idGrupo", IsForeignKey=true)]
-		public Kart_Grupo Kart_Grupo
-		{
-			get
-			{
-				return this._Kart_Grupo.Entity;
-			}
-			set
-			{
-				Kart_Grupo previousValue = this._Kart_Grupo.Entity;
-				if (((previousValue != value) 
-							|| (this._Kart_Grupo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Kart_Grupo.Entity = null;
-						previousValue.Kart_Usuario_Grupos.Remove(this);
-					}
-					this._Kart_Grupo.Entity = value;
-					if ((value != null))
-					{
-						value.Kart_Usuario_Grupos.Add(this);
-						this._idGrupo = value.idGrupo;
-					}
-					else
-					{
-						this._idGrupo = default(int);
-					}
-					this.SendPropertyChanged("Kart_Grupo");
-				}
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Usuario_Grupo", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
-		public Usuario Usuario
-		{
-			get
-			{
-				return this._Usuario.Entity;
-			}
-			set
-			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.Kart_Usuario_Grupos.Remove(this);
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Kart_Usuario_Grupos.Add(this);
-						this._idUsuario = value.idUsuario;
-					}
-					else
-					{
-						this._idUsuario = default(int);
-					}
-					this.SendPropertyChanged("Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.View_Kart_Equipe_Pontos_Campeonato")]
-	public partial class View_Kart_Equipe_Pontos_Campeonato
-	{
-		
-		private int _idEquipeCampeonato;
-		
-		private string _Equipe;
-		
-		private string _Sigla;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private string _Grupo;
-		
-		private string _Campeonato;
-		
-		private int _idCampeonato;
-		
-		private int _idGrupo;
-		
-		public View_Kart_Equipe_Pontos_Campeonato()
-		{
-		}
-		
-		[Column(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
-		public int idEquipeCampeonato
-		{
-			get
-			{
-				return this._idEquipeCampeonato;
-			}
-			set
-			{
-				if ((this._idEquipeCampeonato != value))
-				{
-					this._idEquipeCampeonato = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Equipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Equipe
-		{
-			get
-			{
-				return this._Equipe;
-			}
-			set
-			{
-				if ((this._Equipe != value))
-				{
-					this._Equipe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Sigla
-		{
-			get
-			{
-				return this._Sigla;
-			}
-			set
-			{
-				if ((this._Sigla != value))
-				{
-					this._Sigla = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Grupo
-		{
-			get
-			{
-				return this._Grupo;
-			}
-			set
-			{
-				if ((this._Grupo != value))
-				{
-					this._Grupo = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Campeonato
-		{
-			get
-			{
-				return this._Campeonato;
-			}
-			set
-			{
-				if ((this._Campeonato != value))
-				{
-					this._Campeonato = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_idCampeonato", DbType="Int NOT NULL")]
-		public int idCampeonato
-		{
-			get
-			{
-				return this._idCampeonato;
-			}
-			set
-			{
-				if ((this._idCampeonato != value))
-				{
-					this._idCampeonato = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Grupo")]
-	public partial class View_Kart_Usuario_Pontos_Grupo
-	{
-		
-		private int _idUsuario;
-		
-		private string _Nome;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private string _Grupo;
-		
-		private int _idGrupo;
-		
-		public View_Kart_Usuario_Pontos_Grupo()
-		{
-		}
-		
-		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this._Nome = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Grupo
-		{
-			get
-			{
-				return this._Grupo;
-			}
-			set
-			{
-				if ((this._Grupo != value))
-				{
-					this._Grupo = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.View_Kart_Usuario_Historico")]
-	public partial class View_Kart_Usuario_Historico
-	{
-		
-		private int _idUsuario;
-		
-		private string _Nome;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private System.Nullable<int> _Provas;
-		
-		private int _Vitorias;
-		
-		private int _Podios;
-		
-		public View_Kart_Usuario_Historico()
-		{
-		}
-		
-		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this._Nome = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Provas", DbType="Int")]
-		public System.Nullable<int> Provas
-		{
-			get
-			{
-				return this._Provas;
-			}
-			set
-			{
-				if ((this._Provas != value))
-				{
-					this._Provas = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Vitorias", DbType="Int NOT NULL")]
-		public int Vitorias
-		{
-			get
-			{
-				return this._Vitorias;
-			}
-			set
-			{
-				if ((this._Vitorias != value))
-				{
-					this._Vitorias = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Podios", DbType="Int NOT NULL")]
-		public int Podios
-		{
-			get
-			{
-				return this._Podios;
-			}
-			set
-			{
-				if ((this._Podios != value))
-				{
-					this._Podios = value;
-				}
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato")]
-	public partial class View_Kart_Usuario_Pontos_Campeonato
-	{
-		
-		private int _idUsuario;
-		
-		private string _Nome;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private string _Grupo;
-		
-		private string _Campeonato;
-		
-		private int _idCampeonato;
-		
-		private int _idGrupo;
-		
-		public View_Kart_Usuario_Pontos_Campeonato()
-		{
-		}
-		
-		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this._Nome = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Grupo
-		{
-			get
-			{
-				return this._Grupo;
-			}
-			set
-			{
-				if ((this._Grupo != value))
-				{
-					this._Grupo = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Campeonato
-		{
-			get
-			{
-				return this._Campeonato;
-			}
-			set
-			{
-				if ((this._Campeonato != value))
-				{
-					this._Campeonato = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_idCampeonato", DbType="Int NOT NULL")]
-		public int idCampeonato
-		{
-			get
-			{
-				return this._idCampeonato;
-			}
-			set
-			{
-				if ((this._idCampeonato != value))
-				{
-					this._idCampeonato = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.Kart_Resultado_Calendario")]
-	public partial class Kart_Resultado_Calendario : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idResultado;
-		
-		private int _idCalendario;
-		
-		private int _Pos;
-		
-		private int _idUsuario;
-		
-		private int _idEquipe;
-		
-		private int _tempoHoras;
-		
-		private int _tempoMinutos;
-		
-		private int _tempoSegundos;
-		
-		private int _tempoMilisegundos;
-		
-		private int _Ponto;
-		
-		private int _Voltas;
-		
-		private System.Nullable<System.DateTime> _dtCriacao;
-		
-		private EntityRef<Kart_Calendario_Campeonato> _Kart_Calendario_Campeonato;
-		
-		private EntityRef<Usuario> _Usuario;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidResultadoChanging(int value);
-    partial void OnidResultadoChanged();
-    partial void OnidCalendarioChanging(int value);
-    partial void OnidCalendarioChanged();
-    partial void OnPosChanging(int value);
-    partial void OnPosChanged();
-    partial void OnidUsuarioChanging(int value);
-    partial void OnidUsuarioChanged();
-    partial void OnidEquipeChanging(int value);
-    partial void OnidEquipeChanged();
-    partial void OntempoHorasChanging(int value);
-    partial void OntempoHorasChanged();
-    partial void OntempoMinutosChanging(int value);
-    partial void OntempoMinutosChanged();
-    partial void OntempoSegundosChanging(int value);
-    partial void OntempoSegundosChanged();
-    partial void OntempoMilisegundosChanging(int value);
-    partial void OntempoMilisegundosChanged();
-    partial void OnPontoChanging(int value);
-    partial void OnPontoChanged();
-    partial void OnVoltasChanging(int value);
-    partial void OnVoltasChanged();
-    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
-    partial void OndtCriacaoChanged();
-    #endregion
-		
-		public Kart_Resultado_Calendario()
-		{
-			this._Kart_Calendario_Campeonato = default(EntityRef<Kart_Calendario_Campeonato>);
-			this._Usuario = default(EntityRef<Usuario>);
-			OnCreated();
-		}
-		
-		[Column(Storage="_idResultado", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idResultado
-		{
-			get
-			{
-				return this._idResultado;
-			}
-			set
-			{
-				if ((this._idResultado != value))
-				{
-					this.OnidResultadoChanging(value);
-					this.SendPropertyChanging();
-					this._idResultado = value;
-					this.SendPropertyChanged("idResultado");
-					this.OnidResultadoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_idCalendario", DbType="Int NOT NULL")]
-		public int idCalendario
-		{
-			get
-			{
-				return this._idCalendario;
-			}
-			set
-			{
-				if ((this._idCalendario != value))
-				{
-					if (this._Kart_Calendario_Campeonato.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidCalendarioChanging(value);
-					this.SendPropertyChanging();
-					this._idCalendario = value;
-					this.SendPropertyChanged("idCalendario");
-					this.OnidCalendarioChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Pos", DbType="Int NOT NULL")]
-		public int Pos
-		{
-			get
-			{
-				return this._Pos;
-			}
-			set
-			{
-				if ((this._Pos != value))
-				{
-					this.OnPosChanging(value);
-					this.SendPropertyChanging();
-					this._Pos = value;
-					this.SendPropertyChanged("Pos");
-					this.OnPosChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					if (this._Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._idUsuario = value;
-					this.SendPropertyChanged("idUsuario");
-					this.OnidUsuarioChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_idEquipe", DbType="Int NOT NULL")]
-		public int idEquipe
-		{
-			get
-			{
-				return this._idEquipe;
-			}
-			set
-			{
-				if ((this._idEquipe != value))
-				{
-					this.OnidEquipeChanging(value);
-					this.SendPropertyChanging();
-					this._idEquipe = value;
-					this.SendPropertyChanged("idEquipe");
-					this.OnidEquipeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_tempoHoras", DbType="Int NOT NULL")]
-		public int tempoHoras
-		{
-			get
-			{
-				return this._tempoHoras;
-			}
-			set
-			{
-				if ((this._tempoHoras != value))
-				{
-					this.OntempoHorasChanging(value);
-					this.SendPropertyChanging();
-					this._tempoHoras = value;
-					this.SendPropertyChanged("tempoHoras");
-					this.OntempoHorasChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_tempoMinutos", DbType="Int NOT NULL")]
-		public int tempoMinutos
-		{
-			get
-			{
-				return this._tempoMinutos;
-			}
-			set
-			{
-				if ((this._tempoMinutos != value))
-				{
-					this.OntempoMinutosChanging(value);
-					this.SendPropertyChanging();
-					this._tempoMinutos = value;
-					this.SendPropertyChanged("tempoMinutos");
-					this.OntempoMinutosChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_tempoSegundos", DbType="Int NOT NULL")]
-		public int tempoSegundos
-		{
-			get
-			{
-				return this._tempoSegundos;
-			}
-			set
-			{
-				if ((this._tempoSegundos != value))
-				{
-					this.OntempoSegundosChanging(value);
-					this.SendPropertyChanging();
-					this._tempoSegundos = value;
-					this.SendPropertyChanged("tempoSegundos");
-					this.OntempoSegundosChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_tempoMilisegundos", DbType="Int NOT NULL")]
-		public int tempoMilisegundos
-		{
-			get
-			{
-				return this._tempoMilisegundos;
-			}
-			set
-			{
-				if ((this._tempoMilisegundos != value))
-				{
-					this.OntempoMilisegundosChanging(value);
-					this.SendPropertyChanging();
-					this._tempoMilisegundos = value;
-					this.SendPropertyChanged("tempoMilisegundos");
-					this.OntempoMilisegundosChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Ponto", DbType="Int NOT NULL")]
-		public int Ponto
-		{
-			get
-			{
-				return this._Ponto;
-			}
-			set
-			{
-				if ((this._Ponto != value))
-				{
-					this.OnPontoChanging(value);
-					this.SendPropertyChanging();
-					this._Ponto = value;
-					this.SendPropertyChanged("Ponto");
-					this.OnPontoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Voltas", DbType="Int NOT NULL")]
-		public int Voltas
-		{
-			get
-			{
-				return this._Voltas;
-			}
-			set
-			{
-				if ((this._Voltas != value))
-				{
-					this.OnVoltasChanging(value);
-					this.SendPropertyChanging();
-					this._Voltas = value;
-					this.SendPropertyChanged("Voltas");
-					this.OnVoltasChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_dtCriacao", DbType="DateTime")]
-		public System.Nullable<System.DateTime> dtCriacao
-		{
-			get
-			{
-				return this._dtCriacao;
-			}
-			set
-			{
-				if ((this._dtCriacao != value))
-				{
-					this.OndtCriacaoChanging(value);
-					this.SendPropertyChanging();
-					this._dtCriacao = value;
-					this.SendPropertyChanged("dtCriacao");
-					this.OndtCriacaoChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Kart_Calendario_Campeonato_Kart_Resultado_Calendario", Storage="_Kart_Calendario_Campeonato", ThisKey="idCalendario", OtherKey="idCalendario", IsForeignKey=true)]
-		public Kart_Calendario_Campeonato Kart_Calendario_Campeonato
-		{
-			get
-			{
-				return this._Kart_Calendario_Campeonato.Entity;
-			}
-			set
-			{
-				Kart_Calendario_Campeonato previousValue = this._Kart_Calendario_Campeonato.Entity;
-				if (((previousValue != value) 
-							|| (this._Kart_Calendario_Campeonato.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Kart_Calendario_Campeonato.Entity = null;
-						previousValue.Kart_Resultado_Calendarios.Remove(this);
-					}
-					this._Kart_Calendario_Campeonato.Entity = value;
-					if ((value != null))
-					{
-						value.Kart_Resultado_Calendarios.Add(this);
-						this._idCalendario = value.idCalendario;
-					}
-					else
-					{
-						this._idCalendario = default(int);
-					}
-					this.SendPropertyChanged("Kart_Calendario_Campeonato");
-				}
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Resultado_Calendario", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
-		public Usuario Usuario
-		{
-			get
-			{
-				return this._Usuario.Entity;
-			}
-			set
-			{
-				Usuario previousValue = this._Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Usuario.Entity = null;
-						previousValue.Kart_Resultado_Calendarios.Remove(this);
-					}
-					this._Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Kart_Resultado_Calendarios.Add(this);
-						this._idUsuario = value.idUsuario;
-					}
-					else
-					{
-						this._idUsuario = default(int);
-					}
-					this.SendPropertyChanged("Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.View_Equipe_Usuario")]
-	public partial class View_Equipe_Usuario
-	{
-		
-		private int _idUsuario;
-		
-		private string _NomeEquipe;
-		
-		private string _Sigla;
-		
-		private int _idEquipeCampeonato;
-		
-		private int _idCampeonato;
-		
-		public View_Equipe_Usuario()
-		{
-		}
-		
-		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_NomeEquipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string NomeEquipe
-		{
-			get
-			{
-				return this._NomeEquipe;
-			}
-			set
-			{
-				if ((this._NomeEquipe != value))
-				{
-					this._NomeEquipe = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Sigla
-		{
-			get
-			{
-				return this._Sigla;
-			}
-			set
-			{
-				if ((this._Sigla != value))
-				{
-					this._Sigla = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
-		public int idEquipeCampeonato
-		{
-			get
-			{
-				return this._idEquipeCampeonato;
-			}
-			set
-			{
-				if ((this._idEquipeCampeonato != value))
-				{
-					this._idEquipeCampeonato = value;
-				}
-			}
-		}
-		
-		[Column(Storage="_idCampeonato", DbType="Int NOT NULL")]
-		public int idCampeonato
-		{
-			get
-			{
-				return this._idCampeonato;
-			}
-			set
-			{
-				if ((this._idCampeonato != value))
-				{
-					this._idCampeonato = value;
-				}
-			}
-		}
-	}
-	
-	[Table(Name="afonsoftcombr.Usuarios")]
-	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _idUsuario;
-		
-		private string _Nome;
-		
-		private string _Apelido;
-		
-		private string _Email;
-		
-		private string _Senha;
-		
-		private System.Nullable<char> _Sexo;
-		
-		private System.Nullable<decimal> _Peso;
-		
-		private System.Nullable<System.DateTime> _DtNascimento;
-		
-		private System.Nullable<bool> _MostarInfo;
-		
-		private System.Nullable<decimal> _Altura;
-		
-		private string _Telefone;
-		
-		private string _Celular;
-		
-		private System.Data.Linq.Binary _Foto;
-		
-		private string _Cidade;
-		
-		private string _Estado;
-		
-		private string _Endereco;
-		
-		private string _Perfil_Facebook;
-		
-		private string _Perfil_Twitter;
-		
-		private string _Perfil_Plus;
-		
-		private string _Perfil_Outros;
-		
-		private string _Obs;
-		
-		private System.Nullable<System.DateTime> _dtCriacao;
-		
-		private System.Nullable<bool> _Ativo;
-		
-		private EntitySet<Kart_Grid_Calendario> _Kart_Grid_Calendarios;
-		
-		private EntitySet<Kart_Grupo> _Kart_Grupos;
-		
-		private EntitySet<Kart_Usuario_Equipe_Campeonato> _Kart_Usuario_Equipe_Campeonatos;
-		
-		private EntitySet<Kart_Usuario_Grupo> _Kart_Usuario_Grupos;
-		
-		private EntitySet<Kart_Resultado_Calendario> _Kart_Resultado_Calendarios;
-		
-		private EntitySet<Kart_log_erro> _Kart_log_erros;
-		
-		private EntitySet<Kart_Noticias_Grupo> _Kart_Noticias_Grupos;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidUsuarioChanging(int value);
-    partial void OnidUsuarioChanged();
-    partial void OnNomeChanging(string value);
-    partial void OnNomeChanged();
-    partial void OnApelidoChanging(string value);
-    partial void OnApelidoChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnSenhaChanging(string value);
-    partial void OnSenhaChanged();
-    partial void OnSexoChanging(System.Nullable<char> value);
-    partial void OnSexoChanged();
-    partial void OnPesoChanging(System.Nullable<decimal> value);
-    partial void OnPesoChanged();
-    partial void OnDtNascimentoChanging(System.Nullable<System.DateTime> value);
-    partial void OnDtNascimentoChanged();
-    partial void OnMostarInfoChanging(System.Nullable<bool> value);
-    partial void OnMostarInfoChanged();
-    partial void OnAlturaChanging(System.Nullable<decimal> value);
-    partial void OnAlturaChanged();
-    partial void OnTelefoneChanging(string value);
-    partial void OnTelefoneChanged();
-    partial void OnCelularChanging(string value);
-    partial void OnCelularChanged();
-    partial void OnFotoChanging(System.Data.Linq.Binary value);
-    partial void OnFotoChanged();
-    partial void OnCidadeChanging(string value);
-    partial void OnCidadeChanged();
-    partial void OnEstadoChanging(string value);
-    partial void OnEstadoChanged();
-    partial void OnEnderecoChanging(string value);
-    partial void OnEnderecoChanged();
-    partial void OnPerfil_FacebookChanging(string value);
-    partial void OnPerfil_FacebookChanged();
-    partial void OnPerfil_TwitterChanging(string value);
-    partial void OnPerfil_TwitterChanged();
-    partial void OnPerfil_PlusChanging(string value);
-    partial void OnPerfil_PlusChanged();
-    partial void OnPerfil_OutrosChanging(string value);
-    partial void OnPerfil_OutrosChanged();
-    partial void OnObsChanging(string value);
-    partial void OnObsChanged();
-    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
-    partial void OndtCriacaoChanged();
-    partial void OnAtivoChanging(System.Nullable<bool> value);
-    partial void OnAtivoChanged();
-    #endregion
-		
-		public Usuario()
-		{
-			this._Kart_Grid_Calendarios = new EntitySet<Kart_Grid_Calendario>(new Action<Kart_Grid_Calendario>(this.attach_Kart_Grid_Calendarios), new Action<Kart_Grid_Calendario>(this.detach_Kart_Grid_Calendarios));
-			this._Kart_Grupos = new EntitySet<Kart_Grupo>(new Action<Kart_Grupo>(this.attach_Kart_Grupos), new Action<Kart_Grupo>(this.detach_Kart_Grupos));
-			this._Kart_Usuario_Equipe_Campeonatos = new EntitySet<Kart_Usuario_Equipe_Campeonato>(new Action<Kart_Usuario_Equipe_Campeonato>(this.attach_Kart_Usuario_Equipe_Campeonatos), new Action<Kart_Usuario_Equipe_Campeonato>(this.detach_Kart_Usuario_Equipe_Campeonatos));
-			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
-			this._Kart_Resultado_Calendarios = new EntitySet<Kart_Resultado_Calendario>(new Action<Kart_Resultado_Calendario>(this.attach_Kart_Resultado_Calendarios), new Action<Kart_Resultado_Calendario>(this.detach_Kart_Resultado_Calendarios));
-			this._Kart_log_erros = new EntitySet<Kart_log_erro>(new Action<Kart_log_erro>(this.attach_Kart_log_erros), new Action<Kart_log_erro>(this.detach_Kart_log_erros));
-			this._Kart_Noticias_Grupos = new EntitySet<Kart_Noticias_Grupo>(new Action<Kart_Noticias_Grupo>(this.attach_Kart_Noticias_Grupos), new Action<Kart_Noticias_Grupo>(this.detach_Kart_Noticias_Grupos));
-			OnCreated();
-		}
-		
-		[Column(Storage="_idUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this.OnidUsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._idUsuario = value;
-					this.SendPropertyChanged("idUsuario");
-					this.OnidUsuarioChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this.OnNomeChanging(value);
-					this.SendPropertyChanging();
-					this._Nome = value;
-					this.SendPropertyChanged("Nome");
-					this.OnNomeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Apelido", DbType="NChar(30)")]
-		public string Apelido
-		{
-			get
-			{
-				return this._Apelido;
-			}
-			set
-			{
-				if ((this._Apelido != value))
-				{
-					this.OnApelidoChanging(value);
-					this.SendPropertyChanging();
-					this._Apelido = value;
-					this.SendPropertyChanged("Apelido");
-					this.OnApelidoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Email", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Senha", DbType="NChar(50) NOT NULL", CanBeNull=false)]
-		public string Senha
-		{
-			get
-			{
-				return this._Senha;
-			}
-			set
-			{
-				if ((this._Senha != value))
-				{
-					this.OnSenhaChanging(value);
-					this.SendPropertyChanging();
-					this._Senha = value;
-					this.SendPropertyChanged("Senha");
-					this.OnSenhaChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Sexo", DbType="NChar(1)")]
-		public System.Nullable<char> Sexo
-		{
-			get
-			{
-				return this._Sexo;
-			}
-			set
-			{
-				if ((this._Sexo != value))
-				{
-					this.OnSexoChanging(value);
-					this.SendPropertyChanging();
-					this._Sexo = value;
-					this.SendPropertyChanged("Sexo");
-					this.OnSexoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Peso", DbType="Decimal(5,2)")]
-		public System.Nullable<decimal> Peso
-		{
-			get
-			{
-				return this._Peso;
-			}
-			set
-			{
-				if ((this._Peso != value))
-				{
-					this.OnPesoChanging(value);
-					this.SendPropertyChanging();
-					this._Peso = value;
-					this.SendPropertyChanged("Peso");
-					this.OnPesoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_DtNascimento", DbType="SmallDateTime")]
-		public System.Nullable<System.DateTime> DtNascimento
-		{
-			get
-			{
-				return this._DtNascimento;
-			}
-			set
-			{
-				if ((this._DtNascimento != value))
-				{
-					this.OnDtNascimentoChanging(value);
-					this.SendPropertyChanging();
-					this._DtNascimento = value;
-					this.SendPropertyChanged("DtNascimento");
-					this.OnDtNascimentoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_MostarInfo", DbType="Bit")]
-		public System.Nullable<bool> MostarInfo
-		{
-			get
-			{
-				return this._MostarInfo;
-			}
-			set
-			{
-				if ((this._MostarInfo != value))
-				{
-					this.OnMostarInfoChanging(value);
-					this.SendPropertyChanging();
-					this._MostarInfo = value;
-					this.SendPropertyChanged("MostarInfo");
-					this.OnMostarInfoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Altura", DbType="Decimal(3,2)")]
-		public System.Nullable<decimal> Altura
-		{
-			get
-			{
-				return this._Altura;
-			}
-			set
-			{
-				if ((this._Altura != value))
-				{
-					this.OnAlturaChanging(value);
-					this.SendPropertyChanging();
-					this._Altura = value;
-					this.SendPropertyChanged("Altura");
-					this.OnAlturaChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Telefone", DbType="NChar(50)")]
-		public string Telefone
-		{
-			get
-			{
-				return this._Telefone;
-			}
-			set
-			{
-				if ((this._Telefone != value))
-				{
-					this.OnTelefoneChanging(value);
-					this.SendPropertyChanging();
-					this._Telefone = value;
-					this.SendPropertyChanged("Telefone");
-					this.OnTelefoneChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Celular", DbType="NChar(50)")]
-		public string Celular
-		{
-			get
-			{
-				return this._Celular;
-			}
-			set
-			{
-				if ((this._Celular != value))
-				{
-					this.OnCelularChanging(value);
-					this.SendPropertyChanging();
-					this._Celular = value;
-					this.SendPropertyChanged("Celular");
-					this.OnCelularChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Foto", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Foto
-		{
-			get
-			{
-				return this._Foto;
-			}
-			set
-			{
-				if ((this._Foto != value))
-				{
-					this.OnFotoChanging(value);
-					this.SendPropertyChanging();
-					this._Foto = value;
-					this.SendPropertyChanged("Foto");
-					this.OnFotoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Cidade", DbType="NVarChar(200)")]
-		public string Cidade
-		{
-			get
-			{
-				return this._Cidade;
-			}
-			set
-			{
-				if ((this._Cidade != value))
-				{
-					this.OnCidadeChanging(value);
-					this.SendPropertyChanging();
-					this._Cidade = value;
-					this.SendPropertyChanged("Cidade");
-					this.OnCidadeChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Estado", DbType="NChar(2)")]
-		public string Estado
-		{
-			get
-			{
-				return this._Estado;
-			}
-			set
-			{
-				if ((this._Estado != value))
-				{
-					this.OnEstadoChanging(value);
-					this.SendPropertyChanging();
-					this._Estado = value;
-					this.SendPropertyChanged("Estado");
-					this.OnEstadoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Endereco", DbType="NVarChar(MAX)")]
-		public string Endereco
-		{
-			get
-			{
-				return this._Endereco;
-			}
-			set
-			{
-				if ((this._Endereco != value))
-				{
-					this.OnEnderecoChanging(value);
-					this.SendPropertyChanging();
-					this._Endereco = value;
-					this.SendPropertyChanged("Endereco");
-					this.OnEnderecoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Perfil_Facebook", DbType="NVarChar(200)")]
-		public string Perfil_Facebook
-		{
-			get
-			{
-				return this._Perfil_Facebook;
-			}
-			set
-			{
-				if ((this._Perfil_Facebook != value))
-				{
-					this.OnPerfil_FacebookChanging(value);
-					this.SendPropertyChanging();
-					this._Perfil_Facebook = value;
-					this.SendPropertyChanged("Perfil_Facebook");
-					this.OnPerfil_FacebookChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Perfil_Twitter", DbType="NVarChar(200)")]
-		public string Perfil_Twitter
-		{
-			get
-			{
-				return this._Perfil_Twitter;
-			}
-			set
-			{
-				if ((this._Perfil_Twitter != value))
-				{
-					this.OnPerfil_TwitterChanging(value);
-					this.SendPropertyChanging();
-					this._Perfil_Twitter = value;
-					this.SendPropertyChanged("Perfil_Twitter");
-					this.OnPerfil_TwitterChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Perfil_Plus", DbType="NVarChar(200)")]
-		public string Perfil_Plus
-		{
-			get
-			{
-				return this._Perfil_Plus;
-			}
-			set
-			{
-				if ((this._Perfil_Plus != value))
-				{
-					this.OnPerfil_PlusChanging(value);
-					this.SendPropertyChanging();
-					this._Perfil_Plus = value;
-					this.SendPropertyChanged("Perfil_Plus");
-					this.OnPerfil_PlusChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Perfil_Outros", DbType="NVarChar(200)")]
-		public string Perfil_Outros
-		{
-			get
-			{
-				return this._Perfil_Outros;
-			}
-			set
-			{
-				if ((this._Perfil_Outros != value))
-				{
-					this.OnPerfil_OutrosChanging(value);
-					this.SendPropertyChanging();
-					this._Perfil_Outros = value;
-					this.SendPropertyChanged("Perfil_Outros");
-					this.OnPerfil_OutrosChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Obs", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string Obs
-		{
-			get
-			{
-				return this._Obs;
-			}
-			set
-			{
-				if ((this._Obs != value))
-				{
-					this.OnObsChanging(value);
-					this.SendPropertyChanging();
-					this._Obs = value;
-					this.SendPropertyChanged("Obs");
-					this.OnObsChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_dtCriacao", DbType="DateTime")]
-		public System.Nullable<System.DateTime> dtCriacao
-		{
-			get
-			{
-				return this._dtCriacao;
-			}
-			set
-			{
-				if ((this._dtCriacao != value))
-				{
-					this.OndtCriacaoChanging(value);
-					this.SendPropertyChanging();
-					this._dtCriacao = value;
-					this.SendPropertyChanged("dtCriacao");
-					this.OndtCriacaoChanged();
-				}
-			}
-		}
-		
-		[Column(Storage="_Ativo", DbType="Bit")]
-		public System.Nullable<bool> Ativo
-		{
-			get
-			{
-				return this._Ativo;
-			}
-			set
-			{
-				if ((this._Ativo != value))
-				{
-					this.OnAtivoChanging(value);
-					this.SendPropertyChanging();
-					this._Ativo = value;
-					this.SendPropertyChanged("Ativo");
-					this.OnAtivoChanged();
-				}
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Grid_Calendario", Storage="_Kart_Grid_Calendarios", ThisKey="idUsuario", OtherKey="idUsuario")]
-		public EntitySet<Kart_Grid_Calendario> Kart_Grid_Calendarios
-		{
-			get
-			{
-				return this._Kart_Grid_Calendarios;
-			}
-			set
-			{
-				this._Kart_Grid_Calendarios.Assign(value);
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Grupo", Storage="_Kart_Grupos", ThisKey="idUsuario", OtherKey="Id_Usuario_Lider")]
-		public EntitySet<Kart_Grupo> Kart_Grupos
-		{
-			get
-			{
-				return this._Kart_Grupos;
-			}
-			set
-			{
-				this._Kart_Grupos.Assign(value);
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Usuario_Equipe_Campeonato", Storage="_Kart_Usuario_Equipe_Campeonatos", ThisKey="idUsuario", OtherKey="idUsuario")]
-		public EntitySet<Kart_Usuario_Equipe_Campeonato> Kart_Usuario_Equipe_Campeonatos
-		{
-			get
-			{
-				return this._Kart_Usuario_Equipe_Campeonatos;
-			}
-			set
-			{
-				this._Kart_Usuario_Equipe_Campeonatos.Assign(value);
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Usuario_Grupo", Storage="_Kart_Usuario_Grupos", ThisKey="idUsuario", OtherKey="idUsuario")]
-		public EntitySet<Kart_Usuario_Grupo> Kart_Usuario_Grupos
-		{
-			get
-			{
-				return this._Kart_Usuario_Grupos;
-			}
-			set
-			{
-				this._Kart_Usuario_Grupos.Assign(value);
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Resultado_Calendario", Storage="_Kart_Resultado_Calendarios", ThisKey="idUsuario", OtherKey="idUsuario")]
-		public EntitySet<Kart_Resultado_Calendario> Kart_Resultado_Calendarios
-		{
-			get
-			{
-				return this._Kart_Resultado_Calendarios;
-			}
-			set
-			{
-				this._Kart_Resultado_Calendarios.Assign(value);
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_log_erro", Storage="_Kart_log_erros", ThisKey="idUsuario", OtherKey="idUsuario")]
-		public EntitySet<Kart_log_erro> Kart_log_erros
-		{
-			get
-			{
-				return this._Kart_log_erros;
-			}
-			set
-			{
-				this._Kart_log_erros.Assign(value);
-			}
-		}
-		
-		[Association(Name="Usuario_Kart_Noticias_Grupo", Storage="_Kart_Noticias_Grupos", ThisKey="idUsuario", OtherKey="IdUsuario")]
-		public EntitySet<Kart_Noticias_Grupo> Kart_Noticias_Grupos
-		{
-			get
-			{
-				return this._Kart_Noticias_Grupos;
-			}
-			set
-			{
-				this._Kart_Noticias_Grupos.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Kart_Grid_Calendarios(Kart_Grid_Calendario entity)
+		private void attach_Kart_Ponto_Grupos(Kart_Ponto_Grupo entity)
 		{
 			this.SendPropertyChanging();
-			entity.Usuario = this;
+			entity.Kart_Grupo = this;
 		}
 		
-		private void detach_Kart_Grid_Calendarios(Kart_Grid_Calendario entity)
+		private void detach_Kart_Ponto_Grupos(Kart_Ponto_Grupo entity)
 		{
 			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Kart_Grupos(Kart_Grupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Kart_Grupos(Kart_Grupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Kart_Usuario_Equipe_Campeonatos(Kart_Usuario_Equipe_Campeonato entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Kart_Usuario_Equipe_Campeonatos(Kart_Usuario_Equipe_Campeonato entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
+			entity.Kart_Grupo = null;
 		}
 		
 		private void attach_Kart_Usuario_Grupos(Kart_Usuario_Grupo entity)
 		{
 			this.SendPropertyChanging();
-			entity.Usuario = this;
+			entity.Kart_Grupo = this;
 		}
 		
 		private void detach_Kart_Usuario_Grupos(Kart_Usuario_Grupo entity)
 		{
 			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Kart_Resultado_Calendarios(Kart_Resultado_Calendario entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Kart_Resultado_Calendarios(Kart_Resultado_Calendario entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Kart_log_erros(Kart_log_erro entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Kart_log_erros(Kart_log_erro entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
-		}
-		
-		private void attach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = this;
-		}
-		
-		private void detach_Kart_Noticias_Grupos(Kart_Noticias_Grupo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Usuario = null;
+			entity.Kart_Grupo = null;
 		}
 	}
 	
@@ -4940,6 +3867,1744 @@ namespace KartRanking.BaseDados
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.Kart_Ponto_Grupo")]
+	public partial class Kart_Ponto_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idPontoGrupo;
+		
+		private int _idGrupo;
+		
+		private int _Pos;
+		
+		private int _Ponto;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private int _idUsuarioCadastro;
+		
+		private EntityRef<Kart_Grupo> _Kart_Grupo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidPontoGrupoChanging(int value);
+    partial void OnidPontoGrupoChanged();
+    partial void OnidGrupoChanging(int value);
+    partial void OnidGrupoChanged();
+    partial void OnPosChanging(int value);
+    partial void OnPosChanged();
+    partial void OnPontoChanging(int value);
+    partial void OnPontoChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    partial void OnidUsuarioCadastroChanging(int value);
+    partial void OnidUsuarioCadastroChanged();
+    #endregion
+		
+		public Kart_Ponto_Grupo()
+		{
+			this._Kart_Grupo = default(EntityRef<Kart_Grupo>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_idPontoGrupo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idPontoGrupo
+		{
+			get
+			{
+				return this._idPontoGrupo;
+			}
+			set
+			{
+				if ((this._idPontoGrupo != value))
+				{
+					this.OnidPontoGrupoChanging(value);
+					this.SendPropertyChanging();
+					this._idPontoGrupo = value;
+					this.SendPropertyChanged("idPontoGrupo");
+					this.OnidPontoGrupoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					if (this._Kart_Grupo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidGrupoChanging(value);
+					this.SendPropertyChanging();
+					this._idGrupo = value;
+					this.SendPropertyChanged("idGrupo");
+					this.OnidGrupoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Pos", DbType="Int NOT NULL")]
+		public int Pos
+		{
+			get
+			{
+				return this._Pos;
+			}
+			set
+			{
+				if ((this._Pos != value))
+				{
+					this.OnPosChanging(value);
+					this.SendPropertyChanging();
+					this._Pos = value;
+					this.SendPropertyChanged("Pos");
+					this.OnPosChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ponto", DbType="Int NOT NULL")]
+		public int Ponto
+		{
+			get
+			{
+				return this._Ponto;
+			}
+			set
+			{
+				if ((this._Ponto != value))
+				{
+					this.OnPontoChanging(value);
+					this.SendPropertyChanging();
+					this._Ponto = value;
+					this.SendPropertyChanged("Ponto");
+					this.OnPontoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idUsuarioCadastro", DbType="Int NOT NULL")]
+		public int idUsuarioCadastro
+		{
+			get
+			{
+				return this._idUsuarioCadastro;
+			}
+			set
+			{
+				if ((this._idUsuarioCadastro != value))
+				{
+					this.OnidUsuarioCadastroChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuarioCadastro = value;
+					this.SendPropertyChanged("idUsuarioCadastro");
+					this.OnidUsuarioCadastroChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Kart_Grupo_Kart_Ponto_Grupo", Storage="_Kart_Grupo", ThisKey="idGrupo", OtherKey="idGrupo", IsForeignKey=true)]
+		public Kart_Grupo Kart_Grupo
+		{
+			get
+			{
+				return this._Kart_Grupo.Entity;
+			}
+			set
+			{
+				Kart_Grupo previousValue = this._Kart_Grupo.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Grupo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Grupo.Entity = null;
+						previousValue.Kart_Ponto_Grupos.Remove(this);
+					}
+					this._Kart_Grupo.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Ponto_Grupos.Add(this);
+						this._idGrupo = value.idGrupo;
+					}
+					else
+					{
+						this._idGrupo = default(int);
+					}
+					this.SendPropertyChanged("Kart_Grupo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.Kart_Resultado_Calendario")]
+	public partial class Kart_Resultado_Calendario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idResultado;
+		
+		private int _idCalendario;
+		
+		private int _Pos;
+		
+		private int _idUsuario;
+		
+		private int _idEquipe;
+		
+		private int _tempoHoras;
+		
+		private int _tempoMinutos;
+		
+		private int _tempoSegundos;
+		
+		private int _tempoMilisegundos;
+		
+		private int _Ponto;
+		
+		private int _Voltas;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private EntityRef<Kart_Calendario_Campeonato> _Kart_Calendario_Campeonato;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidResultadoChanging(int value);
+    partial void OnidResultadoChanged();
+    partial void OnidCalendarioChanging(int value);
+    partial void OnidCalendarioChanged();
+    partial void OnPosChanging(int value);
+    partial void OnPosChanged();
+    partial void OnidUsuarioChanging(int value);
+    partial void OnidUsuarioChanged();
+    partial void OnidEquipeChanging(int value);
+    partial void OnidEquipeChanged();
+    partial void OntempoHorasChanging(int value);
+    partial void OntempoHorasChanged();
+    partial void OntempoMinutosChanging(int value);
+    partial void OntempoMinutosChanged();
+    partial void OntempoSegundosChanging(int value);
+    partial void OntempoSegundosChanged();
+    partial void OntempoMilisegundosChanging(int value);
+    partial void OntempoMilisegundosChanged();
+    partial void OnPontoChanging(int value);
+    partial void OnPontoChanged();
+    partial void OnVoltasChanging(int value);
+    partial void OnVoltasChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    #endregion
+		
+		public Kart_Resultado_Calendario()
+		{
+			this._Kart_Calendario_Campeonato = default(EntityRef<Kart_Calendario_Campeonato>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_idResultado", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idResultado
+		{
+			get
+			{
+				return this._idResultado;
+			}
+			set
+			{
+				if ((this._idResultado != value))
+				{
+					this.OnidResultadoChanging(value);
+					this.SendPropertyChanging();
+					this._idResultado = value;
+					this.SendPropertyChanged("idResultado");
+					this.OnidResultadoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idCalendario", DbType="Int NOT NULL")]
+		public int idCalendario
+		{
+			get
+			{
+				return this._idCalendario;
+			}
+			set
+			{
+				if ((this._idCalendario != value))
+				{
+					if (this._Kart_Calendario_Campeonato.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCalendarioChanging(value);
+					this.SendPropertyChanging();
+					this._idCalendario = value;
+					this.SendPropertyChanged("idCalendario");
+					this.OnidCalendarioChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Pos", DbType="Int NOT NULL")]
+		public int Pos
+		{
+			get
+			{
+				return this._Pos;
+			}
+			set
+			{
+				if ((this._Pos != value))
+				{
+					this.OnPosChanging(value);
+					this.SendPropertyChanging();
+					this._Pos = value;
+					this.SendPropertyChanged("Pos");
+					this.OnPosChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuario = value;
+					this.SendPropertyChanged("idUsuario");
+					this.OnidUsuarioChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idEquipe", DbType="Int NOT NULL")]
+		public int idEquipe
+		{
+			get
+			{
+				return this._idEquipe;
+			}
+			set
+			{
+				if ((this._idEquipe != value))
+				{
+					this.OnidEquipeChanging(value);
+					this.SendPropertyChanging();
+					this._idEquipe = value;
+					this.SendPropertyChanged("idEquipe");
+					this.OnidEquipeChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_tempoHoras", DbType="Int NOT NULL")]
+		public int tempoHoras
+		{
+			get
+			{
+				return this._tempoHoras;
+			}
+			set
+			{
+				if ((this._tempoHoras != value))
+				{
+					this.OntempoHorasChanging(value);
+					this.SendPropertyChanging();
+					this._tempoHoras = value;
+					this.SendPropertyChanged("tempoHoras");
+					this.OntempoHorasChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_tempoMinutos", DbType="Int NOT NULL")]
+		public int tempoMinutos
+		{
+			get
+			{
+				return this._tempoMinutos;
+			}
+			set
+			{
+				if ((this._tempoMinutos != value))
+				{
+					this.OntempoMinutosChanging(value);
+					this.SendPropertyChanging();
+					this._tempoMinutos = value;
+					this.SendPropertyChanged("tempoMinutos");
+					this.OntempoMinutosChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_tempoSegundos", DbType="Int NOT NULL")]
+		public int tempoSegundos
+		{
+			get
+			{
+				return this._tempoSegundos;
+			}
+			set
+			{
+				if ((this._tempoSegundos != value))
+				{
+					this.OntempoSegundosChanging(value);
+					this.SendPropertyChanging();
+					this._tempoSegundos = value;
+					this.SendPropertyChanged("tempoSegundos");
+					this.OntempoSegundosChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_tempoMilisegundos", DbType="Int NOT NULL")]
+		public int tempoMilisegundos
+		{
+			get
+			{
+				return this._tempoMilisegundos;
+			}
+			set
+			{
+				if ((this._tempoMilisegundos != value))
+				{
+					this.OntempoMilisegundosChanging(value);
+					this.SendPropertyChanging();
+					this._tempoMilisegundos = value;
+					this.SendPropertyChanged("tempoMilisegundos");
+					this.OntempoMilisegundosChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Ponto", DbType="Int NOT NULL")]
+		public int Ponto
+		{
+			get
+			{
+				return this._Ponto;
+			}
+			set
+			{
+				if ((this._Ponto != value))
+				{
+					this.OnPontoChanging(value);
+					this.SendPropertyChanging();
+					this._Ponto = value;
+					this.SendPropertyChanged("Ponto");
+					this.OnPontoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Voltas", DbType="Int NOT NULL")]
+		public int Voltas
+		{
+			get
+			{
+				return this._Voltas;
+			}
+			set
+			{
+				if ((this._Voltas != value))
+				{
+					this.OnVoltasChanging(value);
+					this.SendPropertyChanging();
+					this._Voltas = value;
+					this.SendPropertyChanged("Voltas");
+					this.OnVoltasChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Kart_Calendario_Campeonato_Kart_Resultado_Calendario", Storage="_Kart_Calendario_Campeonato", ThisKey="idCalendario", OtherKey="idCalendario", IsForeignKey=true)]
+		public Kart_Calendario_Campeonato Kart_Calendario_Campeonato
+		{
+			get
+			{
+				return this._Kart_Calendario_Campeonato.Entity;
+			}
+			set
+			{
+				Kart_Calendario_Campeonato previousValue = this._Kart_Calendario_Campeonato.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Calendario_Campeonato.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Calendario_Campeonato.Entity = null;
+						previousValue.Kart_Resultado_Calendarios.Remove(this);
+					}
+					this._Kart_Calendario_Campeonato.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Resultado_Calendarios.Add(this);
+						this._idCalendario = value.idCalendario;
+					}
+					else
+					{
+						this._idCalendario = default(int);
+					}
+					this.SendPropertyChanged("Kart_Calendario_Campeonato");
+				}
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Resultado_Calendario", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Kart_Resultado_Calendarios.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Resultado_Calendarios.Add(this);
+						this._idUsuario = value.idUsuario;
+					}
+					else
+					{
+						this._idUsuario = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.Kart_Usuario_Equipe_Campeonato")]
+	public partial class Kart_Usuario_Equipe_Campeonato : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idUsuarioEquipeCampeonato;
+		
+		private int _idEquipeCampeonato;
+		
+		private int _idUsuario;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private EntityRef<Kart_Equipe_Campeonato> _Kart_Equipe_Campeonato;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidUsuarioEquipeCampeonatoChanging(int value);
+    partial void OnidUsuarioEquipeCampeonatoChanged();
+    partial void OnidEquipeCampeonatoChanging(int value);
+    partial void OnidEquipeCampeonatoChanged();
+    partial void OnidUsuarioChanging(int value);
+    partial void OnidUsuarioChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    #endregion
+		
+		public Kart_Usuario_Equipe_Campeonato()
+		{
+			this._Kart_Equipe_Campeonato = default(EntityRef<Kart_Equipe_Campeonato>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_idUsuarioEquipeCampeonato", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idUsuarioEquipeCampeonato
+		{
+			get
+			{
+				return this._idUsuarioEquipeCampeonato;
+			}
+			set
+			{
+				if ((this._idUsuarioEquipeCampeonato != value))
+				{
+					this.OnidUsuarioEquipeCampeonatoChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuarioEquipeCampeonato = value;
+					this.SendPropertyChanged("idUsuarioEquipeCampeonato");
+					this.OnidUsuarioEquipeCampeonatoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
+		public int idEquipeCampeonato
+		{
+			get
+			{
+				return this._idEquipeCampeonato;
+			}
+			set
+			{
+				if ((this._idEquipeCampeonato != value))
+				{
+					if (this._Kart_Equipe_Campeonato.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidEquipeCampeonatoChanging(value);
+					this.SendPropertyChanging();
+					this._idEquipeCampeonato = value;
+					this.SendPropertyChanged("idEquipeCampeonato");
+					this.OnidEquipeCampeonatoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuario = value;
+					this.SendPropertyChanged("idUsuario");
+					this.OnidUsuarioChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Kart_Equipe_Campeonato_Kart_Usuario_Equipe_Campeonato", Storage="_Kart_Equipe_Campeonato", ThisKey="idEquipeCampeonato", OtherKey="idEquipeCampeonato", IsForeignKey=true)]
+		public Kart_Equipe_Campeonato Kart_Equipe_Campeonato
+		{
+			get
+			{
+				return this._Kart_Equipe_Campeonato.Entity;
+			}
+			set
+			{
+				Kart_Equipe_Campeonato previousValue = this._Kart_Equipe_Campeonato.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Equipe_Campeonato.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Equipe_Campeonato.Entity = null;
+						previousValue.Kart_Usuario_Equipe_Campeonatos.Remove(this);
+					}
+					this._Kart_Equipe_Campeonato.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Usuario_Equipe_Campeonatos.Add(this);
+						this._idEquipeCampeonato = value.idEquipeCampeonato;
+					}
+					else
+					{
+						this._idEquipeCampeonato = default(int);
+					}
+					this.SendPropertyChanged("Kart_Equipe_Campeonato");
+				}
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Usuario_Equipe_Campeonato", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Kart_Usuario_Equipe_Campeonatos.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Usuario_Equipe_Campeonatos.Add(this);
+						this._idUsuario = value.idUsuario;
+					}
+					else
+					{
+						this._idUsuario = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.Kart_Usuario_Grupo")]
+	public partial class Kart_Usuario_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idGrupoUsuario;
+		
+		private int _idGrupo;
+		
+		private int _idUsuario;
+		
+		private System.Nullable<bool> _Principal;
+		
+		private System.Nullable<bool> _Admin;
+		
+		private System.Nullable<bool> _Aprovado;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private EntityRef<Kart_Grupo> _Kart_Grupo;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidGrupoUsuarioChanging(int value);
+    partial void OnidGrupoUsuarioChanged();
+    partial void OnidGrupoChanging(int value);
+    partial void OnidGrupoChanged();
+    partial void OnidUsuarioChanging(int value);
+    partial void OnidUsuarioChanged();
+    partial void OnPrincipalChanging(System.Nullable<bool> value);
+    partial void OnPrincipalChanged();
+    partial void OnAdminChanging(System.Nullable<bool> value);
+    partial void OnAdminChanged();
+    partial void OnAprovadoChanging(System.Nullable<bool> value);
+    partial void OnAprovadoChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    #endregion
+		
+		public Kart_Usuario_Grupo()
+		{
+			this._Kart_Grupo = default(EntityRef<Kart_Grupo>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[Column(Storage="_idGrupoUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idGrupoUsuario
+		{
+			get
+			{
+				return this._idGrupoUsuario;
+			}
+			set
+			{
+				if ((this._idGrupoUsuario != value))
+				{
+					this.OnidGrupoUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._idGrupoUsuario = value;
+					this.SendPropertyChanged("idGrupoUsuario");
+					this.OnidGrupoUsuarioChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					if (this._Kart_Grupo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidGrupoChanging(value);
+					this.SendPropertyChanging();
+					this._idGrupo = value;
+					this.SendPropertyChanged("idGrupo");
+					this.OnidGrupoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuario = value;
+					this.SendPropertyChanged("idUsuario");
+					this.OnidUsuarioChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Principal", DbType="Bit")]
+		public System.Nullable<bool> Principal
+		{
+			get
+			{
+				return this._Principal;
+			}
+			set
+			{
+				if ((this._Principal != value))
+				{
+					this.OnPrincipalChanging(value);
+					this.SendPropertyChanging();
+					this._Principal = value;
+					this.SendPropertyChanged("Principal");
+					this.OnPrincipalChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Admin", DbType="Bit")]
+		public System.Nullable<bool> Admin
+		{
+			get
+			{
+				return this._Admin;
+			}
+			set
+			{
+				if ((this._Admin != value))
+				{
+					this.OnAdminChanging(value);
+					this.SendPropertyChanging();
+					this._Admin = value;
+					this.SendPropertyChanged("Admin");
+					this.OnAdminChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_Aprovado", DbType="Bit")]
+		public System.Nullable<bool> Aprovado
+		{
+			get
+			{
+				return this._Aprovado;
+			}
+			set
+			{
+				if ((this._Aprovado != value))
+				{
+					this.OnAprovadoChanging(value);
+					this.SendPropertyChanging();
+					this._Aprovado = value;
+					this.SendPropertyChanged("Aprovado");
+					this.OnAprovadoChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[Association(Name="Kart_Grupo_Kart_Usuario_Grupo", Storage="_Kart_Grupo", ThisKey="idGrupo", OtherKey="idGrupo", IsForeignKey=true)]
+		public Kart_Grupo Kart_Grupo
+		{
+			get
+			{
+				return this._Kart_Grupo.Entity;
+			}
+			set
+			{
+				Kart_Grupo previousValue = this._Kart_Grupo.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Grupo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Grupo.Entity = null;
+						previousValue.Kart_Usuario_Grupos.Remove(this);
+					}
+					this._Kart_Grupo.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Usuario_Grupos.Add(this);
+						this._idGrupo = value.idGrupo;
+					}
+					else
+					{
+						this._idGrupo = default(int);
+					}
+					this.SendPropertyChanged("Kart_Grupo");
+				}
+			}
+		}
+		
+		[Association(Name="Usuario_Kart_Usuario_Grupo", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Kart_Usuario_Grupos.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Usuario_Grupos.Add(this);
+						this._idUsuario = value.idUsuario;
+					}
+					else
+					{
+						this._idUsuario = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.View_Equipe_Usuario")]
+	public partial class View_Equipe_Usuario
+	{
+		
+		private int _idUsuario;
+		
+		private string _NomeEquipe;
+		
+		private string _Sigla;
+		
+		private int _idEquipeCampeonato;
+		
+		private int _idCampeonato;
+		
+		public View_Equipe_Usuario()
+		{
+		}
+		
+		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_NomeEquipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string NomeEquipe
+		{
+			get
+			{
+				return this._NomeEquipe;
+			}
+			set
+			{
+				if ((this._NomeEquipe != value))
+				{
+					this._NomeEquipe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Sigla
+		{
+			get
+			{
+				return this._Sigla;
+			}
+			set
+			{
+				if ((this._Sigla != value))
+				{
+					this._Sigla = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
+		public int idEquipeCampeonato
+		{
+			get
+			{
+				return this._idEquipeCampeonato;
+			}
+			set
+			{
+				if ((this._idEquipeCampeonato != value))
+				{
+					this._idEquipeCampeonato = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Grupo")]
+	public partial class View_Kart_Usuario_Pontos_Grupo
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private string _Grupo;
+		
+		private int _idGrupo;
+		
+		public View_Kart_Usuario_Pontos_Grupo()
+		{
+		}
+		
+		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Grupo
+		{
+			get
+			{
+				return this._Grupo;
+			}
+			set
+			{
+				if ((this._Grupo != value))
+				{
+					this._Grupo = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.View_Kart_Equipe_Pontos_Campeonato")]
+	public partial class View_Kart_Equipe_Pontos_Campeonato
+	{
+		
+		private int _idEquipeCampeonato;
+		
+		private string _Equipe;
+		
+		private string _Sigla;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private string _Grupo;
+		
+		private string _Campeonato;
+		
+		private int _idCampeonato;
+		
+		private int _idGrupo;
+		
+		public View_Kart_Equipe_Pontos_Campeonato()
+		{
+		}
+		
+		[Column(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
+		public int idEquipeCampeonato
+		{
+			get
+			{
+				return this._idEquipeCampeonato;
+			}
+			set
+			{
+				if ((this._idEquipeCampeonato != value))
+				{
+					this._idEquipeCampeonato = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Equipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Equipe
+		{
+			get
+			{
+				return this._Equipe;
+			}
+			set
+			{
+				if ((this._Equipe != value))
+				{
+					this._Equipe = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Sigla
+		{
+			get
+			{
+				return this._Sigla;
+			}
+			set
+			{
+				if ((this._Sigla != value))
+				{
+					this._Sigla = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Grupo
+		{
+			get
+			{
+				return this._Grupo;
+			}
+			set
+			{
+				if ((this._Grupo != value))
+				{
+					this._Grupo = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Campeonato
+		{
+			get
+			{
+				return this._Campeonato;
+			}
+			set
+			{
+				if ((this._Campeonato != value))
+				{
+					this._Campeonato = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.View_Kart_Usuario_Historico")]
+	public partial class View_Kart_Usuario_Historico
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private System.Nullable<int> _Provas;
+		
+		private int _Vitorias;
+		
+		private int _Podios;
+		
+		public View_Kart_Usuario_Historico()
+		{
+		}
+		
+		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Provas", DbType="Int")]
+		public System.Nullable<int> Provas
+		{
+			get
+			{
+				return this._Provas;
+			}
+			set
+			{
+				if ((this._Provas != value))
+				{
+					this._Provas = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Vitorias", DbType="Int NOT NULL")]
+		public int Vitorias
+		{
+			get
+			{
+				return this._Vitorias;
+			}
+			set
+			{
+				if ((this._Vitorias != value))
+				{
+					this._Vitorias = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Podios", DbType="Int NOT NULL")]
+		public int Podios
+		{
+			get
+			{
+				return this._Podios;
+			}
+			set
+			{
+				if ((this._Podios != value))
+				{
+					this._Podios = value;
+				}
+			}
+		}
+	}
+	
+	[Table(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato")]
+	public partial class View_Kart_Usuario_Pontos_Campeonato
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private string _Grupo;
+		
+		private string _Campeonato;
+		
+		private int _idCampeonato;
+		
+		private int _idGrupo;
+		
+		public View_Kart_Usuario_Pontos_Campeonato()
+		{
+		}
+		
+		[Column(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Grupo
+		{
+			get
+			{
+				return this._Grupo;
+			}
+			set
+			{
+				if ((this._Grupo != value))
+				{
+					this._Grupo = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Campeonato
+		{
+			get
+			{
+				return this._Campeonato;
+			}
+			set
+			{
+				if ((this._Campeonato != value))
+				{
+					this._Campeonato = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+		
+		[Column(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
 			}
 		}
 	}
