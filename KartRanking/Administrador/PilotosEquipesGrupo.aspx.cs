@@ -320,6 +320,7 @@ namespace KartRanking.Administrador
                         equipe.idCampeonato = IdCampeonato;
                         equipe.NomeEquipe = txtNomeEquipe.Text;
                         equipe.Sigla = txtSigla.Text;
+                        equipe.dtCriacao = DateTime.Now;
 
                         if (IdEquipeCampeonato == 0)
                             dk.GetTable<Kart_Equipe_Campeonato>().InsertOnSubmit(equipe);
