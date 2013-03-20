@@ -84,16 +84,12 @@
                         <asp:Repeater ID="RepeaterItem" runat="server" DataSource='<%# Eval("Itens") %>'>
                             <ItemTemplate>
                                 <div class="grid_2" style="max-height: 100px;">
-                                    <% if (Convert.ToBoolean(Eval("Ativo")))
-                                       { %>
-                                    <a href="<%# Eval("Foto") %>">
-                                        <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" />
-                                    </a>
-                                    <% }
-                                       else
-                                       { %>
+                                    <div style="<%# Convert.ToBoolean(Eval("Ativo")) ? "display:block;" : "display:none;" %>">
+                                        <a href="<%# Eval("Foto") %>">
+                                            <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" />
+                                        </a>
+                                    </div>
                                     &nbsp;
-                                    <%} %>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -118,7 +114,8 @@
     <asp:Panel ID="PanelAlbum" runat="server">
         <div class="container_12">
             <div class="grid_8">
-                <h3><asp:Label ID="lbTituloAlbum" runat="server" Text=""></asp:Label></h3>
+                <h3>
+                    <asp:Label ID="lbTituloAlbum" runat="server" Text=""></asp:Label></h3>
             </div>
             <div class="grid_4">
                 <asp:Label ID="lbDtEvento" runat="server" Text=""></asp:Label>
@@ -126,10 +123,21 @@
             <div class="clear espaco">
                 &nbsp;
             </div>
-            <asp:Repeater ID="RepeaterFotos" runat="server">
-            <ItemTemplate>
-            
-            </ItemTemplate>
+            <asp:Repeater ID="RepeaterFotos" runat="server" DataSource='<%# Eval("Itens") %>'>
+                <ItemTemplate>
+                    <% TotalCol++; %>
+                    <div class="grid_2">
+                        <%# Eval("Nome")%>&nbsp;
+                    </div>
+                    <% if (TotalCol == 6)
+                       {
+                           TotalCol = 0;%>
+                    <div class="clear espaco_mini">
+                        &nbsp;
+                    </div>
+                    <%} %>
+                </ItemTemplate>
             </asp:Repeater>
+        </div>
     </asp:Panel>
 </asp:Content>
