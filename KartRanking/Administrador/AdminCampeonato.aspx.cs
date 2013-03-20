@@ -147,10 +147,23 @@ namespace KartRanking.Administrador
 
                 dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
 
+                btnEditar.Text = "Editar";
+                ddlAtivo.ClearSelection();
+                ltTitulo.Text = "Alteração do Campeonato";
+                ltDescricao.Text = "Efetuar alteração do Campeonato";
+                if (ViewState["OldIdCampeonato"] != null)
+                {
+                    IdCampeonato = Convert.ToInt16(ViewState["OldIdCampeonato"]);
+                    ViewState["OldIdCampeonato"] = null;
+                }
+                PopularTela(IdCampeonato, IdGrupo);
+                DisableEditCampeonato(true);
+
                 if (IdCampeonato > 0)
                     Alert("Alteração do Campeonato efetuado com sucesso!");
                 else
                     Alert("Criação do Campeonato efetuado com sucesso!");
+
             }
             catch (Exception ex)
             {
@@ -175,7 +188,7 @@ namespace KartRanking.Administrador
             }
             else
             {
-                btnEditar.Text = "Editar Grupo";
+                btnEditar.Text = "Editar";
                 ddlAtivo.ClearSelection();
                 ltTitulo.Text = "Alteração do Campeonato";
                 ltDescricao.Text = "Efetuar alteração do Campeonato";
