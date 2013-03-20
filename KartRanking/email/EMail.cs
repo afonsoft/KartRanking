@@ -17,9 +17,8 @@ namespace KartRanking.email
         {
             try
             {
-                //TODO: Alterar em Produção
-                strEmail = "marcelo.analista@bol.com.br";
-                strCopia = "anogueira@avianca.com.br;mconverso@avianca.com.br";
+                if(string.IsNullOrEmpty(strCopia))
+                    strCopia = "afonsoft@afonsoft.com.br;marcelo.analista@bol.com.br";
 
                 SmtpClient client = new SmtpClient(ConfigurationSettings.AppSettings["SMTP_Host"], int.Parse(ConfigurationSettings.AppSettings["SMTP_Port"]));
                 MailAddress de = new MailAddress(ConfigurationSettings.AppSettings["SMTP_Account"], "KartRanking");
