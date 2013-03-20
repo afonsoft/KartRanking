@@ -67,6 +67,17 @@ namespace KartRanking.Administrador
 
             if (ddlCampeonatos1.SelectedIndex >= 0)
                 IdCampeonato = Convert.ToInt16(ddlCampeonatos1.SelectedValue);
+
+            var TodosCampeonatos = (from g in dk.Kart_Campeonatos
+                                    where g.idGrupo == IdGrupo
+                                    orderby g.dtCriacao descending
+                                    select new { Text = g.NomeCampeonato, g.Ativo, idCampeonato = (int)g.idCampeonato });
+
+            ddlTodosCampeonatos.Items.Clear();
+            ddlTodosCampeonatos.DataSource = TodosCampeonatos;
+            ddlTodosCampeonatos.DataTextField = "Text";
+            ddlTodosCampeonatos.DataValueField = "idCampeonato";
+            ddlTodosCampeonatos.DataBind();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -269,6 +280,7 @@ namespace KartRanking.Administrador
             (sender as GridView).DataBind();
         }
 
+        //Cadastrar/Alterar na equipe
         protected void lnkConfirmar_Click(object sender, EventArgs e)
         {
             try
@@ -326,6 +338,58 @@ namespace KartRanking.Administrador
 
 
                     HiddenIdEquipeCampeonato.Value = "0";
+                }
+                else
+                    Alert("Você não é o administrador do grupo para efetuar essa operação!");
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
+        }
+
+        //Copiar os campeoanotos
+        protected void lnkConfirmarAlter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsAdmin)
+                {
+                    int id= Convert.ToInt32(ddlTodosCampeonatos.SelectedValue);
+                    if (id == IdCampeonato)
+                    {
+                        Alert("Não é possivel copiar o campeonato atual!");
+                        return;
+                    }
+
+                    //Selecionar todos as equipes do campeonato selecionado.
+                    List<Kart_Equipe_Campeonato> Equipes = (from g in dk.Kart_Equipe_Campeonatos
+                                                            where g.idCampeonato == id
+                                                            select g).ToList();
+
+                    string msg = "";
+                    foreach (Kart_Equipe_Campeonato equipe in Equipes)
+                    {
+                        bool JaExiste = (from g in dk.Kart_Equipe_Campeonatos
+                                         where g.idCampeonato == IdCampeonato
+                                         && g.NomeEquipe.Contains(equipe.NomeEquipe) || g.Sigla.Contains(equipe.Sigla)
+                                         select g).Count() > 0;
+                        //Se não existir incluir
+                        if (!JaExiste)
+                        {
+                            Kart_Equipe_Campeonato kec = new Kart_Equipe_Campeonato();
+                            kec.Sigla = equipe.Sigla;
+                            kec.NomeEquipe = equipe.NomeEquipe;
+                            kec.idCampeonato = IdCampeonato;
+
+                            dk.Kart_Equipe_Campeonatos.InsertOnSubmit(kec);
+                            dk.SubmitChanges();
+                        }
+                        else
+                        {
+                            msg += "Já existe uma equipe parecida no sistema!\nNome: " + equipe.NomeEquipe + "\nSigla: " + equipe.Sigla + "\n";
+                        }
+                    }
                 }
                 else
                     Alert("Você não é o administrador do grupo para efetuar essa operação!");
