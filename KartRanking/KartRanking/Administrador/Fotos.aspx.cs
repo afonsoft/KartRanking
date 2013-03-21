@@ -180,7 +180,76 @@ namespace KartRanking.Administrador
                 Alert(ex);
             }
         }
+
+        protected void lnkConfirmarUp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsAdmin)
+                {
+                    int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
+                    string msg = "";
+                    msg += UploadFile(FileUploadControl1, idAlbum);
+                    msg += UploadFile(FileUploadControl2, idAlbum);
+                    msg += UploadFile(FileUploadControl3, idAlbum);
+                    msg += UploadFile(FileUploadControl4, idAlbum);
+                    msg += UploadFile(FileUploadControl5, idAlbum);
+
+                    PopularAlbum(idAlbum);
+
+                    if (string.IsNullOrEmpty(msg))
+                        Alert("Todas as fotos foram enviadas com sucesso!");
+                    else
+                        Alert("Houver alguns erros no upload!\n\n"+msg +"\nAs demais fotos foram enviadas!");
+
+                }
+                else
+                    Alert("Você não é o administrador do grupo para efetuar essa operação!");
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
+        }
+
+        private string UploadFile(FileUpload FileUploadControl, int idAlbum)
+        {
+            if (FileUploadControl.HasFile)
+            {
+                try
+                {
+                    string filename = Path.GetFileName(FileUploadControl.FileName);
+
+                    if (filename.IndexOf(".jpg") > 0 || filename.IndexOf(".jpeg") > 0)
+                    {
+                        string PathFoto = (from al in dk.Kart_Album_Grupos
+                                           where al.idAlbum == idAlbum
+                                           && al.idGrupo == IdGrupo
+                                           select al.PathFotos).FirstOrDefault();
+                        string FullPath = Path.Combine(PathFoto, filename);
+
+                        if (!Directory.Exists(PathFoto))
+                            Directory.CreateDirectory(PathFoto);
+
+                        FileUploadControl.SaveAs(FullPath);
+                    }
+                    else
+                    {
+                        throw new Exception("Formato inválido de arquivo!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+
+            return ""; 
+        }
+
     }
+
+    #region Classe Album e Item
 
     [Serializable]
     public class Album
@@ -202,4 +271,6 @@ namespace KartRanking.Administrador
         public string Nome { get; set; }
         public bool Ativo { get; set; }
     }
+
+    #endregion
 }

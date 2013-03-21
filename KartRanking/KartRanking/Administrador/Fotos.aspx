@@ -9,8 +9,7 @@
         <script type="text/javascript">
             function OpenCadastro() {
                 jQuery('#CadAlbum').dialog({
-                    autoOpen: false, bgiframe: false, hide: 'explode', resizable: false, draggable: false,
-                    modal: false, show: 'slide', title: "Cadastrar novo Album",
+                    autoOpen: false, title: "Cadastrar novo Album",
                     buttons: {
                         "Salvar": function() { jQuery('#CadAlbum').dialog("close"); __doPostBack('<%= lnkConfirmar.UniqueID %>', ''); return true; },
                         "Sair": function() { jQuery('#CadAlbum').dialog("close"); return true; }
@@ -60,7 +59,14 @@
                 &nbsp;
             </div>
             <div class="grid_12" style="text-align: right;">
+                <% if (IsAdmin)
+                   { %>
                 <input id="btnAdd" type="button" value="Novo Album" onclick="OpenCadastro();" />
+                <%}
+                   else
+                   { %>
+                &nbsp;
+                <%} %>
             </div>
             <div class="clear espaco_mini">
                 &nbsp;
@@ -112,15 +118,88 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelAlbum" runat="server">
-        <div class="container_12">
-            <div class="grid_8">
-                <h3>
-                    <asp:Label ID="lbTituloAlbum" runat="server" Text=""></asp:Label></h3>
+
+        <script type="text/javascript">
+            function OpenUploadPhoto() {
+                jQuery('#dlgUpFile').dialog({
+                    autoOpen: false, title: "Upload de Fotos",
+                    buttons: {
+                        "Enviar": function() { jQuery('#dlgUpFile').dialog("close"); __doPostBack('<%= lnkConfirmarUp.UniqueID %>', ''); return true; },
+                        "Sair": function() { jQuery('#dlgUpFile').dialog("close"); return true; }
+                    }
+                });
+                jQuery('#dlgUpFile').dialog({ width: 300, height: 240 });
+                jQuery("#dlgUpFile").parent().appendTo(jQuery("form:first"));
+                jQuery('#dlgUpFile').dialog('open');
+            }
+        </script>
+
+        <div id="dlgUpFile" title="Upload de Fotos" style="display: none; font-size: x-small;
+            color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+            class="ui-dialog ui-resizable-handle">
+            <table width="98%" cellpadding="2" cellspacing="2" border="0">
+                <tr>
+                    <td>
+                        <asp:FileUpload ID="FileUploadControl1" runat="server" Width="100%" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:FileUpload ID="FileUploadControl2" runat="server" Width="100%" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:FileUpload ID="FileUploadControl3" runat="server" Width="100%" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:FileUpload ID="FileUploadControl4" runat="server" Width="100%" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:FileUpload ID="FileUploadControl5" runat="server" Width="100%" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>São aceitos somente jpg.</span>
+                    </td>
+                </tr>
+            </table>
+            <div style="display: none;">
+                <asp:LinkButton ID="lnkConfirmarUp" runat="server" OnClick="lnkConfirmarUp_Click"></asp:LinkButton>
             </div>
-            <div class="grid_4">
-                <asp:Label ID="lbDtEvento" runat="server" Text=""></asp:Label>
+        </div>
+        <div class="container_12">
+            <div class="grid_12">
+                <h3 class="titulo">
+                    Album de fotos</h3>
+                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
+                    Visualize as fotos deste album</p>
+                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
+                    border-right: #ccc 1px dashed;" />
             </div>
             <div class="clear espaco">
+                &nbsp;
+            </div>
+            <div class="grid_6">
+                <b>Album:</b>&nbsp;<asp:Label ID="lbTituloAlbum" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="grid_4" style="text-align: right;">
+                <b>Data do album:</b><asp:Label ID="lbDtEvento" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="grid_2" style="text-align: right; white-space: nowrap;">
+                <% if (IsAdmin)
+                   { %>
+                <input id="btnOpenUpload" type="button" value="Upload" runat="server" onclick="OpenUploadPhoto();" />
+                <%}%>
+                &nbsp;
+                <input id="btnVoltar" type="button" value="Voltar" onclick="window.location.href='/Administrador/Fotos.aspx'" />
+            </div>
+            <div class="clear espaco_mini">
                 &nbsp;
             </div>
             <asp:Repeater ID="RepeaterFotos" runat="server">
@@ -139,6 +218,11 @@
                     </div>
                     <%} %>
                 </ItemTemplate>
+                <FooterTemplate>
+                    <div class="clear espaco_mini">
+                        &nbsp;
+                    </div>
+                </FooterTemplate>
             </asp:Repeater>
         </div>
     </asp:Panel>

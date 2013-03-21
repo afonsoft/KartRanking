@@ -36,7 +36,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" enctype="multipart/form-data">
 
     <script type="text/javascript">
 
@@ -57,10 +57,12 @@
 
     <script type="text/javascript">
         var _gaq = _gaq || [];
+        var pluginUrl ='//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
         _gaq.push(['_setAccount', 'UA-23515540-2']);
         _gaq.push(['_setDomainName', 'afonsoft.com.br']);
         _gaq.push(['_trackPageview']);
-
+        
         (function() {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
