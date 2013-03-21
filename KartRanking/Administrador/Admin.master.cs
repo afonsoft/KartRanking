@@ -246,8 +246,7 @@ namespace KartRanking.Administrador
             Session["IdCampeonato"] = 0;
             Session["IdGrupo"] = ddlGrupos.SelectedValue;
             CarregarCampeonato(Convert.ToInt16(ddlGrupos.SelectedValue));
-            //string url = AlterarGrupo(Request.Url.LocalPath, Request.QueryString, ddlGrupos.SelectedValue);
-            string url = AlterarGrupo("/Administrador/index.aspx", Request.QueryString, ddlGrupos.SelectedValue);
+            string url = AlterarGrupo("/Administrador/home.aspx", Request.QueryString, ddlGrupos.SelectedValue);
             Response.Redirect(url);
         }
 
