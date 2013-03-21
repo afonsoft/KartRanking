@@ -37,32 +37,32 @@ namespace KartRanking.Administrador
 
         private void PopularAlbum(int idAlbum)
         {
-            List<Album> Albuns = new List<Album>();
-            var ft = (from f in dk.Kart_Album_Grupos
-                      where f.idGrupo == IdGrupo
-                      && f.idAlbum == idAlbum
-                      select f);
-            
-            foreach (var f in ft)
+            Album album = new Album();
+            var fotos = (from f in dk.Kart_Album_Grupos
+                     where f.idGrupo == IdGrupo
+                     && f.idAlbum == idAlbum
+                     select f).FirstOrDefault();
+            if (fotos != null)
             {
-                lbDtEvento.Text = f.dtEvento.ToString("dd/MM/yyyy");
-                lbTituloAlbum.Text = f.NomeAlbum;
+                lbDtEvento.Text = fotos.dtEvento.ToString("dd/MM/yyyy");
+                lbTituloAlbum.Text = fotos.NomeAlbum;
 
-                Albuns.Add(new Album()
-                {
-                    dtEvento = f.dtEvento,
-                    idAlbum = f.idAlbum,
-                    idGrupo = f.idGrupo,
-                    NomeAlbum = f.NomeAlbum,
-                    PathFotos = f.PathFotos,
-                    UrlFotos = f.UrlFotos,
-                    Itens = RecuperarTodosItens(f.PathFotos, f.UrlFotos)
-                });
+                album.dtEvento = fotos.dtEvento;
+                album.idAlbum = fotos.idAlbum;
+                album.idGrupo = fotos.idGrupo;
+                album.NomeAlbum = fotos.NomeAlbum;
+                album.PathFotos = fotos.PathFotos;
+                album.UrlFotos = fotos.UrlFotos;
+                album.Itens = RecuperarTodosItens(fotos.PathFotos, fotos.UrlFotos);
+
+                TotalCol = 0;
+                RepeaterFotos.DataSource = album.Itens;
+                RepeaterFotos.DataBind();
             }
-            TotalCol = 0;
-            RepeaterAlbum.DataSource = Albuns;
-            RepeaterAlbum.DataBind();
-
+            else
+            {
+                Alert("Album não localizado, ou não pertence a este grupo!", null, "/Administrador/home.aspx");
+            }
         }
 
         private void PopularAlbuns()
@@ -103,8 +103,8 @@ namespace KartRanking.Administrador
             {
                 Itens.Add(new Item()
                 {
-                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
-                    Nome = i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
+                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                    Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Ativo = true
                 });
             }
@@ -125,8 +125,8 @@ namespace KartRanking.Administrador
             {
                 Itens.Add(new Item()
                 {
-                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
-                    Nome = i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
+                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                    Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Ativo = true
                 });
             }
@@ -155,7 +155,7 @@ namespace KartRanking.Administrador
                     catch { }
 
                     string UrlPath = "/Fotos/" + IdGrupo.ToString() + "_" + DateTime.Now.ToString("ddMMyyyyHHmm");
-                    string FullPath = PathUtil.GetFullPathRoot() + UrlPath;
+                    string FullPath = Path.Combine(PathUtil.GetFullPathRoot(), UrlPath);
 
                     Kart_Album_Grupo album = new Kart_Album_Grupo();
                     album.idGrupo = IdGrupo;

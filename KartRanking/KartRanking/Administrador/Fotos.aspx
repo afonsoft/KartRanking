@@ -84,9 +84,9 @@
                         <asp:Repeater ID="RepeaterItem" runat="server" DataSource='<%# Eval("Itens") %>'>
                             <ItemTemplate>
                                 <div class="grid_2" style="max-height: 100px;">
-                                    <div style="<%# Convert.ToBoolean(Eval("Ativo")) ? "display:block;" : "display:none;" %>">
+                                    <div style="<%# Convert.ToBoolean(Eval("Ativo")) ? "display:block;": "display:none;" %>">
                                         <a href="<%# Eval("Foto") %>">
-                                            <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" />
+                                            <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" width="100px" height="100px" />
                                         </a>
                                     </div>
                                     &nbsp;
@@ -123,11 +123,13 @@
             <div class="clear espaco">
                 &nbsp;
             </div>
-            <asp:Repeater ID="RepeaterFotos" runat="server" DataSource='<%# Eval("Itens") %>'>
+            <asp:Repeater ID="RepeaterFotos" runat="server">
                 <ItemTemplate>
                     <% TotalCol++; %>
                     <div class="grid_2">
-                        <%# Eval("Nome")%>&nbsp;
+                        <a href="<%# Eval("Foto") %>">
+                            <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" width="130px" height="100px" />
+                        </a>
                     </div>
                     <% if (TotalCol == 6)
                        {
