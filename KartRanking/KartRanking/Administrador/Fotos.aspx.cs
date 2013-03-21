@@ -103,8 +103,8 @@ namespace KartRanking.Administrador
             {
                 Itens.Add(new Item()
                 {
-                    Foto = url + "\\" + i,
-                    Nome = i,
+                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
+                    Nome = i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
                     Ativo = true
                 });
             }
@@ -125,8 +125,8 @@ namespace KartRanking.Administrador
             {
                 Itens.Add(new Item()
                 {
-                    Foto = url + "\\" + i,
-                    Nome = i,
+                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
+                    Nome = i.Substring(i.LastIndexOf("\\"), i.Length - i.LastIndexOf("\\")),
                     Ativo = true
                 });
             }
@@ -154,7 +154,7 @@ namespace KartRanking.Administrador
                     }
                     catch { }
 
-                    string UrlPath = "\\Fotos\\" + IdGrupo.ToString() + "_" + DateTime.Now.ToString("ddMMyyyyHHmm");
+                    string UrlPath = "/Fotos/" + IdGrupo.ToString() + "_" + DateTime.Now.ToString("ddMMyyyyHHmm");
                     string FullPath = PathUtil.GetFullPathRoot() + UrlPath;
 
                     Kart_Album_Grupo album = new Kart_Album_Grupo();

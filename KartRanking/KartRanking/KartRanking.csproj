@@ -267,6 +267,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InstallDb.aspx.cs">
+      <DependentUpon>InstallDb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstallDb.aspx.designer.cs">
+      <DependentUpon>InstallDb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="KartRanking.Master.cs">
       <DependentUpon>KartRanking.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -543,6 +550,7 @@
     <Content Include="images\submenu-tail.gif" />
     <Content Include="images\th-tail.gif" />
     <Content Include="images\Trophy_Gold.png" />
+    <Content Include="InstallDb.aspx" />
     <Content Include="js\html5.js" />
     <Content Include="js\jquery-1.9.1.js" />
     <Content Include="js\jquery-te-1.3.3.min.js" />
