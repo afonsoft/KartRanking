@@ -68,6 +68,60 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.Panel PanelAlbum;
         
         /// <summary>
+        /// FileUploadControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadControl1;
+        
+        /// <summary>
+        /// FileUploadControl2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadControl2;
+        
+        /// <summary>
+        /// FileUploadControl3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadControl3;
+        
+        /// <summary>
+        /// FileUploadControl4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadControl4;
+        
+        /// <summary>
+        /// FileUploadControl5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadControl5;
+        
+        /// <summary>
+        /// lnkConfirmarUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkConfirmarUp;
+        
+        /// <summary>
         /// lbTituloAlbum control.
         /// </summary>
         /// <remarks>
@@ -84,6 +138,15 @@ namespace KartRanking.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbDtEvento;
+        
+        /// <summary>
+        /// btnOpenUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnOpenUpload;
         
         /// <summary>
         /// RepeaterFotos control.
