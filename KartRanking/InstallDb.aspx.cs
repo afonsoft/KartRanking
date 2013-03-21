@@ -4,24 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using KartRanking.BaseDados;
 using KartRanking.Page;
 
 namespace KartRanking
 {
-    public partial class index : PageBase
+    public partial class InstallDb : PageBase
     {
-        //Fontes: http://rankingkart.codeplex.com/
-
-        protected void Page_Load( object sender, EventArgs e )
+        protected void Page_Load(object sender, EventArgs e)
         {
-            if (dk.DatabaseExists())
+            //Instalar o Banco de dados
+            if (!dk.DatabaseExists())
             {
+                dk.CreateDatabase();
                 Response.Redirect("~/Administrador/index.aspx");
             }
             else
             {
-                Response.Redirect("~/InstallDb.aspx");
+                Response.Redirect("~/Administrador/index.aspx");
             }
         }
     }
