@@ -151,11 +151,13 @@ namespace KartRanking.Page
             return false;
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected override void OnInit(EventArgs e)
         {
+            base.OnInit(e);
+
             if (ViewState["Usuario"] != null && Session["Usuario"] == null)
                 Session["Usuario"] = ViewState["Usuario"];
-            
+
             if (Session["Usuario"].GetType() != typeof(BaseDados.Usuario))
                 Session["Usuario"] = null;
 
@@ -179,7 +181,6 @@ namespace KartRanking.Page
                     }
                 }
             }
-
         }
 
         public Usuario UsuarioLogado
