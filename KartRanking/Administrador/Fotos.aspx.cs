@@ -17,21 +17,33 @@ namespace KartRanking.Administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                if (Request.QueryString["idalbum"] == null)
+                if (!IsPostBack)
                 {
-                    PopularAlbuns();
-                    PanelAlbum.Visible = false;
-                    PanelListAlbum.Visible = true;
+                    if (Request.QueryString["idalbum"] == null)
+                    {
+                        PopularAlbuns();
+                        PanelAlbum.Visible = false;
+                        PanelListAlbum.Visible = true;
+                    }
+                    else
+                    {
+                        int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
+                        PopularAlbum(idAlbum);
+                        PanelAlbum.Visible = true;
+                        PanelListAlbum.Visible = false;
+                    }
                 }
-                else
-                {
-                    int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
-                    PopularAlbum(idAlbum);
-                    PanelAlbum.Visible = true;
-                    PanelListAlbum.Visible = false;
-                }
+            }
+            catch (UnauthorizedAccessException uex)
+            {
+                LogErro.Log.Logar(uex, HttpContext.Current);
+                Alert("Erro de permissão ao diretório!\nEntre em contado com o suporte!");
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
             }
         }
 
