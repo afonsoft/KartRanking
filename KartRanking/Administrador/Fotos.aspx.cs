@@ -23,23 +23,23 @@ namespace KartRanking.Administrador
                 {
                     if (Request.QueryString["idalbum"] == null)
                     {
-                        PopularAlbuns();
                         PanelAlbum.Visible = false;
                         PanelListAlbum.Visible = true;
+                        PopularAlbuns();
                     }
                     else
                     {
-                        int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
-                        PopularAlbum(idAlbum);
                         PanelAlbum.Visible = true;
                         PanelListAlbum.Visible = false;
+                        int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
+                        PopularAlbum(idAlbum);
                     }
                 }
             }
             catch (UnauthorizedAccessException uex)
             {
                 LogErro.Log.Logar(uex, HttpContext.Current);
-                Alert("Erro de permissão ao diretório!\nEntre em contado com o suporte!");
+                Alert("Erro de permissão ao diretório!\nEntre em contado com o suporte!", null, "/Administrador/index.aspx");
             }
             catch (Exception ex)
             {
