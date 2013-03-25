@@ -158,7 +158,7 @@ namespace KartRanking.Page
             if (ViewState["Usuario"] != null && Session["Usuario"] == null)
                 Session["Usuario"] = ViewState["Usuario"];
 
-            if (Session["Usuario"].GetType() != typeof(BaseDados.Usuario))
+            if (Session["Usuario"] != null && Session["Usuario"].GetType() != typeof(BaseDados.Usuario))
                 Session["Usuario"] = null;
 
             if (Session["Usuario"] == null)
