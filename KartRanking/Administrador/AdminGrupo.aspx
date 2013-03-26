@@ -158,7 +158,7 @@
         </tr>
         <tr>
             <td colspan="6">
-                <div class="template">
+                <div class="template" itemscope itemtype="http://schema.org/Table">
                     <asp:GridView ID="gvCampeonatos" AutoGenerateColumns="false" DataKeyNames="idCampeonato"
                         CssClass="gridview" runat="server" EmptyDataText="Nenhum campeonato neste grupo"
                         OnRowCommand="gvCampeonatos_RowCommand">

@@ -62,49 +62,53 @@
                 <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                         <td>
-                            <asp:Panel ID="pnlMenu" runat="server">
-                                <nav id="menu-wrap">    
-	                            <ul id="menu">
-	                                <li><a href="home.aspx">Home</a></li>
-	                                <li><a href="perfil.aspx">Seu Perfil</a></li>
-	                                <li>
-	                                    <a href="#">Administração</a>
-	                                    <ul>
-	                                        <li><a href="AdminGrupo.aspx">Grupo</a></li>
-	                                        <li><a href="AdminCampeonato.aspx">Campeonatos</a>
-	                                            <ul>
-	                                                <li><a href="CalendarioProvas.aspx">Calendário das Provas</a></li>
-	                                                <li><a href="ClassificacaoCampeonato.aspx?op=1">Classificação dos Pilotos</a></li>
-	                                                <li><a href="ClassificacaoCampeonato.aspx?op=2">Classificação das Equipes</a></li>
-	                                            </ul>
-	                                        </li>
-	                                        <li><a href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
-	                                        <li><a href="PermissaoGrupo.aspx">Permissões do Grupo</a></li>
-	                                    </ul>
-	                                </li>
-	                                <li>
-	                                    <a href="#">Pilotos</a>
-	                                    <ul>
-	                                        <li><a href="ClassificacaoCampeonato.aspx?op=1">Classificação dos Pilotos</a></li>
-	                                        <li><a href="PilotosEquipesGrupo.aspx?op=1">Pilotos do Grupo</a></li>
-	                                        <li><a href="InscricoesUsuariosGrupo.aspx">Cadastrar / Remover</a></li>
-	                                    </ul>
-	                                </li>
-	                                <li>
-	                                    <a href="#">Equipes</a>
-	                                    <ul>
-	                                        <li><a href="ClassificacaoCampeonato.aspx?op=2">Classificação das Equipes</a></li>
-	                                        <li><a href="PilotosEquipesGrupo.aspx?op=2">Equipes do Campeonato</a></li>
-	                                    </ul>
-	                                </li>
-	                                <li><a href="Fotos.aspx">Fotos</a></li>
-	                                <li><a href="Noticias.aspx">Noticias</a></li>
-	                                <li><a href="http://forum.afonsoft.com.br/">Forum</a></li>
-	                                 <li><asp:LinkButton ID="lnkSair" runat="server" onclick="lnkSair_Click">Sair</asp:LinkButton></li>
-	                                 <li style="vertical-align:middle;padding-top: 10px; padding-left: 10px; ">
-	                                    <!-- Place this tag where you want the +1 button to render. -->
-                                        <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300"></div>
-                                        <!-- Place this tag after the last +1 button tag. -->
+                            <asp:Panel ID="pnlMenu" runat="server" itemprop="breadcrumb">
+                                <nav id="menu-wrap">
+                                    <ul id="menu">
+                                        <li><a itemprop="url" rel="tag" href="home.aspx">Home</a></li>
+                                        <li><a itemprop="url" rel="tag" href="perfil.aspx">Seu Perfil</a></li>
+                                        <li><a href="#">Administração</a>
+                                            <ul>
+                                                <li><a itemprop="url" rel="tag" href="AdminGrupo.aspx">Grupo</a></li>
+                                                <li><a itemprop="url" rel="tag" href="AdminCampeonato.aspx">Campeonatos</a>
+                                                    <ul>
+                                                        <li><a itemprop="url" rel="tag" href="CalendarioProvas.aspx">Calendário das Provas</a></li>
+                                                        <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=1">Classificação
+                                                            dos Pilotos</a></li>
+                                                        <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=2">Classificação
+                                                            das Equipes</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a itemprop="url" rel="tag" href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
+                                                <li><a itemprop="url" rel="tag" href="PermissaoGrupo.aspx">Permissões do Grupo</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Pilotos</a>
+                                            <ul>
+                                                <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=1">Classificação
+                                                    dos Pilotos</a></li>
+                                                <li><a itemprop="url" rel="tag" href="PilotosEquipesGrupo.aspx?op=1">Pilotos do Grupo</a></li>
+                                                <li><a itemprop="url" rel="tag" href="InscricoesUsuariosGrupo.aspx">Cadastrar / Remover</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Equipes</a>
+                                            <ul>
+                                                <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=2">Classificação
+                                                    das Equipes</a></li>
+                                                <li><a itemprop="url" rel="tag" href="PilotosEquipesGrupo.aspx?op=2">Equipes do Campeonato</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a itemprop="url" rel="tag" href="Fotos.aspx">Fotos</a></li>
+                                        <li><a itemprop="url" rel="tag" href="Noticias.aspx">Noticias</a></li>
+                                        <li><a itemprop="url" rel="bookmark" href="http://forum.afonsoft.com.br/">Forum</a></li>
+                                        <li>
+                                            <asp:LinkButton ID="lnkSair" runat="server" OnClick="lnkSair_Click">Sair</asp:LinkButton></li>
+                                        <li style="vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+                                            <!-- Place this tag where you want the +1 button to render. -->
+                                            <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300">
+                                            </div>
+                                            <!-- Place this tag after the last +1 button tag. -->
+
                                             <script type="text/javascript">
                                                 window.___gcfg = { lang: 'pt-BR' };
                                                 (function() {
@@ -113,46 +117,48 @@
                                                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                                                 })();
                                             </script>
-	                                 </li>
-	                            </ul>
-	                        </nav>
+
+                                        </li>
+                                    </ul>
+                                </nav>
                             </asp:Panel>
                             <asp:Panel ID="pnlLogin" runat="server">
 
                                 <script src="../js/login.js" type="text/javascript"></script>
 
-                                <nav id="menu-wrap">    
-	                            <ul id="menu">
-	                            <!-- Login Starts Here -->
-                                    <li>
-                                    <a href="#" id="loginButton" style="text-decoration: none;"><span>Login</span><em></em></a>
-                                    <div style="clear: both">
-                                    </div>
-                                    <div id="loginBox">
-                                        <div id="loginForm">
-                                            <fieldset id="body">
-                                                <fieldset>
-                                                    <label for='<%= txtEmail.ClientID %>'>
-                                                        Email</label>
-                                                    <asp:TextBox ID="txtEmail" CssClass="inputlogin" MaxLength="200" placeholder="usuario@email.com.br" runat="server"></asp:TextBox>
-                                                </fieldset>
-                                                <fieldset>
-                                                    <label for='<%= txtPassword.ClientID %>'>
-                                                        Password</label>
-                                                    <asp:TextBox ID="txtPassword" CssClass="inputlogin" MaxLength="50"  placeholder="Senha" TextMode="Password" runat="server"></asp:TextBox>
-                                                </fieldset>
-                                                <asp:Button ID="btnLogin" CssClass="login" Width="60px" runat="server" 
-                                                    Text="Entrar" onclick="btnLogin_Click" />
-                                                <label for="checkbox">
-                                                    <input type="checkbox" id="chkLembrar" class="checkbox" runat="server" >Lembra-me</input>
-                                            </fieldset>
-                                            <span><a href="RecuperarSenha.aspx">Esqueceu a senha?</a></span>
-                                        </div>
-                                    </div>
-                                <!-- Login Ends Here -->
-                                    </li>          
-                                    <li><a href="CadastroUsuarioBasico.aspx">Cadastrar</a></li>                  
-                                </ul>
+                                <nav id="menu-wrap">
+                                    <ul id="menu">
+                                        <!-- Login Starts Here -->
+                                        <li><a href="#" id="loginButton" style="text-decoration: none;"><span>Login</span><em></em></a>
+                                            <div style="clear: both">
+                                            </div>
+                                            <div id="loginBox">
+                                                <div id="loginForm">
+                                                    <fieldset id="body">
+                                                        <fieldset>
+                                                            <label for='<%= txtEmail.ClientID %>'>
+                                                                Email</label>
+                                                            <asp:TextBox ID="txtEmail" CssClass="inputlogin" MaxLength="200" placeholder="usuario@email.com.br"
+                                                                runat="server"></asp:TextBox>
+                                                        </fieldset>
+                                                        <fieldset>
+                                                            <label for='<%= txtPassword.ClientID %>'>
+                                                                Password</label>
+                                                            <asp:TextBox ID="txtPassword" CssClass="inputlogin" MaxLength="50" placeholder="Senha"
+                                                                TextMode="Password" runat="server"></asp:TextBox>
+                                                        </fieldset>
+                                                        <asp:Button ID="btnLogin" CssClass="login" Width="60px" runat="server" Text="Entrar"
+                                                            OnClick="btnLogin_Click" />
+                                                        <label for="checkbox">
+                                                            <input type="checkbox" id="chkLembrar" class="checkbox" runat="server">Lembra-me</input>
+                                                    </fieldset>
+                                                    <span><a href="RecuperarSenha.aspx">Esqueceu a senha?</a></span>
+                                                </div>
+                                            </div>
+                                            <!-- Login Ends Here -->
+                                        </li>
+                                        <li><a href="CadastroUsuarioBasico.aspx">Cadastrar</a></li>
+                                    </ul>
                                 </nav>
                             </asp:Panel>
                         </td>

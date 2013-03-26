@@ -37,7 +37,7 @@
                 &nbsp;
             </div>
             <div class="grid_12">
-                <div class="template">
+                <div class="template" itemscope itemtype="http://schema.org/Table">
                     <asp:GridView ID="gvEtapas" CssClass="gridview" runat="server" DataKeyNames="idCalendario"
                         EmptyDataText="Nenhuma prova neste campeonato" OnRowCommand="gvEtapas_RowCommand"
                         AutoGenerateColumns="false">
