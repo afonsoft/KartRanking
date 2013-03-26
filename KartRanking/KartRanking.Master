@@ -2,15 +2,16 @@
     Inherits="KartRanking.KartRanking" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="pt-br" xml:lang="pt-br">
 <head runat="server">
-    <title>:: Kart Ranking ::</title>
+    <title>Kart Ranking - Gerenciamento de campeonatos de Kart com ranking</title>
     <meta name="copyright" content="AFONSOFT 2013" />
-    <meta content="pt-br" http-equiv="language" />
-    <meta name="robots" content="index,follow" />
+    <meta http-equiv="content-language" content="pt-br" />
+    <meta name="robots" content="follow, all" />
     <meta name="resource-type" content="document" />
     <meta name="distribution" content="GLOBAL" />
-    <meta name="keywords" content="Kart, Campeonato, Grupo, karting, Racing, Rank, Ranking, kartodromo, Granja Viana, Praia Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, registro, praia grande, conteudo" />
+    <meta name="keywords" content="kart amador, kart profissional, kart.com.br, piloto kart, Kart, Campeonato, Grupo, karting, Racing, Rank, Ranking, kartodromo, Granja Viana, Praia Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, registro, praia grande, conteudo" />
+    <meta name="description" content="kart amador, kart profissional, kart.com.br, piloto kart, Kart, Campeonato, Grupo, karting, Racing, Rank, Ranking, kartodromo, Granja Viana, Praia Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, registro, praia grande, conteudo" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="apple-touch-icon" href="kart-touch-icon.png" />
