@@ -17,8 +17,8 @@ namespace KartRanking.Administrador
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (!IsPostBack)
                 {
                     if (Request.QueryString["idalbum"] == null)
@@ -35,16 +35,16 @@ namespace KartRanking.Administrador
                         PopularAlbum(idAlbum);
                     }
                 }
-            }
-            catch (UnauthorizedAccessException uex)
-            {
-                LogErro.Log.Logar(uex, HttpContext.Current);
-                Alert("Erro de permissão ao diretório!\nEntre em contado com o suporte!", null, "/Administrador/index.aspx");
-            }
-            catch (Exception ex)
-            {
-                Alert(ex);
-            }
+            //}
+            //catch (UnauthorizedAccessException uex)
+            //{
+            //    LogErro.Log.Logar(uex, HttpContext.Current);
+            //    Alert("Erro de permissão ao diretório!\nEntre em contado com o suporte!", null, "/Administrador/index.aspx");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Alert(ex);
+            //}
         }
 
         private void PopularAlbum(int idAlbum)
