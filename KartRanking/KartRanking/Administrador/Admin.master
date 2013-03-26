@@ -219,24 +219,26 @@
                                         queira acessar os recursos administrativo, favor efetuar o login.</span><br />
                                     <br />
                                     <br />
-                                    <span>O <b>kart.afonsoft.com.br</b> é uma das primeiras comunidade Brasileira de kart
+                                    <p>
+                                        O <b>kart.afonsoft.com.br</b> é uma das primeiras comunidade Brasileira de kart
                                         que oferece uma ferramenta completa para a administração e divulgação do seu campeonato
                                         de kart.
-                                        <br />
-                                        Todos os serviços são 100% Free e criados especialmente para você.
-                                        <br />
+                                    </p>
+                                    <p>
+                                        Todos os serviços são <b>100% Free</b> e criados especialmente para você.
+                                    </p>
+                                    <p>
                                         Cadastrando o seu campeonato (indoor, profissional, amador), você terá a sua disposição
                                         um site personalizado com tudo que você precisa para turbinar o seu evento.<br />
                                         Ex: kart.afonsoft.com.br/NomeGrupo.aspx<br />
                                         Participe você também dessa comunidade de pilotos profissionais e amadores de todo
                                         o mundo.
-                                        <br />
-                                        O cadastro leva aproximadamente 3 minutos e você terá a sua disposição um gestor
+                                    </p>
+                                    <p>
+                                        O cadastro leva aproximadamente 5 minutos e você terá a sua disposição um gestor
                                         de conteúdo para publicar todas as informações do seu evento na internet de forma
                                         muito simples.
-                                        <br />
-                                        <br />
-                                    </span>
+                                    </p>
                                     <!-- Place this tag where you want the +1 button to render. -->
                                     <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300">
                                     </div>
@@ -252,6 +254,14 @@
                                             </script>
 
                                 </asp:Panel>
+                                <div style="color: #FFFFFF; text-align: justify; size: 6pt; z-index: -9999;">
+                                    <p>
+                                        kart <b>amador</b>, <b>kart</b> profissional, piloto kart, Kart, Campeonato, Grupo, karting, Racing,
+                                        <b>Rank</b>, <b>Ranking</b>, <b>kartodromo</b>, Granja Viana, Praia Grande, Registro, Esporte, Corrida,
+                                        Aldeia da Serra, Internacional, conteudo, kart.afonsoft.com.br,
+                                        forum.afonsoft.com.br, blog.afonsoft.com.br, sistema de gerenciamento de conteúdo,
+                                        gerenciamento de conteúdo, sistema de gerenciamento de informações</p>
+                                </div>
                             </div>
                         </td>
                     </tr>
