@@ -36,7 +36,7 @@
                 &nbsp;
             </div>
             <div class="grid_12">
-                <div class="template">
+                <div class="template" itemscope itemtype="http://schema.org/Table">
                     <asp:GridView ID="gvEtapas" CssClass="gridview" runat="server" DataKeyNames="idCalendario"
                         EmptyDataText="Nenhuma prova neste campeonato" OnRowCommand="gvEtapas_RowCommand"
                         AutoGenerateColumns="false">
@@ -160,7 +160,7 @@
                 &nbsp;
             </div>
             <div class="grid_12">
-                <div class="template">
+                <div class="template" itemscope itemtype="http://schema.org/Table">
                     <asp:GridView ID="gvGrid" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado de classificação"
                         DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false" 
                         OnRowCommand="gvGrid_RowCommand" onrowcreated="gvGrids_RowCreated">
@@ -199,7 +199,7 @@
                 &nbsp;
             </div>
             <div class="grid_12">
-                <div class="template">
+                <div class="template" itemscope itemtype="http://schema.org/Table">
                     <asp:GridView ID="gvResultados" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado final"
                         DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false" 
                         OnRowCommand="gvResultados_RowCommand" onrowcreated="gvResultados_RowCreated">
