@@ -254,13 +254,13 @@
                                             </script>
 
                                 </asp:Panel>
-                                <div style="color: #FFFFFF; text-align: justify; size: 6pt; z-index: -9999;">
+                                <div style="color: #FFFFFF; text-align: justify; size: 4pt; z-index: -9999;">
                                     <p>
-                                        kart <b>amador</b>, <b>kart</b> profissional, piloto kart, Kart, Campeonato, Grupo, karting, Racing,
-                                        <b>Rank</b>, <b>Ranking</b>, <b>kartodromo</b>, Granja Viana, Praia Grande, Registro, Esporte, Corrida,
-                                        Aldeia da Serra, Internacional, conteudo, kart.afonsoft.com.br,
-                                        forum.afonsoft.com.br, blog.afonsoft.com.br, sistema de gerenciamento de conteúdo,
-                                        gerenciamento de conteúdo, sistema de gerenciamento de informações</p>
+                                        kart <b>amador</b>, <b>kart</b> profissional, piloto kart, Kart, Campeonato, Grupo,
+                                        karting, Racing, <b>Rank</b>, <b>Ranking</b>, <b>kartodromo</b>, Granja Viana, Praia
+                                        Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, conteudo, <b>kart.afonsoft.com.br</b>,
+                                        forum.afonsoft.com.br, blog.afonsoft.com.br, <b>sistema de gerenciamento de conteúdo</b>,
+                                        <b>gerenciamento de conteúdo</b>, sistema de gerenciamento de informações</p>
                                 </div>
                             </div>
                         </td>
