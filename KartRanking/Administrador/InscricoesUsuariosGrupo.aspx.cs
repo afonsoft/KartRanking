@@ -31,6 +31,7 @@ namespace KartRanking.Administrador
 
             var UsuarioLivre = from u in dk.Usuarios
                                join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
+                               orderby u.Nome
                                where ug.idGrupo == IdGrupo
                                && ug.Aprovado == false
                                select u;
@@ -41,9 +42,9 @@ namespace KartRanking.Administrador
             
             var UsuariosGrupo = from t0 in dk.Usuarios
                                 join t1 in dk.Kart_Usuario_Grupos on t0.idUsuario equals t1.idUsuario
-                                where
-                                  t1.idGrupo == IdGrupo &&
-                                  t1.Aprovado == true
+                                orderby t0.Nome
+                                where t1.idGrupo == IdGrupo 
+                                && t1.Aprovado == true
                                 select new
                                 {
                                     idUsuario = t0.idUsuario,

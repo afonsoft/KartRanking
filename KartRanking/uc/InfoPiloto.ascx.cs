@@ -6,13 +6,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using KartRanking.BaseDados;
+using System.Globalization;
 
 namespace KartRanking.uc
 {
     public partial class InfoPiloto : System.Web.UI.UserControl
     {
         #region idUsuario
-
+        /// <summary>
+        /// idUsuario
+        /// </summary>
         public int idUsuario
         {
             get
@@ -31,7 +34,9 @@ namespace KartRanking.uc
         #endregion
 
         #region Getting Temporary Folder Name
-
+        /// <summary>
+        /// GetTempFolderName
+        /// </summary>
         private string GetTempFolderName()
         {
             string strTempFolderName = Environment.GetFolderPath(Environment.SpecialFolder.InternetCache) + @"\";
@@ -69,23 +74,19 @@ namespace KartRanking.uc
 
         private void Popular(int idUsuario)
         {
-            Usuario u = (from us in new DataKartDataContext().Usuarios
+            DataKartDataContext db = new DataKartDataContext();
+            Usuario u = (from us in db.Usuarios
                          where us.idUsuario == idUsuario
                          select us).FirstOrDefault();
-            
+
             if (u != null)
             {
-                ltDtNascimento.Text = u.DtNascimento.HasValue ? u.DtNascimento.Value.ToString("dd/MM/yyyy") : "";
+                ltDtNascimento.Text = u.DtNascimento.HasValue ? u.DtNascimento.Value.ToString("dd/MM/yyyy", new CultureInfo("pt-BR")) : "";
                 ltEmail.Text = u.Email;
                 ltNome.Text = u.Nome + " (" + u.Apelido + ")";
                 ltTelefone.Text = u.Telefone;
                 lnkUsuario.NavigateUrl = "";
             }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

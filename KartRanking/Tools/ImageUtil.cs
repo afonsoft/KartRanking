@@ -11,7 +11,9 @@ namespace KartRanking.Tools
 {
     public static class ImageUtil
     {
-
+        /// <summary>
+        /// ResizeImage
+        /// </summary>
         public static System.Drawing.Image ResizeImage(System.Drawing.Image FullsizeImage, int NewWidth, int MaxHeight, bool OnlyResizeIfWider)
         {
             // Prevent using images internal thumbnail
@@ -37,12 +39,16 @@ namespace KartRanking.Tools
             // Save resized picture
             return NewImage;
         }
-
+        /// <summary>
+        /// FileToImage
+        /// </summary>
         public static Image FileToImage( string imagePath )
         {
             return byteArrayToImage( ImageToBinary( imagePath ) );
         }
-
+        /// <summary>
+        /// ImageToBinary
+        /// </summary>
         public static byte[] ImageToBinary(string imagePath)
         {
             if ( !File.Exists( imagePath ) )
@@ -54,21 +60,27 @@ namespace KartRanking.Tools
             fileStream.Close();
             return buffer;
         }
-
+        /// <summary>
+        /// ImageToBinary
+        /// </summary>
         public static byte[] ImageToBinary(System.Drawing.Image imageIn)
         {
             MemoryStream ms = new MemoryStream();
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             return ms.ToArray();
         }
-
+        /// <summary>
+        /// byteArrayToImage
+        /// </summary>
         public static Image byteArrayToImage(byte[] byteArrayIn)
         {
             MemoryStream ms = new MemoryStream(byteArrayIn);
             Image returnImage = Image.FromStream(ms);
             return returnImage;
         }
-
+        /// <summary>
+        /// BinaryToImage
+        /// </summary>
         public static Image BinaryToImage(System.Data.Linq.Binary binaryData)
         {
             if (binaryData == null) return null;

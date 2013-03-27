@@ -23,6 +23,7 @@ namespace KartRanking.Administrador
         {
             var NAdmin = from u in dk.Usuarios
                          join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
+                         orderby u.Nome
                          where ug.idGrupo == IdGrupo
                          && ug.Aprovado == true
                          && ug.Admin == false
@@ -30,6 +31,7 @@ namespace KartRanking.Administrador
 
             var Admin = from u in dk.Usuarios
                         join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
+                        orderby u.Nome
                         where ug.idGrupo == IdGrupo
                         && ug.Aprovado == true
                         && ug.Admin == true

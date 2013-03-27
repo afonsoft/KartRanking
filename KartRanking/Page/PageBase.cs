@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using KartRanking.BaseDados;
+using System.Globalization;
 
 namespace KartRanking.Page
 {
@@ -10,6 +11,9 @@ namespace KartRanking.Page
     {
         private DataKartDataContext _dk = null;
 
+        /// <summary>
+        /// Base de dados
+        /// </summary>
         public DataKartDataContext dk
         {
             get
@@ -20,22 +24,37 @@ namespace KartRanking.Page
             }
         }
 
+        /// <summary>
+        /// Alerta
+        /// </summary>
         public void Alert( string msg )
         {
             this.Alert( msg, null, null );
         }
+        /// <summary>
+        /// Alerta
+        /// </summary>
         public void Alert( Exception ex )
         {
             this.Alert( null, ex );
         }
+        /// <summary>
+        /// Alerta
+        /// </summary>
         public void Alert(string msg, Exception ex)
         {
             this.Alert(msg, ex, null);
         }
+        /// <summary>
+        /// Alerta
+        /// </summary>
         public void Alert(string msg, string urlReturn)
         {
             this.Alert(msg, null, urlReturn);
         }
+        /// <summary>
+        /// Alerta
+        /// </summary>
         public void Alert(string msg, Exception ex, string urlReturn)
         {
             string alert = "";
@@ -51,6 +70,13 @@ namespace KartRanking.Page
             if (ex != null && ex.InnerException != null)
                 LogErro.Log.Logar(ex, HttpContext.Current);
 
+        }
+        /// <summary>
+        /// Culture
+        /// </summary>
+        public CultureInfo culture
+        {
+            get { return new CultureInfo("pt-BR"); }
         }
 
     }

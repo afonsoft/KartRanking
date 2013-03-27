@@ -17,15 +17,15 @@ namespace KartRanking.email
         {
             try
             {
-                SmtpClient client = new SmtpClient(ConfigurationSettings.AppSettings["SMTP_Host"], int.Parse(ConfigurationSettings.AppSettings["SMTP_Port"]));
-                MailAddress de = new MailAddress(ConfigurationSettings.AppSettings["SMTP_Account"], "KartRanking");
-                bool isSSL = Convert.ToBoolean(ConfigurationSettings.AppSettings["SMTP_SSL"]);
-                string CopiaOculta = ConfigurationSettings.AppSettings["SMTP_CCO"];
+                SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["SMTP_Host"], int.Parse(ConfigurationManager.AppSettings["SMTP_Port"]));
+                MailAddress de = new MailAddress(ConfigurationManager.AppSettings["SMTP_Account"], "KartRanking");
+                bool isSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["SMTP_SSL"]);
+                string CopiaOculta = ConfigurationManager.AppSettings["SMTP_CCO"];
 
                 MailAddress para = new MailAddress(strEmail);
                 MailMessage mensagem = new MailMessage(de, para);
 
-                client.Credentials = new NetworkCredential(ConfigurationSettings.AppSettings["SMTP_Account"], ConfigurationSettings.AppSettings["SMTP_Senha"]);
+                client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["SMTP_Account"], ConfigurationManager.AppSettings["SMTP_Senha"]);
                 client.EnableSsl = isSSL;
 
                 if (!string.IsNullOrEmpty(strCopia) && strCopia.Length > 0)
