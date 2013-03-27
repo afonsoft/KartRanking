@@ -12,48 +12,51 @@ namespace KartRanking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try 
+            if (!IsPostBack)
             {
-                Exception ex1 = null;
-
-                if (Context.Items["Exception"] != null)
-                    ex1 = (Exception)(Context.Items["Exception"]);
-                else if (Session["Exception"] != null)
-                    ex1 = (Exception)(Session["Exception"]);
-                else if (ex1 == null)
-                    ex1 = Server.GetLastError();
-
-                int StatusCode = 0;
-                string _StatusCode = "";
-                if (Context.Items["StatusCode"] != null)
+                try
                 {
-                    _StatusCode = Context.Items["StatusCode"].ToString();
-                    int.TryParse(_StatusCode, out StatusCode);
+                    Exception ex1 = null;
+
+                    if (Context.Items["Exception"] != null)
+                        ex1 = (Exception)(Context.Items["Exception"]);
+                    else if (Session["Exception"] != null)
+                        ex1 = (Exception)(Session["Exception"]);
+                    else if (ex1 == null)
+                        ex1 = Server.GetLastError();
+
+                    int StatusCode = 0;
+                    string _StatusCode = "";
+                    if (Context.Items["StatusCode"] != null)
+                    {
+                        _StatusCode = Context.Items["StatusCode"].ToString();
+                        int.TryParse(_StatusCode, out StatusCode);
+                    }
+                    else if (Session["StatusCode"] != null)
+                    {
+                        _StatusCode = Session["StatusCode"].ToString();
+                        int.TryParse(_StatusCode, out StatusCode);
+                    }
+                    else
+                        StatusCode = HttpContext.Current.Response.StatusCode;
+
+                    string[] Keys = null;
+                    if (Context.Items["AllKeys"] != null)
+                        Keys = (string[])Context.Items["AllKeys"];
+                    else if (Session["AllKeys"] != null)
+                        Keys = (string[])Context.Items["AllKeys"];
+                    else
+                        Keys = Request.Form.AllKeys;
+
+                    LogErro.Log.Logar(ex1, HttpContext.Current);
+
+                    PrintError(ex1, StatusCode, Keys);
                 }
-                else if (Session["StatusCode"] != null)
+                catch (Exception ex)
                 {
-                    _StatusCode = Session["StatusCode"].ToString();
-                    int.TryParse(_StatusCode, out StatusCode);
+                    LogErro.Log.Logar(ex, HttpContext.Current);
+                    PrintError(ex, 500, Request.Form.AllKeys);
                 }
-                else
-                    StatusCode = HttpContext.Current.Response.StatusCode;
-
-                string[] Keys = null;
-                if (Context.Items["AllKeys"] != null)
-                    Keys = (string[])Context.Items["AllKeys"];
-                else if (Session["AllKeys"] != null)
-                    Keys = (string[])Context.Items["AllKeys"];
-                else
-                    Keys = Request.Form.AllKeys;
-
-                LogErro.Log.Logar(ex1, HttpContext.Current);
-
-                PrintError(ex1, StatusCode, Keys);
-            }
-            catch (Exception ex)
-            {
-                LogErro.Log.Logar(ex, HttpContext.Current);
-                PrintError(ex, 500, Request.Form.AllKeys);
             }
         }
         private void PrintError(Exception ex, int StatusCode, string[] Keys)
@@ -102,7 +105,7 @@ namespace KartRanking
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            email.EMail.EnviaEmail(ConfigurationManager.AppSettings["SMTP_CCO"], dvError.InnerHtml, "Erro no Sistema Kart", "");
+            email.EMail.EnviaEmail("afonsoft@afonsoft.com.br", dvError.InnerHtml, "Erro no Sistema Kart", ConfigurationManager.AppSettings["SMTP_CCO"]);
             Response.Redirect("~/Administrador/index.aspx");
         }
     }
