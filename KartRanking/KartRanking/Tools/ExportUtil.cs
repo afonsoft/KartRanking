@@ -68,7 +68,7 @@ namespace KartRanking.Tools
             HttpContext.Current.Response.ClearContent();
             HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Unicode;
 
-            HttpContext.Current.Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", fileName));
+            HttpContext.Current.Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
             HttpContext.Current.Response.ContentType = "application/vnd.xls";
 
             if (Obj == null)
@@ -242,6 +242,10 @@ namespace KartRanking.Tools
         /// </summary>
         public static void Export(string fileName, System.Web.UI.WebControls.GridView gv)
         {
+
+            if (gv == null)
+                return;
+
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();
@@ -266,7 +270,6 @@ namespace KartRanking.Tools
         /// <summary>
         /// Replace any of the contained controls with literals
         /// </summary>
-        /// <param name="control"></param>
         private static void PrepareControlForExport(System.Web.UI.Control control)
         {
             for (int i = 0; i < control.Controls.Count; i++)
@@ -275,27 +278,27 @@ namespace KartRanking.Tools
                 if (current is LinkButton)
                 {
                     control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl((current as LinkButton).Text));
+                    control.Controls.AddAt(i, new LiteralControl(((LinkButton)current).Text));
                 }
                 else if (current is ImageButton)
                 {
                     control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl((current as ImageButton).AlternateText));
+                    control.Controls.AddAt(i, new LiteralControl(((ImageButton)current).AlternateText));
                 }
                 else if (current is HyperLink)
                 {
                     control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl((current as HyperLink).Text));
+                    control.Controls.AddAt(i, new LiteralControl(((HyperLink)current).Text));
                 }
                 else if (current is DropDownList)
                 {
                     control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl((current as DropDownList).SelectedItem.Text));
+                    control.Controls.AddAt(i, new LiteralControl(((DropDownList)current).SelectedItem.Text));
                 }
                 else if (current is CheckBox)
                 {
                     control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl((current as CheckBox).Checked ? "True" : "False"));
+                    control.Controls.AddAt(i, new LiteralControl(((CheckBox)current).Checked ? "True" : "False"));
                 }
 
                 if (current.HasControls())

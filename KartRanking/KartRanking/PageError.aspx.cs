@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace KartRanking
 {
@@ -101,7 +102,7 @@ namespace KartRanking
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            email.EMail.EnviaEmail("afonsoft@hotmail.com;afonsoft@gmail.com", dvError.InnerHtml, "Erro no Sistema Kart", "marcelo.analista@bol.com.br");
+            email.EMail.EnviaEmail(ConfigurationManager.AppSettings["SMTP_CCO"], dvError.InnerHtml, "Erro no Sistema Kart", "");
             Response.Redirect("~/Administrador/index.aspx");
         }
     }

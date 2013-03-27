@@ -37,6 +37,7 @@ namespace KartRanking.Administrador
         private void popularCampeonatos()
         {
             var kg = (from g in dk.Kart_Campeonatos
+                      orderby g.dtCriacao ascending
                       where g.idGrupo == IdGrupo
                       && (g.Ativo == true || g.idCampeonato == IdCampeonato)
                       select new { Text = g.NomeCampeonato,  g.Ativo, idCampeonato = (int)g.idCampeonato });
@@ -124,6 +125,7 @@ namespace KartRanking.Administrador
 
             var equipes = from eq in dk.Kart_Equipe_Campeonatos
                           join eg in dk.Kart_Campeonatos on eq.idCampeonato equals eg.idCampeonato
+                          orderby eq.NomeEquipe ascending
                           where eg.idGrupo == IdGrupo
                           && eg.idCampeonato == IdCampeonato
                           select eq;
@@ -180,6 +182,7 @@ namespace KartRanking.Administrador
                    join t2 in dk.Kart_Campeonatos on t1.idGrupo equals t2.idGrupo
                    join t3 in dk.View_Equipe_Usuarios on new { t0.idUsuario, t2.idCampeonato } equals new { t3.idUsuario, t3.idCampeonato } into t3_join
                    from t3 in t3_join.DefaultIfEmpty()
+                   orderby t0.Nome ascending
                    where
                      t1.idGrupo == IdGrupo &&
                      t1.Aprovado == true &&
