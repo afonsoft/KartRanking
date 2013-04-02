@@ -100,6 +100,30 @@ namespace KartRanking
                 strBody += "</p><p><b>Source: </b>" + ex.Source.Replace("\n", "<br>").Replace("   at ", "&nbsp;&nbsp;&nbsp;at ");
             strBody += "</p><br/><br/>";
 
+            strBody += "<p><b>Valores do ServerVariables</b></p>";
+            foreach (string thing in Request.ServerVariables)
+            {
+                if(!string.IsNullOrEmpty(Request.ServerVariables[thing]))
+                    //strBody += "<b>" + thing + ": </b>" + Request.ServerVariables[thing].Replace("\n", "<br>").Replace("   at ", "&nbsp;&nbsp;&nbsp;at ") + "<br/>";
+                    strBody += "<p><b>" + thing + ": </b>" + Request.ServerVariables[thing] + "<br/></p>";
+            }
+
+            strBody += "<p><b>Environment Variables</b></p>";
+            strBody += "<p><b>CurrentDirectory: </b>" + Environment.CurrentDirectory + "<br/></p>";
+            strBody += "<p><b>Is64BitOperatingSystem: </b>" + Environment.Is64BitOperatingSystem + "<br/></p>";
+            strBody += "<p><b>Is64BitProcess: </b>" + Environment.Is64BitProcess + "<br/></p>";
+            strBody += "<p><b>MachineName: </b>" + Environment.MachineName + "<br/></p>";
+            strBody += "<p><b>OSVersion: </b>" + Environment.OSVersion + "<br/></p>";
+            strBody += "<p><b>ProcessorCount: </b>" + Environment.ProcessorCount + "<br/></p>";
+            strBody += "<p><b>SystemDirectory: </b>" + Environment.SystemDirectory + "<br/></p>";
+            strBody += "<p><b>SystemPageSize: </b>" + Environment.SystemPageSize + "<br/></p>";
+            strBody += "<p><b>UserDomainName: </b>" + Environment.UserDomainName + "<br/></p>";
+            strBody += "<p><b>UserInteractive: </b>" + Environment.UserInteractive + "<br/></p>";
+            strBody += "<p><b>UserName: </b>" + Environment.UserName + "<br/></p>";
+            strBody += "<p><b>Version: </b>" + Environment.Version + "<br/></p>";
+            strBody += "<p><b>WorkingSet: </b>" + Environment.WorkingSet + "<br/></p>";
+            strBody += "<p><b>ExitCode: </b>" + Environment.ExitCode + "<br/></p>";
+            
             dvError.InnerHtml = strBody;
         }
 
