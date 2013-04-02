@@ -48,13 +48,10 @@ namespace KartRanking
                     else
                         Keys = Request.Form.AllKeys;
 
-                    LogErro.Log.Logar(ex1, HttpContext.Current);
-
                     PrintError(ex1, StatusCode, Keys);
                 }
                 catch (Exception ex)
                 {
-                    LogErro.Log.Logar(ex, HttpContext.Current);
                     PrintError(ex, 500, Request.Form.AllKeys);
                 }
             }
@@ -100,7 +97,7 @@ namespace KartRanking
                 strBody += "</p><p><b>Source: </b>" + ex.Source.Replace("\n", "<br>").Replace("   at ", "&nbsp;&nbsp;&nbsp;at ");
             strBody += "</p><br/><br/>";
 
-            strBody += "<p><b>Valores do ServerVariables</b></p>";
+            strBody += "<br/><p><b>Valores do ServerVariables</b></p>";
             foreach (string thing in Request.ServerVariables)
             {
                 if(!string.IsNullOrEmpty(Request.ServerVariables[thing]))
@@ -108,7 +105,7 @@ namespace KartRanking
                     strBody += "<p><b>" + thing + ": </b>" + Request.ServerVariables[thing] + "<br/></p>";
             }
 
-            strBody += "<p><b>Environment Variables</b></p>";
+            strBody += "<br/><p><b>Environment Variables</b></p>";
             strBody += "<p><b>CurrentDirectory: </b>" + Environment.CurrentDirectory + "<br/></p>";
             strBody += "<p><b>Is64BitOperatingSystem: </b>" + Environment.Is64BitOperatingSystem + "<br/></p>";
             strBody += "<p><b>Is64BitProcess: </b>" + Environment.Is64BitProcess + "<br/></p>";
@@ -125,6 +122,8 @@ namespace KartRanking
             strBody += "<p><b>ExitCode: </b>" + Environment.ExitCode + "<br/></p>";
             
             dvError.InnerHtml = strBody;
+
+            LogErro.Log.Logar(strBody, HttpContext.Current);
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
