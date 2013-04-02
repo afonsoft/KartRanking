@@ -54,6 +54,12 @@
       <HintPath>..\..\..\..\..\Desktop\AjaxControlToolkit.Binary.NET4\pt\AjaxControlToolkit.resources.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AspNetInfo">
+      <HintPath>..\..\..\..\Downloads\AspNetInfo.1.0.0.3\bin\AspNetInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNetInfo.SampleDiagnosticPlugIn">
+      <HintPath>..\..\..\..\Downloads\AspNetInfo.1.0.0.3\bin\AspNetInfo.SampleDiagnosticPlugIn.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,6 +80,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AspNetInfo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -212,13 +219,6 @@
     </Compile>
     <Compile Include="Administrador\TesteMenu.aspx.designer.cs">
       <DependentUpon>TesteMenu.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AspInfo.aspx.cs">
-      <DependentUpon>AspInfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AspInfo.aspx.designer.cs">
-      <DependentUpon>AspInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaseDados\DataKart.designer.cs">
       <AutoGen>True</AutoGen>
@@ -375,7 +375,6 @@
     <Content Include="Administrador\PilotosEquipesGrupo.aspx" />
     <Content Include="Administrador\RecuperarSenha.aspx" />
     <Content Include="Administrador\TesteMenu.aspx" />
-    <Content Include="AspInfo.aspx" />
     <Content Include="css\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />
