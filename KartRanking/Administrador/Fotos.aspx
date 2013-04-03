@@ -128,7 +128,7 @@
                         "Sair": function() { jQuery('#dlgUpFile').dialog("close"); return true; }
                     }
                 });
-                jQuery('#dlgUpFile').dialog({ width: 300, height: 240 });
+                jQuery('#dlgUpFile').dialog({ width: 300, height: 250 });
                 jQuery("#dlgUpFile").parent().appendTo(jQuery("form:first"));
                 jQuery('#dlgUpFile').dialog('open');
             }
