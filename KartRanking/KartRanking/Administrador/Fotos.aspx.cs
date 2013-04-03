@@ -166,8 +166,12 @@ namespace KartRanking.Administrador
                     }
                     catch { }
 
-                    string UrlPath = "/Fotos/" + IdGrupo.ToString() + "_" + DateTime.Now.ToString("ddMMyyyyHHmm");
-                    string FullPath = Path.Combine(PathUtil.GetFullPathRoot(), UrlPath);
+                    string pasta = IdGrupo.ToString() + "_" + DateTime.Now.ToString("ddMMyyyyHHmm");
+                    string UrlPath = "/Fotos/" + pasta;
+                    string FullPath = PathUtil.GetFullPathRoot() + "\\Fotos\\" + pasta;
+                    
+                    Trace.Write("UrlPath: " + UrlPath);
+                    Trace.Write("FullPath: " + FullPath);
 
                     Kart_Album_Grupo album = new Kart_Album_Grupo();
                     album.idGrupo = IdGrupo;
