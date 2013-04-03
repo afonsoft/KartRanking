@@ -234,7 +234,7 @@ namespace KartRanking.Administrador
             {
                 try
                 {
-                    string filename = Path.GetFileName(FileUploadControl.FileName);
+                    string filename = Path.GetFileName(FileUploadControl.FileName).ToLower();
 
                     if (filename.IndexOf(".jpg") > 0 || filename.IndexOf(".jpeg") > 0)
                     {
@@ -251,7 +251,7 @@ namespace KartRanking.Administrador
                     }
                     else
                     {
-                        throw new Exception("Formato inválido de arquivo!");
+                        throw new Exception("Formato inválido de arquivo!\n");
                     }
                 }
                 catch (Exception ex)
