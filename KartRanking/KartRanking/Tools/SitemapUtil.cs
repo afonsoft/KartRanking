@@ -23,7 +23,7 @@ namespace KartRanking.Tools
                 urlset.Add(new XElement
                 (ns + "url",
                 new XElement(ns + "loc", links.loc),
-                new XElement(ns + "lastmod", links.lastmod),
+                new XElement(ns + "lastmod", links.lastmod.ToString("yyyy-MM-dd")),
                 new XElement(ns + "changefreq", links.changefreq),
                 new XElement(ns + "priority", links.priority)
                 ));
