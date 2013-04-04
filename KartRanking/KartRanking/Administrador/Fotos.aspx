@@ -2,6 +2,8 @@
     CodeBehind="Fotos.aspx.cs" Inherits="KartRanking.Administrador.Fotos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link href="/css/lightbox.css" rel="stylesheet" />
+    <script src="/js/Lightbox.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelListAlbum" runat="server">
@@ -91,7 +93,7 @@
                             <ItemTemplate>
                                 <div class="grid_2" style="max-height: 100px;">
                                     <div style="<%# Convert.ToBoolean(Eval("Ativo")) ? "display:block;": "display:none;" %>">
-                                        <a href="<%# Eval("Foto") %>">
+                                        <a href="/Administrador/Fotos.aspx?idalbum=<%# Eval("idAlbum") %>">
                                             <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" width="100px" height="100px" />
                                         </a>
                                     </div>
@@ -204,10 +206,10 @@
             </div>
             <asp:Repeater ID="RepeaterFotos" runat="server">
                 <ItemTemplate>
-                    <% TotalCol++; %>
+                    <% TotalCol++; TotalImgCount++; %>
                     <div class="grid_2">
-                        <a href="<%# Eval("Foto") %>">
-                            <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" width="130px" height="100px" />
+                        <a href="<%# Eval("Foto") %>" rel="lightbox[roadtrip]" title="<%# Eval("Nome") %>" >
+                            <img alt="<%= String.Format("roadtrip: imagem {0} de {1}",TotalImgCount, TotalImg)  %>" src="<%# Eval("Foto") %>" width="130px" height="100px" />
                         </a>
                     </div>
                     <% if (TotalCol == 6)

@@ -14,6 +14,8 @@ namespace KartRanking.Administrador
     public partial class Fotos : PageBaseSecurity
     {
         public int TotalCol { get; set; }
+        public int TotalImg { get; set; }
+        public int TotalImgCount { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -65,9 +67,11 @@ namespace KartRanking.Administrador
                 album.NomeAlbum = fotos.NomeAlbum;
                 album.PathFotos = fotos.PathFotos;
                 album.UrlFotos = fotos.UrlFotos;
-                album.Itens = RecuperarTodosItens(fotos.PathFotos, fotos.UrlFotos);
+                album.Itens = RecuperarTodosItens(fotos.PathFotos, fotos.UrlFotos, fotos.idAlbum);
 
                 TotalCol = 0;
+                TotalImg = album.Itens.Count();
+                TotalImgCount = 0;
                 RepeaterFotos.DataSource = album.Itens;
                 RepeaterFotos.DataBind();
             }
@@ -94,7 +98,7 @@ namespace KartRanking.Administrador
                     NomeAlbum = f.NomeAlbum,
                     PathFotos = f.PathFotos,
                     UrlFotos = f.UrlFotos,
-                    Itens = RecuperarItens(f.PathFotos, f.UrlFotos)
+                    Itens = RecuperarItens(f.PathFotos, f.UrlFotos, f.idAlbum)
                 });
             }
 
@@ -102,7 +106,7 @@ namespace KartRanking.Administrador
             RepeaterAlbum.DataBind();
         }
 
-        private List<Item> RecuperarTodosItens(string path, string url)
+        private List<Item> RecuperarTodosItens(string path, string url, int idAlbum)
         {
             List<Item> Itens = new List<Item>();
 
@@ -117,14 +121,15 @@ namespace KartRanking.Administrador
                 {
                     Foto = url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                    Ativo = true
+                    Ativo = true,
+                    idAlbum = idAlbum
                 });
             }
 
             return Itens;
         }
 
-        private List<Item> RecuperarItens(string path, string url)
+        private List<Item> RecuperarItens(string path, string url, int idAlbum)
         {
             List<Item> Itens = new List<Item>();
             
@@ -139,7 +144,8 @@ namespace KartRanking.Administrador
                 {
                     Foto = url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                    Ativo = true
+                    Ativo = true,
+                    idAlbum = idAlbum
                 });
             }
 
@@ -283,6 +289,7 @@ namespace KartRanking.Administrador
     [Serializable]
     public class Item
     {
+        public int idAlbum { get; set; }
         public string Foto { get; set; }
         public string Nome { get; set; }
         public bool Ativo { get; set; }
