@@ -81,10 +81,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AspNetInfo.aspx" />
+    <Content Include="css\lightbox.css" />
     <Content Include="dlls\AjaxControlToolkit.dll" />
     <Content Include="dlls\AjaxControlToolkit.resources.dll" />
     <Content Include="dlls\AspNetInfo.dll" />
     <Content Include="dlls\AspNetInfo.SampleDiagnosticPlugIn.dll" />
+    <Content Include="images\close.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\next.png" />
+    <Content Include="images\prev.png" />
+    <Content Include="js\Lightbox.js" />
     <Content Include="robots.txt" />
     <Content Include="SiteMap.xml" />
     <Content Include="Web.config">
