@@ -85,6 +85,8 @@
     <Content Include="dlls\AjaxControlToolkit.resources.dll" />
     <Content Include="dlls\AspNetInfo.dll" />
     <Content Include="dlls\AspNetInfo.SampleDiagnosticPlugIn.dll" />
+    <Content Include="robots.txt" />
+    <Content Include="SiteMap.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -331,6 +333,7 @@
     <Compile Include="Tools\DateTimeUtil.cs" />
     <Compile Include="Tools\ExportUtil.cs" />
     <Compile Include="Tools\ImageUtil.cs" />
+    <Compile Include="Tools\SitemapUtil.cs" />
     <Compile Include="uc\InfoPiloto.ascx.cs">
       <DependentUpon>InfoPiloto.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
