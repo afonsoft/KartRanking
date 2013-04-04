@@ -1,7 +1,7 @@
 # robots.txt
 User-agent: *
-Crawl-delay: 10
 Disallow: /Fotos/
 Disallow: /cgi-bin/
 Disallow: /InstallDb.aspx
+
 Sitemap: http://kart.afonsoft.com.br/SiteMap.xml
