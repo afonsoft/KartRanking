@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
+using KartRanking.Tools;
 
 namespace KartRanking
 {
@@ -16,12 +17,21 @@ namespace KartRanking
             if (!dk.DatabaseExists())
             {
                 dk.CreateDatabase();
+                CreateSiteMap();
                 Response.Redirect("~/Administrador/index.aspx");
+                
             }
             else
             {
+                CreateSiteMap();
                 Response.Redirect("~/Administrador/index.aspx");
             }
+        }
+
+        private void CreateSiteMap()
+        {
+            SitemapUtil sitemap = new SitemapUtil();
+            sitemap.createSiteMap();
         }
     }
 }
