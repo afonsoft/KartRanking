@@ -192,7 +192,7 @@
                     <tr>
                         <td>
                             <div style="width: 98%; height: 100% auto; padding: 10px;">
-                                <div style="width: 100%; text-align: center;">
+                                <div style="width: 100%; text-align: center; padding-bottom:3px;">
                                     <script type="text/javascript">
                                         google_ad_client = "ca-pub-2122647083447667";
                                         /* Banner */
