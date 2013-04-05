@@ -46,12 +46,11 @@
         </div>
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Album de fotos do Grupo</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Gerencia e visualize os álbuns de fotos deste grupo</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Gerencia e visualize os álbuns de fotos deste grupo
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -171,12 +170,11 @@
         </div>
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Album de fotos</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Visualize as fotos deste album</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Visualize as fotos deste album
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -203,7 +201,8 @@
                     <% TotalCol++; TotalImgCount++; %>
                     <div class="grid_2">
                         <div style="<%# Convert.ToBoolean(Eval("Ativo")) ? "display:block;": "display:none;" %>">
-                            <a href="<%# Eval("Foto") %>" rel="<%# Convert.ToBoolean(Eval("Ativo")) ? "lightbox[roadtrip]": "" %>" title="<%# Eval("Nome") %>">
+                            <a href="<%# Eval("Foto") %>" rel="<%# Convert.ToBoolean(Eval("Ativo")) ? "lightbox[roadtrip]": "" %>"
+                                title="<%# Eval("Nome") %>">
                                 <img alt="<%= String.Format("Roadtrip: Imagem {0} de {1}",TotalImgCount, TotalImg)  %>"
                                     src="<%# Eval("Foto") %>" width="130px" height="100px" />
                         </div>

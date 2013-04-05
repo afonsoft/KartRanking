@@ -13,12 +13,10 @@
 
     <div class="container_12">
         <div class="grid_12">
-            <h3 class="titulo">
+            <h3 class="StepTitle">
                 Recuperar a Senha</h3>
-            <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                Recuperar a senha de um e-mail</p>
-            <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                border-right: #ccc 1px dashed;" />
+            <div class="StepSubTitle">
+                Recuperar a senha de um e-mail</div>
         </div>
         <div class="clear espaco_mini">
             &nbsp;

@@ -4,21 +4,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             $("#tabs").tabs();
         });
     </script>
-
     <div class="container_12">
         <div class="grid_12">
-            <h3 class="titulo">
+            <h3 class="StepTitle">
                 Inscrições de pilotos</h3>
-            <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                Gerenciar os pilotos deste grupo</p>
-            <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                border-right: #ccc 1px dashed;" />
+            <div class="StepSubTitle">
+                Gerenciar os pilotos deste grupo</div>
         </div>
         <div class="clear espaco">
             &nbsp;
@@ -58,7 +54,7 @@
                         <div class="grid_8">
                             <asp:TextBox ID="txtEmailNovoUsuario" MaxLength="200" Width="98%" runat="server"></asp:TextBox>
                         </div>
-                        <div class="grid_2" style="text-align:right;">
+                        <div class="grid_2" style="text-align: right;">
                             <asp:Button ID="btnAddUsuarioGrupo" runat="server" Text="Convidar" OnClick="btnAddUsuarioGrupo_Click" />
                         </div>
                         <div class="clear">

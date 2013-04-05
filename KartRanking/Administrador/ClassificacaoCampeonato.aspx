@@ -7,14 +7,13 @@
     <asp:Panel ID="PanelPilotos" runat="server">
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Classificação dos Pilotos</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Classificações dos pilotos deste campeonato</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Classificações dos pilotos deste campeonato
+                </div>
             </div>
-            <div class="clear espaco"> 
+            <div class="clear espaco">
                 &nbsp;
             </div>
             <div class="grid_3">
@@ -63,12 +62,11 @@
     <asp:Panel ID="PanelEquipes" runat="server">
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Classificação das Equipes</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Classificações das equipes deste campeonato</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Classificações das equipes deste campeonato
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;

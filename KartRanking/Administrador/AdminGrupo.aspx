@@ -4,37 +4,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             try {
-                $('#<%= txtUrlAcesso.ClientID %>').on("focus", function() {
+                $('#<%= txtUrlAcesso.ClientID %>').on("focus", function () {
                     var dest = $(this);
                     dest.val(dest.val().split(" ").join(""));
                 });
 
-                $('#<%= txtUrlAcesso.ClientID %>').on("blur", function() {
+                $('#<%= txtUrlAcesso.ClientID %>').on("blur", function () {
                     var dest = $(this);
                     dest.val(dest.val().split(" ").join(""));
                 });
 
-                $('#<%= txtUrlAcesso.ClientID %>').blur(function() {
+                $('#<%= txtUrlAcesso.ClientID %>').blur(function () {
                     var dest = $(this);
                     dest.val(dest.val().split(" ").join(""));
                 });
             } catch (e) { }
         });
     </script>
-
     <table width="97%" cellpadding="2" cellspacing="2" border="0">
         <tr>
             <td colspan="6">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     <asp:Literal ID="ltTitulo" runat="server"></asp:Literal></h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    <asp:Literal ID="ltDescricao" runat="server"></asp:Literal></p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    <asp:Literal ID="ltDescricao" runat="server"></asp:Literal>
+                </div>
             </td>
         </tr>
         <tr>

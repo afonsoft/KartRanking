@@ -7,12 +7,10 @@
     <asp:Panel ID="PanelPilotos" runat="server">
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Pilotos do Grupo</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Informações e gerenciamento dos pilotos</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Informações e gerenciamento dos pilotos</div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -127,12 +125,10 @@
 
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Equipes do Grupo</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Informações e gerenciamento das equipes</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Informações e gerenciamento das equipes</div>
             </div>
             <div class="clear espaco">
                 &nbsp;
