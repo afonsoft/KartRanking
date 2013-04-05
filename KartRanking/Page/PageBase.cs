@@ -4,12 +4,64 @@ using System.Linq;
 using System.Web;
 using KartRanking.BaseDados;
 using System.Globalization;
+using System.Web.UI.HtmlControls;
 
 namespace KartRanking.Page
 {
     public class PageBase : System.Web.UI.Page
     {
         private DataKartDataContext _dk = null;
+
+        #region AddMetaTag
+
+        protected virtual void AddMetaTag(string name, string value)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(value))
+                return;
+
+            HtmlMeta meta = new HtmlMeta();
+            meta.Name = name;
+            meta.Content = value;
+            Page.Header.Controls.AddAt(0, meta);
+        }
+
+        protected virtual void AddMetaTag(string name, string key, string value, string content)
+        {
+            if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(value))
+                return;
+
+            HtmlMeta meta = new HtmlMeta();
+            if (!string.IsNullOrEmpty(name))
+                meta.Name = name;
+            meta.Content = content;
+            meta.Attributes.Add(key, value);
+            Page.Header.Controls.AddAt(0, meta);
+        }
+
+        protected virtual void AddMetaTag(string name, string key, string value)
+        {
+            if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(value))
+                return;
+
+            HtmlMeta meta = new HtmlMeta();
+            if (!string.IsNullOrEmpty(name))
+                meta.Name = name;
+            meta.Attributes.Add(key, value);
+            Page.Header.Controls.AddAt(0, meta);
+        }
+
+        #endregion
+
+        protected override void OnLoad(EventArgs e)
+        {
+            HtmlLink link = new HtmlLink();
+            link.Attributes.Add("rel", "canonical");
+            link.Attributes.Add("href", Request.Url.ToString());
+            this.Header.Controls.AddAt(0, link);
+            AddMetaTag("url", Request.Url.ToString());
+            AddMetaTag("", "property", "og:url", Request.Url.ToString());
+            base.OnLoad(e);
+        }
 
         /// <summary>
         /// Base de dados
