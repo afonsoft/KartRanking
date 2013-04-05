@@ -71,7 +71,7 @@ namespace KartRanking
                     ctx.Response.StatusCode = 404;
                     ctx.Server.ClearError();
                 }
-                else if (exception != null && (exception.Message.Contains("Arquivo") || exception.Message.Contains("inexistente")))
+                else if (exception != null && (exception.Message.Contains("File") || exception.Message.Contains("Arquivo") || exception.Message.Contains("inexistente") || exception.Message.Contains("not exist")))
                 {
                     ctx.Server.ClearError();
                 }

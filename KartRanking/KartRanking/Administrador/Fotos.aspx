@@ -203,7 +203,7 @@
                     <% TotalCol++; TotalImgCount++; %>
                     <div class="grid_2">
                         <a href="<%# Eval("Foto") %>" rel="lightbox[roadtrip]" title="<%# Eval("Nome") %>">
-                            <img alt="<%= String.Format("Roadtrip: imagem {0} de {1}",TotalImgCount, TotalImg)  %>"
+                            <img alt="<%= String.Format("Roadtrip: Imagem {0} de {1}",TotalImgCount, TotalImg)  %>"
                                 src="<%# Eval("Foto") %>" width="130px" height="100px" />
                         </a>
                     </div>
