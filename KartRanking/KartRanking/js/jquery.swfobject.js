@@ -1,3 +1,237 @@
 ﻿// jQuery SWFObject v1.1.1 MIT/GPL @jon_neal
 // http://jquery.thewikies.com/swfobject
-(function (f, h, i) { function k(a, c) { var b = (a[0] || 0) - (c[0] || 0); return b > 0 || !b && a.length > 0 && k(a.slice(1), c.slice(1)) } function l(a) { if (typeof a != g) return a; var c = [], b = ""; for (var d in a) { b = typeof a[d] == g ? l(a[d]) : [d, m ? encodeURI(a[d]) : a[d]].join("="); c.push(b) } return c.join("&") } function n(a) { var c = []; for (var b in a) a[b] && c.push([b, '="', a[b], '"'].join("")); return c.join(" ") } function o(a) { var c = []; for (var b in a) c.push(['<param name="', b, '" value="', l(a[b]), '" />'].join("")); return c.join("") } var g = "object", m = true; try { var j = i.description || function () { return (new i("ShockwaveFlash.ShockwaveFlash")).GetVariable("$version") } () } catch (p) { j = "Unavailable" } var e = j.match(/\d+/g) || [0]; f[h] = { available: e[0] > 0, activeX: i && !i.name, version: { original: j, array: e, string: e.join("."), major: parseInt(e[0], 10) || 0, minor: parseInt(e[1], 10) || 0, release: parseInt(e[2], 10) || 0 }, hasVersion: function (a) { a = /string|number/.test(typeof a) ? a.toString().split(".") : /object/.test(typeof a) ? [a.major, a.minor] : a || [0, 0]; return k(e, a) }, encodeParams: true, expressInstall: "expressInstall.swf", expressInstallIsActive: false, create: function (a) { if (!a.swf || this.expressInstallIsActive || !this.available && !a.hasVersionFail) return false; if (!this.hasVersion(a.hasVersion || 1)) { this.expressInstallIsActive = true; if (typeof a.hasVersionFail == "function") if (!a.hasVersionFail.apply(a)) return false; a = { swf: a.expressInstall || this.expressInstall, height: 137, width: 214, flashvars: { MMredirectURL: location.href, MMplayerType: this.activeX ? "ActiveX" : "PlugIn", MMdoctitle: document.title.slice(0, 47) + " - Flash Player Installation"}} } attrs = { data: a.swf, type: "application/x-shockwave-flash", id: a.id || "flash_" + Math.floor(Math.random() * 999999999), width: a.width || 320, height: a.height || 180, style: a.style || "" }; m = typeof a.useEncode !== "undefined" ? a.useEncode : this.encodeParams; a.movie = a.swf; a.wmode = a.wmode || "opaque"; delete a.fallback; delete a.hasVersion; delete a.hasVersionFail; delete a.height; delete a.id; delete a.swf; delete a.useEncode; delete a.width; var c = document.createElement("div"); c.innerHTML = ["<object ", n(attrs), ">", o(a), "</object>"].join(""); return c.firstChild } }; f.fn[h] = function (a) { var c = this.find(g).andSelf().filter(g); /string|object/.test(typeof a) && this.each(function () { var b = f(this), d; a = typeof a == g ? a : { swf: a }; a.fallback = this; if (d = f[h].create(a)) { b.children().remove(); b.html(d) } }); typeof a == "function" && c.each(function () { var b = this; b.jsInteractionTimeoutMs = b.jsInteractionTimeoutMs || 0; if (b.jsInteractionTimeoutMs < 660) b.clientWidth || b.clientHeight ? a.call(b) : setTimeout(function () { f(b)[h](a) }, b.jsInteractionTimeoutMs + 66) }); return c } })(jQuery, "flash", navigator.plugins["Shockwave Flash"] || window.ActiveXObject);
+
+(function ($, flash, Plugin) {
+    var OBJECT = 'object',
+		ENCODE = true;
+
+    function _compareArrayIntegers(a, b) {
+        var x = (a[0] || 0) - (b[0] || 0);
+
+        return x > 0 || (
+			!x &&
+			a.length > 0 &&
+			_compareArrayIntegers(a.slice(1), b.slice(1))
+		);
+    }
+
+    function _objectToArguments(obj) {
+        if (typeof obj != OBJECT) {
+            return obj;
+        }
+
+        var arr = [],
+			str = '';
+
+        for (var i in obj) {
+            if (typeof obj[i] == OBJECT) {
+                str = _objectToArguments(obj[i]);
+            }
+            else {
+                str = [i, (ENCODE) ? encodeURI(obj[i]) : obj[i]].join('=');
+            }
+
+            arr.push(str);
+        }
+
+        return arr.join('&');
+    }
+
+    function _objectFromObject(obj) {
+        var arr = [];
+
+        for (var i in obj) {
+            if (obj[i]) {
+                arr.push([i, '="', obj[i], '"'].join(''));
+            }
+        }
+
+        return arr.join(' ');
+    }
+
+    function _paramsFromObject(obj) {
+        var arr = [];
+
+        for (var i in obj) {
+            arr.push([
+				'<param name="', i,
+				'" value="', _objectToArguments(obj[i]), '" />'
+			].join(''));
+        }
+
+        return arr.join('');
+    }
+
+    try {
+        var flashVersion = Plugin.description || (function () {
+            return (
+				new Plugin('ShockwaveFlash.ShockwaveFlash')
+			).GetVariable('$version');
+        } ())
+    }
+    catch (e) {
+        flashVersion = 'Unavailable';
+    }
+
+    var flashVersionMatchVersionNumbers = flashVersion.match(/\d+/g) || [0];
+
+    $[flash] = {
+        available: flashVersionMatchVersionNumbers[0] > 0,
+
+        activeX: Plugin && !Plugin.name,
+
+        version: {
+            original: flashVersion,
+            array: flashVersionMatchVersionNumbers,
+            string: flashVersionMatchVersionNumbers.join('.'),
+            major: parseInt(flashVersionMatchVersionNumbers[0], 10) || 0,
+            minor: parseInt(flashVersionMatchVersionNumbers[1], 10) || 0,
+            release: parseInt(flashVersionMatchVersionNumbers[2], 10) || 0
+        },
+
+        hasVersion: function (version) {
+            var versionArray = (/string|number/.test(typeof version))
+				? version.toString().split('.')
+				: (/object/.test(typeof version))
+					? [version.major, version.minor]
+					: version || [0, 0];
+
+            return _compareArrayIntegers(
+				flashVersionMatchVersionNumbers,
+				versionArray
+			);
+        },
+
+        encodeParams: true,
+
+        expressInstall: 'expressInstall.swf',
+        expressInstallIsActive: false,
+
+        create: function (obj) {
+            var instance = this;
+
+            if (
+				!obj.swf ||
+				instance.expressInstallIsActive ||
+				(!instance.available && !obj.hasVersionFail)
+			) {
+                return false;
+            }
+
+            if (!instance.hasVersion(obj.hasVersion || 1)) {
+                instance.expressInstallIsActive = true;
+
+                if (typeof obj.hasVersionFail == 'function') {
+                    if (!obj.hasVersionFail.apply(obj)) {
+                        return false;
+                    }
+                }
+
+                obj = {
+                    swf: obj.expressInstall || instance.expressInstall,
+                    height: 137,
+                    width: 214,
+                    flashvars: {
+                        MMredirectURL: location.href,
+                        MMplayerType: (instance.activeX)
+							? 'ActiveX' : 'PlugIn',
+                        MMdoctitle: document.title.slice(0, 47) +
+							' - Flash Player Installation'
+                    }
+                };
+            }
+
+            attrs = {
+                data: obj.swf,
+                type: 'application/x-shockwave-flash',
+                id: obj.id || 'flash_' + Math.floor(Math.random() * 999999999),
+                width: obj.width || 320,
+                height: obj.height || 180,
+                style: obj.style || ''
+            };
+
+            ENCODE = typeof obj.useEncode !== 'undefined' ? obj.useEncode : instance.encodeParams;
+
+            obj.movie = obj.swf;
+            obj.wmode = obj.wmode || 'opaque';
+
+            delete obj.fallback;
+            delete obj.hasVersion;
+            delete obj.hasVersionFail;
+            delete obj.height;
+            delete obj.id;
+            delete obj.swf;
+            delete obj.useEncode;
+            delete obj.width;
+
+            var flashContainer = document.createElement('div');
+
+            flashContainer.innerHTML = [
+				'<object ', _objectFromObject(attrs), '>',
+				_paramsFromObject(obj),
+				'</object>'
+			].join('');
+
+            return flashContainer.firstChild;
+        }
+    };
+
+    $.fn[flash] = function (options) {
+        var $this = this.find(OBJECT).andSelf().filter(OBJECT);
+
+        if (/string|object/.test(typeof options)) {
+            this.each(
+				function () {
+				    var $this = $(this),
+						flashObject;
+
+				    options = (typeof options == OBJECT) ? options : {
+				        swf: options
+				    };
+
+				    options.fallback = this;
+
+				    flashObject = $[flash].create(options);
+
+				    if (flashObject) {
+				        $this.children().remove();
+
+				        $this.html(flashObject);
+				    }
+				}
+			);
+        }
+
+        if (typeof options == 'function') {
+            $this.each(
+				function () {
+				    var instance = this,
+					jsInteractionTimeoutMs = 'jsInteractionTimeoutMs';
+
+				    instance[jsInteractionTimeoutMs] =
+						instance[jsInteractionTimeoutMs] || 0;
+
+				    if (instance[jsInteractionTimeoutMs] < 660) {
+				        if (instance.clientWidth || instance.clientHeight) {
+				            options.call(instance);
+				        }
+				        else {
+				            setTimeout(
+								function () {
+								    $(instance)[flash](options);
+								},
+								instance[jsInteractionTimeoutMs] + 66
+							);
+				        }
+				    }
+				}
+			);
+        }
+
+        return $this;
+    };
+} (
+	jQuery,
+	'flash',
+	navigator.plugins['Shockwave Flash'] || window.ActiveXObject
+));
