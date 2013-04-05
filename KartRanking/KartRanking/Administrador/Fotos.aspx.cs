@@ -70,7 +70,7 @@ namespace KartRanking.Administrador
                 album.Itens = RecuperarTodosItens(fotos.PathFotos, fotos.UrlFotos, fotos.idAlbum);
 
                 TotalCol = 0;
-                TotalImg = album.Itens.Count();
+                TotalImg = (from a in album.Itens where a.Ativo == true select a).Count();
                 TotalImgCount = 0;
                 RepeaterFotos.DataSource = album.Itens;
                 RepeaterFotos.DataBind();
