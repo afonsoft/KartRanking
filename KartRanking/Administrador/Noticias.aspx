@@ -34,7 +34,6 @@
                 <asp:HiddenField ID="HiddenFieldIdNoticia" runat="server" />
             </div>
         </div>
-
         <script type="text/javascript">
             $('.jqte').jqte();
 
@@ -42,12 +41,12 @@
                 $('#OpenCadastro').dialog({
                     autoOpen: false, hide: 'explode', modal: false, show: 'slide',
                     buttons: {
-                        "Salvar": function() {
+                        "Salvar": function () {
                             $('#OpenCadastro').dialog("close");
                             __doPostBack('<%= lnkCadastrar.UniqueID %>', '');
                             return true;
                         },
-                        "Sair": function() { $('#OpenCadastro').dialog("close"); return true; }
+                        "Sair": function () { $('#OpenCadastro').dialog("close"); return true; }
                     }
                 });
                 $('#OpenCadastro').dialog({ width: 750, height: 500 });
@@ -55,7 +54,6 @@
                 $('#OpenCadastro').dialog('open');
             }
         </script>
-
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="StepTitle">

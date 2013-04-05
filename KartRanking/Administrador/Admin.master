@@ -95,6 +95,7 @@
                                             </ul>
                                         </li>
                                         <li><a itemprop="url" rel="tag" href="Fotos.aspx">Fotos</a></li>
+                                        <li><a itemprop="url" rel="tag" href="Videos.aspx">Videos</a></li>
                                         <li><a itemprop="url" rel="tag" href="Noticias.aspx">Noticias</a></li>
                                         <li><a itemprop="url" rel="bookmark" href="http://forum.afonsoft.com.br/">Forum</a></li>
                                         <li>

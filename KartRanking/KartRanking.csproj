@@ -97,6 +97,7 @@
     <Content Include="images\prev.png" />
     <Content Include="images\replay.png" />
     <Content Include="js\jquery.easySlider.js" />
+    <Content Include="js\jquery.flash.js" />
     <Content Include="js\jquery.smooth-scroll.min.js" />
     <Content Include="js\jquery.swfobject.js" />
     <Content Include="js\jquery.youTubeEmbed.js" />
@@ -236,13 +237,6 @@
     </Compile>
     <Compile Include="Administrador\RecuperarSenha.aspx.designer.cs">
       <DependentUpon>RecuperarSenha.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\TesteMenu.aspx.cs">
-      <DependentUpon>TesteMenu.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\TesteMenu.aspx.designer.cs">
-      <DependentUpon>TesteMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
@@ -407,7 +401,6 @@
     <Content Include="Administrador\PermissaoGrupo.aspx" />
     <Content Include="Administrador\PilotosEquipesGrupo.aspx" />
     <Content Include="Administrador\RecuperarSenha.aspx" />
-    <Content Include="Administrador\TesteMenu.aspx" />
     <Content Include="css\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
     <Content Include="css\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />

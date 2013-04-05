@@ -2,11 +2,10 @@
     Inherits="KartRanking.KartRanking" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" dir="ltr" lang="pt-br" xml:lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/"
+dir="ltr" lang="pt-br" xml:lang="pt-br">
 <head runat="server" profile="http://gmpg.org/xfn/11">
-    
     <title>Kart Ranking - Gerenciamento de campeonatos de Kart com ranking</title>
-    
     <meta name="copyright" content="AFONSOFT 2013" />
     <meta http-equiv="content-language" content="pt-br" />
     <meta name="robots" content="follow, all" />
@@ -18,25 +17,19 @@
     <meta name="classification" content="campeonatos de kart, categoria leves, categoria médios, categoria pesados, categoria feminino, categorias de kart, melhores do mês, premiação, enduro, enduros, endurance kart, corrida de kart na chuva, kart outdoor, eventos de kart, promoções kart, são paulo, corra de kart, velocidade, adrenalina, derrapagem, ultrapassagem, kart Anhaia melo, kart ao ar livre, kart promoção, corrida de kart, kart amigos, correr amigos, amigos do kart,  traçado misto, curvas perigosas, curvas sinuosas, reta oposta, retas de kart, circuitos de kart, circuito misto, baixo custo, sistema score board, sistema de cronometragem, classificação kart, largada, chegada, pódium, pódio, pilotagem, piloto kart, regras do kart, bandeira amarela kart, bandeira azul kart, bandeira verde kart, bandeira branca e preta kart, bandeira preta kart, bandeira vermelha kart, bandeira quadriculada kart, endurance loucos por kart, loucos por kart, vestiário com chuveiro, sala de briefing, guarita com narrador, curso de pilotagem, ranking kart, pilotar kart, baterias de kart, baterias kart, fórmula 1, fórmula kart, pista, competição, emoção, consagração, confraternização, kart, karts,  karts rápidos, kart lento, kart novo, kart veloz, traçado de kart, kart amador, kart profissional,  piloto kart, Kart, Campeonato, Grupo, karting, Racing, Rank, Ranking, kartodromo, Granja Viana, Praia Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, conteudo, kart.afonsoft.com.br, forum.afonsoft.com.br, blog.afonsoft.com.br, sistema de gerenciamento de conteúdo, gerenciamento de conteúdo,  sistema de gerenciamento de informações" />
     <meta name="author" content="Afonso Dutra Nogueira Filho" />
     <link rev="made" href="mailto:afonsoft@afonsoft.com.br" />
-    
-   
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Kart Ranking - Gerenciamento de campeonatos de Kart com ranking" />
     <meta property="og:description" content="campeonatos de kart, categoria leves, categoria médios, categoria pesados, categoria feminino, categorias de kart, melhores do mês, premiação, enduro, enduros, endurance kart, corrida de kart na chuva, kart outdoor, eventos de kart, promoções kart, são paulo, corra de kart, velocidade, adrenalina, derrapagem, ultrapassagem, kart Anhaia melo, kart ao ar livre, kart promoção, corrida de kart, kart amigos, correr amigos, amigos do kart,  traçado misto, curvas perigosas, curvas sinuosas, reta oposta, retas de kart, circuitos de kart, circuito misto, baixo custo, sistema score board, sistema de cronometragem, classificação kart, largada, chegada, pódium, pódio, pilotagem, piloto kart, regras do kart, bandeira amarela kart, bandeira azul kart, bandeira verde kart, bandeira branca e preta kart, bandeira preta kart, bandeira vermelha kart, bandeira quadriculada kart, endurance loucos por kart, loucos por kart, vestiário com chuveiro, sala de briefing, guarita com narrador, curso de pilotagem, ranking kart, pilotar kart, baterias de kart, baterias kart, fórmula 1, fórmula kart, pista, competição, emoção, consagração, confraternização, kart, karts,  karts rápidos, kart lento, kart novo, kart veloz, traçado de kart, kart amador, kart profissional,  piloto kart, Kart, Campeonato, Grupo, karting, Racing, Rank, Ranking, kartodromo, Granja Viana, Praia Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, conteudo, kart.afonsoft.com.br, forum.afonsoft.com.br, blog.afonsoft.com.br, sistema de gerenciamento de conteúdo, gerenciamento de conteúdo,  sistema de gerenciamento de informações" />
-    <meta property="og:image" content="http://kart.afonsoft.com.br/kart-touch-icon.png"/>
-    
+    <meta property="og:image" content="http://kart.afonsoft.com.br/kart-touch-icon.png" />
     <meta name="msvalidate.01" content="5D855AEDE7237C848BC7833AC7DACFB3" />
-    
     <!-- Celulares -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    
     <link rel="apple-touch-icon" href="kart-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="kart-touch-icon.png" />
     <link rel="icon" href="kart-touch-icon.png" />
     <link rel="shortcut icon" href="kart-touch-icon.png" />
     <link rel="apple-touch-startup-image" href="kart-touch-icon.png" />
-    
     <link href="/css/Karting.css" rel="stylesheet" type="text/css" />
     <link href="/css/GridViewTemplate.css" rel="stylesheet" type="text/css" />
     <link href="/css/960Grid.css" rel="stylesheet" type="text/css" />
@@ -54,7 +47,8 @@
     <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
     <script src="/js/jquery.smooth-scroll.min.js" type="text/javascript"></script>
     <script src="/js/Lightbox.js" type="text/javascript"></script>
-    <script src="js/jquery.swfobject.js" type="text/javascript"></script>
+    <script src="/js/jquery.swfobject.js" type="text/javascript"></script>
+    <script src="/js/jquery.flash.js" type="text/javascript"></script>
     <script src="/js/jquery.youTubeEmbed.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
     </asp:ContentPlaceHolder>
