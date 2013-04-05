@@ -103,7 +103,7 @@
                                         <li><a itemprop="url" rel="bookmark" href="http://forum.afonsoft.com.br/">Forum</a></li>
                                         <li>
                                             <asp:LinkButton ID="lnkSair" runat="server" OnClick="lnkSair_Click">Sair</asp:LinkButton></li>
-                                        <li style="vertical-align: middle; padding-top: 10px; padding-left: 10px;">
+                                        <li style="vertical-align: middle; padding-left: 5px; padding-top:4px; padding-right: 4px;">
                                             <!-- Place this tag where you want the +1 button to render. -->
                                             <div class="g-plusone" data-annotation="none"></div>
                                             <!-- Place this tag after the last +1 button tag. -->
