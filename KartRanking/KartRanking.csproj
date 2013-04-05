@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AspNetInfo.aspx" />
+    <Content Include="BingSiteAuth.xml" />
     <Content Include="css\lightbox.css" />
     <Content Include="css\youTubeEmbed.css" />
     <Content Include="dlls\AjaxControlToolkit.dll" />
