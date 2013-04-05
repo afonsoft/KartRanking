@@ -91,6 +91,7 @@
     <Content Include="images\next.png" />
     <Content Include="images\prev.png" />
     <Content Include="js\jquery.easySlider.js" />
+    <Content Include="js\jquery.smooth-scroll.min.js" />
     <Content Include="js\lightbox.js" />
     <Content Include="robots.txt" />
     <Content Include="SiteMap.xml" />
