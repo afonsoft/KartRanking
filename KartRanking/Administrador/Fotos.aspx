@@ -2,19 +2,16 @@
     CodeBehind="Fotos.aspx.cs" Inherits="KartRanking.Administrador.Fotos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
-    <link href="/css/lightbox.css" rel="stylesheet" />
-    <script src="/js/Lightbox.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelListAlbum" runat="server">
-
         <script type="text/javascript">
             function OpenCadastro() {
                 jQuery('#CadAlbum').dialog({
                     autoOpen: false, title: "Cadastrar novo Album",
                     buttons: {
-                        "Salvar": function() { jQuery('#CadAlbum').dialog("close"); __doPostBack('<%= lnkConfirmar.UniqueID %>', ''); return true; },
-                        "Sair": function() { jQuery('#CadAlbum').dialog("close"); return true; }
+                        "Salvar": function () { jQuery('#CadAlbum').dialog("close"); __doPostBack('<%= lnkConfirmar.UniqueID %>', ''); return true; },
+                        "Sair": function () { jQuery('#CadAlbum').dialog("close"); return true; }
                     }
                 });
                 jQuery('#CadAlbum').dialog({ width: 300, height: 160 });
@@ -22,7 +19,6 @@
                 jQuery('#CadAlbum').dialog('open');
             }
         </script>
-
         <div id="CadAlbum" title="Cadastrar novo Album" style="display: none; font-size: x-small;
             color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
             class="ui-dialog ui-resizable-handle">
@@ -120,14 +116,13 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelAlbum" runat="server">
-
         <script type="text/javascript">
             function OpenUploadPhoto() {
                 jQuery('#dlgUpFile').dialog({
                     autoOpen: false, title: "Upload de Fotos",
                     buttons: {
-                        "Enviar": function() { jQuery('#dlgUpFile').dialog("close"); __doPostBack('<%= lnkConfirmarUp.UniqueID %>', ''); return true; },
-                        "Sair": function() { jQuery('#dlgUpFile').dialog("close"); return true; }
+                        "Enviar": function () { jQuery('#dlgUpFile').dialog("close"); __doPostBack('<%= lnkConfirmarUp.UniqueID %>', ''); return true; },
+                        "Sair": function () { jQuery('#dlgUpFile').dialog("close"); return true; }
                     }
                 });
                 jQuery('#dlgUpFile').dialog({ width: 300, height: 250 });
@@ -135,7 +130,6 @@
                 jQuery('#dlgUpFile').dialog('open');
             }
         </script>
-
         <div id="dlgUpFile" title="Upload de Fotos" style="display: none; font-size: x-small;
             color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
             class="ui-dialog ui-resizable-handle">
@@ -208,8 +202,9 @@
                 <ItemTemplate>
                     <% TotalCol++; TotalImgCount++; %>
                     <div class="grid_2">
-                        <a href="<%# Eval("Foto") %>" rel="lightbox[roadtrip]" title="<%# Eval("Nome") %>" >
-                            <img alt="<%= String.Format("roadtrip: imagem {0} de {1}",TotalImgCount, TotalImg)  %>" src="<%# Eval("Foto") %>" width="130px" height="100px" />
+                        <a href="<%# Eval("Foto") %>" rel="lightbox[roadtrip]" title="<%# Eval("Nome") %>">
+                            <img alt="<%= String.Format("Roadtrip: imagem {0} de {1}",TotalImgCount, TotalImg)  %>"
+                                src="<%# Eval("Foto") %>" width="130px" height="100px" />
                         </a>
                     </div>
                     <% if (TotalCol == 6)

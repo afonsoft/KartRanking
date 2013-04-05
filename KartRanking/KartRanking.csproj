@@ -90,7 +90,8 @@
     <Content Include="images\loading.gif" />
     <Content Include="images\next.png" />
     <Content Include="images\prev.png" />
-    <Content Include="js\Lightbox.js" />
+    <Content Include="js\jquery.easySlider.js" />
+    <Content Include="js\lightbox.js" />
     <Content Include="robots.txt" />
     <Content Include="SiteMap.xml" />
     <Content Include="Web.config">
@@ -410,7 +411,6 @@
     <Content Include="css\jquery-te-1.3.3.png" />
     <Content Include="css\Login.css" />
     <Content Include="css\menu.css" />
-    <Content Include="css\prettyPhoto.css" />
     <Content Include="css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="css\redmond\images\ui-bg_flat_25_000000_40x100.png" />
     <Content Include="css\redmond\images\ui-bg_flat_30_cccccc_40x100.png" />
@@ -590,14 +590,8 @@
     <Content Include="js\jquery-1.9.1.js" />
     <Content Include="js\jquery-te-1.3.3.min.js" />
     <Content Include="js\jquery-ui-1.10.1.custom.min.js" />
-    <Content Include="js\jquery.easing.1.3.js" />
-    <Content Include="js\jquery.easySlider.js" />
-    <Content Include="js\jquery.equalheights.js" />
-    <Content Include="js\jquery.hoverIntent.js" />
     <Content Include="js\jquery.maskedinput.js" />
     <Content Include="js\jquery.numeric.js" />
-    <Content Include="js\jquery.prettyPhoto.js" />
-    <Content Include="js\jquery.superfish.js" />
     <Content Include="js\login.js" />
     <Content Include="js\PIE.htc" />
     <Content Include="js\whizzywig63.js" />
