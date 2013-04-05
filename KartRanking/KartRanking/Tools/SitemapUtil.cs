@@ -9,10 +9,6 @@ namespace KartRanking.Tools
 {
     public class SitemapUtil 
     {
-
-        private readonly object _siteMapLock = new object();
-        private SiteMapNode _siteMapRoot;
-
         public void createSiteMap()
         {
             XNamespace ns = XNamespace.Get("http://www.sitemaps.org/schemas/sitemap/0.9");

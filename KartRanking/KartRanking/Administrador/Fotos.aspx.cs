@@ -119,11 +119,17 @@ namespace KartRanking.Administrador
             {
                 Itens.Add(new Item()
                 {
-                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                    Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Ativo = true,
                     idAlbum = idAlbum
                 });
+            }
+
+            if (Itens.Count() < 6)
+            {
+                for (int i = Itens.Count(); i < 6; i++)
+                    Itens.Add(new Item() { Foto = "", Nome = "", Ativo = false });
             }
 
             return Itens;
@@ -142,7 +148,7 @@ namespace KartRanking.Administrador
             {
                 Itens.Add(new Item()
                 {
-                    Foto = url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                    Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
                     Ativo = true,
                     idAlbum = idAlbum
