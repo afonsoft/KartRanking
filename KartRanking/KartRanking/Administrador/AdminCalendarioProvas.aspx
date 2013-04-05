@@ -7,12 +7,11 @@
     <asp:Panel ID="PanelSelecionar" runat="server">
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Calendário do Campeonato</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Informações e gerenciamento do calendário</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Informações e gerenciamento do calendário
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -69,7 +68,7 @@
                                 <ItemTemplate>
                                     <asp:ImageButton ID="imgbntEditar" ImageUrl="~/images/Edit16px.png" Height="16px"
                                         Width="16px" runat="server" ToolTip="Editar esta Etapa do Campeonato" CommandArgument='<%# Eval( "idCalendario" )%>'
-                                        CommandName="EditCalendario"  />
+                                        CommandName="EditCalendario" />
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
@@ -93,9 +92,8 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelEditar" runat="server">
-
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 $('#<%= ltData.ClientID %>').datepicker({
                     changeMonth: true,
                     changeYear: true,
@@ -113,15 +111,13 @@
                 $('#<%= ltHora.ClientID %>').mask("99:99");
             });
         </script>
-
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Editção / Cadastro de um Calendário</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Informações e gerenciamento do calendário</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Informações e gerenciamento do calendário
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;

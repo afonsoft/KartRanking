@@ -80,6 +80,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador\Videos.aspx" />
     <Content Include="AspNetInfo.aspx" />
     <Content Include="BingSiteAuth.xml" />
     <Content Include="css\lightbox.css" />
@@ -242,6 +243,13 @@
     </Compile>
     <Compile Include="Administrador\TesteMenu.aspx.designer.cs">
       <DependentUpon>TesteMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Videos.aspx.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Videos.aspx.designer.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaseDados\DataKart.designer.cs">
       <AutoGen>True</AutoGen>

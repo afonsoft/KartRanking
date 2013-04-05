@@ -4,9 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#<%= txtDtInicio.ClientID %>, #<%= txtDtFim.ClientID %>').datepicker({
                 changeMonth: true,
                 changeYear: true,
@@ -22,15 +21,13 @@
             });
         });
     </script>
-
     <div class="container_12">
         <div class="grid_12">
-            <h3 class="titulo">
+            <h3 class="StepTitle">
                 <asp:Literal ID="ltTitulo" runat="server"></asp:Literal></h3>
-            <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                <asp:Literal ID="ltDescricao" runat="server"></asp:Literal></p>
-            <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                border-right: #ccc 1px dashed;" />
+            <div class="StepSubTitle">
+                <asp:Literal ID="ltDescricao" runat="server"></asp:Literal>
+            </div>
         </div>
         <div class="clear espaco">
             &nbsp;

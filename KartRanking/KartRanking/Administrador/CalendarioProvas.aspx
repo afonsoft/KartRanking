@@ -7,12 +7,11 @@
     <asp:Panel ID="PanelSelecionar" runat="server">
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Calendário do Campeonato</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Informações e gerenciamento do calendário</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Informações e gerenciamento do calendário
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -63,9 +62,8 @@
         </div>
     </asp:Panel>
     <asp:Panel ID="PanelGridEtapa" runat="server">
-
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 $('#<%= txtGridTempo.ClientID%>').mask("99:99:999");
                 $('#<%= txtEtapaTempo.ClientID%>').mask("99:99:999");
                 $('#<%= txtGridPos.ClientID%>').numeric(false);
@@ -81,13 +79,13 @@
                 $('#OpenGrid').dialog({
                     autoOpen: false, hide: 'explode', modal: false, show: 'slide',
                     buttons: {
-                        "Salvar": function() {
+                        "Salvar": function () {
                             $('#OpenGrid').dialog("close");
                             document.getElementById('<%= HiddenIdGridPiloto.ClientID %>').value = document.getElementById('<%= ddlGridPilotoDisponivel.ClientID %>').selectedIndex;
                             __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
                             return true;
                         },
-                        "Sair": function() { $('#OpenGrid').dialog("close"); return true; }
+                        "Sair": function () { $('#OpenGrid').dialog("close"); return true; }
                     }
                 });
                 $('#OpenGrid').dialog({ width: 550, height: 220 });
@@ -104,13 +102,13 @@
                 $('#OpenEtapa').dialog({
                     autoOpen: false, hide: 'explode', modal: false, show: 'slide',
                     buttons: {
-                        "Salvar": function() {
+                        "Salvar": function () {
                             $('#OpenEtapa').dialog("close");
                             document.getElementById('<%= HiddenIdEtapaPiloto.ClientID %>').value = document.getElementById('<%= ddlEtapaPilotoDisponivel.ClientID %>').selectedIndex;
                             __doPostBack('<%= lnkAtualizaGridEtapa.UniqueID %>', '');
                             return true;
                         },
-                        "Sair": function() { $('#OpenEtapa').dialog("close"); return true; }
+                        "Sair": function () { $('#OpenEtapa').dialog("close"); return true; }
                     }
                 });
                 $('#OpenEtapa').dialog({ width: 600, height: 220 });
@@ -120,15 +118,13 @@
             }
             
         </script>
-
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="titulo">
+                <h3 class="StepTitle">
                     Calendário do Campeonato</h3>
-                <p style="color: #666; padding-top: 2px; margin-top: 0px; margin-bottom: 0px">
-                    Informações e gerenciamento do calendário</p>
-                <hr style="border-bottom: #ccc 1px dashed; border-left: #ccc 1px dashed; border-top: #ccc 1px dashed;
-                    border-right: #ccc 1px dashed;" />
+                <div class="StepSubTitle">
+                    Informações e gerenciamento do calendário
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -162,8 +158,8 @@
             <div class="grid_12">
                 <div class="template" itemscope itemtype="http://schema.org/Table">
                     <asp:GridView ID="gvGrid" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado de classificação"
-                        DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false" 
-                        OnRowCommand="gvGrid_RowCommand" onrowcreated="gvGrids_RowCreated">
+                        DataKeyNames="idGrid, idCalendario" AutoGenerateColumns="false" OnRowCommand="gvGrid_RowCommand"
+                        OnRowCreated="gvGrids_RowCreated">
                         <Columns>
                             <asp:BoundField HeaderText="Pos" DataField="Pos" />
                             <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
@@ -201,8 +197,8 @@
             <div class="grid_12">
                 <div class="template" itemscope itemtype="http://schema.org/Table">
                     <asp:GridView ID="gvResultados" CssClass="gridview" runat="server" EmptyDataText="Nenhum resultado final"
-                        DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false" 
-                        OnRowCommand="gvResultados_RowCommand" onrowcreated="gvResultados_RowCreated">
+                        DataKeyNames="idResultado, idCalendario" AutoGenerateColumns="false" OnRowCommand="gvResultados_RowCommand"
+                        OnRowCreated="gvResultados_RowCreated">
                         <Columns>
                             <asp:BoundField HeaderText="Pos" DataField="Pos" />
                             <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
