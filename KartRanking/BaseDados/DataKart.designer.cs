@@ -22,7 +22,7 @@ namespace KartRanking.BaseDados
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="afonsoftcombr_db")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DataSource")]
 	public partial class DataKartDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -69,6 +69,9 @@ namespace KartRanking.BaseDados
     partial void InsertKart_Album_Grupo(Kart_Album_Grupo instance);
     partial void UpdateKart_Album_Grupo(Kart_Album_Grupo instance);
     partial void DeleteKart_Album_Grupo(Kart_Album_Grupo instance);
+    partial void InsertKart_Videos_Grupo(Kart_Videos_Grupo instance);
+    partial void UpdateKart_Videos_Grupo(Kart_Videos_Grupo instance);
+    partial void DeleteKart_Videos_Grupo(Kart_Videos_Grupo instance);
     #endregion
 		
 		public DataKartDataContext() : 
@@ -244,6 +247,14 @@ namespace KartRanking.BaseDados
 				return this.GetTable<Kart_Album_Grupo>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Kart_Videos_Grupo> Kart_Videos_Grupos
+		{
+			get
+			{
+				return this.GetTable<Kart_Videos_Grupo>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Usuarios")]
@@ -314,6 +325,8 @@ namespace KartRanking.BaseDados
 		
 		private EntitySet<Kart_Album_Grupo> _Kart_Album_Grupos;
 		
+		private EntitySet<Kart_Videos_Grupo> _Kart_Videos_Grupos;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -376,6 +389,7 @@ namespace KartRanking.BaseDados
 			this._Kart_Usuario_Equipe_Campeonatos = new EntitySet<Kart_Usuario_Equipe_Campeonato>(new Action<Kart_Usuario_Equipe_Campeonato>(this.attach_Kart_Usuario_Equipe_Campeonatos), new Action<Kart_Usuario_Equipe_Campeonato>(this.detach_Kart_Usuario_Equipe_Campeonatos));
 			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
 			this._Kart_Album_Grupos = new EntitySet<Kart_Album_Grupo>(new Action<Kart_Album_Grupo>(this.attach_Kart_Album_Grupos), new Action<Kart_Album_Grupo>(this.detach_Kart_Album_Grupos));
+			this._Kart_Videos_Grupos = new EntitySet<Kart_Videos_Grupo>(new Action<Kart_Videos_Grupo>(this.attach_Kart_Videos_Grupos), new Action<Kart_Videos_Grupo>(this.detach_Kart_Videos_Grupos));
 			OnCreated();
 		}
 		
@@ -943,6 +957,19 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Kart_Videos_Grupo", Storage="_Kart_Videos_Grupos", ThisKey="idUsuario", OtherKey="idUsuario")]
+		public EntitySet<Kart_Videos_Grupo> Kart_Videos_Grupos
+		{
+			get
+			{
+				return this._Kart_Videos_Grupos;
+			}
+			set
+			{
+				this._Kart_Videos_Grupos.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1058,6 +1085,18 @@ namespace KartRanking.BaseDados
 			this.SendPropertyChanging();
 			entity.Usuario = null;
 		}
+		
+		private void attach_Kart_Videos_Grupos(Kart_Videos_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Kart_Videos_Grupos(Kart_Videos_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Calendario_Campeonato")]
@@ -1087,6 +1126,8 @@ namespace KartRanking.BaseDados
 		private EntitySet<Kart_Grid_Calendario> _Kart_Grid_Calendarios;
 		
 		private EntitySet<Kart_Resultado_Calendario> _Kart_Resultado_Calendarios;
+		
+		private EntitySet<Kart_Videos_Grupo> _Kart_Videos_Grupos;
 		
 		private EntityRef<Kart_Campeonato> _Kart_Campeonato;
 		
@@ -1118,6 +1159,7 @@ namespace KartRanking.BaseDados
 		{
 			this._Kart_Grid_Calendarios = new EntitySet<Kart_Grid_Calendario>(new Action<Kart_Grid_Calendario>(this.attach_Kart_Grid_Calendarios), new Action<Kart_Grid_Calendario>(this.detach_Kart_Grid_Calendarios));
 			this._Kart_Resultado_Calendarios = new EntitySet<Kart_Resultado_Calendario>(new Action<Kart_Resultado_Calendario>(this.attach_Kart_Resultado_Calendarios), new Action<Kart_Resultado_Calendario>(this.detach_Kart_Resultado_Calendarios));
+			this._Kart_Videos_Grupos = new EntitySet<Kart_Videos_Grupo>(new Action<Kart_Videos_Grupo>(this.attach_Kart_Videos_Grupos), new Action<Kart_Videos_Grupo>(this.detach_Kart_Videos_Grupos));
 			this._Kart_Campeonato = default(EntityRef<Kart_Campeonato>);
 			OnCreated();
 		}
@@ -1332,6 +1374,19 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kart_Calendario_Campeonato_Kart_Videos_Grupo", Storage="_Kart_Videos_Grupos", ThisKey="idCalendario", OtherKey="idCalendario")]
+		public EntitySet<Kart_Videos_Grupo> Kart_Videos_Grupos
+		{
+			get
+			{
+				return this._Kart_Videos_Grupos;
+			}
+			set
+			{
+				this._Kart_Videos_Grupos.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kart_Campeonato_Kart_Calendario_Campeonato", Storage="_Kart_Campeonato", ThisKey="idCampeonato", OtherKey="idCampeonato", IsForeignKey=true)]
 		public Kart_Campeonato Kart_Campeonato
 		{
@@ -1405,6 +1460,18 @@ namespace KartRanking.BaseDados
 		}
 		
 		private void detach_Kart_Resultado_Calendarios(Kart_Resultado_Calendario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Calendario_Campeonato = null;
+		}
+		
+		private void attach_Kart_Videos_Grupos(Kart_Videos_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Calendario_Campeonato = this;
+		}
+		
+		private void detach_Kart_Videos_Grupos(Kart_Videos_Grupo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Kart_Calendario_Campeonato = null;
@@ -2361,6 +2428,8 @@ namespace KartRanking.BaseDados
 		
 		private EntitySet<Kart_Album_Grupo> _Kart_Album_Grupos;
 		
+		private EntitySet<Kart_Videos_Grupo> _Kart_Videos_Grupos;
+		
 		private EntityRef<Usuario> _Usuario;
 		
     #region Extensibility Method Definitions
@@ -2396,6 +2465,7 @@ namespace KartRanking.BaseDados
 			this._Kart_Ponto_Grupos = new EntitySet<Kart_Ponto_Grupo>(new Action<Kart_Ponto_Grupo>(this.attach_Kart_Ponto_Grupos), new Action<Kart_Ponto_Grupo>(this.detach_Kart_Ponto_Grupos));
 			this._Kart_Usuario_Grupos = new EntitySet<Kart_Usuario_Grupo>(new Action<Kart_Usuario_Grupo>(this.attach_Kart_Usuario_Grupos), new Action<Kart_Usuario_Grupo>(this.detach_Kart_Usuario_Grupos));
 			this._Kart_Album_Grupos = new EntitySet<Kart_Album_Grupo>(new Action<Kart_Album_Grupo>(this.attach_Kart_Album_Grupos), new Action<Kart_Album_Grupo>(this.detach_Kart_Album_Grupos));
+			this._Kart_Videos_Grupos = new EntitySet<Kart_Videos_Grupo>(new Action<Kart_Videos_Grupo>(this.attach_Kart_Videos_Grupos), new Action<Kart_Videos_Grupo>(this.detach_Kart_Videos_Grupos));
 			this._Usuario = default(EntityRef<Usuario>);
 			OnCreated();
 		}
@@ -2669,6 +2739,19 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kart_Grupo_Kart_Videos_Grupo", Storage="_Kart_Videos_Grupos", ThisKey="idGrupo", OtherKey="idGrupo")]
+		public EntitySet<Kart_Videos_Grupo> Kart_Videos_Grupos
+		{
+			get
+			{
+				return this._Kart_Videos_Grupos;
+			}
+			set
+			{
+				this._Kart_Videos_Grupos.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Kart_Grupo", Storage="_Usuario", ThisKey="Id_Usuario_Lider", OtherKey="idUsuario", IsForeignKey=true)]
 		public Usuario Usuario
 		{
@@ -2778,6 +2861,18 @@ namespace KartRanking.BaseDados
 		}
 		
 		private void detach_Kart_Album_Grupos(Kart_Album_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Grupo = null;
+		}
+		
+		private void attach_Kart_Videos_Grupos(Kart_Videos_Grupo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Kart_Grupo = this;
+		}
+		
+		private void detach_Kart_Videos_Grupos(Kart_Videos_Grupo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Kart_Grupo = null;
@@ -5606,6 +5701,335 @@ namespace KartRanking.BaseDados
 					else
 					{
 						this._IdUsuario = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Videos_Grupo")]
+	public partial class Kart_Videos_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idVideo;
+		
+		private int _idGrupo;
+		
+		private System.Nullable<int> _idCalendario;
+		
+		private System.DateTime _dtEvento;
+		
+		private int _idUsuario;
+		
+		private string _UrlVideo;
+		
+		private System.Nullable<System.DateTime> _dtCriacao;
+		
+		private EntityRef<Kart_Calendario_Campeonato> _Kart_Calendario_Campeonato;
+		
+		private EntityRef<Kart_Grupo> _Kart_Grupo;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidVideoChanging(int value);
+    partial void OnidVideoChanged();
+    partial void OnidGrupoChanging(int value);
+    partial void OnidGrupoChanged();
+    partial void OnidCalendarioChanging(System.Nullable<int> value);
+    partial void OnidCalendarioChanged();
+    partial void OndtEventoChanging(System.DateTime value);
+    partial void OndtEventoChanged();
+    partial void OnidUsuarioChanging(int value);
+    partial void OnidUsuarioChanged();
+    partial void OnUrlVideoChanging(string value);
+    partial void OnUrlVideoChanged();
+    partial void OndtCriacaoChanging(System.Nullable<System.DateTime> value);
+    partial void OndtCriacaoChanged();
+    #endregion
+		
+		public Kart_Videos_Grupo()
+		{
+			this._Kart_Calendario_Campeonato = default(EntityRef<Kart_Calendario_Campeonato>);
+			this._Kart_Grupo = default(EntityRef<Kart_Grupo>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idVideo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idVideo
+		{
+			get
+			{
+				return this._idVideo;
+			}
+			set
+			{
+				if ((this._idVideo != value))
+				{
+					this.OnidVideoChanging(value);
+					this.SendPropertyChanging();
+					this._idVideo = value;
+					this.SendPropertyChanged("idVideo");
+					this.OnidVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					if (this._Kart_Grupo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidGrupoChanging(value);
+					this.SendPropertyChanging();
+					this._idGrupo = value;
+					this.SendPropertyChanged("idGrupo");
+					this.OnidGrupoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCalendario", DbType="Int")]
+		public System.Nullable<int> idCalendario
+		{
+			get
+			{
+				return this._idCalendario;
+			}
+			set
+			{
+				if ((this._idCalendario != value))
+				{
+					if (this._Kart_Calendario_Campeonato.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCalendarioChanging(value);
+					this.SendPropertyChanging();
+					this._idCalendario = value;
+					this.SendPropertyChanged("idCalendario");
+					this.OnidCalendarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dtEvento", DbType="DateTime NOT NULL")]
+		public System.DateTime dtEvento
+		{
+			get
+			{
+				return this._dtEvento;
+			}
+			set
+			{
+				if ((this._dtEvento != value))
+				{
+					this.OndtEventoChanging(value);
+					this.SendPropertyChanging();
+					this._dtEvento = value;
+					this.SendPropertyChanged("dtEvento");
+					this.OndtEventoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._idUsuario = value;
+					this.SendPropertyChanged("idUsuario");
+					this.OnidUsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UrlVideo", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string UrlVideo
+		{
+			get
+			{
+				return this._UrlVideo;
+			}
+			set
+			{
+				if ((this._UrlVideo != value))
+				{
+					this.OnUrlVideoChanging(value);
+					this.SendPropertyChanging();
+					this._UrlVideo = value;
+					this.SendPropertyChanged("UrlVideo");
+					this.OnUrlVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dtCriacao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> dtCriacao
+		{
+			get
+			{
+				return this._dtCriacao;
+			}
+			set
+			{
+				if ((this._dtCriacao != value))
+				{
+					this.OndtCriacaoChanging(value);
+					this.SendPropertyChanging();
+					this._dtCriacao = value;
+					this.SendPropertyChanged("dtCriacao");
+					this.OndtCriacaoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kart_Calendario_Campeonato_Kart_Videos_Grupo", Storage="_Kart_Calendario_Campeonato", ThisKey="idCalendario", OtherKey="idCalendario", IsForeignKey=true)]
+		public Kart_Calendario_Campeonato Kart_Calendario_Campeonato
+		{
+			get
+			{
+				return this._Kart_Calendario_Campeonato.Entity;
+			}
+			set
+			{
+				Kart_Calendario_Campeonato previousValue = this._Kart_Calendario_Campeonato.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Calendario_Campeonato.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Calendario_Campeonato.Entity = null;
+						previousValue.Kart_Videos_Grupos.Remove(this);
+					}
+					this._Kart_Calendario_Campeonato.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Videos_Grupos.Add(this);
+						this._idCalendario = value.idCalendario;
+					}
+					else
+					{
+						this._idCalendario = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Kart_Calendario_Campeonato");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Kart_Grupo_Kart_Videos_Grupo", Storage="_Kart_Grupo", ThisKey="idGrupo", OtherKey="idGrupo", IsForeignKey=true)]
+		public Kart_Grupo Kart_Grupo
+		{
+			get
+			{
+				return this._Kart_Grupo.Entity;
+			}
+			set
+			{
+				Kart_Grupo previousValue = this._Kart_Grupo.Entity;
+				if (((previousValue != value) 
+							|| (this._Kart_Grupo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Kart_Grupo.Entity = null;
+						previousValue.Kart_Videos_Grupos.Remove(this);
+					}
+					this._Kart_Grupo.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Videos_Grupos.Add(this);
+						this._idGrupo = value.idGrupo;
+					}
+					else
+					{
+						this._idGrupo = default(int);
+					}
+					this.SendPropertyChanged("Kart_Grupo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Kart_Videos_Grupo", Storage="_Usuario", ThisKey="idUsuario", OtherKey="idUsuario", IsForeignKey=true)]
+		public Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Kart_Videos_Grupos.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Kart_Videos_Grupos.Add(this);
+						this._idUsuario = value.idUsuario;
+					}
+					else
+					{
+						this._idUsuario = default(int);
 					}
 					this.SendPropertyChanged("Usuario");
 				}
