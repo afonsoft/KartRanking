@@ -97,8 +97,6 @@
     <Content Include="images\prev.png" />
     <Content Include="images\replay.png" />
     <Content Include="js\jquery.easySlider.js" />
-    <Content Include="js\jquery.flash.js" />
-    <Content Include="js\jquery.smooth-scroll.min.js" />
     <Content Include="js\jquery.swfobject.js" />
     <Content Include="js\jquery.youTubeEmbed.js" />
     <Content Include="js\lightbox.js" />
