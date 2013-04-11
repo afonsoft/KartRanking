@@ -15,16 +15,47 @@
             <div class="clear espaco_mini">
                 &nbsp;
             </div>
-             <div class="grid_12">
-                <div id="Player"></div>
-                <script type="text/javascript">
-                    $('#Player').youTubeEmbed({
-                        video: 'http://www.youtube.com/watch?v=yQt4EDKMVXg',
-                        width: 600, // Height is calculated automatically
-                        progressBar: false // Hide the progress bar
-                    });
-                </script>
-             </div>
+            <div class="grid_12" style="text-align: right;">
+                <% if (IsAdmin)
+                   { %>
+                <input id="btnAdd" type="button" value="Novo Album" onclick="OpenCadastro();" />
+                <%}
+                   else
+                   { %>
+                &nbsp;
+                <%} %>
+            </div>
+            <div class="clear espaco_mini">
+                &nbsp;
+            </div>
+            <div class="grid_12" style="text-align: center;">
+                <asp:Repeater ID="RepeaterVideos" runat="server" OnItemCommand="RepeaterVideos_ItemCommand">
+                    <HeaderTemplate>
+                        <div class="container_12">
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <div class="grid_12" style="text-align: center;">
+                            <div id="Player_<%# Eval("idVideo") %>" style="text-align: center;">
+                            </div>
+                            <script type="text/javascript">
+                                $('#Player_<%# Eval("idVideo") %>').youTubeEmbed({ video: '<%# Eval("UrlVideo") %>', width: 500, progressBar: false });
+                            </script>
+                        </div>
+                        <div class="clear">
+                            &nbsp;
+                        </div>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        <div class="grid_12" style="text-align: left;">
+                            <asp:LinkButton ID="lnkAnterior" runat="server" CommandArgument='<%# Convert.ToInt16(((string[])ViewState["InfoPage"])[1]) %>'
+                                CommandName="PagA"><</asp:LinkButton>&nbsp;&nbsp;<%# ((string[])ViewState["InfoPage"])[0] %>&nbsp;&nbsp;
+                            <asp:LinkButton ID="lnkProximo" runat="server" CommandArgument='<%# Convert.ToInt16(((string[])ViewState["InfoPage"])[1]) %>'
+                                CommandName="PagP">></asp:LinkButton>&nbsp;</b>
+                        </div>
+                        </div>
+                    </FooterTemplate>
+                </asp:Repeater>
+            </div>
             <div class="clear">
                 &nbsp;
             </div>
