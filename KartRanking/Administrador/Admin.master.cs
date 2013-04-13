@@ -50,6 +50,16 @@ namespace KartRanking.Administrador
         private void AutoLogin()
         {
             HttpCookie cookie = Request.Cookies["KartRankingAutoLogin"];
+            HttpCookie cookieUser = Request.Cookies["KartRankingUserName"];
+
+            if (cookieUser != null)
+            {
+                if (!string.IsNullOrEmpty(cookieUser.Value))
+                {
+                    txtEmail.Text = cookieUser.Value;
+                }
+            }
+
             if (cookie != null)
             {
                 if (!string.IsNullOrEmpty(cookie.Value))
@@ -114,6 +124,10 @@ namespace KartRanking.Administrador
                 pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
                 pnlLogin.Visible = pnlNotLogin.Visible = false;
 
+
+                HttpCookie cookieEmail = new HttpCookie("KartRankingUserName", txtEmail.Text);
+                cookieEmail.Expires = DateTime.Now.AddMonths(1);
+                Response.Cookies.Add(cookieEmail);
 
                 if (chkLembrar.Checked)
                 {

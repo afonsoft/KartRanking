@@ -79,8 +79,63 @@ namespace KartRanking.Administrador
                     RepeaterVideos.DataBind();
                 }
             }
+            else if (cmd == "Remover")
+            {
+                var video = (from v in dk.Kart_Videos_Grupos
+                             where v.idVideo == Convert.ToInt32(arg)
+                             select v).FirstOrDefault();
+                if (video != null)
+                {
+                    dk.Kart_Videos_Grupos.DeleteOnSubmit(video);
+                    dk.SubmitChanges();
+                    CarregarVideos();
+                }
+            }
         }
 
         #endregion
+
+        protected void lnkConfirmar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!ValidaURLYoutube(txtUrlVideo.Text))
+                {
+                    Alert("Informe a url do youtube");
+                    return;
+                }
+
+                Kart_Videos_Grupo video = new Kart_Videos_Grupo();
+
+                video.dtCriacao = DateTime.Now;
+                video.idGrupo = IdGrupo;
+                video.idUsuario = UsuarioLogado.idUsuario;
+                video.UrlVideo = txtUrlVideo.Text;
+                if (!string.IsNullOrEmpty(txtDtEvento.Text))
+                    video.dtEvento = Convert.ToDateTime(txtDtEvento.Text);
+                else
+                    video.dtEvento = DateTime.Now;
+
+                dk.Kart_Videos_Grupos.InsertOnSubmit(video);
+                dk.SubmitChanges();
+                CarregarVideos();
+                Alert("Video gravado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
+        }
+
+        private bool ValidaURLYoutube(string url)
+        {
+            if (string.IsNullOrEmpty(url))
+                return false;
+
+            if (url.IndexOf("youtube") < 0)
+                return false;
+
+            return true;
+        }
     }
 }

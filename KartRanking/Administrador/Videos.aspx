@@ -5,6 +5,45 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelVideos" runat="server">
+        <script type="text/javascript">
+            function OpenCadastro() {
+                jQuery('#CadVideo').dialog({
+                    autoOpen: false, title: "Cadastrar novo video",
+                    buttons: {
+                        "Salvar": function () { jQuery('#CadVideo').dialog("close"); __doPostBack('<%= lnkConfirmar.UniqueID %>', ''); return true; },
+                        "Sair": function () { jQuery('#CadVideo').dialog("close"); return true; }
+                    }
+                });
+                jQuery('#CadVideo').dialog({ width: 300, height: 160 });
+                jQuery("#CadVideo").parent().appendTo(jQuery("form:first"));
+                jQuery('#CadVideo').dialog('open');
+            }
+        </script>
+        <div id="CadVideo" title="Cadastrar novo Video" style="display: none; font-size: x-small;
+            color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+            class="ui-dialog ui-resizable-handle">
+            <table width="98%" cellpadding="1" cellspacing="1" border="0">
+                <tr>
+                    <td>
+                        <span><b>Url YouTube:</b></span>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtUrlVideo" Width="98%" MaxLength="500" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span><b>Data Evento:</b></span>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtDtEvento" MaxLength="10" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+            </table>
+            <div style="display: none;">
+                <asp:LinkButton ID="lnkConfirmar" runat="server" OnClick="lnkConfirmar_Click"></asp:LinkButton>
+            </div>
+        </div>
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="StepTitle">
@@ -18,7 +57,7 @@
             <div class="grid_12" style="text-align: right;">
                 <% if (IsAdmin)
                    { %>
-                <input id="btnAdd" type="button" value="Novo Album" onclick="OpenCadastro();" />
+                <input id="btnAdd" type="button" value="Novo Video" onclick="OpenCadastro();" />
                 <%}
                    else
                    { %>
@@ -41,7 +80,17 @@
                                 $('#Player_<%# Eval("idVideo") %>').youTubeEmbed({ video: '<%# Eval("UrlVideo") %>', width: 500, progressBar: false });
                             </script>
                         </div>
-                        <div class="clear">
+                        <% if (IsAdmin)
+                           { %>
+                        <div class="clear espaco_mini">
+                            &nbsp;
+                        </div>
+                        <div class="grid_12" style="text-align: left;">
+                            <asp:Button ID="btnRemove" runat="server" Text="Remover" CommandArgument='<%# Eval("idVideo") %>'
+                                CommandName="Remover" OnClientClick="return confirm('Deseja remover este video!');" />
+                        </div>
+                        <%} %>
+                        <div class="clear espaco">
                             &nbsp;
                         </div>
                     </ItemTemplate>
