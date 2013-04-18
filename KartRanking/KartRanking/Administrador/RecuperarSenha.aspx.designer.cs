@@ -13,6 +13,15 @@ namespace KartRanking.Administrador {
     public partial class RecuperarSenha {
         
         /// <summary>
+        /// HiddenFieldReturnAjax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldReturnAjax;
+        
+        /// <summary>
         /// txtMail control.
         /// </summary>
         /// <remarks>

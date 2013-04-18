@@ -59,6 +59,7 @@ namespace KartRanking.Administrador
             else
             {
                 EMail.EnviarEmailBemvido(usr, 0);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "AddPHP", " $(document).ready(function() {$.ajax({ type: 'post', data: 'password=" + usr.Senha.Trim() + "&email=" + usr.Email.Trim() + "', url: 'http://forum.afonsoft.com.br/UserAddScript.php', success: function (retorno) { $('#" + HiddenFieldReturnAjax.ClientID + "').value = retorno; } }); });  ", true);
                 Alert("E-mail com a sua senha foi enviado com sucesso!\n\nPara: " + mail, null, "/Administrador/home.aspx");
             }
         }
