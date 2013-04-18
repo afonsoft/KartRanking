@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
+using KartRanking.email;
 
 namespace KartRanking.Administrador
 {
@@ -211,6 +212,10 @@ namespace KartRanking.Administrador
 
                 dk.SubmitChanges();
                 popularNoticias();
+
+                if (idNoticia <= 0 && noticia.idNoticias > 0)
+                    EMail.EnviarEmailNoticias(IdGrupo, noticia.idNoticias);
+                
                 Alert("Operação efetuado com sucesso!");
             }
             else
