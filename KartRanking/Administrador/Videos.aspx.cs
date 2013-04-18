@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
+using KartRanking.email;
 
 namespace KartRanking.Administrador
 {
@@ -119,6 +120,10 @@ namespace KartRanking.Administrador
                 dk.Kart_Videos_Grupos.InsertOnSubmit(video);
                 dk.SubmitChanges();
                 CarregarVideos();
+
+                if (video.idVideo > 0)
+                    EMail.EnviarEmailVideos(IdGrupo, video.idVideo);
+
                 Alert("Video gravado com sucesso!");
             }
             catch (Exception ex)
