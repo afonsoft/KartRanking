@@ -198,6 +198,10 @@ namespace KartRanking.Administrador
                     dk.Kart_Album_Grupos.InsertOnSubmit(album);
                     dk.SubmitChanges();
                     PopularAlbuns();
+
+                    if (album.idAlbum > 0)
+                        email.EMail.EnviarEmailAlbum(IdGrupo, album.idAlbum);
+
                     Alert("Album cadastro com sucesso!");
                 }
                 else

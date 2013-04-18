@@ -121,9 +121,9 @@ namespace KartRanking.Administrador
 
             var noticias = (from n in dk.Kart_Noticias_Grupos
                             where n.idGrupo == IdGrupo
-                            && n.dtCriacao >= DateTime.Now.AddMonths(-1)
+                            && n.dtCriacao >= DateTime.Now.AddMonths(-3)
                             orderby n.dtCriacao descending
-                            select n);
+                            select n).ToArray();
 
             strHtml += " <div id='slider'> ";
             strHtml += " <ul>  ";
