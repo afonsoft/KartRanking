@@ -43,6 +43,7 @@ namespace KartRanking.email
                 mensagem.IsBodyHtml = true;
                 mensagem.Subject = subject;
                 mensagem.Body = strCorpo;
+                client.Timeout = 36000;
                 client.Send(mensagem);
             }
             catch (Exception ex)
