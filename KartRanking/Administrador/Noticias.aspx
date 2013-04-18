@@ -65,7 +65,14 @@
                 &nbsp;
             </div>
             <div class="grid_12" style="text-align: right;">
+                <% if (IsAdmin)
+                   { %>
                 <asp:Button ID="btnAddNoticias" runat="server" Text="Adicionar Noticias" OnClick="btnAddNoticias_Click" />
+                <% }
+                   else
+                   { %>
+                &nbsp;
+                <% } %>
             </div>
             <div class="clear espaco_mini">
                 &nbsp;
@@ -92,9 +99,12 @@
                                     <asp:LinkButton ID="lnkRead" runat="server" CommandName="VerNoticia" CommandArgument='<%# Eval("idNoticias") %>'>Continuar Lendo...</asp:LinkButton>
                                 </td>
                                 <td style="text-align: right;">
+                                    <% if (IsAdmin)
+                                       { %>
                                     <asp:Button ID="btnAlterar" runat="server" Text="Alterar" CommandName="Alterar" CommandArgument='<%# Eval("idNoticias") %>' />
                                     &nbsp;<asp:Button ID="btnRemover" runat="server" Text="Deletar" CommandName="Deletar"
                                         CommandArgument='<%# Eval("idNoticias") %>' OnClientClick="return confirm('Deseja remover esta noticia?');" />
+                                    <% } %>
                                 </td>
                             </tr>
                             <tr>
