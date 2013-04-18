@@ -212,7 +212,7 @@ namespace KartRanking.email
         }
 
 
-        public static void EnviarEmailNoticias(int idGrupo, int idVideo)
+        public static void EnviarEmailVideos(int idGrupo, int idVideo)
         {
 
             DataKartDataContext dk = new DataKartDataContext();
