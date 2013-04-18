@@ -175,5 +175,76 @@ namespace KartRanking.email
 
             EMail.EnviaEmail(EmailUsuario, HTML, "Associação ao grupo efetuado com sucesso.", "");
         }
+
+        public static void EnviarEmailNoticias(int idGrupo, int idNoticia)
+        {
+
+            DataKartDataContext dk = new DataKartDataContext();
+
+            var InfoNoticia = (from n in dk.Kart_Noticias_Grupos where n.idGrupo == idGrupo && n.idNoticias == idNoticia select n).FirstOrDefault();
+
+            if (InfoNoticia != null)
+            {
+
+                var Grupo = (from g in dk.Kart_Grupos
+                             join gu in dk.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
+                             join u in dk.Usuarios on gu.idUsuario equals u.idUsuario
+                             where g.idGrupo == idGrupo
+                             && gu.Aprovado == true
+                             select new { g.NomeGrupo, gu.idUsuario, u.Email });
+
+                string NomeGrupo = (from g in Grupo select g.NomeGrupo).FirstOrDefault();
+
+                string Path = PathUtil.GetFullPathRoot() + @"\email\GrupoNoticias.htm";
+                string HTML = "";
+                using (StreamReader sr = new StreamReader(Path, true))
+                {
+                    HTML = sr.ReadToEnd();
+                }
+                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##URL##", "http://kart.afonsoft.com.br/Administrador/Noticias.aspx?id=" + idNoticia).Replace("##NOTICIA##", InfoNoticia.Noticia);
+
+
+                foreach (var u in Grupo)
+                {
+                    EnviaEmail(u.Email, HTML, "Nova noticia cadastrada.", "");
+                }
+            }
+        }
+
+
+        public static void EnviarEmailNoticias(int idGrupo, int idVideo)
+        {
+
+            DataKartDataContext dk = new DataKartDataContext();
+
+            var InfoVideo = (from n in dk.Kart_Videos_Grupos where n.idGrupo == idGrupo && n.idVideo == idVideo select n).FirstOrDefault();
+
+            if (InfoVideo != null)
+            {
+
+                var Grupo = (from g in dk.Kart_Grupos
+                             join gu in dk.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
+                             join u in dk.Usuarios on gu.idUsuario equals u.idUsuario
+                             where g.idGrupo == idGrupo
+                             && gu.Aprovado == true
+                             select new { g.NomeGrupo, gu.idUsuario, u.Email });
+
+                string NomeGrupo = (from g in Grupo select g.NomeGrupo).FirstOrDefault();
+
+                string Path = PathUtil.GetFullPathRoot() + @"\email\GrupoVideos.htm";
+                string HTML = "";
+                using (StreamReader sr = new StreamReader(Path, true))
+                {
+                    HTML = sr.ReadToEnd();
+                }
+                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##URLTUBE##", InfoVideo.UrlVideo);
+
+
+                foreach (var u in Grupo)
+                {
+                    EnviaEmail(u.Email, HTML, "Novo Video cadastrada.", "");
+                }
+            }
+        }
     }
 }

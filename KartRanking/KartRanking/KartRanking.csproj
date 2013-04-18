@@ -89,6 +89,8 @@
     <Content Include="dlls\AjaxControlToolkit.resources.dll" />
     <Content Include="dlls\AspNetInfo.dll" />
     <Content Include="dlls\AspNetInfo.SampleDiagnosticPlugIn.dll" />
+    <Content Include="email\GrupoNoticias.htm" />
+    <Content Include="email\GrupoVideos.htm" />
     <Content Include="images\close.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\next.png" />
