@@ -73,7 +73,7 @@ namespace KartRanking.email
             }
             HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
 
-            EnviaEmail(u.Email, HTML, "Cadastro efetuado com sucesso.", "");
+            EnviaEmail(u.Email, HTML, "KartRanking - Cadastro efetuado com sucesso.", "");
 
             if (idGrupo > 0)
             {
@@ -95,7 +95,7 @@ namespace KartRanking.email
 
             HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##STATUS##", "Aprovado no grupo!");
 
-            EnviaEmail(EmailUsuario, HTML, "Associação ao grupo efetuado com sucesso.", "");
+            EnviaEmail(EmailUsuario, HTML, "KartRanking - Associação ao grupo efetuado com sucesso.", "");
         }
 
         public static void EnviarEmailStatusGrupo(int idUsuario, int idGrupo)
@@ -112,7 +112,7 @@ namespace KartRanking.email
 
             HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo).Replace("##STATUS##", idGrupo == 0 ? "cadastro" : "alteração").Replace("##SIGLAGRUPO##", Grupo.Sigla).Replace("##URLAMIGAVEL##", "http://kart.afonsoft.com.br/grupo/" + Grupo.UrlAcesso + ".aspx").Replace("##URL##", "http://kart.afonsoft.com.br/grupo/index.aspx?idGrupo=" + Grupo.idGrupo);
 
-            EMail.EnviaEmail(EmailUsuario, HTML, "Grupo " + (idGrupo == 0 ? "cadastrado" : "alteração") + " com sucesso.", "");
+            EMail.EnviaEmail(EmailUsuario, HTML, "KartRanking - Grupo " + (idGrupo == 0 ? "cadastrado" : "alteração") + " com sucesso.", "");
         }
 
         public static void EnviarEmailAssociado(string email, int idGrupo)
@@ -130,7 +130,7 @@ namespace KartRanking.email
 
             HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
 
-            EMail.EnviaEmail(email, HTML, "Associação ao grupo efetuado com sucesso.", "");
+            EMail.EnviaEmail(email, HTML, "KartRanking - Associação ao grupo efetuado com sucesso.", "");
         }
 
         public static void EnviarEmailGrupoAdmin(int idGrupo, Usuario uCadastrado)
@@ -156,7 +156,7 @@ namespace KartRanking.email
             }
             HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##NOMEUSUARIO##", NomeUsuarioCadastro);
 
-            EnviaEmail(EmailAdmin, HTML, "Cadastro efetuado com sucesso.", "");
+            EnviaEmail(EmailAdmin, HTML, "KartRanking - Cadastro efetuado com sucesso.", "");
         }
 
         public static void EnviarEmailStatusPermissao(int idUsuario, int idGrupo, bool isAdmin)
@@ -173,7 +173,7 @@ namespace KartRanking.email
 
             HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##STATUS##", isAdmin ? "Você agora é administrador do grupo" : "Você não é mais o administrador deste grupo");
 
-            EMail.EnviaEmail(EmailUsuario, HTML, "Associação ao grupo efetuado com sucesso.", "");
+            EMail.EnviaEmail(EmailUsuario, HTML, "KartRanking - Associação ao grupo efetuado com sucesso.", "");
         }
 
         public static void EnviarEmailNoticias(int idGrupo, int idNoticia)
@@ -206,11 +206,10 @@ namespace KartRanking.email
 
                 foreach (var u in Grupo)
                 {
-                    EnviaEmail(u.Email, HTML, "Nova noticia cadastrada.", "");
+                    EnviaEmail(u.Email, HTML, "KartRanking - Nova noticia cadastrada.", "");
                 }
             }
         }
-
 
         public static void EnviarEmailVideos(int idGrupo, int idVideo)
         {
@@ -242,7 +241,7 @@ namespace KartRanking.email
 
                 foreach (var u in Grupo)
                 {
-                    EnviaEmail(u.Email, HTML, "Novo Video cadastrada.", "");
+                    EnviaEmail(u.Email, HTML, "KartRanking - Novo Video cadastrada.", "");
                 }
             }
         }
