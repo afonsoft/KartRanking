@@ -245,5 +245,40 @@ namespace KartRanking.email
                 }
             }
         }
+
+        public static void EnviarEmailAlbum(int idGrupo, int idAlbum)
+        {
+
+            DataKartDataContext dk = new DataKartDataContext();
+
+            var InfoAlbum = (from n in dk.Kart_Album_Grupos where n.idGrupo == idGrupo && n.idAlbum== idAlbum select n).FirstOrDefault();
+
+            if (InfoAlbum != null)
+            {
+
+                var Grupo = (from g in dk.Kart_Grupos
+                             join gu in dk.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
+                             join u in dk.Usuarios on gu.idUsuario equals u.idUsuario
+                             where g.idGrupo == idGrupo
+                             && gu.Aprovado == true
+                             select new { g.NomeGrupo, gu.idUsuario, u.Email });
+
+                string NomeGrupo = (from g in Grupo select g.NomeGrupo).FirstOrDefault();
+
+                string Path = PathUtil.GetFullPathRoot() + @"\email\GrupoFotos.htm";
+                string HTML = "";
+                using (StreamReader sr = new StreamReader(Path, true))
+                {
+                    HTML = sr.ReadToEnd();
+                }
+                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##NOMEALBUM##", InfoAlbum.NomeAlbum).Replace("##ID##", InfoAlbum.idAlbum.ToString());
+
+
+                foreach (var u in Grupo)
+                {
+                    EnviaEmail(u.Email, HTML, "KartRanking - Novo album cadastrada.", "");
+                }
+            }
+        }
     }
 }
