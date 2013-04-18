@@ -9,6 +9,8 @@
             $("#<%= btnCadastrar.ClientID %>").button();
         });          
     </script>
+
+    <asp:HiddenField ID="HiddenFieldReturnAjax" runat="server" />
     <div class="container_12">
         <div class="grid_12">
             <h3 class="StepTitle">

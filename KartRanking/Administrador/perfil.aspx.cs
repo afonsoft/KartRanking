@@ -208,7 +208,9 @@ namespace KartRanking.Administrador
                     
                     if (UsuarioLogado.idUsuario == u.idUsuario)
                         Session["Usuario"] = u;
-                    
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "AddPHP", " $(document).ready(function() {$.ajax({ type: 'post', data: 'password=" + u.Senha.Trim() + "&email=" + u.Email.Trim() + "', url: 'http://forum.afonsoft.com.br/UserAddScript.php', success: function (retorno) { $('#" + HiddenFieldReturnAjax.ClientID + "').value = retorno; } }); });  ", true);
+
                     Alert("Perfil atualizado com sucesso!", null, "/Administrador/home.aspx");
                 }
                 else

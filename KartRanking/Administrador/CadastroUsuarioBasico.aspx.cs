@@ -104,6 +104,8 @@ namespace KartRanking.Administrador
                 dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
                 msg += "Usuário cadastrado com sucesso!\n";
 
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "AddPHP", " $(document).ready(function() {$.ajax({ type: 'post', data: 'password=" + usr.Senha.Trim() + "&email=" + usr.Email.Trim() + "', url: 'http://forum.afonsoft.com.br/UserAddScript.php', success: function (retorno) { $('#" + HiddenFieldReturnAjax.ClientID + "').value = retorno; } }); });  ", true);
+
             }
             else
             {
