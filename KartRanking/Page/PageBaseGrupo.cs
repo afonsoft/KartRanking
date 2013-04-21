@@ -44,12 +44,30 @@ namespace KartRanking.Page
             IdGrupo = 0;
 
             if (Request.QueryString["IdGrupo"] != null)
-                IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);              
+                IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
 
             if (IdGrupo <= 0)
                 Response.Redirect("~/Administrador/index.aspx");
+            else
+            {
+                CarregarCampeonatoPrincipal(IdGrupo);
+            }
 
             base.OnInit(e);
+        }
+
+        private void CarregarCampeonatoPrincipal(int idGrupo)
+        {
+            var campeonato = (from c in dk.Kart_Campeonatos
+                              where c.idGrupo == idGrupo
+                              && c.Ativo == true
+                              orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
+                              select c).FirstOrDefault();
+
+            if (campeonato != null)
+                IdCampeonato = campeonato.idCampeonato;
+            else
+                IdCampeonato = 0;
         }
     }
 }
