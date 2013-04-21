@@ -2,6 +2,7 @@
     CodeBehind="index.aspx.cs" Inherits="KartRanking.Grupo.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link href="/Grupo/css/jcountdown.css" rel="stylesheet" type="text/css" />
     <link href="/Grupo/css/grid.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         #slider, #slider li
@@ -40,6 +41,7 @@
         }
     </style>
     <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
+    <script src="/Grupo/js/jcountdown.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
@@ -56,17 +58,26 @@
                 prevId: 'prev',
                 pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
             });
+
+
+            var b = new Date;
+            var e = b.getFullYear() + 1 + "/" + (b.getMonth() + 1) + "/" + b.getDate() + " " + b.getHours() + ":" + b.getMinutes() + ":" + b.getSeconds();
+            b = -b.getTimezoneOffset() / 60;
+            $('#count').jCountdown({ timeText: e, timeZone: b, style: "flip", color: "black", width: 0, textGroupSpace: 15, textSpace: 0, reflection: !0, reflectionOpacity: 10, reflectionBlur: 0, dayTextNumber: 3, displayDay: !0, displayHour: !0, displayMinute: !0, displaySecond: !0, displayLabel: !0 });
+
         });
     </script>
     <div class="container_12">
         <div class="wrapper">
             <article class="grid_12">
-                <div class="page1 box maxheight" style="height: auto; min-height: 150px;">
+                <div class="page1 box maxheight" style="height: auto; min-height: 200px;">
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
                                 <strong class="text-2"><strong><strong>
                                     <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></strong></strong></strong></h3>
+                            <div id="count" class="count">
+                            </div>
                             <div class="border-bot">
                             </div>
                         </div>
