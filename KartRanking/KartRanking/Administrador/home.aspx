@@ -38,14 +38,11 @@
             padding: 2px 5px;
         }
     </style>
-
     <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             $("#slider").easySlider({
                 loop: true,                           // Looping
@@ -59,7 +56,6 @@
             });
         });
     </script>
-
     <div class="container_12">
         <div class="grid_12">
         </div>
@@ -134,7 +130,7 @@
             &nbsp;
         </div>
         <div class="grid_6">
-            <div class="template">
+            <div class="template" >
                 <asp:GridView ID="gvRankigEquipe" CssClass="gridview" runat="server" DataKeyNames="idEquipeCampeonato"
                     EmptyDataText="Nenhuma pontuação encontrada." AutoGenerateColumns="false">
                     <Columns>
@@ -191,11 +187,12 @@
                         </td>
                     </tr>
                     <tr>
-                    <td style="width: 50px;">
-                        <b>Facebook:</b>
-                    </td>
+                        <td style="width: 50px;">
+                            <b>Facebook:</b>
+                        </td>
                         <td colspan="3">
-                            <asp:Literal ID="ltPerfilFace" runat="server" Text=""></asp:Literal> &nbsp;
+                            <asp:Literal ID="ltPerfilFace" runat="server" Text=""></asp:Literal>
+                            &nbsp;
                         </td>
                     </tr>
                     <tr>
