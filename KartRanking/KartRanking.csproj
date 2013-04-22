@@ -92,13 +92,9 @@
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoVideos.htm" />
-    <Content Include="Grupo\css\jcountdown.css" />
-    <Content Include="Grupo\img\bg.png" />
-    <Content Include="Grupo\img\diviers.png" />
-    <Content Include="Grupo\img\maingbg.png" />
-    <Content Include="Grupo\img\top.png" />
-    <Content Include="Grupo\js\jCountdown.js" />
-    <Content Include="Grupo\js\JScript1.js" />
+    <Content Include="Grupo\css\jquery.lwtCountdown.css" />
+    <Content Include="Grupo\img\dash.png" />
+    <Content Include="Grupo\js\jquery.lwtCountdown.js" />
     <Content Include="images\close.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\next.png" />
