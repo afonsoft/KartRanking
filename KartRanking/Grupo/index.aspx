@@ -60,17 +60,22 @@
             });
 
 
-            var b = new Date;
-            var e = b.getFullYear() + 1 + "/" + (b.getMonth() + 1) + "/" + b.getDate() + " " + b.getHours() + ":" + b.getMinutes() + ":" + b.getSeconds();
-            b = -b.getTimezoneOffset() / 60;
-            $('#count').jCountdown({ timeText: e, timeZone: b, style: "flip", color: "black", width: 0, textGroupSpace: 15, textSpace: 0, reflection: !0, reflectionOpacity: 10, reflectionBlur: 0, dayTextNumber: 3, displayDay: !0, displayHour: !0, displayMinute: !0, displaySecond: !0, displayLabel: !0 });
-
+            $('#countdown_dashboard').countDown({
+                targetDate: {
+                    'day': 10,
+                    'month': 1,
+                    'year': 2014,
+                    'hour': 11,
+                    'min': 0,
+                    'sec': 0
+                }
+            });
 
         });
     </script>
     <div class="container_12">
         <div class="wrapper">
-            <article class="grid_12">
+            <div class="grid_12">
                 <div class="page1 box maxheight" style="height: auto; min-height: 200px;">
                     <div class="padding-box">
                         <div class="indent-bot">
@@ -79,12 +84,6 @@
                                     <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></strong></strong></strong></h3>
                                 <!-- Countdown dashboard start -->
 		                        <div id="countdown_dashboard">
-			                        <div class="dash weeks_dash">
-				                        <span class="dash_title">semana</span>
-				                        <div class="digit">0</div>
-				                        <div class="digit">0</div>
-			                        </div>
-
 			                        <div class="dash days_dash">
 				                        <span class="dash_title">dias</span>
 				                        <div class="digit">0</div>
@@ -116,11 +115,11 @@
                         </div>
                     </div>
                 </div>
-            </article>
+            </div>
             <div class="clear espaco">
                 &nbsp;
             </div>
-            <article class="grid_6">
+            <div class="grid_6">
                 <div class="page1 box maxheight" style="height: auto; min-height: 420px;">
                     <div class="padding-box">
                         <div class="indent-bot">
@@ -158,8 +157,8 @@
                         <a href="#" class="button"><strong><strong>Mais</strong></strong></a>
                     </div>
                 </div>
-            </article>
-            <article class="grid_6">
+            </div>
+            <div class="grid_6">
                 <div class="page1 box maxheight" style="height: auto; min-height: 420px;">
                     <div class="padding-box">
                         <h3 class="p2">
@@ -167,11 +166,11 @@
                         <asp:Literal ID="ltNoticias" runat="server"></asp:Literal>
                     </div>
                 </div>
-            </article>
+            </div>
             <div class="clear espaco">
                 &nbsp;
             </div>
-            <article class="grid_6">
+            <div class="grid_6">
                 <div class="page1 box maxheight" style="height: auto; min-height: 420px;">
                     <div class="padding-box">
                         <h3 class="p2">
@@ -198,8 +197,8 @@
                         <a href="#" class="button"><strong><strong>Mais</strong></strong></a>
                     </div>
                 </div>
-            </article>
-            <article class="grid_6">
+            </div>
+            <div class="grid_6">
                 <div class="page1 box maxheight" style="height: auto; min-height: 420px;">
                     <div class="padding-box">
                         <h3 class="p2">
@@ -265,7 +264,7 @@
                         </table>
                     </div>
                 </div>
-            </article>
+            </div>
             <div class="clear espaco">
                 &nbsp;
             </div>
