@@ -57,6 +57,7 @@
             $("#<%= txtAltura.ClientID%>").mask("9,99");
             $("#<%= txtPeso.ClientID%>").mask("99,9");
 
+            $("#<%= txtTelefone.ClientID%>, #<%= txtCelular.ClientID%>").mask("(99)9999-9999?9", { placeholder: "_" });
 
         });
 
