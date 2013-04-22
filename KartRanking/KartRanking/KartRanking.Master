@@ -2,8 +2,12 @@
     Inherits="KartRanking.KartRanking" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/"
-dir="ltr" lang="pt-br" xml:lang="pt-br">
+<!--[if lt IE 7]> <html class="no-js ie lt-ie7 ie6" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" dir="ltr" lang="pt-br" xml:lang="pt-br"> <![endif]-->
+<!--[if IE 7]><html class="no-js ie lt-ie8 ie7" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" dir="ltr" lang="pt-br" xml:lang="pt-br"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie lt-ie9 ie8" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" dir="ltr" lang="pt-br" xml:lang="pt-br"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" dir="ltr" lang="pt-br" xml:lang="pt-br">
+<!--<![endif]-->
 <head runat="server" profile="http://gmpg.org/xfn/11">
     <title>Kart Ranking - Gerenciamento de campeonatos de Kart com ranking</title>
     <meta name="copyright" content="AFONSOFT 2013" />
@@ -26,6 +30,7 @@ dir="ltr" lang="pt-br" xml:lang="pt-br">
     <meta name="google-site-verification" content="QhTVZkJfVIsGCTwGRZNJp9pzF6Fj5GN5-wpoGWtgGSY" />
     <meta name="p:domain_verify" content="08f7b7a294c9e41d380a9e0ff847a8f4" />
     <!-- Celulares -->
+    <meta name="viewport" content="width=device-width">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="apple-touch-icon" href="kart-touch-icon.png" />

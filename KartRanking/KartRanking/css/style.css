@@ -1,5 +1,4 @@
 @import url('superfish.css');
-@import url('prettyPhoto.css');
 /* Getting the new tags to behave */
 article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video, time {display:block;}
 mark, rp, rt, ruby, summary {display:inline;}
