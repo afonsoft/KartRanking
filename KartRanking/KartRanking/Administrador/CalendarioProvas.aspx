@@ -27,9 +27,10 @@
                 &nbsp;
             </div>
             <div class="grid_12">
-                <asp:Button ID="btnNovoCalendario" runat="server" Visible="false" Text="Nova Etapa"
+                <asp:Button ID="btnNovoCalendario" runat="server" Visible="false" Text="Administrar as Etapas"
                     OnClick="btnNovoCalendario_Click" />
                 &nbsp; &nbsp;
+
             </div>
             <div class="clear espaco_mini">
                 &nbsp;

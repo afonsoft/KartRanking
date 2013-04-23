@@ -122,25 +122,32 @@ namespace KartRanking.Administrador
 
         protected void gvEtapas_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            bool b = (bool)ViewState["kgAtivo"];
-            IdCalendario = Convert.ToInt16(e.CommandArgument);
-            if (e.CommandName == "EditCalendario" && b)
-                popularTelaEdit(IdCampeonato, IdCalendario);
-            else if (e.CommandName == "ExcluirCalendario" && b)
-                excluirCalendario(IdCampeonato, IdCalendario);
-            else if (e.CommandName == "ViewCalendario")
-                viewCalendario(IdCampeonato, IdCalendario);
-        }
-
-        private void viewCalendario(int IdCampeonato, int IdCalendario)
-        {
-            
+            if (IsAdmin)
+            {
+                bool b = (bool)ViewState["kgAtivo"];
+                IdCalendario = Convert.ToInt16(e.CommandArgument);
+                if (e.CommandName == "EditCalendario" && b)
+                    popularTelaEdit(IdCampeonato, IdCalendario);
+                else if (e.CommandName == "ExcluirCalendario" && b)
+                    excluirCalendario(IdCampeonato, IdCalendario);
+            }
+            else
+            {
+                Alert("Você não possue permissão.");
+            }
         }
 
         private void excluirCalendario(int IdCampeonato, int idCalendario)
         {
-            //TODO: Efetuar o metodo para excluir um calendario
-            Alert("Em desenvolvimento!");
+            if (IsAdmin)
+            {
+                //TODO: Efetuar o metodo para excluir um calendario
+                Alert("Em desenvolvimento!");
+            }
+            else
+            {
+                Alert("Você não possue permissão.");
+            }
         }
         protected void btnVoltarCampeonato_Click(object sender, EventArgs e)
         {

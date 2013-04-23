@@ -164,8 +164,15 @@ namespace KartRanking.Administrador
         }
         protected void btnNovoCalendario_Click(object sender, EventArgs e)
         {
-            IdCalendario = 0;
-            Response.Redirect("AdminCalendarioProvas.aspx?op=novo&IdCampeonato=" + IdCampeonato);
+            if (IsAdmin)
+            {
+                IdCalendario = 0;
+                Response.Redirect("AdminCalendarioProvas.aspx?IdCampeonato=" + IdCampeonato);
+            }
+            else
+            {
+                Alert("Você não possue permissão.");
+            }
         }
 
         protected void gvEtapas_RowCommand(object sender, GridViewCommandEventArgs e)
