@@ -78,9 +78,9 @@
             &nbsp;
         </div>
         <div class="grid_7" style="text-align: right;">
-            &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
+            &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar Campeonato" OnClick="btnSalvar_Click"
                 Width="100px" CssClass="button" />&nbsp;
-            <asp:Button ID="btnNovo" runat="server" Text="Novo" Width="100px" OnClick="btnNovo_Click"
+            <asp:Button ID="btnNovo" runat="server" Text="Novo Campeonato" Width="100px" OnClick="btnNovo_Click" OnClientClick="return confirm('Deseja criar um novo campeonato?');"
                 CssClass="button" />&nbsp; &nbsp;<asp:Button ID="btnEditar" runat="server" Text="Editar o Campeonato"
                     OnClick="btnEditar_Click" CssClass="button" />
         </div>
