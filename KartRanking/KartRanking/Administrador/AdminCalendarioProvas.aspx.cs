@@ -152,9 +152,9 @@ namespace KartRanking.Administrador
         protected void btnVoltarCampeonato_Click(object sender, EventArgs e)
         {
             if (IdCampeonato > 0)
-                Response.Redirect("AdminCampeonato.aspx?IdGrupo=" + IdGrupo.ToString() + "&IdCampeonato=" + IdCampeonato.ToString());
+                Response.Redirect("CalendarioProvas.aspx?IdGrupo=" + IdGrupo.ToString() + "&IdCampeonato=" + IdCampeonato.ToString());
             else
-                Response.Redirect("AdminGrupo.aspx?IdGrupo=" + IdGrupo.ToString());
+                Response.Redirect("AdminCampeonato.aspx?IdGrupo=" + IdGrupo.ToString());
         }
         protected void btnVoltar_Click(object sender, EventArgs e)
         {
@@ -175,33 +175,68 @@ namespace KartRanking.Administrador
         {
             try
             {
-                Kart_Calendario_Campeonato cc = null;
 
-                if (IdCalendario <= 0)
-                    cc = new Kart_Calendario_Campeonato();
-                else
-                    cc = (from c in dk.Kart_Calendario_Campeonatos
-                          where c.idCalendario == IdCalendario
-                          && c.idCampeonato == IdCampeonato
-                          select c).FirstOrDefault();
+                if (ValidarCampos())
+                {
 
-                cc.Data = Convert.ToDateTime(ltData.Text);
-                cc.Horario = ltHora.Text;
-                cc.idCampeonato = IdCampeonato;
-                cc.Kartodromo = ltKartodromo.Text;
-                cc.Nome = ltEtapa.Text;
+                    Kart_Calendario_Campeonato cc = null;
 
-                if (IdCalendario <= 0)
-                    dk.GetTable<Kart_Calendario_Campeonato>().InsertOnSubmit(cc);
+                    if (IdCalendario <= 0)
+                        cc = new Kart_Calendario_Campeonato();
+                    else
+                        cc = (from c in dk.Kart_Calendario_Campeonatos
+                              where c.idCalendario == IdCalendario
+                              && c.idCampeonato == IdCampeonato
+                              select c).FirstOrDefault();
 
-                dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
-                btnVoltar_Click(sender, e);
+                    cc.Data = Convert.ToDateTime(ltData.Text);
+                    cc.Horario = ltHora.Text;
+                    cc.idCampeonato = IdCampeonato;
+                    cc.Kartodromo = ltKartodromo.Text;
+                    cc.Nome = ltEtapa.Text;
 
-                Alert("Etapa salvo com sucesso!");
+                    if (IdCalendario <= 0)
+                        dk.GetTable<Kart_Calendario_Campeonato>().InsertOnSubmit(cc);
+
+                    dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+                    btnVoltar_Click(sender, e);
+
+                    Alert("Etapa salvo com sucesso!");
+                }
             }
             catch (Exception ex)
             {
                 Alert(ex);
+            }
+        }
+        private bool ValidarCampos()
+        {
+            string msgErro = "";
+            try
+            {
+                Convert.ToDateTime(ltData.Text);
+            }
+            catch (Exception)
+            {
+                msgErro += "Data informada é inválida!\n";
+            }
+
+            if(string.IsNullOrEmpty(ltHora.Text))
+                msgErro += "Horário é inválida ou não informado!\n";
+
+            if (string.IsNullOrEmpty(ltKartodromo.Text))
+                msgErro += "Kartodromo não informado!\n";
+
+            if (string.IsNullOrEmpty(ltEtapa.Text))
+                msgErro += "Etapa não informado!\n";
+
+
+            if (string.IsNullOrEmpty(msgErro))
+                return true;
+            else
+            {
+                Alert(msgErro);
+                return false;
             }
         }
     }
