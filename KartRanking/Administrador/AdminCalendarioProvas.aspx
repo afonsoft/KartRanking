@@ -54,8 +54,7 @@
                                 <HeaderTemplate>
                                     Nome</HeaderTemplate>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idCalendario" )%>'
-                                        CommandName="ViewCalendario"><%# Eval("Nome")%></asp:LinkButton>
+                                    <%# Eval("Nome")%>
                                 </ItemTemplate>
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
