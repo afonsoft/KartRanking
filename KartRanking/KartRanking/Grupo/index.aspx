@@ -67,11 +67,11 @@
 
             $('#countdown_dashboard').countDown({
                 targetDate: {
-                    'day': 22,
-                    'month': 9,
-                    'year': 2013,
-                    'hour': 20,
-                    'min': 0,
+                    'day': 27,
+                    'month': 4,
+                    'year': 2014,
+                    'hour': 22,
+                    'min': 30,
                     'sec': 0
                 },
                 omitWeeks: true
