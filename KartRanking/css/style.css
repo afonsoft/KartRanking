@@ -246,7 +246,7 @@ footer .bg {width:100%; background:url(/images/footer-right-bg.jpg) right 0 no-r
 .list-services li {float:left; padding:0; margin-left:11px;}
 .list-services li a {text-decoration:none;}
 
-.text-bot {float:left; font-size:13px; line-height:16px; color:#4a4949; margin-right:20px;}
+.text-bot {float:left; font-size:13px; line-height:16px; color:#4a4949; margin-right:20px; padding-top: 15px;}
 .text-bot a {color:#e41e00; margin-left:18px; text-decoration:none;}
 .text-bot a:hover {color:#e8e8e8;}
 
