@@ -22,9 +22,8 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 * THE SOFTWARE.
 */
-(function ($) {
-
-    $.fn.countDown = function (options) {
+jQuery.fn.extend({
+    countDown: function (options) {
 
         config = {};
 
@@ -40,21 +39,20 @@
         }
 
         $('#' + $(this).attr('id') + ' .digit').html('<div class="top"></div><div class="bottom"></div>');
-        $(this).doCountDown($(this).attr('id'), diffSecs, 500);
+        $(this).doCountDown($(this).attr('id'), diffSecs);
 
         return this;
+    },
 
-    };
-
-    $.fn.stopCountDown = function () {
+    stopCountDown: function () {
         clearTimeout($.data(this[0], 'timer'));
-    };
+    },
 
-    $.fn.startCountDown = function () {
+    startCountDown: function () {
         this.doCountDown($(this).attr('id'), $.data(this[0], 'diffSecs'), 500);
-    };
+    },
 
-    $.fn.setCountDown = function (options) {
+    setCountDown: function (options) {
         var targetTime = new Date();
 
         if (options.targetDate) {
@@ -76,22 +74,22 @@
         $.data(this[0], 'diffSecs', diffSecs);
 
         return diffSecs;
-    };
+    },
 
-    $.fn.doCountDown = function (id, diffSecs, duration) {
-        $this = $('#' + id);
+    doCountDown: function (id, diffSecs) {
+        $this = jQuery('#' + id);
         if (diffSecs <= 0) {
             diffSecs = 0;
             if ($.data($this[0], 'timer')) {
                 clearTimeout($.data($this[0], 'timer'));
             }
         }
-
         secs = diffSecs % 60;
         mins = Math.floor(diffSecs / 60) % 60;
         hours = Math.floor(diffSecs / 60 / 60) % 24;
         if ($.data($this[0], 'omitWeeks') == true) {
             days = Math.floor(diffSecs / 60 / 60 / 24);
+            days = days > 99 ? 99 : days;
             weeks = Math.floor(diffSecs / 60 / 60 / 24 / 7);
         }
         else {
@@ -99,11 +97,11 @@
             weeks = Math.floor(diffSecs / 60 / 60 / 24 / 7);
         }
 
-        $this.dashChangeTo(id, 'seconds_dash', secs, duration ? duration : 800);
-        $this.dashChangeTo(id, 'minutes_dash', mins, duration ? duration : 1200);
-        $this.dashChangeTo(id, 'hours_dash', hours, duration ? duration : 1200);
-        $this.dashChangeTo(id, 'days_dash', days, duration ? duration : 1200);
-        $this.dashChangeTo(id, 'weeks_dash', weeks, duration ? duration : 1200);
+        $this.dashChangeTo(id, 'seconds_dash', secs, 800);
+        $this.dashChangeTo(id, 'minutes_dash', mins, 1200);
+        $this.dashChangeTo(id, 'hours_dash', hours, 1200);
+        $this.dashChangeTo(id, 'days_dash', days, 1200);
+        $this.dashChangeTo(id, 'weeks_dash', weeks, 1200);
 
         $.data($this[0], 'diffSecs', diffSecs);
         if (diffSecs > 0) {
@@ -115,9 +113,9 @@
             $.data($this[0], 'callback')();
         }
 
-    };
+    },
 
-    $.fn.dashChangeTo = function (id, dash, n, duration) {
+    dashChangeTo: function (id, dash, n, duration) {
         $this = $('#' + id);
 
         for (var i = ($this.find('.' + dash + ' .digit').length - 1); i >= 0; i--) {
@@ -125,9 +123,9 @@
             n = (n - d) / 10;
             $this.digitChangeTo('#' + $this.attr('id') + ' .' + dash + ' .digit:eq(' + i + ')', d, duration);
         }
-    };
+    },
 
-    $.fn.digitChangeTo = function (digit, n, duration) {
+    digitChangeTo: function (digit, n, duration) {
         if (!duration) {
             duration = 800;
         }
@@ -144,6 +142,6 @@
 
             });
         }
-    };
+    }
+});
 
-})(jQuery);
