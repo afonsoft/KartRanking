@@ -46,6 +46,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
     <script type="text/javascript">
+
+        // Set by specific date/time
+        function StartCountDown() {
+            $('#countdown_dashboard').stopCountDown();
+            $('#countdown_dashboard').setCountDown({
+                targetDate: {
+                    'day': 15,
+                    'month': 5,
+                    'year': 2013,
+                    'hour': 12,
+                    'min': 0,
+                    'sec': 0
+                }, omitWeeks: true
+            });
+            $('#countdown_dashboard').startCountDown();
+        }
+
         $(document).ready(function () {
 
             $("#slider").easySlider({
@@ -59,6 +76,17 @@
                 pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
             });
 
+            $('#countdown_dashboard').countDown({
+                targetDate: {
+                    'day': 0,
+                    'month': 0,
+                    'year': 0,
+                    'hour': 0,
+                    'min': 0,
+                    'sec': 0
+                }, omitWeeks: true
+            });
+
 
             $('#countdown_dashboard').countDown({
                 targetDate: {
@@ -68,10 +96,13 @@
                     'hour': 11,
                     'min': 0,
                     'sec': 0
-                }
+                }, omitWeeks: true
             });
 
+            StartCountDown();
+
         });
+
     </script>
     <div class="container_12">
         <div class="wrapper">
