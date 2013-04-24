@@ -109,9 +109,9 @@ header {height:424px; width:100%; position:relative; z-index:3;}
 .row-top {width:100%; position:relative; z-index:2;}
 
 h1 {padding:0; position:absolute; top:55px; left:-5px;}
-h1 a {display:block; width:301px; height:91px; text-indent:-5000px; background:url(/images/logo.png) 0 0 no-repeat;}
+h1 a {display:block; width:301px; padding-left:10px; height:91px; text-indent:-5000px; background:url(/images/logo.png) 0 0 no-repeat;}
 
-.menu-top {position:absolute; top:71px; right:-4px; overflow:hidden;}
+.menu-top {position:absolute; top:71px; right:20px; overflow:hidden;}
 .menu-top li {float:left; font-size:14px; line-height:17px; font-weight:700; font-style:normal; text-transform:uppercase; margin-left:22px;}
 .menu-top li a {color:#f22a0b;}
 .menu-top li a:hover {color:#c9c9c9;}
