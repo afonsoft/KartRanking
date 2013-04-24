@@ -104,12 +104,12 @@ a {cursor:pointer;}
 /*********************************header*************************************/
 header {height:424px; width:100%; position:relative; z-index:3;}
 /* .header {height:897px; width:100%; margin-bottom:-234px; position:relative; z-index:1;} */
-.header {height:425px; width:100%; margin-bottom:-234px; position:relative; z-index:1;}
+.header {height:430px; width:100%; margin-bottom:-260px; position:relative; z-index:1;}
 
 .row-top {width:100%; position:relative; z-index:2;}
 
 h1 {padding:0; position:absolute; top:55px; left:-5px;}
-h1 a {display:block; width:301px; padding-left:10px; height:91px; text-indent:-5000px; background:url(/images/logo.png) 0 0 no-repeat;}
+h1 a {display:block; width:301px; padding-left:10px; margin-left: 10px; height:91px; text-indent:-5000px; background:url(/images/logo.png) 0 0 no-repeat;}
 
 .menu-top {position:absolute; top:71px; right:20px; overflow:hidden;}
 .menu-top li {float:left; font-size:14px; line-height:17px; font-weight:700; font-style:normal; text-transform:uppercase; margin-left:22px;}
@@ -117,14 +117,17 @@ h1 a {display:block; width:301px; padding-left:10px; height:91px; text-indent:-5
 .menu-top li a:hover {color:#c9c9c9;}
 
 /*********************************content*************************************/
-#content {width:100%; position:relative; z-index:2;}
-.padding-content {padding:40px 0;}
+#content {position:relative; z-index:2;}
+.padding-content {padding:20px 0;}
 
 .spacer-1 {width:100%; background:url(/images/pic-1.gif) 217px 0 repeat-y;}
 
 h3 {font-size:24px; line-height:38px; padding-bottom:11px; background:url(/images/border-bot.gif) 0 bottom repeat-x;}
 h3 .text-1 {display:block; color:#d6d6d6; font-size:24px; line-height:38px; margin-bottom:-7px;}
-h3 .text-2 {display:block; color:#d21c00; font-size:24px; line-height:38px;}
+/*h3 .text-2 {display:block; color:#d21c00; font-size:24px; line-height:38px; text-shadow: 0.1em 0.1em #333;}*/
+h3 .text-2 {display:block; color:#d21c00; font-size:24px; line-height:38px; text-shadow:0px 0px 0 rgb(178,-4,-32),1px 1px 0 rgb(161,-21,-49),2px 2px 0 rgb(145,-37,-65), 3px 3px 0 rgb(129,-53,-81),4px 4px 3px rgba(0,0,0,0.45),4px 4px 1px rgba(0,0,0,0.5),0px 0px 3px rgba(0,0,0,.2);}
+
+
 h4 {font-size:16px; line-height:21px; color:#e5e5e5; font-weight:normal;}
 h6 {font-size:13px; line-height:21px; color:#e5e5e5; font-weight:normal;}
 
@@ -226,10 +229,10 @@ table th {font-size:12px; line-height:24px; color:#fff; font-weight:700; backgro
 table td {font-size:12px; line-height:16px; color:#F5F5F5; vertical-align:middle; border-bottom:1px solid #19191a; background:#000;}
 
 /*********************************aside*************************************/
-aside {width:100%; position:relative; z-index:2;}
+aside {width:100%; position:relative; z-index:2; padding-top: 10px;}
 
 /****************************footer************************/
-footer {-webkit-background-clip: padding-box; border-radius:4px; background:url(/images/footer-tail.gif) 0 0 repeat-x #1a1a1b; margin-bottom:46px;}
+footer {-webkit-background-clip: padding-box; border-radius:4px; background:url(/images/footer-tail.gif) 0 0 repeat-x #1a1a1b; margin-bottom:46px; width: 936px;}
 footer .bg {width:100%; background:url(/images/footer-right-bg.jpg) right 0 no-repeat;}
 .padding-footer {padding:19px 23px 21px 19px;}
 
