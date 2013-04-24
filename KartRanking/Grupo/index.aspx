@@ -2,6 +2,10 @@
     CodeBehind="index.aspx.cs" Inherits="KartRanking.Grupo.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+
+    <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
+    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
+
     <link href="/Grupo/css/jquery.lwtCountdown.css" rel="stylesheet" type="text/css" />
     <link href="/Grupo/css/grid.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -40,28 +44,13 @@
             padding: 2px 5px;
         }
     </style>
-    <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
-    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
+    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
+    
     <script type="text/javascript">
-
-        // Set by specific date/time
-        function StartCountDown() {
-            $('#countdown_dashboard').stopCountDown();
-            $('#countdown_dashboard').setCountDown({
-                targetDate: {
-                    'day': 15,
-                    'month': 5,
-                    'year': 2013,
-                    'hour': 12,
-                    'min': 0,
-                    'sec': 0
-                }, omitWeeks: true
-            });
-            $('#countdown_dashboard').startCountDown();
-        }
 
         $(document).ready(function () {
 
@@ -78,32 +67,20 @@
 
             $('#countdown_dashboard').countDown({
                 targetDate: {
-                    'day': 0,
-                    'month': 0,
-                    'year': 0,
-                    'hour': 0,
-                    'min': 0,
-                    'sec': 0
-                }, omitWeeks: true
-            });
-
-
-            $('#countdown_dashboard').countDown({
-                targetDate: {
-                    'day': 10,
-                    'month': 5,
+                    'day': 22,
+                    'month': 9,
                     'year': 2013,
-                    'hour': 11,
+                    'hour': 20,
                     'min': 0,
                     'sec': 0
-                }, omitWeeks: true
+                },
+                omitWeeks: true
             });
-
-            StartCountDown();
 
         });
 
     </script>
+
     <div class="container_12">
         <div class="wrapper">
             <div class="grid_12">
