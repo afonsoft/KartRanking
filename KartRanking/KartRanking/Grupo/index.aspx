@@ -28,22 +28,24 @@
         .sliderSinopise
         {
             padding: 0px 5px 5px 5px;
-            color: #666666;
+            color: rgb(189, 178, 178);
             font-size: 10px;
         }
         .sliderTitulo
         {
             font-size: 11px;
-            color: Black;
+            color: #fff;
             font-weight: bold;
             margin: 0px;
             padding: 2px 5px;
         }
     </style>
     <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
-    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+
+    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
+
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
     <script type="text/javascript">
         $(document).ready(function () {
