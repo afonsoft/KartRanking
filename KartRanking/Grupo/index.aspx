@@ -41,11 +41,9 @@
         }
     </style>
     <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
+    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-
-    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
-
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
     <script type="text/javascript">
         $(document).ready(function () {
@@ -65,8 +63,8 @@
             $('#countdown_dashboard').countDown({
                 targetDate: {
                     'day': 10,
-                    'month': 1,
-                    'year': 2014,
+                    'month': 5,
+                    'year': 2013,
                     'hour': 11,
                     'min': 0,
                     'sec': 0
@@ -84,34 +82,38 @@
                             <h3 class="p2">
                                 <strong class="text-2"><strong><strong>
                                     <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></strong></strong></strong></h3>
-                                <!-- Countdown dashboard start -->
-		                        <div id="countdown_dashboard">
-			                        <div class="dash days_dash">
-				                        <span class="dash_title">dias</span>
-				                        <div class="digit">0</div>
-				                        <div class="digit">0</div>
-			                        </div>
-
-			                        <div class="dash hours_dash">
-				                        <span class="dash_title">horas</span>
-				                        <div class="digit">0</div>
-				                        <div class="digit">0</div>
-			                        </div>
-
-			                        <div class="dash minutes_dash">
-				                        <span class="dash_title">minutos</span>
-				                        <div class="digit">0</div>
-				                        <div class="digit">0</div>
-			                        </div>
-
-			                        <div class="dash seconds_dash">
-				                        <span class="dash_title">secundos</span>
-				                        <div class="digit">0</div>
-				                        <div class="digit">0</div>
-			                        </div>
-
-		                        </div>
-		                        <!-- Countdown dashboard end -->
+                            <!-- Countdown dashboard start -->
+                            <div id="countdown_dashboard">
+                                <div class="dash days_dash">
+                                    <span class="dash_title">dias</span>
+                                    <div class="digit">
+                                        0</div>
+                                    <div class="digit">
+                                        0</div>
+                                </div>
+                                <div class="dash hours_dash">
+                                    <span class="dash_title">horas</span>
+                                    <div class="digit">
+                                        0</div>
+                                    <div class="digit">
+                                        0</div>
+                                </div>
+                                <div class="dash minutes_dash">
+                                    <span class="dash_title">minutos</span>
+                                    <div class="digit">
+                                        0</div>
+                                    <div class="digit">
+                                        0</div>
+                                </div>
+                                <div class="dash seconds_dash">
+                                    <span class="dash_title">secundos</span>
+                                    <div class="digit">
+                                        0</div>
+                                    <div class="digit">
+                                        0</div>
+                                </div>
+                            </div>
+                            <!-- Countdown dashboard end -->
                             <div class="border-bot">
                             </div>
                         </div>
