@@ -5,15 +5,14 @@
     <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
     <script src="/Grupo/js/modernizr-2.5.3.min.js" type="text/javascript"></script>
-
-
     <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:HiddenField ID="HiddenFieldIdGrupo" runat="server" />
-    <!--==============================header=================================-->
-    <header class="header">
+    <div id="main">
+        <!--==============================header=================================-->
+        <header class="header">
         <div class="row-top">
             <div class="main">
                 <h1>
@@ -35,9 +34,9 @@
             </div>
         </div>
     </header>
-    <!--==============================End header=================================-->
-    <!--==============================aside=================================-->
-    <aside>
+        <!--==============================End header=================================-->
+        <!--==============================aside=================================-->
+        <aside>
         <div class="main">
             <figure>
             <center>
@@ -58,17 +57,17 @@
             </div>
         </div>
     </aside>
-    <!--==============================End aside=================================-->
-    <section id="content">
+        <!--==============================End aside=================================-->
+        <section id="content">
         <div class="padding-content">
             <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </section>
-    <!--==============================End content================================-->
-    <!--==============================footer=================================-->
-    <div class="main">
-        <footer>
+        <!--==============================End content================================-->
+        <!--==============================footer=================================-->
+        <div class="main">
+            <footer>
             <div class="bg">
                 <div class="padding-footer">
                     <div class="wrapper">
@@ -96,6 +95,7 @@
                 </div>
             </div>
         </footer>
+        </div>
+        <!--==============================End footer=================================-->
     </div>
-    <!--==============================End footer=================================-->
 </asp:Content>

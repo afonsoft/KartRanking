@@ -64,7 +64,7 @@
     <div style="text-align: center; vertical-align: top; width: 100%;">
         <center>
             <div style="height: 100%; min-height: 600px; min-width: 795px; max-width: 1020px;
-                width: auto; text-align: left; border: 1px solid #ccc; background-color: #fff;">
+                width: auto; text-align: left; ">
                 <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
