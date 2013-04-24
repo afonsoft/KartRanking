@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
     <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
+    <link href="/Grupo/css/grid.css" rel="stylesheet" type="text/css" media="screen" />
     <script src="/Grupo/js/modernizr-2.5.3.min.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
     </asp:ContentPlaceHolder>
