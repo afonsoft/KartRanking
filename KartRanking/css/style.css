@@ -26,6 +26,16 @@ body
     margin: 0 auto;
 }
 
+section {
+    display: block;
+    background: none;
+    padding: 0.8em;
+}
+footer {
+    clear: both;
+    display: block;
+}
+
 a {color:#e5e5e5; outline:none;}
 a:hover {text-decoration:none;}
 
