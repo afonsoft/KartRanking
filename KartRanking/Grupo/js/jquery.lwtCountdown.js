@@ -39,7 +39,8 @@ jQuery.fn.extend({
         }
 
         $('#' + $(this).attr('id') + ' .digit').html('<div class="top"></div><div class="bottom"></div>');
-        $(this).doCountDown($(this).attr('id'), diffSecs);
+        t = setInterval(function () { $(this).doCountDown($(this).attr('id'), diffSecs); }, 1000);
+        $.data($(this)[0], 'timer', t);
 
         return this;
     },
@@ -77,13 +78,14 @@ jQuery.fn.extend({
     },
 
     doCountDown: function (id, diffSecs) {
-        $this = jQuery('#' + id);
+        $this = $('#' + id);
         if (diffSecs <= 0) {
             diffSecs = 0;
             if ($.data($this[0], 'timer')) {
                 clearTimeout($.data($this[0], 'timer'));
             }
         }
+        diffSecs = diffSecs - 1;
         secs = diffSecs % 60;
         mins = Math.floor(diffSecs / 60) % 60;
         hours = Math.floor(diffSecs / 60 / 60) % 24;
@@ -105,9 +107,9 @@ jQuery.fn.extend({
 
         $.data($this[0], 'diffSecs', diffSecs);
         if (diffSecs > 0) {
-            e = $this;
-            t = setTimeout(function () { e.doCountDown(id, diffSecs - 1) }, 1000);
-            $.data(e[0], 'timer', t);
+        //            e = $this;
+        //            t = setInterval(function () { e.doCountDown(id, diffSecs - 1) }, 1000);
+        //            $.data(e[0], 'timer', t);
         }
         else if (cb = $.data($this[0], 'callback')) {
             $.data($this[0], 'callback')();
