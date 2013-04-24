@@ -99,6 +99,7 @@
     <Content Include="Grupo\js\modernizr-2.5.3.min.js" />
     <Content Include="images\close.png" />
     <Content Include="images\loading.gif" />
+    <Content Include="images\nav-bg_mini.png" />
     <Content Include="images\next.png" />
     <Content Include="images\pause.png" />
     <Content Include="images\play.png" />
