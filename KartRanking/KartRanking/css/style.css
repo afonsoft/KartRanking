@@ -5,7 +5,14 @@ mark, rp, rt, ruby, summary {display:inline;}
 
 /* Global properties ======================================================== */
 html {width:100%;}
-body {background-color: #cccccc; width:100%;}
+body 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(/Grupo/images/bg.jpg) no-repeat fixed top center black;
+    color: #fff;
+    display: block;
+}
+
 .bg-top {background:url(/images/bg-top.jpg) center 0 no-repeat;}
 .main {
 	width:940px; 	

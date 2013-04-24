@@ -93,6 +93,7 @@
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoVideos.htm" />
     <Content Include="Grupo\css\jquery.lwtCountdown.css" />
+    <Content Include="Grupo\img\bg.jpg" />
     <Content Include="Grupo\img\dash.png" />
     <Content Include="Grupo\js\jquery.lwtCountdown.js" />
     <Content Include="Grupo\js\modernizr-2.5.3.min.js" />
