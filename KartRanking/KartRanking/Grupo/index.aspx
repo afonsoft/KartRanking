@@ -3,9 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 
-    <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
-    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
-
     <link href="/Grupo/css/jquery.lwtCountdown.css" rel="stylesheet" type="text/css" />
     <link href="/Grupo/css/grid.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
@@ -45,6 +42,8 @@
         }
     </style>
     
+    <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
+    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
