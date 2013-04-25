@@ -2,8 +2,6 @@
     CodeBehind="index.aspx.cs" Inherits="KartRanking.Grupo.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
-    <link href="/Grupo/css/jquery.lwtCountdown.css" rel="stylesheet" type="text/css" />
-    <link href="/Grupo/css/grid.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         #slider, #slider li
         {
@@ -40,8 +38,6 @@
             padding: 2px 5px;
         }
     </style>
-    <script src="/js/jquery.easySlider.js" type="text/javascript"></script>
-    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
     <script type="text/javascript">
 
         $(document).ready(function () {
