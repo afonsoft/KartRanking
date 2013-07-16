@@ -1,5 +1,7 @@
 https://rankingkart.codeplex.com/
 
+https://rankingkart.svn.codeplex.com/svn
+
 https://appharbor.com:443/applications/kartranking/builds?authorization=1QumTp98S0q80ev%2fXYXAxodsLZI2epZOrtXRZWl5Mzo%3d
 
 https://afonsoft@appharbor.com/kartranking.git
