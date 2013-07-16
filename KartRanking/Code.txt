@@ -1,6 +1,13 @@
 https://rankingkart.codeplex.com/
 
-https://rankingkart.svn.codeplex.com/svn
+SVN: https://rankingkart.svn.codeplex.com/svn
+Username: afonsoft
+Password: <your CodePlex website password> 
+
+TFS: https://tfs.codeplex.com:443/tfs/TFS16
+Username: snd\afonsoft_cp
+Password: <your CodePlex website password> 
+
 
 https://appharbor.com:443/applications/kartranking/builds?authorization=1QumTp98S0q80ev%2fXYXAxodsLZI2epZOrtXRZWl5Mzo%3d
 
