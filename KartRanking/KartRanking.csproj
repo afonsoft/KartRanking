@@ -97,10 +97,8 @@
     <Content Include="css\youTubeEmbed.css" />
     <Content Include="dlls\AjaxControlToolkit.dll" />
     <Content Include="dlls\AjaxControlToolkit.resources.dll" />
-    <Content Include="dlls\AjaxMin.dll" />
     <Content Include="dlls\AspNetInfo.dll" />
     <Content Include="dlls\AspNetInfo.SampleDiagnosticPlugIn.dll" />
-    <Content Include="dlls\HtmlAgilityPack.dll" />
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoVideos.htm" />
