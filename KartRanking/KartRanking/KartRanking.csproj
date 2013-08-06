@@ -44,21 +44,31 @@
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=3.5.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.725, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dlls\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="AjaxControlToolkit.resources, Version=3.5.60623.0, Culture=pt, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="AjaxControlToolkit.resources, Version=4.1.7.725, Culture=pt, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dlls\AjaxControlToolkit.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\AjaxMin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="AspNetInfo, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dlls\AspNetInfo.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="AspNetInfo.SampleDiagnosticPlugIn, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dlls\AspNetInfo.SampleDiagnosticPlugIn.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -87,8 +97,10 @@
     <Content Include="css\youTubeEmbed.css" />
     <Content Include="dlls\AjaxControlToolkit.dll" />
     <Content Include="dlls\AjaxControlToolkit.resources.dll" />
+    <Content Include="dlls\AjaxMin.dll" />
     <Content Include="dlls\AspNetInfo.dll" />
     <Content Include="dlls\AspNetInfo.SampleDiagnosticPlugIn.dll" />
+    <Content Include="dlls\HtmlAgilityPack.dll" />
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoVideos.htm" />
