@@ -2,6 +2,11 @@
     CodeBehind="index.aspx.cs" Inherits="KartRanking.Grupo.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    
+    <link href="countdown/jquery.countdown.css" rel="stylesheet" type="text/css" />
+    <script src="countdown/jquery.countdown.min.js" type="text/javascript"></script>
+    <script src="countdown/jquery.countdown-pt-BR.js" type="text/javascript"></script>
+    
     <style type="text/css">
         #slider, #slider li
         {
@@ -52,24 +57,17 @@
                 prevId: 'prev',
                 pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
             });
-
-            $('#countdown_dashboard').countDown({
-                targetDate: {
-                    'day': 27,
-                    'month': 4,
-                    'year': 2014,
-                    'hour': 22,
-                    'min': 30,
-                    'sec': 0
-                },
-                omitWeeks: true
-            });
-
         });
 
+
+        $("#defaultCountdown").countdown({ since: new Date(2014, 12 - 1, 25) });
     </script>
+
+    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+    
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
     <div class="container_12">
         <div class="wrapper">
@@ -81,36 +79,8 @@
                                 <strong class="text-2"><strong><strong>
                                     <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></strong></strong></strong></h3>
                             <!-- Countdown dashboard start -->
-                            <div id="countdown_dashboard">
-                                <div class="dash days_dash">
-                                    <span class="dash_title">dias</span>
-                                    <div class="digit">
-                                        0</div>
-                                    <div class="digit">
-                                        0</div>
-                                </div>
-                                <div class="dash hours_dash">
-                                    <span class="dash_title">horas</span>
-                                    <div class="digit">
-                                        0</div>
-                                    <div class="digit">
-                                        0</div>
-                                </div>
-                                <div class="dash minutes_dash">
-                                    <span class="dash_title">minutos</span>
-                                    <div class="digit">
-                                        0</div>
-                                    <div class="digit">
-                                        0</div>
-                                </div>
-                                <div class="dash seconds_dash">
-                                    <span class="dash_title">secundos</span>
-                                    <div class="digit">
-                                        0</div>
-                                    <div class="digit">
-                                        0</div>
-                                </div>
-                            </div>
+                            <span id="defaultCountdown" class="countdown hasCountdown">
+                            </span>
                             <!-- Countdown dashboard end -->
                             <div class="border-bot">
                             </div>

@@ -92,10 +92,11 @@
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoVideos.htm" />
-    <Content Include="Grupo\css\jquery.lwtCountdown.css" />
-    <Content Include="Grupo\img\bg.jpg" />
-    <Content Include="Grupo\img\dash.png" />
-    <Content Include="Grupo\js\jquery.lwtCountdown.js" />
+    <Content Include="Grupo\countdown\countdownGlowing.gif" />
+    <Content Include="Grupo\countdown\countdownLED.png" />
+    <Content Include="Grupo\countdown\jquery.countdown-pt-BR.js" />
+    <Content Include="Grupo\countdown\jquery.countdown.css" />
+    <Content Include="Grupo\countdown\jquery.countdown.min.js" />
     <Content Include="images\close.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\nav-bg_mini.png" />
@@ -581,6 +582,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Fotos\" />
+    <Folder Include="Grupo\js\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
