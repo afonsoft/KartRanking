@@ -3,11 +3,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
     <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/Grupo/css/jquery.lwtCountdown.css" type="text/css"
-        media="screen" />
     <link rel="stylesheet" href="/Grupo/css/grid.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
-    <script src="/Grupo/js/jquery.lwtCountdown.js" type="text/javascript"></script>
     <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
