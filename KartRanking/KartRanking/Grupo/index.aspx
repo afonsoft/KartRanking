@@ -2,11 +2,9 @@
     CodeBehind="index.aspx.cs" Inherits="KartRanking.Grupo.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
-    
     <link href="countdown/jquery.countdown.css" rel="stylesheet" type="text/css" />
     <script src="countdown/jquery.countdown.min.js" type="text/javascript"></script>
     <script src="countdown/jquery.countdown-pt-BR.js" type="text/javascript"></script>
-    
     <style type="text/css">
         #slider, #slider li
         {
@@ -42,6 +40,11 @@
             margin: 0px;
             padding: 2px 5px;
         }
+        #defaultCountdown
+        {
+            width: 240px;
+            height: 45px;
+        }
     </style>
     <script type="text/javascript">
 
@@ -62,12 +65,8 @@
 
         $("#defaultCountdown").countdown({ since: new Date(2014, 12 - 1, 25) });
     </script>
-
-    
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-    
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
     <div class="container_12">
         <div class="wrapper">
@@ -79,8 +78,8 @@
                                 <strong class="text-2"><strong><strong>
                                     <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></strong></strong></strong></h3>
                             <!-- Countdown dashboard start -->
-                            <span id="defaultCountdown" class="countdown hasCountdown">
-                            </span>
+                            <div id="defaultCountdown" class="hasCountdown">
+                            </div>
                             <!-- Countdown dashboard end -->
                             <div class="border-bot">
                             </div>
