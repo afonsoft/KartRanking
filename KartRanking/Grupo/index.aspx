@@ -132,11 +132,6 @@
                                                 </span>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <hr />
-                                            </td>
-                                        </tr>
                                     </ItemTemplate>
                                     <FooterTemplate>
                                         </table>
@@ -205,11 +200,6 @@
                                             </td>
                                             <td style="width: 30px;">
                                                 <%# Eval("Pontos") %>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="4">
-                                                <hr />
                                             </td>
                                         </tr>
                                     </ItemTemplate>
