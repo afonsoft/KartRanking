@@ -9,7 +9,7 @@
         @font-face
         {
             font-family: 28 Days Later;
-            src: url(Fonts/28DaysLater.ttf) format("truetype");
+            src: url('/Fonts/28DaysLater.ttf');
         }
         .EntezarFont
         {
