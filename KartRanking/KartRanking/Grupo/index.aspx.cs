@@ -16,7 +16,6 @@ namespace KartRanking.Grupo
 
             HiddenIdGrupo.Value = "0";
             HiddenIdGrupo.Value = IdGrupo.ToString();
-            Session["idGrupoGrupos"] = IdGrupo;
             PilotoDestaque();
             PopularGrid();
             CarregarNoticias();
@@ -33,7 +32,7 @@ namespace KartRanking.Grupo
             if (ViewState["UsuarioSelecionado"] != null)
             {
                 Int32 idUsuario = Convert.ToInt32(ViewState["UsuarioSelecionado"]);
-                Response.Redirect("perfil.aspx?idUsuario=" + idUsuario + "&Edit=false&idGrupo=" + IdGrupo);
+                Response.Redirect("/Grupo/pilotos.aspx?idUsuario=" + idUsuario + "&idGrupo=" + IdGrupo);
             }
         }
 
