@@ -78,7 +78,8 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                    <span style="font-family:28 Days Later;"><asp:Literal ID="ltNomeCampeonato" runat="server" ></span></asp:Literal></h3>
+                                <span style="font-family: 28 Days Later;">
+                                    <asp:Literal ID="ltNomeCampeonato" runat="server"></span></asp:Literal></h3>
                             <!-- Countdown dashboard start -->
                             <div id="defaultCountdown" class="hasCountdown">
                             </div>
@@ -97,7 +98,7 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="../images/Campeonato.png" alt="Campeonato" />
+                                <img src="img/Campeonato.png" alt="Campeonato" />
                             </h3>
                             <div style="font-size: 7pt; color: #FFF;">
                                 <asp:Repeater ID="gvRankigCampeonato" runat="server">
@@ -154,7 +155,7 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="../images/Noticias.png" alt="Noticias" />
+                                <img src="img/Noticias.png" alt="Noticias" />
                                 <div style="font-size: 7pt; color: #FFF;">
                                     <asp:Literal ID="ltNoticias" runat="server"></asp:Literal></div>
                                 <div class="border-bot">
@@ -171,7 +172,7 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="../images/Etapas.png" alt="Etapas" /></h3>
+                                <img src="img/Etapas.png" alt="Etapas" /></h3>
                             <div style="font-size: 7pt; color: #FFF;">
                                 <asp:Repeater ID="gvRankigEquipe" runat="server">
                                     <HeaderTemplate>
@@ -228,7 +229,7 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="../images/PilotoDestaque.png" alt="Piloto Destaque" /></h3>
+                                <img src="img/PilotoDestaque.png" alt="Piloto Destaque" /></h3>
                             <div>
                                 <table style="width: 100%; padding: 1px; border-spacing: 1px; text-align: left; border: 0px solid #000;">
                                     <tr>
@@ -299,4 +300,5 @@
             </div>
         </div>
     </div>
+    </span>
 </asp:Content>
