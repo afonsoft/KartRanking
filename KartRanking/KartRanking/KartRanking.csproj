@@ -110,11 +110,19 @@
     <Content Include="Grupo\countdown\jquery.countdown-pt-BR.js" />
     <Content Include="Grupo\countdown\jquery.countdown.css" />
     <Content Include="Grupo\countdown\jquery.countdown.min.js" />
+    <Content Include="Grupo\img\bg.jpg" />
+    <Content Include="Grupo\img\dash.png" />
+    <Content Include="Grupo\js\jquery.lwtCountdown.js" />
+    <Content Include="images\Campeonato.png" />
     <Content Include="images\close.png" />
+    <Content Include="images\Etapas.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\nav-bg_mini.png" />
     <Content Include="images\next.png" />
+    <Content Include="images\Noticias.png" />
     <Content Include="images\pause.png" />
+    <Content Include="images\PilotoDestaque.png" />
+    <Content Include="images\Pilotos.png" />
     <Content Include="images\play.png" />
     <Content Include="images\prev.png" />
     <Content Include="images\replay.png" />
@@ -393,6 +401,7 @@
       <LastGenOutput>DataKart.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Fonts\28DaysLater.ttf" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
   </ItemGroup>
   <ItemGroup>
