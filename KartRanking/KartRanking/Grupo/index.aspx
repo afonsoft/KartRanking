@@ -78,8 +78,8 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <span style="font-family: 28 Days Later;">
-                                    <asp:Literal ID="ltNomeCampeonato" runat="server"></span></asp:Literal></h3>
+                                <span style="font-family: '28 Days Later'; font-size: 48pt; color: #a31f1f;">
+                                    <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></span></h3>
                             <!-- Countdown dashboard start -->
                             <div id="defaultCountdown" class="hasCountdown">
                             </div>
