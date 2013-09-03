@@ -37,7 +37,7 @@ namespace KartRanking.Grupo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRankigCampeonato;
+        protected global::System.Web.UI.WebControls.Repeater gvRankigCampeonato;
         
         /// <summary>
         /// ltNoticias control.
@@ -55,7 +55,7 @@ namespace KartRanking.Grupo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRankigEquipe;
+        protected global::System.Web.UI.WebControls.Repeater gvRankigEquipe;
         
         /// <summary>
         /// ImgPerfil control.
