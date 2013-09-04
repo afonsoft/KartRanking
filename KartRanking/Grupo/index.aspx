@@ -78,11 +78,11 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <span style="font-family: '28 Days Later'; font-size: 48pt; color: #a31f1f;">
+                                <span class="TitleFont">
                                     <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></span></h3>
                             <!-- Countdown dashboard start -->
                             <div id="defaultCountdown" class="hasCountdown">
-                            </div>
+                            </div> 
                             <!-- Countdown dashboard end -->
                             <div class="border-bot">
                             </div>
@@ -94,7 +94,7 @@
                 &nbsp;
             </div>
             <div class="grid_6">
-                <div class="page1 box maxheight" style="height: auto; min-height: 515px;">
+                <div class="page1 box maxheight" style="height: auto; min-height: 380px;">
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div class="grid_6">
-                <div class="page1 box maxheight" style="height: auto; min-height: 515px;">
+                <div class="page1 box maxheight" style="height: auto; min-height: 380px;">
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
@@ -163,7 +163,7 @@
                 &nbsp;
             </div>
             <div class="grid_6">
-                <div class="page1 box maxheight" style="height: auto; min-height: 515px;">
+                <div class="page1 box maxheight" style="height: auto; min-height: 380px;">
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
@@ -215,7 +215,7 @@
                 </div>
             </div>
             <div class="grid_6">
-                <div class="page1 box maxheight" style="height: auto; min-height: 515px;">
+                <div class="page1 box maxheight" style="height: auto; min-height: 380px;">
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
