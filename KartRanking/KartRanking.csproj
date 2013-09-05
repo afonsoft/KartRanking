@@ -128,11 +128,9 @@
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoVideos.htm" />
     <Content Include="Fonts\28dayslater-webfont.svg" />
-    <Content Include="Grupo\countdown\countdownGlowing.gif" />
-    <Content Include="Grupo\countdown\countdownLED.png" />
-    <Content Include="Grupo\countdown\jquery.countdown-pt-BR.js" />
-    <Content Include="Grupo\countdown\jquery.countdown.css" />
-    <Content Include="Grupo\countdown\jquery.countdown.min.js" />
+    <Content Include="Grupo\countdown\digits.png" />
+    <Content Include="Grupo\countdown\digits2.png" />
+    <Content Include="Grupo\countdown\jquery.countdown.js" />
     <Content Include="Grupo\img\bg.jpg" />
     <Content Include="Grupo\img\dash.png" />
     <Content Include="Grupo\js\jquery.lwtCountdown.js" />
