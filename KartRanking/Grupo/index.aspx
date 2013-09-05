@@ -17,7 +17,7 @@
         }
         span#prevBtn
         {
-            text-decoration: none;
+            text-decoration: none; 
             font-style: normal;
         }
         span#nextBtn
