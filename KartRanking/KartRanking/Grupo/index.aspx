@@ -16,7 +16,7 @@
         {
             padding-bottom: 15px;
         }
-        span#prevBtn
+        span#prevBtn 
         {
             text-decoration: none;
             font-style: normal;
