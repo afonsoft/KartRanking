@@ -2,21 +2,20 @@
     CodeBehind="index.aspx.cs" Inherits="KartRanking.Grupo.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
-    <link href="countdown/jquery.countdown.css" rel="stylesheet" type="text/css" />
-    <script src="countdown/jquery.countdown.min.js" type="text/javascript"></script>
-    <script src="countdown/jquery.countdown-pt-BR.js" type="text/javascript"></script>
+    <script src="/Grupo/countdown/jquery.countdown.js" type="text/javascript"></script>
     <style type="text/css">
         #slider, #slider li
         {
             width: 100%;
-            height: 250px;
+            min-height: 190px;
+            height: auto;
             overflow: hidden;
         }
         #slider li p
         {
             padding-bottom: 15px;
         }
-        span#prevBtn 
+        span#prevBtn
         {
             text-decoration: none;
             font-style: normal;
@@ -45,6 +44,27 @@
             width: 240px;
             height: 45px;
         }
+        
+        .cntSeparator
+        {
+            font-size: 54px;
+            margin: 30px 8px;
+        }
+        .desc
+        {
+            margin: 7px 3px;
+        }
+        .desc div
+        {
+            float: left;
+            font-family: Arial, Tahoma;
+            width: 60px;
+            margin-right: 45px;
+            margin-left: 25px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: normal;
+        }
     </style>
     <script type="text/javascript">
 
@@ -62,11 +82,6 @@
             });
         });
 
-
-        $("#defaultCountdown").countdown({ since: new Date(2014, 12 - 1, 25) });
-
-
-
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
@@ -81,8 +96,36 @@
                                 <span class="TitleFont">
                                     <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></span></h3>
                             <!-- Countdown dashboard start -->
-                            <div id="defaultCountdown" class="hasCountdown">
-                            </div> 
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('#counter').countdown({
+                                        image: 'countdown/digits2.png',
+                                        startTime: '01:12:12:00' //dd:hh:mm:ss
+                                    });
+                                });
+                            </script>
+                            <table style="width: 100%; border: 0px sold; border-collapse: separate; border-spacing: 3px;">
+                                <tr>
+                                    <td style="text-align: right; min-width: 300px; width: auto;">
+                                        <span style="margin-right: 20px; font-size: 28pt;">
+                                            <b>Próxima Etapa</b></span>
+                                    </td>
+                                    <td style="text-align: right; min-width: 240px; width: auto;">
+                                        <div id="counter">
+                                        </div>
+                                        <div class="desc">
+                                            <div>
+                                                Días</div>
+                                            <div>
+                                                Horas</div>
+                                            <div style="margin-left: 32px;">
+                                                Minutos</div>
+                                            <div style="margin-left: 35px; margin-right: 20px;">
+                                                Segundos</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                             <!-- Countdown dashboard end -->
                             <div class="border-bot">
                             </div>
@@ -103,18 +146,21 @@
                             <div style="font-size: 7pt; color: #FFF;">
                                 <asp:Repeater ID="gvRankigCampeonato" runat="server">
                                     <HeaderTemplate>
-                                        <table style="width: 100%; padding: 1px; text-align: left; border: 0px solid #000;">
-                                            <tr>
-                                                <td style="width: 30px;">
-                                                    <b>Pos</b>
-                                                </td>
-                                                <td style="width: auto;">
-                                                    <b>Nome</b>
-                                                </td>
-                                                <td style="width: 30px;">
-                                                    <b>Pontos</b>
-                                                </td>
-                                            </tr>
+                                        <table style="width: 100%; padding: 2px; text-align: left; border: 0px solid #000;">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 30px;">
+                                                        <b>Pos</b>
+                                                    </th>
+                                                    <th style="width: auto;">
+                                                        <b>Nome</b>
+                                                    </th>
+                                                    <th style="width: 30px;">
+                                                        <b>Pontos</b>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                     </HeaderTemplate>
                                     <ItemTemplate>
                                         <tr>
@@ -134,7 +180,7 @@
                                         </tr>
                                     </ItemTemplate>
                                     <FooterTemplate>
-                                        </table>
+                                        </tbody> </table>
                                     </FooterTemplate>
                                 </asp:Repeater>
                             </div>
@@ -151,10 +197,11 @@
                         <div class="indent-bot">
                             <h3 class="p2">
                                 <img src="img/Noticias.png" alt="Noticias" />
-                                <div style="font-size: 7pt; color: #FFF;">
-                                    <asp:Literal ID="ltNoticias" runat="server"></asp:Literal></div>
-                                <div class="border-bot">
-                                </div>
+                            </h3>
+                            <div style="font-size: 7pt; color: #FFF;">
+                                <asp:Literal ID="ltNoticias" runat="server"></asp:Literal></div>
+                            <div class="border-bot">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -172,20 +219,23 @@
                                 <asp:Repeater ID="gvRankigEquipe" runat="server">
                                     <HeaderTemplate>
                                         <table style="width: 100%; padding: 1px; text-align: left; border: 0px solid #000;">
-                                            <tr>
-                                                <td style="width: 30px;">
-                                                    <b>Pos</b>
-                                                </td>
-                                                <td style="width: auto;">
-                                                    <b>Equipe</b>
-                                                </td>
-                                                <td style="width: 40px;">
-                                                    <b>Sigla</b>
-                                                </td>
-                                                <td style="width: 30px;">
-                                                    <b>Pontos</b>
-                                                </td>
-                                            </tr>
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 30px;">
+                                                        <b>Pos</b>
+                                                    </th>
+                                                    <th style="width: auto;">
+                                                        <b>Equipe</b>
+                                                    </th>
+                                                    <th style="width: 40px;">
+                                                        <b>Sigla</b>
+                                                    </th>
+                                                    <th style="width: 30px;">
+                                                        <b>Pontos</b>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                     </HeaderTemplate>
                                     <ItemTemplate>
                                         <tr>
@@ -204,7 +254,8 @@
                                         </tr>
                                     </ItemTemplate>
                                     <FooterTemplate>
-                                        </table></FooterTemplate>
+                                        </tbody> </table>
+                                    </FooterTemplate>
                                 </asp:Repeater>
                             </div>
                             <div class="border-bot">
@@ -221,7 +272,7 @@
                             <h3 class="p2">
                                 <img src="img/PilotoDestaque.png" alt="Piloto Destaque" /></h3>
                             <div>
-                                <table style="width: 100%; padding: 1px; border-spacing: 1px; text-align: left; border: 0px solid #000;">
+                                <table style="width: 98%; border-spacing: 1px; text-align: left; border: 0px solid #000;">
                                     <tr>
                                         <td rowspan="6" style="height: 170px; width: 150px;">
                                             <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
@@ -229,7 +280,7 @@
                                         <td style="width: 50px;">
                                             <b>Nome:</b>
                                         </td>
-                                        <td style="min-width: 200px;" colspan="3">
+                                        <td style="min-width: 100px;" colspan="3">
                                             <asp:Label ID="lbNome" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
@@ -290,5 +341,4 @@
             </div>
         </div>
     </div>
-    </span>
 </asp:Content>
