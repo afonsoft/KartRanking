@@ -21,7 +21,7 @@ namespace KartRanking.uc
             get
             {
                 try { return Convert.ToInt16(HiddenIdUsuario.Value); }
-                catch { HiddenIdUsuario.Value = "0"; return 0; }
+                catch(Exception) { HiddenIdUsuario.Value = "0"; return 0; }
             }
             set
             {
