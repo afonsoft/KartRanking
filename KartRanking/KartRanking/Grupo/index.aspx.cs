@@ -17,7 +17,7 @@ namespace KartRanking.Grupo
             HiddenIdGrupo.Value = "0";
             HiddenIdGrupo.Value = IdGrupo.ToString();
             PilotoDestaque();
-            PopularGrid();
+            PopularGrid(); 
             CarregarNoticias();
             NomeGrupo();
         }
