@@ -24,7 +24,7 @@ namespace KartRanking.Grupo
 
         private void NomeGrupo()
         {
-            ltNomeCampeonato.Text = (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
+            ImageTitle.ImageUrl = "~/Grupo/ImgTitleHandler.ashx?id=" + IdGrupo;
         }
         
         protected void lnkMaisInfo_Click(object sender, EventArgs e)

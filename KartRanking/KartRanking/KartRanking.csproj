@@ -325,6 +325,9 @@
     <Compile Include="Grupo\fotos.aspx.designer.cs">
       <DependentUpon>fotos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Grupo\ImgTitleHandler.ashx.cs">
+      <DependentUpon>ImgTitleHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Grupo\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -440,6 +443,7 @@
     <None Include="Fonts\28dayslater-webfont.ttf" />
     <None Include="Fonts\28dayslater-webfont.woff" />
     <None Include="Fonts\28DaysLater.ttf" />
+    <Content Include="Grupo\ImgTitleHandler.ashx" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
   </ItemGroup>
   <ItemGroup>
