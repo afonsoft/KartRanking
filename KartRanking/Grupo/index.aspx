@@ -94,7 +94,8 @@
                         <div class="indent-bot">
                             <h3 class="p2">
                                 <span class="TitleFont">
-                                    <asp:Literal ID="ltNomeCampeonato" runat="server"></asp:Literal></span></h3>
+                                    <asp:Image ID="ImageTitle" runat="server" />
+                                    </span></h3>
                             <!-- Countdown dashboard start -->
                             <script type="text/javascript">
                                 $(document).ready(function () {

@@ -9,8 +9,8 @@
         @font-face
         {
             font-family: 28 Days Later;
-            src: url('28dayslater-webfont.eot');
-            src: url('28dayslater-webfont.eot?#iefix') format('embedded-opentype'), url('28dayslater-webfont.woff') format('woff'), url('28dayslater-webfont.ttf') format('truetype'), url('28dayslater-webfont.svg#28_days_laterregular') format('svg');
+            src: url('/Fonts/28dayslater-webfont.eot');
+            src: url('/Fonts/28dayslater-webfont.eot?#iefix') format('embedded-opentype'), url('/Fonts/28dayslater-webfont.woff') format('woff'), url('/Fonts/28dayslater-webfont.ttf') format('truetype'), url('/Fonts/28dayslater-webfont.svg#28_days_laterregular') format('svg');
             font-weight: normal;
             font-style: normal;
         } 
