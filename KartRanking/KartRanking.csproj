@@ -127,7 +127,9 @@
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoVideos.htm" />
-    <Content Include="Fonts\28dayslater-webfont.svg" />
+    <Content Include="Fonts\28dayslater-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Grupo\countdown\digits.png" />
     <Content Include="Grupo\countdown\digits2.png" />
     <Content Include="Grupo\countdown\jquery.countdown.js" />
@@ -439,10 +441,18 @@
       <LastGenOutput>DataKart.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Fonts\28dayslater-webfont.eot" />
-    <None Include="Fonts\28dayslater-webfont.ttf" />
-    <None Include="Fonts\28dayslater-webfont.woff" />
-    <None Include="Fonts\28DaysLater.ttf" />
+    <Content Include="Fonts\28dayslater-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\28dayslater-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\28dayslater-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Fonts\28DaysLater.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Grupo\ImgTitleHandler.ashx" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
   </ItemGroup>
