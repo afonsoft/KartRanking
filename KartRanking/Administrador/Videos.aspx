@@ -4,10 +4,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-    <asp:Panel ID="PanelVideos" runat="server">
-        <script type="text/javascript">
-            jQuery(document).ready(function () {
-                jQuery('.fancybox-media')
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('.fancybox-media')
 				.attr('rel', 'media-gallery')
 				.fancybox({
 				    openEffect: 'none',
@@ -21,7 +20,10 @@
 				        buttons: {}
 				    }
 				});
-            });
+        });
+    </script>
+    <asp:Panel ID="PanelVideos" runat="server">
+        <script type="text/javascript">
 
             function OpenCadastro() {
                 jQuery('#CadVideo').dialog({
@@ -54,6 +56,14 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtDtEvento" MaxLength="10" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <span><b>Titulo:</b></span>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTituloVideo" MaxLength="50" runat="server"></asp:TextBox>
                     </td>
                 </tr>
             </table>
@@ -92,7 +102,8 @@
                     <ItemTemplate>
                         <div class="grid_12" style="text-align: center;">
                             <div id="Player_<%# Eval("idVideo") %>" style="text-align: left;">
-                                <a class="fancybox-media" href="<%# Eval("UrlVideo") %>"><%# Eval("dtEvento")%></a>
+                                <a class="fancybox-media" href="<%# Eval("UrlVideo") %>">
+                                    <%# Eval("dtEvento")%></a>
                             </div>
                         </div>
                         <% if (IsAdmin)

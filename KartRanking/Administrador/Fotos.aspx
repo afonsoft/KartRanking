@@ -4,30 +4,31 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+
+            jQuery('.fancybox-thumbs').fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+
+                closeBtn: false,
+                arrows: false,
+                nextClick: true,
+
+                helpers: {
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                },
+                afterLoad: function () {
+                    this.title = 'Imagem ' + (this.index + 1) + ' de ' + this.group.length + (this.title ? ' - ' + this.title : '');
+                }
+            });
+        });
+    </script>
     <asp:Panel ID="PanelListAlbum" runat="server">
         <script type="text/javascript">
-            jQuery(document).ready(function () {
-
-                jQuery('.fancybox-thumbs').fancybox({
-                    prevEffect: 'none',
-                    nextEffect: 'none',
-
-                    closeBtn: false,
-                    arrows: false,
-                    nextClick: true,
-
-                    helpers: {
-                        thumbs: {
-                            width: 50,
-                            height: 50
-                        }
-                    },
-                    afterLoad : function() {
-					this.title = 'Imagem ' + (this.index + 1) + ' de ' + this.group.length + (this.title ? ' - ' + this.title : '');
-				}
-                });
-            });
-
             function OpenCadastro() {
                 jQuery('#CadAlbum').dialog({
                     autoOpen: false, title: "Cadastrar novo Album",
