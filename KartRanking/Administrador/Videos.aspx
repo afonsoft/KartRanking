@@ -6,6 +6,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelVideos" runat="server">
         <script type="text/javascript">
+            jQuery(document).ready(function () {
+                jQuery('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+				    openEffect: 'none',
+				    closeEffect: 'none',
+				    prevEffect: 'none',
+				    nextEffect: 'none',
+
+				    arrows: false,
+				    helpers: {
+				        media: {},
+				        buttons: {}
+				    }
+				});
+            });
+
             function OpenCadastro() {
                 jQuery('#CadVideo').dialog({
                     autoOpen: false, title: "Cadastrar novo video",
@@ -74,11 +91,9 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="grid_12" style="text-align: center;">
-                            <div id="Player_<%# Eval("idVideo") %>" style="text-align: center;">
+                            <div id="Player_<%# Eval("idVideo") %>" style="text-align: left;">
+                                <a class="fancybox-media" href="<%# Eval("UrlVideo") %>"><%# Eval("dtEvento")%></a>
                             </div>
-                            <script type="text/javascript">
-                                $('#Player_<%# Eval("idVideo") %>').youTubeEmbed({ video: '<%# Eval("UrlVideo") %>', width: 500, progressBar: false });
-                            </script>
                         </div>
                         <% if (IsAdmin)
                            { %>
