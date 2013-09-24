@@ -112,6 +112,7 @@ namespace KartRanking.Administrador
                 video.idGrupo = IdGrupo;
                 video.idUsuario = UsuarioLogado.idUsuario;
                 video.UrlVideo = txtUrlVideo.Text;
+                //TODO: Criar o campo com o titulo do video para exibir na tela, sendo um upload de uma miniatura de video.
                 if (!string.IsNullOrEmpty(txtDtEvento.Text))
                     video.dtEvento = Convert.ToDateTime(txtDtEvento.Text);
                 else
