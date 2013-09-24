@@ -6,6 +6,28 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelListAlbum" runat="server">
         <script type="text/javascript">
+            jQuery(document).ready(function () {
+
+                jQuery('.fancybox-thumbs').fancybox({
+                    prevEffect: 'none',
+                    nextEffect: 'none',
+
+                    closeBtn: false,
+                    arrows: false,
+                    nextClick: true,
+
+                    helpers: {
+                        thumbs: {
+                            width: 50,
+                            height: 50
+                        }
+                    },
+                    afterLoad : function() {
+					this.title = 'Imagem ' + (this.index + 1) + ' de ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+                });
+            });
+
             function OpenCadastro() {
                 jQuery('#CadAlbum').dialog({
                     autoOpen: false, title: "Cadastrar novo Album",
@@ -201,10 +223,9 @@
                     <% TotalCol++; TotalImgCount++; %>
                     <div class="grid_2">
                         <div style="<%# Convert.ToBoolean(Eval("Ativo")) ? "display:block;": "display:none;" %>">
-                            <a href="<%# Eval("Foto") %>" rel="<%# Convert.ToBoolean(Eval("Ativo")) ? "lightbox[roadtrip]": "" %>"
+                            <a href="<%# Eval("Foto") %>" class="fancybox-thumbs" data-fancybox-group="button"
                                 title="<%# Eval("Nome") %>">
-                                <img alt="<%= String.Format("{2}: Imagem {0} de {1}",TotalImgCount, TotalImg,  TotalImgCount <= TotalImg ? "Roadtrip" : "")  %>"
-                                    src="<%# Eval("Foto") %>" width="130px" height="100px" />
+                                <img alt="<%# Eval("Nome")%>" src="<%# Eval("Foto") %>" width="130px" height="100px" />
                         </div>
                         &nbsp; </a>
                     </div>
