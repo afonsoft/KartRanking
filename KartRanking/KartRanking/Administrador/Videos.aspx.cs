@@ -106,6 +106,12 @@ namespace KartRanking.Administrador
                     return;
                 }
 
+                if (!ValidaURLYoutube(txtTituloVideo.Text))
+                {
+                    Alert("Informe o titulo do video");
+                    return;
+                }
+
                 Kart_Videos_Grupo video = new Kart_Videos_Grupo();
 
                 video.dtCriacao = DateTime.Now;
