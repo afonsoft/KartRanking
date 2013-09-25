@@ -36,22 +36,13 @@ namespace KartRanking.Grupo
                 FontFamily family = LoadFontFamily(PathUtil.GetFullPathRoot() + @"\Fonts\28dayslater-webfont.ttf", out myFonts);
                 Font theFont = new Font(family, 48.0f);
 
-                if (!String.IsNullOrEmpty(context.Request.QueryString["id"]))
+                if (!String.IsNullOrEmpty(context.Request.QueryString["text"]))
                 {
-                    int id = Int32.Parse(context.Request.QueryString["id"]);
-                    DataKartDataContext dk = new DataKartDataContext();
-                    Kart_Grupo grupo = (from u in dk.Kart_Grupos
-                                        where u.idGrupo == id
-                                        select u).FirstOrDefault();
-
-                    if (grupo != null)
-                    {
-                        image = DrawText(grupo.NomeGrupo, theFont, cor, Color.Transparent);
-                    }
-                    else
-                    {
-                        image = DrawText("Sem Nome", theFont, cor, Color.Transparent);
-                    }
+                    string Text = context.Request.QueryString["text"];
+                    string f = context.Request.QueryString["f"];
+                    if(!string.IsNullOrEmpty(f))
+                        theFont = new Font(family, float.Parse(f));
+                    image = DrawText(Text, theFont, cor, Color.Transparent);
                 }
                 else
                 {
