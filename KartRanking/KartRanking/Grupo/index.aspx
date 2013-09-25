@@ -97,11 +97,12 @@
                                     <asp:Image ID="ImageTitle" runat="server" />
                                     </span></h3>
                             <!-- Countdown dashboard start -->
+                            <asp:HiddenField ID="HiddenFieldStartTime" runat="server" />
                             <script type="text/javascript">
                                 $(document).ready(function () {
                                     $('#counter').countdown({
                                         image: 'countdown/digits2.png',
-                                        startTime: '01:12:12:00' //dd:hh:mm:ss
+                                        startTime: document.getElementById('<%= HiddenFieldStartTime.ClientID %>').value //'01:12:12:00' //dd:hh:mm:ss
                                     });
                                 });
                             </script>

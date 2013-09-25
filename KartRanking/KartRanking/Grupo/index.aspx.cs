@@ -13,18 +13,38 @@ namespace KartRanking.Grupo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HiddenFieldStartTime.Value = "00:00:00:00";//dd:hh:mm:ss
             HiddenIdGrupo.Value = "0";
             HiddenIdGrupo.Value = IdGrupo.ToString();
+            PopularProximaEtapa();
+            NomeGrupo();
             PilotoDestaque();
             PopularGrid(); 
             CarregarNoticias();
-            NomeGrupo();
+            
+        }
+        private void PopularProximaEtapa()
+        {
+            var result = (from cal in dk.Kart_Calendario_Campeonatos
+                          join camp in dk.Kart_Campeonatos on cal.idCampeonato equals camp.idCampeonato
+                          orderby cal.Data ascending
+                          where camp.idGrupo == IdGrupo
+                          && camp.Ativo == true
+                          && cal.Data >= DateTime.Now.AddDays(-1)
+                          && camp.dtInicio <= DateTime.Now
+                          && camp.dtFim >= DateTime.Now
+                          select new { cal.Data, cal.Horario }).FirstOrDefault();
+            if (result != null)
+            {
+                TimeSpan ts = result.Data - DateTime.Now;
+                HiddenFieldStartTime.Value = Convert.ToInt16(ts.TotalDays) + ":" + result.Horario + ":00";
+            }
         }
 
         private void NomeGrupo()
         {
-            ImageTitle.ImageUrl = "~/Grupo/ImgTitleHandler.ashx?id=" + IdGrupo;
+            string nome = (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
+            ImageTitle.ImageUrl = "~/Grupo/ImgTitleHandler.ashx?Text=" + nome + "&f=48";
         }
         
         protected void lnkMaisInfo_Click(object sender, EventArgs e)

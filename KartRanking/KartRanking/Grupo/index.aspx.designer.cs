@@ -31,6 +31,15 @@ namespace KartRanking.Grupo {
         protected global::System.Web.UI.WebControls.Image ImageTitle;
         
         /// <summary>
+        /// HiddenFieldStartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldStartTime;
+        
+        /// <summary>
         /// gvRankigCampeonato control.
         /// </summary>
         /// <remarks>
