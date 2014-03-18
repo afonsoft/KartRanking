@@ -120,7 +120,6 @@ namespace KartRanking.Administrador
                     throw new Exception("Usuário ou Senha inválidos!");
 
                 Session["Usuario"] = user;
-                ViewState["Usuario"] = user;
                 lblNomeUsuario.Text = user.Nome;
                 pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
                 pnlLogin.Visible = pnlNotLogin.Visible = false;
