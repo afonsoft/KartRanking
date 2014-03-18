@@ -15,16 +15,28 @@ namespace KartRanking.Grupo
 
             if (!IsPostBack)
             {
-
                 string op = Request.QueryString["op"];
+                string sidUsuario = Request.QueryString["idUsuario"];
 
                 if (op == "pilotos" || string.IsNullOrEmpty(op))
                 {
                     PopularGrid(1);
+                    PanelPiloto.Visible = true;
+                    PanelEquipes.Visible = false;
+                    PanelInfo.Visible = false;
                 }
-                else
+                else if (op == "equipes")
                 {
                     PopularGrid(2);
+                    PanelPiloto.Visible = false;
+                    PanelEquipes.Visible = true;
+                    PanelInfo.Visible = false;
+                }
+                else if (op == "info" && !string.IsNullOrEmpty(sidUsuario))
+                {
+                    PanelPiloto.Visible = false;
+                    PanelEquipes.Visible = false;
+                    PanelInfo.Visible = true;
                 }
             }
         }
