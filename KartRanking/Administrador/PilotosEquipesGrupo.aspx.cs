@@ -357,10 +357,13 @@ namespace KartRanking.Administrador
         {
             try
             {
+                int idCampeonatoAntigo = 0;
+
                 if (IsAdmin)
                 {
-                    int id= Convert.ToInt32(ddlTodosCampeonatos.SelectedValue);
-                    if (id == IdCampeonato)
+                    idCampeonatoAntigo = Convert.ToInt32(ddlTodosCampeonatos.SelectedItem.Value);
+
+                    if (idCampeonatoAntigo == IdCampeonato)
                     {
                         Alert("Não é possivel copiar o campeonato atual!");
                         return;
@@ -368,7 +371,7 @@ namespace KartRanking.Administrador
 
                     //Selecionar todos as equipes do campeonato selecionado.
                     List<Kart_Equipe_Campeonato> Equipes = (from g in dk.Kart_Equipe_Campeonatos
-                                                            where g.idCampeonato == id
+                                                            where g.idCampeonato == idCampeonatoAntigo
                                                             select g).ToList();
 
                     string msg = "";
@@ -391,13 +394,21 @@ namespace KartRanking.Administrador
                         }
                         else
                         {
-                            msg += "Já existe uma equipe parecida no sistema!\nNome: " + equipe.NomeEquipe + "\nSigla: " + equipe.Sigla + "\n";
+                            msg += "Sigla: " + equipe.Sigla + " - Nome: " + equipe.NomeEquipe + "\n";
                         }
                     }
 
                     PopularEquipes();
 
-                    Alert("Copia efetua com sucesso!\n" + msg);
+
+                    if (!string.IsNullOrEmpty(msg))
+                    {
+                        Alert("Copia efetua com sucesso!\nJá existe uma equipe parecida no sistema!\n" + msg);
+                    }
+                    else
+                    {
+                        Alert("Copia efetua com sucesso!");
+                    }
 
                 }
                 else
