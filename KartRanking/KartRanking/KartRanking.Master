@@ -67,7 +67,7 @@ dir="ltr" lang="pt-br" xml:lang="pt-br">
     <div style="text-align: center; vertical-align: top; width: 100%;">
         <center>
             <div style="height: 100%; min-height: 600px; min-width: 795px; max-width: 1020px;
-                width: auto; text-align: left; ">
+                width: auto; text-align: left;">
                 <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
@@ -88,6 +88,19 @@ dir="ltr" lang="pt-br" xml:lang="pt-br">
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
     </script>
+    <br />
+    <%--
+    <table width="100%" border="0" cellpadding="5" cellspacing="5">
+        <tr>
+            <td>
+                <span><a href="http://www.afonsoft.com.br">AFONSOFT</a></span>
+            </td>
+            <td align="right">
+                <span><a href="mailto:afonsoft@afonsoft.com.br">Feedback</a></span>
+            </td>
+        </tr>
+    </table>
+    --%>
     </form>
 </body>
 </html>
