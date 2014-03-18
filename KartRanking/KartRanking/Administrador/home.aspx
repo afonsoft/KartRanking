@@ -57,9 +57,14 @@
         });
     </script>
     <div class="container_12">
-        <div class="grid_12">
+    <div class="clear espaco">
+            &nbsp;
         </div>
-        <div class="clear espaco">
+        <div class="grid_12" style="text-align:left;">
+            <span><b>Url do Grupo (Url Amigavel): </b>
+                <asp:Literal ID="ltUrlAmigavel" runat="server"></asp:Literal></span>
+        </div>
+        <div class="clear espaco_mini">
             &nbsp;
         </div>
         <div class="grid_4">
