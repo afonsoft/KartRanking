@@ -166,7 +166,7 @@
                                                     <%# Container.ItemIndex + 1%></span>
                                             </td>
                                             <td style="width: auto;">
-                                                <a href='/Grupo/pilotos.aspx?idUsuario=<%# Eval("idUsuario") %>&idGrupo=<%# Eval("idGrupo") %>'>
+                                                <a href='/Grupo/pilotos.aspx?idUsuario=<%# Eval("idUsuario") %>&idGrupo=<%# Eval("idGrupo") %>&op=info'>
                                                     <%# Eval("Nome") %></a>
                                             </td>
                                             <td style="width: 30px;">
@@ -259,7 +259,7 @@
                             <div class="border-bot">
                             </div>
                         </div>
-                        <a href="/Grupo/pilotos.aspx?op=equipes?idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Mais</strong></strong></a>
+                        <a href="/Grupo/pilotos.aspx?op=equipes&idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Mais</strong></strong></a>
                     </div>
                 </div>
             </div>
