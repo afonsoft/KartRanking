@@ -30,7 +30,8 @@ namespace KartRanking.Grupo
             {
                 context.Response.Clear();
                 Image image = null;
-                Color cor = (Color)System.Drawing.ColorTranslator.FromHtml("#a31f1f");
+                //Color cor = (Color)System.Drawing.ColorTranslator.FromHtml("#a31f1f");
+                Color cor = (Color)System.Drawing.ColorTranslator.FromHtml("#fecc5f");
                 PrivateFontCollection myFonts;
 
                 FontFamily family = LoadFontFamily(PathUtil.GetFullPathRoot() + @"\Fonts\28dayslater-webfont.ttf", out myFonts);

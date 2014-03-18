@@ -2,7 +2,7 @@
     CodeBehind="index.aspx.cs" Inherits="KartRanking.Grupo.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
-    <script src="/Grupo/countdown/jquery.countdown.js" type="text/javascript"></script>
+    <script src="/grupo/countdown/countdown.js" type="text/javascript"></script>
     <style type="text/css">
         #slider, #slider li
         {
@@ -17,7 +17,7 @@
         }
         span#prevBtn
         {
-            text-decoration: none; 
+            text-decoration: none;
             font-style: normal;
         }
         span#nextBtn
@@ -104,42 +104,27 @@
                             <h3 class="p2">
                                 <span class="TitleFont">
                                     <asp:Image ID="ImageTitle" runat="server" />
-                                    </span></h3>
-                            <!-- Countdown dashboard start -->
+                                </span>
+                            </h3>
                             <asp:HiddenField ID="HiddenFieldStartTime" runat="server" />
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $('#counter').countdown({
-                                        image: 'countdown/digits2.png',
-                                        startTime: document.getElementById('<%= HiddenFieldStartTime.ClientID %>').value //'01:12:12:00' //dd:hh:mm:ss
-                                    });
-                                });
-                            </script>
-                            <table style="width: 100%; border: 0px sold; border-collapse: separate; border-spacing: 3px;">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td style="text-align: right; min-width: 300px; width: auto;">
-                                        <span style="margin-right: 20px; font-size: 28pt;">
-                                            <b>Próxima Etapa</b></span>
+                                    <td style="width: 80%; vertical-align:top;">
+                                        <p>Campeonato</p>
+                                        <asp:Image ID="imgCampeonatoNome" runat="server" />
                                     </td>
-                                    <td style="text-align: right; min-width: 240px; width: auto;">
-                                        <div id="counter">
-                                        </div>
-                                        <div class="desc">
-                                            <div>
-                                                Días</div>
-                                            <div>
-                                                Horas</div>
-                                            <div style="margin-left: 32px;">
-                                                Minutos</div>
-                                            <div style="margin-left: 35px; margin-right: 20px;">
-                                                Segundos</div>
-                                        </div>
+                                    <td>
+                                        <p>
+                                            Proxima Etapa: 
+                                            <asp:Literal ID="LtProximaEtapa" runat="server"></asp:Literal></p>
+                                        <script type="text/javascript">
+                                            // 86400 seconds = 1 day
+                                            var timeSec = document.getElementById('<%= HiddenFieldStartTime.ClientID %>').value;
+                                            var myCountdownLeftGame = new Countdown({ time: timeSec, width: 300, height: 60, rangeHi: "day", style: "flip" });
+                                        </script>
                                     </td>
                                 </tr>
                             </table>
-                            <!-- Countdown dashboard end -->
-                            <div class="border-bot">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,7 +137,7 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="img/Campeonato.png" alt="Campeonato" />
+                                <img src="/Grupo/ImgTitleHandler.ashx?Text=Campeonato&f=40" alt="Campeonato" />
                             </h3>
                             <div style="font-size: 7pt; color: #FFF;">
                                 <asp:Repeater ID="gvRankigCampeonato" runat="server">
@@ -207,7 +192,7 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="img/Noticias.png" alt="Noticias" />
+                                <img src="/Grupo/ImgTitleHandler.ashx?Text=Noticias&f=40" alt="Noticias" />
                             </h3>
                             <div style="font-size: 7pt; color: #FFF;">
                                 <asp:Literal ID="ltNoticias" runat="server"></asp:Literal></div>
@@ -225,7 +210,8 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="img/Etapas.png" alt="Etapas" /></h3>
+                                <img src="/Grupo/ImgTitleHandler.ashx?Text=Etapas&f=40" alt="Etapas" />
+                            </h3>
                             <div style="font-size: 7pt; color: #FFF;">
                                 <asp:Repeater ID="gvRankigEquipe" runat="server">
                                     <HeaderTemplate>
@@ -281,11 +267,13 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="img/PilotoDestaque.png" alt="Piloto Destaque" /></h3>
+                                <img src="/Grupo/ImgTitleHandler.ashx?Text=Piloto%20Destaque&f=40" alt="Piloto Destaque" />
+                            </h3>
                             <div>
-                                <table style="width: 98%; border-spacing: 1px; text-align: left; border: 0px solid #000;">
+                                <table style="width: 99%; text-align: left; border: 0px solid #000;" cellpadding="1"
+                                    cellspacing="1">
                                     <tr>
-                                        <td rowspan="6" style="height: 170px; width: 150px; text-align:center;vertical-align:top;" >
+                                        <td rowspan="6" style="height: 170px; width: 150px; text-align: left; vertical-align: top;">
                                             <asp:Image ID="ImgPerfil" Width="140px" Height="160px" runat="server" />
                                         </td>
                                         <td style="width: 50px;">

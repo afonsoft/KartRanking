@@ -34,10 +34,29 @@ namespace KartRanking.Grupo
                           && camp.dtInicio <= DateTime.Now
                           && camp.dtFim >= DateTime.Now
                           select new { cal.Data, cal.Horario }).FirstOrDefault();
+            
             if (result != null)
             {
+                DateTime date = result.Data;
+                LtProximaEtapa.Text = result.Data.ToString("dd/MM/yyyy") + " as " + result.Horario + ":00";
+                string[] hm = result.Horario.Split(':');
+
+                if (!string.IsNullOrEmpty(hm[0]))
+                    date = date.AddHours(Convert.ToInt16(hm[0]));
+                if (hm.Length > 0 && !string.IsNullOrEmpty(hm[1]))
+                    date = date.AddMinutes(Convert.ToInt16(hm[1]));
+
                 TimeSpan ts = result.Data - DateTime.Now;
-                HiddenFieldStartTime.Value = Convert.ToInt16(ts.TotalDays) + ":" + result.Horario + ":00";
+
+                if (ts.TotalSeconds > 0)
+                    HiddenFieldStartTime.Value = ts.TotalSeconds.ToString();
+                else
+                    HiddenFieldStartTime.Value = "0";
+            }
+            else
+            {
+                LtProximaEtapa.Text = "Nenhuma cadastrada";
+                HiddenFieldStartTime.Value = "0";
             }
         }
 
@@ -45,6 +64,9 @@ namespace KartRanking.Grupo
         {
             string nome = (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
             ImageTitle.ImageUrl = "~/Grupo/ImgTitleHandler.ashx?Text=" + nome + "&f=48";
+
+            string nomeCampeonato = (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
+            imgCampeonatoNome.ImageUrl = "~/Grupo/ImgTitleHandler.ashx?Text=" + nomeCampeonato + "&f=20";
         }
         
         protected void lnkMaisInfo_Click(object sender, EventArgs e)
