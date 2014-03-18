@@ -138,10 +138,11 @@ namespace KartRanking.Administrador
         {
             try
             {
+                int IdEquipeCampeonato = 0;
                 if (IsAdmin)
                 {
                     HiddenIdEquipeCampeonato.Value = e.CommandArgument.ToString();
-                    int IdEquipeCampeonato = Convert.ToInt16(HiddenIdEquipeCampeonato.Value);
+                    IdEquipeCampeonato = Convert.ToInt32(HiddenIdEquipeCampeonato.Value);
 
                     if (e.CommandName == "EditCalendario")
                     {
