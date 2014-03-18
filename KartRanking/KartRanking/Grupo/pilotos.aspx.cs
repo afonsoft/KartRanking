@@ -13,6 +13,65 @@ namespace KartRanking.Grupo
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (!IsPostBack)
+            {
+
+                string op = Request.QueryString["op"];
+
+                if (op == "pilotos" || string.IsNullOrEmpty(op))
+                {
+                    PopularGrid(1);
+                }
+                else
+                {
+                    PopularGrid(2);
+                }
+            }
+        }
+
+        private void PopularGrid(int op)
+        {
+            gvRankigCampeonato.DataSource = null;
+            gvRankigCampeonato.DataBind();
+
+            gvRankigEquipe.DataSource = null;
+            gvRankigEquipe.DataBind();
+
+            if (IdGrupo > 0 && IdCampeonato > 0)
+            {
+
+                if (op == 1)
+                {
+                    //View para popular o grid (Ranking do Campeonato)
+                    var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                                    where vp.idCampeonato == IdCampeonato
+                                    && vp.idGrupo == IdGrupo
+                                    orderby vp.Pontos descending
+                                    select vp);
+
+                    gvRankigCampeonato.DataSource = RankingC;
+                    gvRankigCampeonato.DataBind();
+                }
+                else if (op == 2)
+                {
+                    //View para popular o grid (Ranking das equipe)
+                    var RankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
+                                    where ve.idCampeonato == IdCampeonato
+                                    && ve.idGrupo == IdGrupo
+                                    orderby ve.Pontos descending
+                                    select ve);
+
+                    gvRankigEquipe.DataSource = RankingE;
+                    gvRankigEquipe.DataBind();
+                }
+            }
+        }
+
+        protected void lnkOpenInfoEquipe_Click(object sender, EventArgs e)
+        {
+            //Abrir um popup com as informações do pilotos da equipe selecionada;
+            int idEquipe = 0;
+            idEquipe = Convert.ToInt32(HiddenFieldidEquipeCampeonato.Value);
         }
     }
 }

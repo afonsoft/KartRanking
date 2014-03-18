@@ -27,7 +27,6 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
-    <asp:HiddenField ID="HiddenFieldIdGrupo" runat="server" />
     <div id="main">
         <!--==============================header=================================-->
         <header class="header">

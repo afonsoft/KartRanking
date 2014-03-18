@@ -17,8 +17,8 @@ namespace KartRanking.Grupo
 
         public int idGrupo
         {
-            set { HiddenFieldIdGrupo.Value = value.ToString(); }
-            get { return Convert.ToInt16(HiddenFieldIdGrupo.Value); }
+            set { Session["idGrupoMaster"] = value.ToString(); }
+            get { return Session["idGrupoMaster"] != null ? Convert.ToInt16(Session["idGrupoMaster"]) : 0; }
         }
 
         protected void Page_Load(object sender, EventArgs e)

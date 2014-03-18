@@ -11,5 +11,68 @@ namespace KartRanking.Grupo {
     
     
     public partial class pilotos {
+        
+        /// <summary>
+        /// PanelPiloto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelPiloto;
+        
+        /// <summary>
+        /// gvRankigCampeonato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater gvRankigCampeonato;
+        
+        /// <summary>
+        /// PanelEquipes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelEquipes;
+        
+        /// <summary>
+        /// HiddenFieldidEquipeCampeonato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldidEquipeCampeonato;
+        
+        /// <summary>
+        /// lnkOpenInfoEquipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkOpenInfoEquipe;
+        
+        /// <summary>
+        /// gvRankigEquipe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater gvRankigEquipe;
+        
+        /// <summary>
+        /// PanelInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelInfo;
     }
 }
