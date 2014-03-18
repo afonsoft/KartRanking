@@ -37,7 +37,37 @@ namespace KartRanking.Grupo
                     PanelPiloto.Visible = false;
                     PanelEquipes.Visible = false;
                     PanelInfo.Visible = true;
+                    popularInfo(Convert.ToInt32(sidUsuario));
                 }
+            }
+        }
+
+        private void popularInfo(int idUsuario)
+        {
+            BaseDados.Usuario user = (from p in dk.Usuarios
+                                      where p.idUsuario == idUsuario
+                                      select p).FirstOrDefault();
+
+            if (user != null)
+            {
+                IdUsuario.Value = user.idUsuario.ToString();
+                txtNome.Text = user.Nome;
+                txtDtNascimento.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "";
+                txtApelido.Text = user.Apelido;
+                txtPeso.Text = user.Peso.ToString();
+                txtAltura.Text = user.Altura.ToString();
+                txtCidade.Text = user.Cidade;
+                if (!String.IsNullOrEmpty(user.Estado))
+                    ddlEstado.Items.FindByValue(user.Estado).Selected = true;
+                if (user.Sexo.HasValue)
+                    ddlSexo.Items.FindByValue(user.Sexo.Value.ToString()).Selected = true;
+
+                txtPerfilFacebook.Text = user.Perfil_Facebook;
+                txtPerfilTwitter.Text = user.Perfil_Twitter;
+                txtPerfilPlus.Text = user.Perfil_Plus;
+                txtObs.Text = user.Obs;
+                ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
+
             }
         }
 
