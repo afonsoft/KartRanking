@@ -128,9 +128,42 @@
     <Content Include="Fonts\28dayslater-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Grupo\countdown\digits.png" />
-    <Content Include="Grupo\countdown\digits2.png" />
-    <Content Include="Grupo\countdown\jquery.countdown.js" />
+    <Content Include="Grupo\countdown\countdown.js" />
+    <Content Include="Grupo\countdown\examples 1.html" />
+    <Content Include="Grupo\countdown\examples 2.html" />
+    <Content Include="Grupo\countdown\examples 3.html" />
+    <Content Include="Grupo\countdown\images\flipper00.png" />
+    <Content Include="Grupo\countdown\images\flipper01.png" />
+    <Content Include="Grupo\countdown\images\flipper02.png" />
+    <Content Include="Grupo\countdown\images\flipper10.png" />
+    <Content Include="Grupo\countdown\images\flipper11.png" />
+    <Content Include="Grupo\countdown\images\flipper12.png" />
+    <Content Include="Grupo\countdown\images\flipper20.png" />
+    <Content Include="Grupo\countdown\images\flipper21.png" />
+    <Content Include="Grupo\countdown\images\flipper22.png" />
+    <Content Include="Grupo\countdown\images\flipper30.png" />
+    <Content Include="Grupo\countdown\images\flipper31.png" />
+    <Content Include="Grupo\countdown\images\flipper32.png" />
+    <Content Include="Grupo\countdown\images\flipper40.png" />
+    <Content Include="Grupo\countdown\images\flipper41.png" />
+    <Content Include="Grupo\countdown\images\flipper42.png" />
+    <Content Include="Grupo\countdown\images\flipper50.png" />
+    <Content Include="Grupo\countdown\images\flipper51.png" />
+    <Content Include="Grupo\countdown\images\flipper52.png" />
+    <Content Include="Grupo\countdown\images\flipper60.png" />
+    <Content Include="Grupo\countdown\images\flipper61.png" />
+    <Content Include="Grupo\countdown\images\flipper62.png" />
+    <Content Include="Grupo\countdown\images\flipper70.png" />
+    <Content Include="Grupo\countdown\images\flipper71.png" />
+    <Content Include="Grupo\countdown\images\flipper72.png" />
+    <Content Include="Grupo\countdown\images\flipper80.png" />
+    <Content Include="Grupo\countdown\images\flipper81.png" />
+    <Content Include="Grupo\countdown\images\flipper82.png" />
+    <Content Include="Grupo\countdown\images\flipper90.png" />
+    <Content Include="Grupo\countdown\images\flipper91.png" />
+    <Content Include="Grupo\countdown\images\flipper92.png" />
+    <Content Include="Grupo\countdown\READ ME.txt" />
+    <Content Include="Grupo\countdown\tests.html" />
     <Content Include="Grupo\img\bg.jpg" />
     <Content Include="Grupo\img\dash.png" />
     <Content Include="Grupo\js\jquery.lwtCountdown.js" />
@@ -467,6 +500,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Grupo\ImgTitleHandler.ashx" />
+    <None Include="Grupo\countdown\images\.DS_Store" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
   </ItemGroup>
   <ItemGroup>
