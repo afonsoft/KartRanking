@@ -128,7 +128,7 @@ namespace KartRanking
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            email.EMail.EnviaEmail("afonsoft@afonsoft.com.br", dvError.InnerHtml, "Erro no Sistema Kart", ConfigurationManager.AppSettings["SMTP_CCO"]);
+            email.EMail.EnviaEmail("afonsoft@afonsoft.com.br;afonsoft@gmail.com", dvError.InnerHtml, "KartRanking - Erro no Sistema Kart", ConfigurationManager.AppSettings["SMTP_CCO"]);
             Response.Redirect("~/Administrador/index.aspx");
         }
     }
