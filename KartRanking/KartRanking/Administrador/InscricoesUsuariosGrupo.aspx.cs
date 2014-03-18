@@ -62,44 +62,53 @@ namespace KartRanking.Administrador
         {
             try
             {
-                if (txtEmailNovoUsuario.Text.IndexOf('@') < 0 && txtEmailNovoUsuario.Text.IndexOf('.') < 0)
-                    throw new Exception("E-Mail informado é inválido.");
-
-                //Verificar se já existe cadastro um usuario com este e-mail.
-                Usuario usr = (from k in dk.Usuarios
-                               where k.Email == txtEmailNovoUsuario.Text
-                               select k).FirstOrDefault();
-
-                if (usr == null)
+                if (IsAdmin)
                 {
-                    string Apelido = txtEmailNovoUsuario.Text.Substring(0, txtEmailNovoUsuario.Text.IndexOf('@'));
-                    if (Apelido.Length >= 29) Apelido.Substring(0, 29);
+                    if (txtEmailNovoUsuario.Text.IndexOf('@') < 0 && txtEmailNovoUsuario.Text.IndexOf('.') < 0)
+                        throw new Exception("E-Mail informado é inválido.");
 
-                    usr = new Usuario();
-                    usr.Nome = txtEmailNovoUsuario.Text;
-                    usr.Email = txtEmailNovoUsuario.Text;
-                    usr.Apelido = Apelido;
-                    usr.Senha = GerarSenhaAleatorio();
-                    usr.MostarInfo = true;
-                    usr.Ativo = false;
+                    //Verificar se já existe cadastro um usuario com este e-mail.
+                    Usuario usr = (from k in dk.Usuarios
+                                   where k.Email == txtEmailNovoUsuario.Text
+                                   select k).FirstOrDefault();
 
-                    dk.GetTable<Usuario>().InsertOnSubmit(usr);
+                    if (usr == null)
+                    {
+                        string Apelido = txtEmailNovoUsuario.Text.Substring(0, txtEmailNovoUsuario.Text.IndexOf('@'));
+                        if (Apelido.Length >= 29) Apelido.Substring(0, 29);
+
+                        usr = new Usuario();
+                        usr.Nome = txtEmailNovoUsuario.Text;
+                        usr.Email = txtEmailNovoUsuario.Text;
+                        usr.Apelido = Apelido;
+                        usr.Senha = GerarSenhaAleatorio();
+                        usr.MostarInfo = true;
+                        usr.Ativo = false;
+
+                        dk.GetTable<Usuario>().InsertOnSubmit(usr);
+                        dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                    }
+
+                    Kart_Usuario_Grupo kug = new Kart_Usuario_Grupo();
+                    kug.Admin = false;
+                    kug.Aprovado = true;
+                    kug.idGrupo = IdGrupo;
+                    kug.idUsuario = usr.idUsuario;
+                    kug.dtCriacao = DateTime.Now;
+
+                    dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
                     dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+
+                    EMail.EnviarEmailBemvido(usr, IdGrupo);
+
+                    Alert("Convite enviado com sucesso!");
+                }
+                else
+                {
+                    Alert("Somente o adiministrador do grupo pode convitar usuários.");
                 }
 
-                Kart_Usuario_Grupo kug = new Kart_Usuario_Grupo();
-                kug.Admin = false;
-                kug.Aprovado = true;
-                kug.idGrupo = IdGrupo;
-                kug.idUsuario = usr.idUsuario;
-                kug.dtCriacao = DateTime.Now;
-
-                dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
-                dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
-
-                EMail.EnviarEmailBemvido(usr, IdGrupo);
-
-                Alert("Convite enviado com sucesso!");
+                txtEmailNovoUsuario.Text = "";
 
             }
             catch (Exception ex)
