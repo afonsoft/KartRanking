@@ -152,6 +152,7 @@
                                             <!-- Login Ends Here -->
                                         </li>
                                         <li><a href="CadastroUsuarioBasico.aspx">Cadastrar</a></li>
+                                        <li><a href="Informacoes.aspx">Informações</a></li>
                                     </ul>
                                 </nav>
                                 </asp:Panel>
