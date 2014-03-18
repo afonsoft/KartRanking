@@ -67,11 +67,17 @@ namespace KartRanking.email
 
             if (idGrupo > 0)
             {
-                NomeGrupo = (from g in new DataKartDataContext().Kart_Grupos
-                             where g.idGrupo == idGrupo
-                             select g.NomeGrupo).SingleOrDefault();
+                var Grupo1 = (from g in new DataKartDataContext().Kart_Grupos
+                              where g.idGrupo == idGrupo
+                              select g).FirstOrDefault();
+
+                HTML = HTML.Replace("##NOMEGRUPO##", Grupo1.NomeGrupo);
+                HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo1.UrlAcesso);
             }
-            HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
+            else
+            {
+                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
+            }
 
             EnviaEmail(u.Email, HTML, "KartRanking - Cadastro efetuado com sucesso.", "");
 
@@ -124,11 +130,12 @@ namespace KartRanking.email
                 HTML = sr.ReadToEnd();
             }
 
-            string NomeGrupo = (from g in new DataKartDataContext().Kart_Grupos
+            var Grupo = (from g in new DataKartDataContext().Kart_Grupos
                                 where g.idGrupo == idGrupo
-                                select g.NomeGrupo).SingleOrDefault();
+                                select g).SingleOrDefault();
 
-            HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
+            HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo);
+            HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo.UrlAcesso);
 
             EMail.EnviaEmail(email, HTML, "KartRanking - Associação ao grupo efetuado com sucesso.", "");
         }
@@ -142,9 +149,9 @@ namespace KartRanking.email
                          where g.idGrupo == idGrupo
                          && gu.Admin == true
                          && gu.Aprovado == true
-                         select new { g.NomeGrupo, gu.idUsuario, u.Email });
+                         select new { g.NomeGrupo, gu.idUsuario, u.Email, g.UrlAcesso }).ToArray();
 
-            string NomeGrupo = (from g in Grupo select g.NomeGrupo).SingleOrDefault();
+           
             string EmailAdmin = String.Join(";", (from g in Grupo select g.Email).ToArray<string>());
             string NomeUsuarioCadastro = uCadastrado.Nome + " (" + uCadastrado.Email + ")";
 
@@ -154,7 +161,8 @@ namespace KartRanking.email
             {
                 HTML = sr.ReadToEnd();
             }
-            HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##NOMEUSUARIO##", NomeUsuarioCadastro);
+            HTML = HTML.Replace("##NOMEGRUPO##", Grupo[0].NomeGrupo).Replace("##NOMEUSUARIO##", NomeUsuarioCadastro);
+            HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo[0].UrlAcesso);
 
             EnviaEmail(EmailAdmin, HTML, "KartRanking - Cadastro efetuado com sucesso.", "");
         }

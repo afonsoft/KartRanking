@@ -18,6 +18,9 @@ namespace KartRanking.Administrador
                 PilotoDestaque();
                 PopularGrid();
                 CarregarNoticias();
+
+                string url = "http://kart.afonsoft.com.br/" + (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.UrlAcesso).FirstOrDefault();
+                ltUrlAmigavel.Text = "<a href='" + url + "'> " + url + "</a>";
             }
         }
 

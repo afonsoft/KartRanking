@@ -13,6 +13,15 @@ namespace KartRanking.Administrador {
     public partial class home {
         
         /// <summary>
+        /// ltUrlAmigavel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltUrlAmigavel;
+        
+        /// <summary>
         /// gvRankigCampeonato control.
         /// </summary>
         /// <remarks>
