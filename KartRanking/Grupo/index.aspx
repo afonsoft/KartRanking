@@ -65,6 +65,15 @@
             font-size: 13px;
             font-weight: normal;
         }
+        .p2
+        {
+            color: #fecc5f;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 26px;
+            margin-bottom: 10px;
+        }
     </style>
     <script type="text/javascript">
 
@@ -276,8 +285,8 @@
                             <div>
                                 <table style="width: 98%; border-spacing: 1px; text-align: left; border: 0px solid #000;">
                                     <tr>
-                                        <td rowspan="6" style="height: 170px; width: 150px;">
-                                            <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
+                                        <td rowspan="6" style="height: 170px; width: 150px; text-align:center;vertical-align:top;" >
+                                            <asp:Image ID="ImgPerfil" Width="140px" Height="160px" runat="server" />
                                         </td>
                                         <td style="width: 50px;">
                                             <b>Nome:</b>

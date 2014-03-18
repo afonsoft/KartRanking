@@ -43,17 +43,20 @@ namespace KartRanking.Page
         {
             IdGrupo = 0;
 
+            base.OnInit(e);
+
             if (Request.QueryString["IdGrupo"] != null)
-                IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
+                IdGrupo = Convert.ToInt32(Request.QueryString["IdGrupo"]);
 
             if (IdGrupo <= 0)
-                Response.Redirect("~/Administrador/index.aspx");
+            {
+                Alert("Grupo inválido.", "/Administrador/index.aspx");
+            }
             else
             {
                 CarregarCampeonatoPrincipal(IdGrupo);
             }
 
-            base.OnInit(e);
         }
 
         private void CarregarCampeonatoPrincipal(int idGrupo)
