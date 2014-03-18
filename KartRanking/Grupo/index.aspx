@@ -109,13 +109,14 @@
                             <asp:HiddenField ID="HiddenFieldStartTime" runat="server" />
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
-                                    <td style="width: 80%; vertical-align:top;">
-                                        <p>Campeonato</p>
+                                    <td style="width: 80%; vertical-align: top;">
+                                        <p>
+                                            Campeonato</p>
                                         <asp:Image ID="imgCampeonatoNome" runat="server" />
                                     </td>
                                     <td>
                                         <p>
-                                            Proxima Etapa: 
+                                            Proxima Etapa:
                                             <asp:Literal ID="LtProximaEtapa" runat="server"></asp:Literal></p>
                                         <script type="text/javascript">
                                             // 86400 seconds = 1 day
@@ -183,7 +184,7 @@
                             <div class="border-bot">
                             </div>
                         </div>
-                        <a href="/Grupo/pilotos.aspx" class="button"><strong><strong>Mais</strong></strong></a>
+                        <a href="/Grupo/pilotos.aspx?op=pilotos&idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Mais</strong></strong></a>
                     </div>
                 </div>
             </div>
@@ -210,7 +211,7 @@
                     <div class="padding-box">
                         <div class="indent-bot">
                             <h3 class="p2">
-                                <img src="/Grupo/ImgTitleHandler.ashx?Text=Etapas&f=40" alt="Etapas" />
+                                <img src="/Grupo/ImgTitleHandler.ashx?Text=Equipe&f=40" alt="Equipe" />
                             </h3>
                             <div style="font-size: 7pt; color: #FFF;">
                                 <asp:Repeater ID="gvRankigEquipe" runat="server">
@@ -258,7 +259,7 @@
                             <div class="border-bot">
                             </div>
                         </div>
-                        <a href="#" class="button"><strong><strong>Mais</strong></strong></a>
+                        <a href="/Grupo/pilotos.aspx?op=equipes?idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Mais</strong></strong></a>
                     </div>
                 </div>
             </div>
