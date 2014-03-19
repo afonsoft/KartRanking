@@ -20,6 +20,10 @@ namespace KartRanking.Administrador
                 ((Admin)Page.Master).ConteudoVisible = true;
                 string id = Request.QueryString["id"];
                 ViewState["id"] = 0;
+
+                if(string.IsNullOrEmpty(id))
+                    id = Request.QueryString["idGrupo"];
+
                 if (!string.IsNullOrEmpty(id))
                 {
                     int idGrupo = Convert.ToInt32(id);
@@ -36,14 +40,14 @@ namespace KartRanking.Administrador
                                 select g).FirstOrDefault();
             if (grupo != null)
             {
-                string NomeLider = (from u in dk.Usuarios
-                                    where u.idUsuario == grupo.Id_Usuario_Lider
-                                    select u.Nome).FirstOrDefault();
+                var Lider = (from u in dk.Usuarios
+                             where u.idUsuario == grupo.Id_Usuario_Lider
+                             select new { u.Nome, u.Email }).FirstOrDefault();
 
-                if (!string.IsNullOrEmpty(NomeLider))
-                    lblGrupo.Text = grupo.NomeGrupo + " - Lider: " + NomeLider;
+                if (Lider != null)
+                    lblGrupo.Text = "<b>" + grupo.NomeGrupo + "</b> - Lider: <a href='mailto:" + Lider.Email + "'>" + Lider.Nome + "</a>";
                 else
-                    lblGrupo.Text = grupo.NomeGrupo;
+                    lblGrupo.Text = "<b>" + grupo.NomeGrupo + "</b>";
 
                 ViewState["id"] = grupo.idGrupo.ToString();
             }
