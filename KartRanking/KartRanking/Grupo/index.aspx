@@ -275,7 +275,7 @@
                                     cellspacing="1">
                                     <tr>
                                         <td rowspan="6" style="height: 170px; width: 150px; text-align: left; vertical-align: top;">
-                                            <asp:Image ID="ImgPerfil" Width="140px" Height="160px" runat="server" />
+                                            <img src= "/Administrador/ImageHandler.ashx?id=<%= IdUsuarioDestaque %>" Width="140px" Height="160px"alt="Piloto Destaque" />
                                         </td>
                                         <td style="width: 50px;">
                                             <b>Nome:</b>
@@ -332,7 +332,7 @@
                             <div class="border-bot">
                             </div>
                         </div>
-                        <asp:LinkButton ID="lnkMaisInfo" runat="server" OnClick="lnkMaisInfo_Click" CssClass="button"><strong><strong>Mais informações do piloto</strong></strong></asp:LinkButton>
+                        <a href="/<%= UrlGrupo %>/pilotos/info/<%= IdUsuarioDestaque %>" class="button"><strong><strong>Mais informações do piloto</strong></strong></a>
                     </div>
                 </div>
             </div>

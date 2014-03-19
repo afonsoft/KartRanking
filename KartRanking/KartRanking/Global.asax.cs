@@ -66,7 +66,7 @@ namespace KartRanking
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
                 {
-                    string url = Request.Url.ToString();
+                    string url = Request.Url.AbsolutePath;
 
                     if (url.Contains("/info/") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
                     {
