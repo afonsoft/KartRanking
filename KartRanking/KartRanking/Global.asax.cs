@@ -24,33 +24,86 @@ namespace KartRanking
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            string originalPath = Request.Url.ToString().ToLower();
-            string UrlAmigavel = originalPath.Substring(originalPath.LastIndexOf('/') + 1, originalPath.Length - originalPath.LastIndexOf('/') - 1);
+            //string originalPath = Request.Url.ToString().ToLower();
+            //string UrlAmigavel = originalPath.Substring(originalPath.LastIndexOf('/') + 1, originalPath.Length - originalPath.LastIndexOf('/') - 1);
 
-            if ((UrlAmigavel.IndexOf(".aspx") >= 0 && UrlAmigavel.IndexOf("?") < 0)  || UrlAmigavel.IndexOf('.') < 0)
+            if (Request.Url.Segments.Length == 2)
             {
-                UrlAmigavel = UrlAmigavel.Replace(".aspx", "");
+                string NomeGrupo = Request.Url.Segments[1];
 
-                List<Kart_Grupo> lstGrupos = new List<Kart_Grupo>();
-
-                if (!CacheHelper.Exists("AllGrupo"))
+                if ((NomeGrupo.IndexOf(".") < 0 && NomeGrupo.IndexOf("?") < 0))
                 {
-                    lstGrupos = (from g in new DataKartDataContext().Kart_Grupos where g.Ativo == true select g).ToList();
-                    CacheHelper.Add(lstGrupos, "AllGrupo");
+                    NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                    int? idGrupo = GetIdGrupo(NomeGrupo);
+                    if (idGrupo.HasValue && idGrupo.Value > 0)
+                    {
+                        Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                        //Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                    }
                 }
-                else
-                    CacheHelper.Get("AllGrupo", out lstGrupos);
+            }
+            else if (Request.Url.Segments.Length == 3)
+            {
+                string NomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
+                string caminho = Request.Url.Segments[2];
 
-                int? idGrupo = (from g in lstGrupos
-                                where g.UrlAcesso.ToLower() == UrlAmigavel.ToLower()
-                                select (int?)g.idGrupo).SingleOrDefault();
+                if (NomeGrupo.IndexOf(".") < 0 && NomeGrupo.IndexOf('?') < 0 && caminho.IndexOf(".") < 0 && caminho.IndexOf('?') < 0)
+                {
+                    NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                    int? idGrupo = GetIdGrupo(NomeGrupo);
+                    if (idGrupo.HasValue && idGrupo.Value > 0)
+                    {
+                        Context.RewritePath("~/Grupo/" + caminho + ".aspx?idGrupo=" + idGrupo);
+                        //Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                    }
+                }
+            }
+            else if (Request.Url.ToString().Contains("/pilotos/"))
+            {
+                string NomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
+                NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                int? idGrupo = GetIdGrupo(NomeGrupo);
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
                 {
-                    //Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + idGrupo);
-                    Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                    string url = Request.Url.ToString();
+
+                    if (url.Contains("/info/") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
+                    {
+                        string idusuario = Request.Url.Segments[4];
+                        Context.RewritePath("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=info&idGrupo=" + idGrupo);
+                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=" + op);
+                    }
+                    else if (url.Contains("/equipes") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
+                    {
+                        Context.RewritePath("~/Grupo/pilotos.aspx?op=equipes" + "&idGrupo=" + idGrupo);
+                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?op=equipes" + "&idgrupo=" + idGrupo);
+                    }
+                    else if (url.Contains("/pilotos") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
+                    {
+                        Context.RewritePath("~/Grupo/pilotos.aspx?op=pilotos" + "&idGrupo=" + idGrupo);
+                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?op=pilotos" + "&idgrupo=" + idGrupo);
+                    }
                 }
             }
+        }
+
+
+        private int? GetIdGrupo(string NomeGrupo)
+        {
+            List<Kart_Grupo> lstGrupos = new List<Kart_Grupo>();
+
+            if (!CacheHelper.Exists("AllGrupo"))
+            {
+                lstGrupos = (from g in new DataKartDataContext().Kart_Grupos where g.Ativo == true select g).ToList();
+                CacheHelper.Add(lstGrupos, "AllGrupo");
+            }
+            else
+                CacheHelper.Get("AllGrupo", out lstGrupos);
+
+            return (from g in lstGrupos
+                    where g.UrlAcesso.ToLower() == NomeGrupo.ToLower()
+                    select (int?)g.idGrupo).SingleOrDefault();
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

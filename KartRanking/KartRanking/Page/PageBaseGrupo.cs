@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using KartRanking.BaseDados;
 
 namespace KartRanking.Page
 {
@@ -38,6 +39,25 @@ namespace KartRanking.Page
                 Session["IdCampeonatoGrupos"] = value.ToString();
             }
         }
+
+        public string UrlGrupo
+        {
+            get
+            {
+
+                if (Session["UrlGrupo"] == null)
+                {
+                    using (DataKartDataContext db = new DataKartDataContext())
+                    {
+                        db.ObjectTrackingEnabled = false;
+                        Session["UrlGrupo"] = (from g in db.Kart_Grupos
+                                               where g.idGrupo == IdGrupo
+                                               select g.UrlAcesso).FirstOrDefault();
+                    }
+                }
+                return (string)Session["UrlGrupo"];
+            }
+        }
         
         protected override void OnInit(EventArgs e)
         {
@@ -47,6 +67,9 @@ namespace KartRanking.Page
 
             if (Request.QueryString["IdGrupo"] != null)
                 IdGrupo = Convert.ToInt32(Request.QueryString["IdGrupo"]);
+
+            if (IdGrupo <= 0 && Request.QueryString["Id"] != null)
+                IdGrupo = Convert.ToInt32(Request.QueryString["Id"]);
 
             if (IdGrupo <= 0)
             {

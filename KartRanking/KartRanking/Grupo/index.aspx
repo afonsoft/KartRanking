@@ -103,7 +103,7 @@
                         <div class="indent-bot">
                             <h3 class="p2">
                                 <span class="TitleFont">
-                                    <asp:Image ID="ImageTitle" runat="server" />
+                                    <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeGrupo %>&f=40" alt="Grupo" />
                                 </span>
                             </h3>
                             <asp:HiddenField ID="HiddenFieldStartTime" runat="server" />
@@ -112,7 +112,7 @@
                                     <td style="width: 80%; vertical-align: top;">
                                         <p>
                                             Campeonato</p>
-                                        <asp:Image ID="imgCampeonatoNome" runat="server" />
+                                        <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Campeonato" />
                                     </td>
                                     <td>
                                         <p>
@@ -166,7 +166,7 @@
                                                     <%# Container.ItemIndex + 1%></span>
                                             </td>
                                             <td style="width: auto;">
-                                                <a href='/Grupo/pilotos.aspx?idUsuario=<%# Eval("idUsuario") %>&idGrupo=<%# Eval("idGrupo") %>&op=info'>
+                                                <a href='/<%= UrlGrupo %>/pilotos/info/<%# Eval("idUsuario") %>'>
                                                     <%# Eval("Nome") %></a>
                                             </td>
                                             <td style="width: 30px;">
@@ -184,7 +184,7 @@
                             <div class="border-bot">
                             </div>
                         </div>
-                        <a href="/Grupo/pilotos.aspx?op=pilotos&idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Mais</strong></strong></a>
+                        <a href="/<%= UrlGrupo %>/pilotos" class="button"><strong><strong>Mais</strong></strong></a>
                     </div>
                 </div>
             </div>
@@ -259,7 +259,7 @@
                             <div class="border-bot">
                             </div>
                         </div>
-                        <a href="/Grupo/pilotos.aspx?op=equipes&idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Mais</strong></strong></a>
+                        <a href="/<%= UrlGrupo %>/pilotos/equipes" class="button"><strong><strong>Mais</strong></strong></a>
                     </div>
                 </div>
             </div>

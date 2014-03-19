@@ -37,7 +37,7 @@
                                             <%# Container.ItemIndex + 1%></span>
                                     </td>
                                     <td style="width: auto;">
-                                        <a href='/Grupo/pilotos.aspx?idUsuario=<%# Eval("idUsuario") %>&idGrupo=<%# Eval("idGrupo") %>&op=info'>
+                                        <a href='/<%= UrlGrupo %>/pilotos/info/<%# Eval("idUsuario") %>'>
                                             <%# Eval("Nome") %></a>
                                     </td>
                                     <td style="width: 30px;">
@@ -55,7 +55,7 @@
                     <div class="border-bot">
                     </div>
                 </div>
-                <a href="/Grupo/index.aspx?idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Voltar</strong></strong></a>
+                <a href="/<%= UrlGrupo %>" class="button"><strong><strong>Voltar</strong></strong></a>
             </div>
         </div>
     </asp:Panel>
@@ -102,7 +102,8 @@
                                         <%# Container.ItemIndex  + 1 %>
                                     </td>
                                     <td style="width: auto;">
-                                        <a href="#" onclick='openInfoEquipe(<%# Eval("idEquipeCampeonato") %>);'><%# Eval("Equipe") %></a>
+                                        <a href="#" onclick='openInfoEquipe(<%# Eval("idEquipeCampeonato") %>);'>
+                                            <%# Eval("Equipe") %></a>
                                     </td>
                                     <td style="width: 40px;">
                                         <%# Eval("Sigla") %>
@@ -120,7 +121,7 @@
                     <div class="border-bot">
                     </div>
                 </div>
-                <a href="/Grupo/index.aspx?idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Voltar</strong></strong></a>
+                <a href="/<%= UrlGrupo %>" class="button"><strong><strong>Voltar</strong></strong></a>
             </div>
         </div>
     </asp:Panel>
@@ -136,7 +137,8 @@
                             <div class="grid_3">
                                 <div class="container_12">
                                     <div class="grid_12">
-                                        <asp:Image ID="ImgPerfil" Width="150px" Height="170px" runat="server" />
+                                        <img src="/Administrador/ImageHandler.ashx?id=<%= id %>" width="150px" height="170px"
+                                            alt="Foto" />
                                     </div>
                                     <div class="clear espaco_mini">
                                         &nbsp;
@@ -280,7 +282,7 @@
                     <div class="border-bot">
                     </div>
                 </div>
-                <a href="/Grupo/pilotos.aspx?op=pilotos&idGrupo=<%= IdGrupo %>" class="button"><strong><strong>Voltar</strong></strong></a>
+                <a href="/<%= UrlGrupo %>/pilotos" class="button"><strong><strong>Voltar</strong></strong></a>
             </div>
         </div>
     </asp:Panel>
