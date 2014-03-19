@@ -74,16 +74,9 @@ namespace KartRanking.Grupo
                 return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
             }
         }
-        
-        protected void lnkMaisInfo_Click(object sender, EventArgs e)
-        {
-            if (ViewState["UsuarioSelecionado"] != null)
-            {
-                Int32 idUsuario = Convert.ToInt32(ViewState["UsuarioSelecionado"]);
-                Response.Redirect("/Grupo/pilotos.aspx?idUsuario=" + idUsuario + "&idGrupo=" + IdGrupo);
-            }
-        }
 
+
+        public int IdUsuarioDestaque { get; set; }
         private void PilotoDestaque()
         {
             if (IdGrupo > 0)
@@ -115,22 +108,20 @@ namespace KartRanking.Grupo
 
                     lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "--/--/----";
                     lbNome.Text = user.Nome;
-                    ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
                     lbEquipe.Text = Equipe;
                     lbPontos.Text = Pontos.HasValue ? Pontos.Value.ToString() : "0";
                     ltPerfilFace.Text = string.IsNullOrEmpty(user.Perfil_Facebook) ? "------------" : "<a href='" + user.Perfil_Facebook + "' target='_blank'>" + (user.Perfil_Facebook.Length > 30 ? user.Perfil_Facebook.Substring(0, 30) + "..." : user.Perfil_Facebook) + "</a>";
-                    ViewState["UsuarioSelecionado"] = user.idUsuario;
+                    IdUsuarioDestaque = user.idUsuario;
                 }
             }
             else
             {
                 lbData.Text = "--/--/----";
                 lbNome.Text = "Nenhum piloto";
-                ImgPerfil.ImageUrl = "";
                 lbEquipe.Text = "---";
                 lbPontos.Text = "0";
                 ltPerfilFace.Text = "------------";
-                ViewState["UsuarioSelecionado"] = 0;
+                IdUsuarioDestaque = 0;
             }
         }
 
