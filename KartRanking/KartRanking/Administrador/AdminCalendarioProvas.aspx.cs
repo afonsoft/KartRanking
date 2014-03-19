@@ -141,8 +141,25 @@ namespace KartRanking.Administrador
         {
             if (IsAdmin)
             {
-                //TODO: Efetuar o metodo para excluir um calendario
-                Alert("Em desenvolvimento!");
+                try
+                {
+                    Kart_Calendario_Campeonato cc = (from c in dk.Kart_Calendario_Campeonatos
+                                                     where c.idCalendario == idCalendario
+                                                     && c.idCampeonato == IdCampeonato
+                                                     select c).FirstOrDefault();
+
+                    dk.Kart_Calendario_Campeonatos.DeleteOnSubmit(cc);
+                    dk.SubmitChanges();
+
+                    popularEtapas(IdCampeonato);
+
+                    Alert("Etapa excluida com sucesso.");
+
+                }
+                catch (Exception)
+                {
+                    Alert("Não é possivel excluir essa etapa!");
+                }
             }
             else
             {
@@ -199,8 +216,9 @@ namespace KartRanking.Administrador
                         dk.GetTable<Kart_Calendario_Campeonato>().InsertOnSubmit(cc);
 
                     dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+                    
                     btnVoltar_Click(sender, e);
-
+                    popularEtapas(IdCampeonato);
                     Alert("Etapa salvo com sucesso!");
                 }
             }
