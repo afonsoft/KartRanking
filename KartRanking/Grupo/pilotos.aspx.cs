@@ -10,9 +10,9 @@ namespace KartRanking.Grupo
 {
     public partial class pilotos : PageBaseGrupo
     {
+        public int id { set; get; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 string op = Request.QueryString["op"];
@@ -66,8 +66,8 @@ namespace KartRanking.Grupo
                 txtPerfilTwitter.Text = user.Perfil_Twitter;
                 txtPerfilPlus.Text = user.Perfil_Plus;
                 txtObs.Text = user.Obs;
-                ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
-
+                id = user.idUsuario;
+                //ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
             }
         }
 

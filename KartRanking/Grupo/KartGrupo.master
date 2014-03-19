@@ -13,13 +13,13 @@
             src: url('/Fonts/28dayslater-webfont.eot?#iefix') format('embedded-opentype'), url('/Fonts/28dayslater-webfont.woff') format('woff'), url('/Fonts/28dayslater-webfont.ttf') format('truetype'), url('/Fonts/28dayslater-webfont.svg#28_days_laterregular') format('svg');
             font-weight: normal;
             font-style: normal;
-        } 
-        .TitleFont 
+        }
+        .TitleFont
         {
-            font-family: '28 Days Later', Tahoma !important;
+            font-family: '28 Days Later' , Tahoma !important;
             font-style: normal;
             font-weight: normal;
-            font-size: 48pt; 
+            font-size: 48pt;
             color: #a31f1f;
         }
     </style>
@@ -35,17 +35,25 @@
                     <h1>
                         <a href="#">KartRanking</a></h1>
                     <ul class="menu-top">
-                        <li><a href="/Administrador/CadastroUsuarioBasico.aspx?idGrupo=<%= idGrupo %>">Cadastrar</a></li>
-                        <li><a href="/Administrador/index.aspx?idGrupo=<%= idGrupo %>">Login</a></li>
+                        <li><a href="/Administrador/CadastroUsuarioBasico.aspx?idGrupo=<%= IdGrupo %>">Cadastrar</a></li>
+                        <li><a href="/Administrador/index.aspx?idGrupo=<%= IdGrupo %>">Login</a></li>
                     </ul>
                     <nav>
                         <ul class="sf-menu sf-js-enabled">
-                            <li><a href="/Grupo/index.aspx?idGrupo=<%= idGrupo %>"><strong><strong>home</strong></strong></a></li>
-                            <li><a href="/Grupo/pilotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Pilotos</strong></strong></a></li>
-                            <li><a href="/Grupo/noticias.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Notícias</strong></strong></a></li>
-                            <li><a href="/Grupo/fotos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Fotos</strong></strong></a></li>
-                            <li><a href="/Grupo/videos.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Videos</strong></strong></a></li>
-                            <li><a href="/Grupo/informacoes.aspx?idGrupo=<%= idGrupo %>"><strong><strong>Informações</strong></strong></a></li>
+                           <%-- 
+                           <li><a href="/Grupo/index.aspx?idGrupo=<%= IdGrupo %>"><strong><strong>home</strong></strong></a></li>
+                            <li><a href="/Grupo/pilotos.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Pilotos</strong></strong></a></li>
+                            <li><a href="/Grupo/noticias.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Notícias</strong></strong></a></li>
+                            <li><a href="/Grupo/fotos.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Fotos</strong></strong></a></li>
+                            <li><a href="/Grupo/videos.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Videos</strong></strong></a></li>
+                            <li><a href="/Grupo/informacoes.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Informações</strong></strong></a></li>
+                            --%>
+                            <li><a href="/<%= urlGrupo %>"><strong><strong>home</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/pilotos"><strong><strong>Pilotos</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/noticias"><strong><strong>Notícias</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/fotos"><strong><strong>Fotos</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/videos"><strong><strong>Videos</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/informacoes"><strong><strong>Informações</strong></strong></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -90,22 +98,22 @@
                         <div class="wrapper">
                             <div class="fleft">
                                 <ul class="menu-bot p1">
-                                    <li><a class="active" href="index.aspx?idGrupo=<%= idGrupo %>">
+                                    <li><a class="active" href="/<%= urlGrupo %>">
                                         <canvas width="61" height="17" style="width: 61px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Home</a></li>
-                                    <li><a href="/Grupo/pilotos.aspx?idGrupo=<%= idGrupo %>">
+                                    <li><a href="/<%= urlGrupo %>/pilotos">
                                         <canvas width="69" height="17" style="width: 69px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Pilotos</a></li>
-                                    <li><a href="/Grupo/noticias.aspx?idGrupo=<%= idGrupo %>">
+                                    <li><a href="/<%= urlGrupo %>/noticias">
                                         <canvas width="81" height="17" style="width: 81px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Noticias</a></li>
-                                    <li><a href="/Grupo/fotos.aspx?idGrupo=<%= idGrupo %>">
+                                    <li><a href="/<%= urlGrupo %>/fotos">
                                         <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Fotos</a></li>
                                 </ul>
                                 <div class="extra-wrap">
                                     <div class="text-bot">
-                                        KartRanking © 2013</div>
+                                        KartRanking © 2014</div>
                                 </div>
                             </div>
                         </div>

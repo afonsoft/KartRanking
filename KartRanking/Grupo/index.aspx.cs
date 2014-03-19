@@ -17,7 +17,6 @@ namespace KartRanking.Grupo
             HiddenIdGrupo.Value = "0";
             HiddenIdGrupo.Value = IdGrupo.ToString();
             PopularProximaEtapa();
-            NomeGrupo();
             PilotoDestaque();
             PopularGrid(); 
             CarregarNoticias();
@@ -60,13 +59,20 @@ namespace KartRanking.Grupo
             }
         }
 
-        private void NomeGrupo()
+        public string NomeGrupo
         {
-            string nome = (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
-            ImageTitle.ImageUrl = "~/Grupo/ImgTitleHandler.ashx?Text=" + nome + "&f=48";
+            get
+            {
+                return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
+            }
+        }
 
-            string nomeCampeonato = (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
-            imgCampeonatoNome.ImageUrl = "~/Grupo/ImgTitleHandler.ashx?Text=" + nomeCampeonato + "&f=20";
+        public string NomeCampeonato
+        {
+            get
+            {
+                return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
+            }
         }
         
         protected void lnkMaisInfo_Click(object sender, EventArgs e)
