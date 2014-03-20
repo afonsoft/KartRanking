@@ -204,6 +204,7 @@
                             <asp:BoundField HeaderText="Pos" DataField="Pos" />
                             <asp:BoundField HeaderText="Nome Piloto" DataField="Nome" />
                             <asp:BoundField HeaderText="Nome Equipe" DataField="NomeEquipe" />
+                            <asp:BoundField HeaderText="Voltas" DataField="Voltas" />
                             <asp:BoundField HeaderText="Tempo" DataField="tempo" />
                             <asp:BoundField HeaderText="Ponto" DataField="Ponto" />
                             <asp:TemplateField Visible="true">
@@ -286,6 +287,9 @@
                             <td>
                                 Pontos
                             </td>
+                             <td>
+                                Voltas
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -300,6 +304,9 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="txtEtapaPontos" MaxLength="3" Width="50px" runat="server"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtEtapaVoltas" MaxLength="3" Width="50px" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
