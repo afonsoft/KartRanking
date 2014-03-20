@@ -63,18 +63,19 @@
         <!--==============================aside=================================-->
         <aside>
             <div class="main">
-                <figure>
+               <%-- <figure>
                     <center>
-                <script type="text/javascript">
-                    google_ad_client = "ca-pub-2122647083447667";
-                    /* CabecalhoGrupoKart */
-                    google_ad_slot = "5191731603";
-                    google_ad_width = 728;
-                    google_ad_height = 90;
-                </script>
-                <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script> 
-                </center>
-                </figure>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- CabecalhoGrupoKart -->
+                        <ins class="adsbygoogle"
+                             style="display:inline-block;width:728px;height:90px"
+                             data-ad-client="ca-pub-2122647083447667"
+                             data-ad-slot="5191731603"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </center>
+                </figure>--%>
                 <div>
                     <h4>
                         <b>
@@ -82,6 +83,15 @@
                 </div>
             </div>
         </aside>
+        <div style="position: absolute; left: 1%; top: 10%;">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- LadoEsquerdo -->
+            <ins class="adsbygoogle" style="display: inline-block; width: 120px; height: 600px"
+                data-ad-client="ca-pub-2122647083447667" data-ad-slot="9975769206"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
         <!--==============================End aside=================================-->
         <section id="content">
             <div class="padding-content">
@@ -92,6 +102,19 @@
         <!--==============================End content================================-->
         <!--==============================footer=================================-->
         <div class="main">
+            <figure>
+                <center>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- CabecalhoGrupoKart -->
+                    <ins class="adsbygoogle"
+                            style="display:inline-block;width:728px;height:90px"
+                            data-ad-client="ca-pub-2122647083447667"
+                            data-ad-slot="5191731603"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </center>
+            </figure>
             <footer>
                 <div class="bg">
                     <div class="padding-footer">
