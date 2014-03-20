@@ -146,7 +146,7 @@ h6 {font-size:13px; line-height:21px; color:#e5e5e5; font-weight:normal;}
 .page6.box.left {background:url(/images/box-tail9.gif) 0 0 repeat-x #1a1a1b;}
 .page6.box.right {background:url(/images/box-tail10.gif) 0 0 repeat-x #1a1a1b;}
 .page7.box {background:url(/images/box-tail11.gif) 0 0 repeat-x #1a1a1b;}
-.padding-box {padding:15px 20px 25px;}
+.padding-box {padding:5px 20px 5px 20px;}
 .padding1-box {padding:15px 12px 25px 20px;}
 .padding2-box {padding:15px 27px 25px 20px;}
 .padding-side {padding:0 287px 0 0;}
@@ -229,7 +229,7 @@ table td {font-size:12px; line-height:16px; color:#F5F5F5; vertical-align:middle
 table td a { text-decoration:none; }
 
 /*********************************aside*************************************/
-aside {width:100%; position:relative; z-index:2; padding-top: 10px;}
+aside {width:100%; position:relative; z-index:2; padding-top: 2px;}
 
 /****************************footer************************/
 footer {-webkit-background-clip: padding-box; border-radius:4px; background:url(/images/footer-tail.gif) 0 0 repeat-x #1a1a1b; margin-bottom:46px; width: 936px;}
