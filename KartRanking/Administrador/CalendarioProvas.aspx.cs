@@ -238,6 +238,7 @@ namespace KartRanking.Administrador
                                  g.idCalendario,
                                  g.idEquipe,
                                  g.Pos,
+                                 g.Voltas,
                                  tempo = g.tempoMinutos.ToString().PadLeft(2, '0') + ":" + g.tempoSegundos.ToString().PadLeft(2, '0') + ":" + g.tempoMilisegundos.ToString().PadLeft(3, '0'),
                                  u.Nome,
                                  e.NomeEquipe
@@ -545,7 +546,7 @@ namespace KartRanking.Administrador
                     kr.idUsuario = idUsuario;
                     kr.Ponto = String.IsNullOrEmpty(txtEtapaPontos.Text) ? 0 : Convert.ToInt16(txtEtapaPontos.Text);
                     kr.Pos = String.IsNullOrEmpty(txtEtapaPos.Text) ? 0 : Convert.ToInt16(txtEtapaPos.Text);
-                    kr.Voltas = 0;
+                    kr.Voltas = String.IsNullOrEmpty(txtEtapaVoltas.Text) ? 0 : Convert.ToInt16(txtEtapaVoltas.Text);
                     //M00:S00:MS000
                     kr.tempoHoras = 0;
                     kr.tempoMinutos = String.IsNullOrEmpty(txtEtapaTempo.Text) ? 0 : Convert.ToInt16(txtEtapaTempo.Text.Split(':')[0]);
