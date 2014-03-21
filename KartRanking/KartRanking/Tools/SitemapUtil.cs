@@ -53,8 +53,8 @@ namespace KartRanking.Tools
             foreach (string dir in getDirectory(AppDomain.CurrentDomain.BaseDirectory))
             {
                 lstfiles.AddRange(Directory.GetFiles(dir, "*.aspx"));
-                lstfiles.AddRange(Directory.GetFiles(dir, "*.html"));
-                lstfiles.AddRange(Directory.GetFiles(dir, "*.htm"));
+                //lstfiles.AddRange(Directory.GetFiles(dir, "*.html"));
+                //lstfiles.AddRange(Directory.GetFiles(dir, "*.htm"));
             }
 
             return lstfiles.ToArray();
@@ -76,8 +76,8 @@ namespace KartRanking.Tools
             {
                 FileInfo info = new FileInfo(file);
                 diretory = info.DirectoryName.Substring(info.DirectoryName.LastIndexOf("\\") + 1, info.DirectoryName.Length - info.DirectoryName.LastIndexOf("\\") - 1);
-                
-                if (diretory.ToLower() != "KartRanking")
+
+                if (diretory.ToLower() != "kartranking" && diretory.ToLower() != "kart" && diretory.ToLower() != "aspnet" && diretory.ToLower() != "test")
                     urlfull = urlsite + diretory + "/" + info.Name;
                 else
                     urlfull = urlsite + "/" + info.Name;
