@@ -36,6 +36,7 @@ namespace KartRanking.Tools
         private string[] getDirectory(string path)
         {
             List<string> lstDir = new List<string>();
+            lstDir.Add(path);
             string[] dirs = Directory.GetDirectories(path);   
             
             foreach(string dir in dirs)
@@ -50,7 +51,11 @@ namespace KartRanking.Tools
             List<string> lstfiles = new List<string>();
 
             foreach (string dir in getDirectory(AppDomain.CurrentDomain.BaseDirectory))
+            {
                 lstfiles.AddRange(Directory.GetFiles(dir, "*.aspx"));
+                lstfiles.AddRange(Directory.GetFiles(dir, "*.html"));
+                lstfiles.AddRange(Directory.GetFiles(dir, "*.htm"));
+            }
 
             return lstfiles.ToArray();
         }
