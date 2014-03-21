@@ -161,14 +161,14 @@
                         </tr>
                     </table>
                     <!-- Fim -->
-                    <div style="position: absolute; left: 1%; top: 10%;">
+                    <div style="position: absolute; left: 1%; top: 10%; z-index:-99999;">
                         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                         <!-- LadoEsquerdo -->
                         <ins class="adsbygoogle" style="display: inline-block; width: 120px; height: 600px"
                             data-ad-client="ca-pub-2122647083447667" data-ad-slot="9975769206"></ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+                        </script>
                     </div>
                 </td>
             </tr>
