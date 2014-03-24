@@ -233,7 +233,7 @@ namespace KartRanking.Grupo
             else
                 r = texto;
 
-            return StripTagsCharArray(r) + "<br/>" + data + " - <a href='Noticias.aspx?id=" + id + "'\">Continuar lendo...</a>";
+            return StripTagsCharArray(r) + "<br/>" + data + " - <a href='/" + UrlGrupo + "/noticias/" + id + "'>Continuar lendo...</a>";
         }
 
         /// <summary>
