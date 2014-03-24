@@ -283,7 +283,7 @@
         <div class="grid_12">
             <asp:Button ID="btnAtualizar" runat="server" Text="Atualizar" Width="150px" OnClick="btnAtualizar_Click"
                 CssClass="button" />&nbsp;
-            <input id="btnAlterSenha" type="button" value="Alterara Senha" onclick="AlterarSenha();" runat="server"/>
+            <input id="btnAlterSenha" type="button" value="Alterar Senha" onclick="AlterarSenha();" runat="server"/>
         </div>
         <div class="clear espaco_mini">
             &nbsp;
