@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Admin.master" AutoEventWireup="true"
-    CodeBehind="Noticias.aspx.cs" Inherits="KartRanking.Administrador.Noticias" ValidateRequest="false" %>
+    ValidateRequest="false" CodeBehind="Noticias.aspx.cs" Inherits="KartRanking.Administrador.Noticias" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
     <link href="/css/jquery-te-1.3.3.css" rel="stylesheet" type="text/css" />
@@ -21,9 +21,11 @@
                     &nbsp;
                 </div>
                 <div class="grid_12">
-                    <textarea name="textarea" id="textarea" cols="100" rows="100" runat="server" class="jqte"
+                    <%--            <textarea name="textarea" id="textarea" cols="100" rows="100" runat="server" class="jqte"
                         style="width: 100%; height: 400px;">
-                </textarea>
+                        </textarea>--%>
+                    <asp:TextBox ID="textarea" runat="server" TextMode="MultiLine" Style="width: 100%;
+                        height: 400px;" Rows="100" Columns="100" CssClass="jqte"></asp:TextBox>
                 </div>
                 <div class="clear espaco">
                     &nbsp;

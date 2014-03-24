@@ -86,6 +86,24 @@ namespace KartRanking
                     }
                 }
             }
+            else if (Request.Url.ToString().Contains("/noticias/"))
+            {
+                string NomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
+                NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                int? idGrupo = GetIdGrupo(NomeGrupo);
+
+                if (idGrupo.HasValue && idGrupo.Value > 0)
+                {
+                    string sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
+                    int id = 0;
+                    int.TryParse(sId, out id);
+
+                    if (id == 0)
+                        Context.RewritePath("~/Grupo/noticias.aspx?idGrupo=" + idGrupo);
+                    else
+                        Context.RewritePath("~/Grupo/noticias.aspx?idNoticia=" + id.ToString() + "&idGrupo=" + idGrupo);
+                }
+            }
         }
 
 
