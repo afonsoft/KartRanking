@@ -45,7 +45,7 @@ namespace KartRanking.Administrador
                                 u.Nome,
                                 n.Titulo,
                                 n.dtCriacao,
-                                Noticia = n.Noticia.Substring(0, n.Noticia.Length > 200 ? 200 : n.Noticia.Length)
+                                Noticia = n.Noticia.Substring(0, n.Noticia.Length > 150 ? 150 : n.Noticia.Length)
                             }).Take(50);
 
             RptNoticias.DataSource = noticias;
@@ -127,7 +127,7 @@ namespace KartRanking.Administrador
 
                  HiddenFieldIdNoticia.Value = noticia.idNoticias.ToString();
                  txtTitulo.Text = noticia.Titulo;
-                 textarea.Value = noticia.Noticia;
+                 textarea.Text = noticia.Noticia;
                  Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
              }
              else
@@ -169,7 +169,7 @@ namespace KartRanking.Administrador
                 {
                     HiddenFieldIdNoticia.Value = "0";
                     txtTitulo.Text = "";
-                    textarea.Value = "";
+                    textarea.Text = "";
                     Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
                 }
                 else
@@ -205,7 +205,7 @@ namespace KartRanking.Administrador
                 noticia.Ativo = true;
                 noticia.IdUsuario = UsuarioLogado.idUsuario;
                 noticia.Titulo = txtTitulo.Text;
-                noticia.Noticia = textarea.Value;
+                noticia.Noticia = textarea.Text;
                 
                 if (idNoticia <= 0)
                     dk.Kart_Noticias_Grupos.InsertOnSubmit(noticia);
