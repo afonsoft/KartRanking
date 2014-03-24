@@ -166,9 +166,9 @@ namespace KartRanking.Grupo
 
             var noticias = (from n in dk.Kart_Noticias_Grupos
                             where n.idGrupo == IdGrupo
-                            && n.dtCriacao >= DateTime.Now.AddMonths(-3)
+                            && n.dtCriacao >= DateTime.Now.AddYears(-1)
                             orderby n.dtCriacao descending
-                            select n).ToArray();
+                            select n).Take(20).ToArray();
 
             strHtml += " <div id='slider'> ";
             strHtml += " <ul>  ";
