@@ -8,6 +8,14 @@ using System.Web.UI.HtmlControls;
 
 namespace KartRanking.Page
 {
+    /********************************************************
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
+    * DATA: 26-03-2014                                     *
+    * E-MAIL: afonsoft@outlook.com.br                      *
+    * ******************************************************
+    * ALTERAÇÕES:                                          *
+    *                                                      *
+    ********************************************************/
     public class PageBase : System.Web.UI.Page
     {
         private DataKartDataContext _dk = null;

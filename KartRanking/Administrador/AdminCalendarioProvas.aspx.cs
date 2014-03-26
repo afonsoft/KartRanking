@@ -10,6 +10,14 @@ using KartRanking.Tools;
 
 namespace KartRanking.Administrador
 {
+    /********************************************************
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
+    * DATA: 26-03-2014                                     *
+    * E-MAIL: afonsoft@outlook.com.br                      *
+    * ******************************************************
+    * ALTERAÇÕES:                                          *
+    *                                                      *
+    ********************************************************/
     public partial class AdminCalendarioProvas : PageBaseSecurity
     {
         private int IdCalendario
