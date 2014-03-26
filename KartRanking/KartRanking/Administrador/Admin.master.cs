@@ -15,7 +15,7 @@ namespace KartRanking.Administrador
     * E-MAIL: afonsoft@outlook.com.br                      *
     * ******************************************************
     * ALTERAÇÕES:                                          *
-    *                                                      *
+    * Incluido no menu o item da regra                      *
     ********************************************************/
     public partial class Admin : System.Web.UI.MasterPage
     {
