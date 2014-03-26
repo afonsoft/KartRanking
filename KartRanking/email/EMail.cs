@@ -116,7 +116,7 @@ namespace KartRanking.email
             string EmailUsuario = (from u in new DataKartDataContext().Usuarios where u.idUsuario == idUsuario select u.Email).SingleOrDefault();
             var Grupo = (from g in new DataKartDataContext().Kart_Grupos where g.idGrupo == idGrupo select g).SingleOrDefault();
 
-            HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo).Replace("##STATUS##", idGrupo == 0 ? "cadastro" : "alteração").Replace("##SIGLAGRUPO##", Grupo.Sigla).Replace("##URLAMIGAVEL##", "http://kart.afonsoft.com.br/grupo/" + Grupo.UrlAcesso + ".aspx").Replace("##URL##", "http://kart.afonsoft.com.br/grupo/index.aspx?idGrupo=" + Grupo.idGrupo);
+            HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo).Replace("##STATUS##", idGrupo == 0 ? "cadastro" : "alteração").Replace("##SIGLAGRUPO##", Grupo.Sigla).Replace("##URLAMIGAVEL##", "http://kart.afonsoft.com.br/" + Grupo.UrlAcesso).Replace("##URL##", "http://kart.afonsoft.com.br/Administrador/index.aspx?idGrupo=" + Grupo.idGrupo);
 
             EMail.EnviaEmail(EmailUsuario, HTML, "KartRanking - Grupo " + (idGrupo == 0 ? "cadastrado" : "alteração") + " com sucesso.", "");
         }

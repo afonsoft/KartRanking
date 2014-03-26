@@ -20,6 +20,8 @@ namespace KartRanking.Administrador
             {
                 ltTitulo.Text = "Informações do Grupo";
                 ltDescricao.Text = "Efetuar alteração do Grupo";
+                chkEnviarTodosUsuarios.Visible = false;
+                chkEnviarTodosUsuarios.Checked = false;
 
                 if (IdGrupo > 0)
                 {
@@ -230,6 +232,36 @@ namespace KartRanking.Administrador
 
                         Alert("Alteração do grupo efetuado com sucesso!");
                         DisableEditGrupo(true);
+
+                        if (chkEnviarTodosUsuarios.Checked)
+                        {
+                            //Pegar os usuarário do grupo e disparar o e-mail informando da alteração.
+                            int[] idUsuarios = (from ug in dk.Kart_Usuario_Grupos
+                                                where ug.idGrupo == kg.idGrupo
+                                                && ug.idUsuario != user.idUsuario
+                                                && ug.Aprovado == true
+                                                select ug.idUsuario).ToArray();
+
+                            foreach (int idusuario in idUsuarios)
+                            {
+                                EMail.EnviarEmailStatusGrupo(idusuario, kg.idGrupo);
+                            }
+                        }
+
+                        chkEnviarTodosUsuarios.Visible = false;
+                        chkEnviarTodosUsuarios.Checked = false;
+
+                        btnEditar.Text = "Editar Grupo";
+                        ltTitulo.Text = "Informações do Grupo";
+                        ltDescricao.Text = "Efetuar alteração do Grupo";
+                        if (ViewState["OldIdGrupo"] != null)
+                        {
+                            IdGrupo = Convert.ToInt16(ViewState["OldIdGrupo"]);
+                            ViewState["OldIdGrupo"] = null;
+                            popularTela(IdGrupo);
+                            CarregarCampeonato(IdGrupo);
+                            CarregarGruposDesativados();
+                        }
                     }
                     else
                     {
@@ -280,6 +312,7 @@ namespace KartRanking.Administrador
                 if (IsAdmin)
                 {
                     btnEditar.Text = "Cancelar";
+                    chkEnviarTodosUsuarios.Visible = true;
                     DisableEditGrupo(false);
                 }
                 else
