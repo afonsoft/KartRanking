@@ -11,6 +11,16 @@ using KartRanking.Tools;
 
 namespace KartRanking.Administrador
 {
+    /********************************************************
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)    *
+    * DATA: 26-03-2014                                      *
+    * E-MAIL: afonsoft@outlook.com.br                       *
+    * *******************************************************
+    * ALTERAÇÕES:                                           *
+    * 26-03-2014: Correção da edição do grupo               *
+    *             Criação do metodo para enviar e-mail      *
+    *             A todos os usuarios do grupo              *                       
+    ********************************************************/
     public partial class AdminGrupo : PageBaseSecurity
     {
 

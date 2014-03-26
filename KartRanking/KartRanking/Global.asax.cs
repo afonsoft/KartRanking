@@ -9,6 +9,14 @@ using KartRanking.Tools;
 
 namespace KartRanking
 {
+    /********************************************************
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
+    * DATA: 26-03-2014                                     *
+    * E-MAIL: afonsoft@outlook.com.br                      *
+    * ******************************************************
+    * ALTERAÇÕES:                                          *
+    * 26-03-2014: Alteração para incluir a url amigavel.   *
+    ********************************************************/
     public class Global : System.Web.HttpApplication
     {
         //Fontes: http://rankingkart.codeplex.com/

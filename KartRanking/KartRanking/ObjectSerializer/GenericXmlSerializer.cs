@@ -8,6 +8,14 @@ using System.Text;
 
 namespace KartRanking.ObjectSerializer
 {
+    /********************************************************
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
+    * DATA: 26-03-2014                                     *
+    * E-MAIL: afonsoft@outlook.com.br                      *
+    * ******************************************************
+    * ALTERAÇÕES:                                          *
+    *                                                      *
+    ********************************************************/
     public class GenericXmlSerializer<T>
     {
 

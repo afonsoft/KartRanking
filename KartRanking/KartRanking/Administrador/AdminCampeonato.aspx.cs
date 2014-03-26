@@ -9,6 +9,14 @@ using KartRanking.BaseDados;
 
 namespace KartRanking.Administrador
 {
+    /********************************************************
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
+    * DATA: 26-03-2014                                     *
+    * E-MAIL: afonsoft@outlook.com.br                      *
+    * ******************************************************
+    * ALTERAÇÕES:                                          *
+    *                                                      *
+    ********************************************************/
     public partial class AdminCampeonato : PageBaseSecurity
     {
         protected void Page_Load(object sender, EventArgs e)

@@ -9,6 +9,14 @@ using System.IO;
 
 namespace KartRanking.Grupo
 {
+    /********************************************************
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
+    * DATA: 26-03-2014                                     *
+    * E-MAIL: afonsoft@outlook.com.br                      *
+    * ******************************************************
+    * ALTERAÇÕES:                                          *
+    *                                                      *
+    ********************************************************/
     public partial class fotos : PageBaseGrupo
     {
         public int TotalCol { get; set; }
