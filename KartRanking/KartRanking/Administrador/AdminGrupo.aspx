@@ -140,6 +140,7 @@
                     grupo</a>
             </td>
             <td colspan="3" style="text-align: right;">
+                <asp:CheckBox ID="chkEnviarTodosUsuarios" runat="server" Text="Enviar e-mail de alterações a todos os usuários deste grupo?" />
                 &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click"
                     CssClass="button" />
                 &nbsp;<asp:Button ID="btnNovo" runat="server" Text="Novo Grupo" OnClick="btnNovo_Click"
