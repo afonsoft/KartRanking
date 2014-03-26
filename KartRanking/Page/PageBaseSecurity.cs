@@ -79,7 +79,7 @@ namespace KartRanking.Page
                 }
 
                 Session["IdCampeonato"] = idCampeonato;
-                return IdCampeonato;
+                return idCampeonato;
             }
             set
             {
