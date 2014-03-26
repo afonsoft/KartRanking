@@ -22,6 +22,7 @@ namespace KartRanking.Grupo
         public int TotalCol { get; set; }
         public int TotalImg { get; set; }
         public int TotalImgCount { get; set; }
+        private int IdAlbum { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,6 +41,21 @@ namespace KartRanking.Grupo
             }
         }
 
+        public string NomeAlbum
+        {
+            get
+            {
+                if (IdAlbum > 0)
+                {
+                    return (from f in dk.Kart_Album_Grupos
+                            where f.idGrupo == IdGrupo
+                            && f.idAlbum == IdAlbum
+                            select f.NomeAlbum).FirstOrDefault();
+                }
+                return "";
+            }
+        }
+
         private void PopularAlbum(int idAlbum)
         {
             Album album = new Album();
@@ -49,8 +65,6 @@ namespace KartRanking.Grupo
                          select f).FirstOrDefault();
             if (fotos != null)
             {
-                titleAlbum.ImageUrl = "/Grupo/ImgTitleHandler.ashx?Text=" + fotos.NomeAlbum + "&f=28";
-
                 album.dtEvento = fotos.dtEvento;
                 album.idAlbum = fotos.idAlbum;
                 album.idGrupo = fotos.idGrupo;
