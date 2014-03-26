@@ -26,7 +26,7 @@
                                                 <ItemTemplate>
                                                     <div class="grid_2" style="max-height: 100px;">
                                                         <div style="<%# Convert.ToBoolean(Eval("Ativo")) ? "display:block;": "display:none;" %>">
-                                                            <a href="/Grupo/Fotos.aspx?idgrupo=<%# Eval("idGrupo") %>&idalbum=<%# Eval("idAlbum") %>">
+                                                            <a href="/<%= UrlGrupo %>/fotos/<%# Eval("idAlbum") %>">
                                                                 <img alt="<%# Eval("Nome") %>" src="<%# Eval("Foto") %>" width="100px" height="100px" />
                                                             </a>
                                                         </div>
@@ -84,7 +84,7 @@
                             <div class="indent-bot">
                                 <h3 class="p2">
                                     <span class="TitleFont">
-                                        <asp:Image runat="server" ID="titleAlbum" />
+                                        <img alt="Titulo album" src='/Grupo/ImgTitleHandler.ashx?Text=<%= NomeAlbum %>&f=28' />
                                     </span>
                                 </h3>
                                 <div style="color: #FFF;">
