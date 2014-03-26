@@ -67,7 +67,7 @@ namespace KartRanking.Grupo
             }
             else
             {
-                Alert("Album não localizado, ou não pertence a este grupo!", null, "/Administrador/home.aspx");
+                Alert("Album não localizado, ou não pertence a este grupo!", null, "/index.aspx");
             }
         }
         private void PopularAlbuns()
@@ -99,23 +99,22 @@ namespace KartRanking.Grupo
         {
             List<Item> Itens = new List<Item>();
 
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            string[] str = Directory.GetFiles(path);
-
-            foreach (string i in str)
+            if (Directory.Exists(path))
             {
-                Itens.Add(new Item()
-                {
-                    Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                    Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                    Ativo = true,
-                    idAlbum = idAlbum,
-                    idGrupo = idGrupo
-                });
-            }
+                string[] str = Directory.GetFiles(path);
 
+                foreach (string i in str)
+                {
+                    Itens.Add(new Item()
+                    {
+                        Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                        Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                        Ativo = true,
+                        idAlbum = idAlbum,
+                        idGrupo = idGrupo
+                    });
+                }
+            }
            
             return Itens;
         }
@@ -124,21 +123,21 @@ namespace KartRanking.Grupo
         {
             List<Item> Itens = new List<Item>();
 
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            string[] str = Directory.GetFiles(path);
-
-            foreach (string i in str)
+            if (Directory.Exists(path))
             {
-                Itens.Add(new Item()
+                string[] str = Directory.GetFiles(path);
+
+                foreach (string i in str)
                 {
-                    Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                    Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                    Ativo = true,
-                    idAlbum = idAlbum, 
-                    idGrupo = idGrupo
-                });
+                    Itens.Add(new Item()
+                    {
+                        Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                        Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                        Ativo = true,
+                        idAlbum = idAlbum,
+                        idGrupo = idGrupo
+                    });
+                }
             }
 
             if (Itens.Count() < 6)
