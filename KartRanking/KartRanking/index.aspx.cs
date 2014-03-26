@@ -26,7 +26,7 @@ namespace KartRanking
         protected void Page_Load( object sender, EventArgs e )
         {
             if (dk.DatabaseExists())
-            {
+            { 
                 Response.Redirect("~/Administrador/index.aspx");
             }
             else
