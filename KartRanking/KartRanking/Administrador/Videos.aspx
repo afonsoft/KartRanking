@@ -20,6 +20,20 @@
 				        buttons: {}
 				    }
 				});
+
+				$('#<%= txtDtEvento.ClientID %>').datepicker({
+				    changeMonth: true,
+				    changeYear: true,
+				    dateFormat: 'dd/mm/yy',
+				    dayNames: ['Domingo', 'Segunda', 'Ter&ccedil;a', 'Quarta', 'Quinta', 'Sexta', 'S&aacute;bado', 'Domingo'],
+				    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+				    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S&aacute;b', 'Dom'],
+				    monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+				    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+				    nextText: 'Pr&oacute;ximo',
+				    prevText: 'Anterior',
+				    showAnim: 'slideDown'
+				});
         });
     </script>
     <asp:Panel ID="PanelVideos" runat="server">
@@ -33,7 +47,7 @@
                         "Sair": function () { jQuery('#CadVideo').dialog("close"); return true; }
                     }
                 });
-                jQuery('#CadVideo').dialog({ width: 300, height: 160 });
+                jQuery('#CadVideo').dialog({ width: 450, height: 200 });
                 jQuery("#CadVideo").parent().appendTo(jQuery("form:first"));
                 jQuery('#CadVideo').dialog('open');
             }
@@ -44,10 +58,18 @@
             <table width="98%" cellpadding="1" cellspacing="1" border="0">
                 <tr>
                     <td>
+                        <span><b>Titulo:</b></span>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTituloVideo" MaxLength="200" Width="100%" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <span><b>Url YouTube:</b></span>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtUrlVideo" Width="98%" MaxLength="500" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtUrlVideo" Width="100%" MaxLength="500" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -58,14 +80,16 @@
                         <asp:TextBox ID="txtDtEvento" MaxLength="10" runat="server"></asp:TextBox>
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td>
-                        <span><b>Titulo:</b></span>
+                        <span><b>Etapa:</b></span>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtTituloVideo" MaxLength="50" runat="server"></asp:TextBox>
+                        <asp:DropDownList ID="ddlEtapas" runat="server" Width="60%">
+                        </asp:DropDownList>
                     </td>
                 </tr>
+                 
             </table>
             <div style="display: none;">
                 <asp:LinkButton ID="lnkConfirmar" runat="server" OnClick="lnkConfirmar_Click"></asp:LinkButton>
@@ -103,7 +127,7 @@
                         <div class="grid_12" style="text-align: center;">
                             <div id="Player_<%# Eval("idVideo") %>" style="text-align: left;">
                                 <a class="fancybox-media" href="<%# Eval("UrlVideo") %>">
-                                    <%# Eval("dtEvento")%></a>
+                                   <%# Eval("txtTitulo")%> - <%# Eval("dtEvento")%></a>
                             </div>
                         </div>
                         <% if (IsAdmin)

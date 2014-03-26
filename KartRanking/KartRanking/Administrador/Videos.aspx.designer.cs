@@ -22,6 +22,15 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.Panel PanelVideos;
         
         /// <summary>
+        /// txtTituloVideo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTituloVideo;
+        
+        /// <summary>
         /// txtUrlVideo control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,13 @@ namespace KartRanking.Administrador {
         protected global::System.Web.UI.WebControls.TextBox txtDtEvento;
         
         /// <summary>
-        /// txtTituloVideo control.
+        /// ddlEtapas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTituloVideo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEtapas;
         
         /// <summary>
         /// lnkConfirmar control.

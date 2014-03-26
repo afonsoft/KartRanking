@@ -16,7 +16,7 @@ namespace KartRanking.Administrador
     * E-MAIL: afonsoft@outlook.com.br                      *
     * ******************************************************
     * ALTERAÇÕES:                                          *
-    *                                                      *
+    * Issues: 1758 - Criação da tela de videos             *
     ********************************************************/
     public partial class Videos : PageBaseSecurity
     {
@@ -29,7 +29,27 @@ namespace KartRanking.Administrador
             {
                 ViewState["InfoPage"] = new string[] { "0 de " + numberOfPages, "0", totalCount.ToString(), numberOfPages.ToString() };
                 CarregarVideos();
+                PopularEtapas();
             }
+        }
+
+        private void PopularEtapas()
+        {
+            ddlEtapas.Items.Clear();
+
+            var etapas = (from e in dk.Kart_Calendario_Campeonatos
+                          orderby e.Data ascending
+                          where e.Ativo == true
+                          && e.idCampeonato == IdCampeonato
+                          select new { e.Nome, e.idCalendario }).ToList();
+            
+            ddlEtapas.DataSource = etapas;
+            ddlEtapas.DataTextField = "Nome";
+            ddlEtapas.DataValueField = "idCalendario";
+            ddlEtapas.DataBind();
+
+            ddlEtapas.Items.Insert(0, new ListItem("Nenhum", "0"));
+
         }
 
         private void CarregarVideos()
@@ -114,7 +134,7 @@ namespace KartRanking.Administrador
                     return;
                 }
 
-                if (!ValidaURLYoutube(txtTituloVideo.Text))
+                if (string.IsNullOrEmpty(txtTituloVideo.Text))
                 {
                     Alert("Informe o titulo do video");
                     return;
@@ -126,11 +146,15 @@ namespace KartRanking.Administrador
                 video.idGrupo = IdGrupo;
                 video.idUsuario = UsuarioLogado.idUsuario;
                 video.UrlVideo = txtUrlVideo.Text;
-                //TODO: Criar o campo com o titulo do video para exibir na tela, sendo um upload de uma miniatura de video.
+                video.txtTitulo = txtTituloVideo.Text;
+
                 if (!string.IsNullOrEmpty(txtDtEvento.Text))
                     video.dtEvento = Convert.ToDateTime(txtDtEvento.Text);
                 else
                     video.dtEvento = DateTime.Now;
+
+                if (ddlEtapas.SelectedIndex > 0 && Convert.ToInt32(ddlEtapas.SelectedValue) > 0)
+                    video.idCalendario = Convert.ToInt32(ddlEtapas.SelectedValue);
 
                 dk.Kart_Videos_Grupos.InsertOnSubmit(video);
                 dk.SubmitChanges();

@@ -234,7 +234,7 @@ namespace KartRanking.email
                              join u in dk.Usuarios on gu.idUsuario equals u.idUsuario
                              where g.idGrupo == idGrupo
                              && gu.Aprovado == true
-                             select new { g.NomeGrupo, gu.idUsuario, u.Email });
+                             select new { g.NomeGrupo, gu.idUsuario, u.Email, g.UrlAcesso }).ToList();
 
                 string NomeGrupo = (from g in Grupo select g.NomeGrupo).FirstOrDefault();
 
@@ -244,12 +244,13 @@ namespace KartRanking.email
                 {
                     HTML = sr.ReadToEnd();
                 }
-                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##URLTUBE##", InfoVideo.UrlVideo);
+                //http://kart.afonsoft.com.br/KartAmigos/videos
+                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##URLVIDEO##", "http://kart.afonsoft.com.br/" + Grupo[0].UrlAcesso + "/videos").Replace("##URLTUBE##", InfoVideo.UrlVideo);
 
 
                 foreach (var u in Grupo)
                 {
-                    EnviaEmail(u.Email, HTML, "KartRanking - Novo Video cadastrada.", "");
+                    EnviaEmail(u.Email, HTML, "KartRanking - Novo Vídeo cadastrado", "");
                 }
             }
         }

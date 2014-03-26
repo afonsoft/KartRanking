@@ -7,13 +7,14 @@ using KartRanking.BaseDados;
 namespace KartRanking.Page
 {
     /********************************************************
-    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
-    * DATA: 26-03-2014                                     *
-    * E-MAIL: afonsoft@outlook.com.br                      *
-    * ******************************************************
-    * ALTERAÇÕES:                                          *
-    *                                                      *
-    ********************************************************/
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)    *
+    * DATA: 26-03-2014                                      *
+    * E-MAIL: afonsoft@outlook.com.br                       *
+    * *******************************************************
+    * ALTERAÇÕES:                                           *
+    * Popular o IdGrupo e IdCampeonato com o ultimo caso    *
+    * Não tenha nenhum selecionado                          * 
+    *********************************************************/
     public class PageBaseSecurity : PageBase
     {
 
@@ -32,6 +33,17 @@ namespace KartRanking.Page
                 {
                     int.TryParse(Session["IdGrupo"].ToString(), out idGrupo);
                 }
+
+                if (idGrupo <= 0 && UsuarioLogado != null && UsuarioLogado.idUsuario > 0)
+                {
+                    idGrupo = (from g in dk.Kart_Usuario_Grupos
+                               join g1 in dk.Kart_Grupos on g.idGrupo equals g1.idGrupo
+                               where g.idUsuario == UsuarioLogado.idUsuario
+                               && g1.Ativo == true
+                               orderby g1.dtCriacao descending
+                               select g.idGrupo).FirstOrDefault();
+                }
+
                 Session["IdGrupo"] = idGrupo;
                 return idGrupo;
             }
@@ -45,18 +57,28 @@ namespace KartRanking.Page
         {
             get
             {
-                int IdCampeonato = 0;
+                int idCampeonato = 0;
                 if (Request.QueryString["IdCampeonato"] != null)
                 {
-                    int.TryParse(Request.QueryString["IdCampeonato"], out IdCampeonato);
-                    if (IdCampeonato > 0)
-                        Session["IdCampeonato"] = IdCampeonato;
+                    int.TryParse(Request.QueryString["IdCampeonato"], out idCampeonato);
+                    if (idCampeonato > 0)
+                        Session["IdCampeonato"] = idCampeonato;
                 }
                 if (Session["IdCampeonato"] != null)
                 {
-                    int.TryParse(Session["IdCampeonato"].ToString(), out IdCampeonato);
+                    int.TryParse(Session["IdCampeonato"].ToString(), out idCampeonato);
                 }
-                Session["IdCampeonato"] = IdCampeonato;
+
+                if (IdGrupo > 0 && idCampeonato <= 0)
+                {
+                    idCampeonato = (from c in dk.Kart_Campeonatos
+                                    orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
+                                    where c.idGrupo == IdGrupo
+                                    && c.Ativo == true
+                                    select c.idCampeonato).FirstOrDefault();
+                }
+
+                Session["IdCampeonato"] = idCampeonato;
                 return IdCampeonato;
             }
             set
