@@ -266,6 +266,7 @@ namespace KartRanking.Administrador
                                            where al.idAlbum == idAlbum
                                            && al.idGrupo == IdGrupo
                                            select al.PathFotos).FirstOrDefault();
+
                         string FullPath = Path.Combine(PathFoto, filename);
 
                         if (!Directory.Exists(PathFoto))
