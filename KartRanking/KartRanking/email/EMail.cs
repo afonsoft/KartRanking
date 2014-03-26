@@ -270,7 +270,7 @@ namespace KartRanking.email
                              join u in dk.Usuarios on gu.idUsuario equals u.idUsuario
                              where g.idGrupo == idGrupo
                              && gu.Aprovado == true
-                             select new { g.NomeGrupo, gu.idUsuario, u.Email });
+                             select new { g.NomeGrupo, gu.idUsuario, u.Email, g.UrlAcesso }).ToList();
 
                 string NomeGrupo = (from g in Grupo select g.NomeGrupo).FirstOrDefault();
 
@@ -280,12 +280,12 @@ namespace KartRanking.email
                 {
                     HTML = sr.ReadToEnd();
                 }
-                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##NOMEALBUM##", InfoAlbum.NomeAlbum).Replace("##ID##", InfoAlbum.idAlbum.ToString());
+                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##NOMEALBUM##", InfoAlbum.NomeAlbum).Replace("##ID##", "http://kart.afonsoft.com.br/" + Grupo[0].UrlAcesso + "/fotos");
 
 
                 foreach (var u in Grupo)
                 {
-                    EnviaEmail(u.Email, HTML, "KartRanking - Novo album cadastrada.", "");
+                    EnviaEmail(u.Email, HTML, "KartRanking - Nova foto cadastrada", "");
                 }
             }
         }
