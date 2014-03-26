@@ -37,11 +37,15 @@ namespace KartRanking.Administrador
         {
             ddlEtapas.Items.Clear();
 
-            var etapas = (from e in dk.Kart_Calendario_Campeonatos
-                          orderby e.Data ascending
-                          where e.Ativo == true
-                          && e.idCampeonato == IdCampeonato
-                          select new { e.Nome, e.idCalendario }).ToList();
+            var LinqEtapas = (from e in dk.Kart_Calendario_Campeonatos
+                              orderby e.Data ascending
+                              where (e.Ativo == true || e.Ativo == null)
+                              && e.idCampeonato == IdCampeonato
+                              select new { e.Nome, e.Data, e.idCalendario }).ToList();
+
+            var etapas = (from l in LinqEtapas
+                          orderby l.Data ascending
+                          select new { Nome = l.Nome + " - " + l.Data.ToString("dd/MM/yyyy"), l.idCalendario });
             
             ddlEtapas.DataSource = etapas;
             ddlEtapas.DataTextField = "Nome";

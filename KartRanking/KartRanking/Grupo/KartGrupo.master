@@ -19,8 +19,7 @@
             font-family: '28 Days Later' , Tahoma !important;
             font-style: normal;
             font-weight: normal;
-            font-size: 48pt;
-            color: #a31f1f;
+            color: #fecc5f;
         }
     </style>
     <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
