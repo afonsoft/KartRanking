@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrador\Informacoes.aspx" />
+    <Content Include="Administrador\RegrasGrupo.aspx" />
     <Content Include="Administrador\Videos.aspx" />
     <Content Include="AspNetInfo.aspx" />
     <Content Include="BingSiteAuth.xml" />
@@ -125,6 +126,7 @@
     <Content Include="dlls\Microsoft.WindowsAzure.Storage.dll" />
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
+    <Content Include="email\GrupoRegraModificado.htm" />
     <Content Include="email\GrupoVideos.htm" />
     <Content Include="Fonts\28dayslater-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -356,6 +358,13 @@
     </Compile>
     <Compile Include="Administrador\RecuperarSenha.aspx.designer.cs">
       <DependentUpon>RecuperarSenha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\RegrasGrupo.aspx.cs">
+      <DependentUpon>RegrasGrupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\RegrasGrupo.aspx.designer.cs">
+      <DependentUpon>RegrasGrupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>

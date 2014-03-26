@@ -288,5 +288,22 @@ namespace KartRanking.email
                 }
             }
         }
+
+        public static void EnviarEmailRegraGrupo(int idUsuario, int idGrupo)
+        {
+            string Path = PathUtil.GetFullPathRoot() + @"\email\GrupoRegraModificado.htm";
+            string HTML = "";
+            using (StreamReader sr = new StreamReader(Path, true))
+            {
+                HTML = sr.ReadToEnd();
+            }
+
+            string EmailUsuario = (from u in new DataKartDataContext().Usuarios where u.idUsuario == idUsuario select u.Email).SingleOrDefault();
+            var Grupo = (from g in new DataKartDataContext().Kart_Grupos where g.idGrupo == idGrupo select g).SingleOrDefault();
+            //http://kart.afonsoft.com.br/KartAmigos/informacoes
+            HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo).Replace("##SIGLAGRUPO##", Grupo.Sigla).Replace("##URLAMIGAVEL##", "http://kart.afonsoft.com.br/" + Grupo.UrlAcesso + "/informacoes");
+
+            EMail.EnviaEmail(EmailUsuario, HTML, "KartRanking - Regra do grupo modificado.", "");
+        }
     }
 }

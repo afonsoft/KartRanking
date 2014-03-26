@@ -79,6 +79,7 @@
                                                     </li>
                                                     <li><a itemprop="url" rel="tag" href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
                                                     <li><a itemprop="url" rel="tag" href="PermissaoGrupo.aspx">Permissões do Grupo</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="RegrasGrupo.aspx">Regras</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Pilotos</a>
