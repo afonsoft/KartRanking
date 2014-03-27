@@ -158,7 +158,6 @@ namespace KartRanking
         protected void Application_Error(object sender, EventArgs e)
         {
 
-#if RELEASE
             try
             {
                 HttpContext ctx = HttpContext.Current;
@@ -208,7 +207,6 @@ namespace KartRanking
             {
                 LogErro.Log.Logar(ex, HttpContext.Current);
             }
-#endif
         }
 
         protected void Session_End(object sender, EventArgs e)
