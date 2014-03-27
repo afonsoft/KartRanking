@@ -16,7 +16,7 @@
         }
     </style>
 </head>
-<body> 
+<body>
     <form id="form1" runat="server">
     <div class="Corpo">
         <table width="80%" cellpadding="2" cellspacing="2" border="0">
@@ -36,7 +36,7 @@
             </tr>
             <tr>
                 <td>
-                <br />
+                    <br />
                 </td>
             </tr>
             <tr>
@@ -46,13 +46,26 @@
                 </td>
             </tr>
             <tr>
-            <td><hr /></td>
+                <td>
+                    <hr />
+                </td>
             </tr>
             <tr>
-            <td style="text-align:left;">
-                <asp:Button ID="btnEnviar" runat="server" 
-                    Text="Reportar esse erro ao adiministrador!" onclick="btnEnviar_Click" />
-            </td>
+                <td>
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><b>Mais informações</b></label><br />
+                    <asp:TextBox ID="txtInfo" TextMode="MultiLine" Width="100%" Rows="10" Columns="150" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <asp:Button ID="btnEnviar" runat="server" Text="Reportar esse erro ao adiministrador!"
+                        OnClick="btnEnviar_Click" />
+                </td>
             </tr>
         </table>
     </div>
