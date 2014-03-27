@@ -28,7 +28,7 @@
             &nbsp;
         </div>
         <div class="grid_12">
-            <b>Onde o kart.afonsoft.com.br pode me ajudar?</b>
+            <b>Onde o KartRanking pode me ajudar?</b>
             <ul>
                 <li>Você utiliza planilha em excel para montar a classificação de pilotos e equipes?</li>
                 <li>Você enfrenta dificuldades para organizar as fotos das corridas?</li>
@@ -45,7 +45,7 @@
                 então você encontrou a ferramenta que estava faltando para apimentar o seu campeonato.
             </p>
             <p>
-                Utilizando o kart.afonsoft.com.br os grupos de corredores podem divulgar seus campeonatos
+                Utilizando o KartRanking os grupos de corredores podem divulgar seus campeonatos
                 particulares através de um site exclusivo (cada grupo possui um site) e ainda utilizam
                 uma ferramenta de gestão de conteúdo que permite realizar a atualização de todo
                 o site com muita facilidade. Utilizando um usuário e senha você e seus amigos poderão
@@ -67,7 +67,7 @@
             <p>
                 Veja como será o seu site visitando um dos grupos já cadastrados!
                 <br />
-                <a href="http://kart.afonsoft.com.br/amigos2013">http://kart.afonsoft.com.br/amigos2013</a>
+                <a href="http://kart.afonsoft.com.br/KartAmigos">http://kart.afonsoft.com.br/KartAmigos</a>
             </p>
         </div>
         <div class="clear espaco_mini">
