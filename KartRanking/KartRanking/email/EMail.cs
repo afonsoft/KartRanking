@@ -72,7 +72,7 @@ namespace KartRanking.email
                               select g).FirstOrDefault();
 
                 HTML = HTML.Replace("##NOMEGRUPO##", Grupo1.NomeGrupo);
-                HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo1.UrlAcesso);
+                HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com.br/" + Grupo1.UrlAcesso);
             }
             else
             {
@@ -87,12 +87,12 @@ namespace KartRanking.email
                     if (Grupo1 != null)
                     {
                         HTML = HTML.Replace("##NOMEGRUPO##", Grupo1.NomeGrupo);
-                        HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo1.UrlAcesso);
+                        HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com.br/" + Grupo1.UrlAcesso);
                     }
                     else
                     {
                         HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
-                        HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/");
+                        HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com.br/");
                     }
                 }
 
@@ -154,7 +154,7 @@ namespace KartRanking.email
                                 select g).SingleOrDefault();
 
             HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo);
-            HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo.UrlAcesso);
+            HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com.br/" + Grupo.UrlAcesso);
 
             EMail.EnviaEmail(email, HTML, "KartRanking - Associação ao grupo efetuado com sucesso.", "");
         }
@@ -181,7 +181,7 @@ namespace KartRanking.email
                 HTML = sr.ReadToEnd();
             }
             HTML = HTML.Replace("##NOMEGRUPO##", Grupo[0].NomeGrupo).Replace("##NOMEUSUARIO##", NomeUsuarioCadastro);
-            HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo[0].UrlAcesso);
+            HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com.br/" + Grupo[0].UrlAcesso);
 
             EnviaEmail(EmailAdmin, HTML, "KartRanking - Cadastro efetuado com sucesso.", "");
         }
