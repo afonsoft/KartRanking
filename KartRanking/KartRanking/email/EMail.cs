@@ -76,7 +76,26 @@ namespace KartRanking.email
             }
             else
             {
-                HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
+                using (DataKartDataContext db = new DataKartDataContext())
+                {
+                    var Grupo1 = (from g in db.Kart_Grupos
+                                  join gu in db.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
+                                  orderby gu.dtCriacao descending
+                                  where gu.idUsuario == u.idUsuario
+                                  select g).FirstOrDefault();
+
+                    if (Grupo1 != null)
+                    {
+                        HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
+                        HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo1.UrlAcesso);
+                    }
+                    else
+                    {
+                        HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
+                        HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/");
+                    }
+                }
+
             }
 
             EnviaEmail(u.Email, HTML, "KartRanking - Cadastro efetuado com sucesso.", "");
