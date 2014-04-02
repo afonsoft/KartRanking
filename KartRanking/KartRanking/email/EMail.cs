@@ -86,7 +86,7 @@ namespace KartRanking.email
 
                     if (Grupo1 != null)
                     {
-                        HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo);
+                        HTML = HTML.Replace("##NOMEGRUPO##", Grupo1.NomeGrupo);
                         HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com/" + Grupo1.UrlAcesso);
                     }
                     else
