@@ -166,6 +166,61 @@ namespace KartRanking.Administrador
                     txtSenhaNova1.Text = "";
                     txtSenhaNova2.Text = "";
 
+                    Alert("Senha alterada com sucesso!");
+                }
+                else
+                {
+                    Alert("Erro para alterar a senha!\nTente mais tarde!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
+        }
+        protected void btnAtualizar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Usuario u = (from p in dk.Usuarios
+                             where p.idUsuario == Convert.ToInt16(IdUsuario.Value)
+                             select p).FirstOrDefault();
+
+                if (u != null)
+                {
+
+                    u.Nome = txtNome.Text;
+                    //u.Email= txtEmail.Text;
+                    u.Apelido = txtApelido.Text;
+                    if (!string.IsNullOrEmpty(txtPeso.Text))
+                        u.Peso = Convert.ToDecimal(txtPeso.Text);
+                    if (!string.IsNullOrEmpty(txtAltura.Text))
+                        u.Altura = Convert.ToDecimal(txtAltura.Text);
+                    if (!string.IsNullOrEmpty(txtDtNascimento.Text))
+                        u.DtNascimento = Convert.ToDateTime(txtDtNascimento.Text);
+
+                    u.Telefone = txtTelefone.Text;
+                    u.Celular = txtCelular.Text;
+                    u.Endereco = txtEndereco.Text;
+                    u.Cidade = txtCidade.Text;
+                    u.Estado = ddlEstado.SelectedValue;
+                    u.Sexo = Convert.ToChar(ddlSexo.SelectedValue);
+                    u.Perfil_Facebook = txtPerfilFacebook.Text;
+                    u.Perfil_Plus = txtPerfilPlus.Text;
+                    u.Perfil_Twitter = txtPerfilTwitter.Text;
+                    u.Obs = txtObs.Text;
+                    u.MostarInfo = true;
+                    u.Ativo = true;
+
+                    dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                    
+                    if (UsuarioLogado.idUsuario == u.idUsuario)
+                        Session["Usuario"] = u;
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "AddPHP", " $(document).ready(function() {$.ajax({ type: 'post', data: 'password=" + u.Senha.Trim() + "&email=" + u.Email.Trim() + "', url: 'http://forum.afonsoft.com.br/UserAddScript.php', success: function (retorno) { $('#" + HiddenFieldReturnAjax.ClientID + "').value = retorno; } }); });  ", true);
+
+
                     //Verificar se exsite no forum
                     bool exiteForum = (from f in dk.phpbb_users
                                        where f.user_email == u.Email
@@ -267,60 +322,6 @@ namespace KartRanking.Administrador
                         dk.SubmitChanges();
                     }
 
-
-                    Alert("Senha alterada com sucesso!");
-                }
-                else
-                {
-                    Alert("Erro para alterar a senha!\nTente mais tarde!");
-                }
-            }
-            catch (Exception ex)
-            {
-                Alert(ex);
-            }
-        }
-        protected void btnAtualizar_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                Usuario u = (from p in dk.Usuarios
-                             where p.idUsuario == Convert.ToInt16(IdUsuario.Value)
-                             select p).FirstOrDefault();
-
-                if (u != null)
-                {
-
-                    u.Nome = txtNome.Text;
-                    //u.Email= txtEmail.Text;
-                    u.Apelido = txtApelido.Text;
-                    if (!string.IsNullOrEmpty(txtPeso.Text))
-                        u.Peso = Convert.ToDecimal(txtPeso.Text);
-                    if (!string.IsNullOrEmpty(txtAltura.Text))
-                        u.Altura = Convert.ToDecimal(txtAltura.Text);
-                    if (!string.IsNullOrEmpty(txtDtNascimento.Text))
-                        u.DtNascimento = Convert.ToDateTime(txtDtNascimento.Text);
-
-                    u.Telefone = txtTelefone.Text;
-                    u.Celular = txtCelular.Text;
-                    u.Endereco = txtEndereco.Text;
-                    u.Cidade = txtCidade.Text;
-                    u.Estado = ddlEstado.SelectedValue;
-                    u.Sexo = Convert.ToChar(ddlSexo.SelectedValue);
-                    u.Perfil_Facebook = txtPerfilFacebook.Text;
-                    u.Perfil_Plus = txtPerfilPlus.Text;
-                    u.Perfil_Twitter = txtPerfilTwitter.Text;
-                    u.Obs = txtObs.Text;
-                    u.MostarInfo = true;
-                    u.Ativo = true;
-
-                    dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
-                    
-                    if (UsuarioLogado.idUsuario == u.idUsuario)
-                        Session["Usuario"] = u;
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "AddPHP", " $(document).ready(function() {$.ajax({ type: 'post', data: 'password=" + u.Senha.Trim() + "&email=" + u.Email.Trim() + "', url: 'http://forum.afonsoft.com.br/UserAddScript.php', success: function (retorno) { $('#" + HiddenFieldReturnAjax.ClientID + "').value = retorno; } }); });  ", true);
 
                     Alert("Perfil atualizado com sucesso!", null, "/Administrador/home.aspx");
                 }
