@@ -16,8 +16,8 @@ namespace KartRanking
             //Instalar o Banco de dados
             if (!dk.DatabaseExists())
             {
-                dk.CreateDatabase();
                 CreateSiteMap();
+                dk.CreateDatabase();
                 Response.Redirect("~/Administrador/index.aspx");
                 
             }

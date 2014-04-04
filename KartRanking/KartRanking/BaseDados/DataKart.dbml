@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="DataKartDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.afonsoft.com.br;Persist Security Info=True;User ID=afonsoftcombr;Connect Timeout=360" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.afonsoft.com.br;Initial Catalog=afonsoftcombr_db;Persist Security Info=True;User ID=afonsoftcombr;Connect Timeout=360;Load Balance Timeout=360" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="afonsoftcombr_dbConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="afonsoftcombr.Usuarios" Member="Usuarios">
     <Type Name="Usuario">
       <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
