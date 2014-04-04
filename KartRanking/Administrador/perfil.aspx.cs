@@ -13,12 +13,12 @@ using KartRanking.email;
 namespace KartRanking.Administrador
 {
     /********************************************************
-    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
-    * DATA: 26-03-2014                                     *
-    * E-MAIL: afonsoft@outlook.com.br                      *
-    * ******************************************************
-    * ALTERAÇÕES:                                          *
-    *                                                      *
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)    *
+    * DATA: 26-03-2014                                      *
+    * E-MAIL: afonsoft@outlook.com.br                       *
+    * *******************************************************
+    * ALTERAÇÕES:                                           *
+    * 04-04-2014 - phpbb Forum insert user                  *
     ********************************************************/
     public partial class perfil : PageBaseSecurity
     {
@@ -166,6 +166,17 @@ namespace KartRanking.Administrador
                     txtSenhaNova1.Text = "";
                     txtSenhaNova2.Text = "";
 
+                    phpbb_user userbb = (from f in dk.phpbb_users
+                                         where f.user_email == u.Email
+                                         || f.username == u.Email
+                                         select f).FirstOrDefault();
+                    if (userbb != null)
+                    {
+                        userbb.user_password = EncryptMd5(u.Senha);
+                        userbb.user_email_hash = EncryptCRC32(u.Email + u.Email.Length.ToString());
+                        dk.SubmitChanges();
+                    }
+
                     Alert("Senha alterada com sucesso!");
                 }
                 else
@@ -220,7 +231,6 @@ namespace KartRanking.Administrador
 
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "AddPHP", " $(document).ready(function() {$.ajax({ type: 'post', data: 'password=" + u.Senha.Trim() + "&email=" + u.Email.Trim() + "', url: 'http://forum.afonsoft.com.br/UserAddScript.php', success: function (retorno) { $('#" + HiddenFieldReturnAjax.ClientID + "').value = retorno; } }); });  ", true);
 
-
                     //Verificar se exsite no forum
                     bool exiteForum = (from f in dk.phpbb_users
                                        where f.user_email == u.Email
@@ -240,11 +250,11 @@ namespace KartRanking.Administrador
                             user_regdate = 1396623164,
                             username = "",
                             username_clean = "",
-                            user_password = "$H$9knKhem4hHOyuZC8RDKFjiYSBEDY.q0", //r5q9y6t2
+                            user_password = EncryptMd5(u.Senha), 
                             user_passchg = 1396623164,
                             user_pass_convert = 0,
                             user_email = "",
-                            user_email_hash = 424624471618, //afonsoft@gmail.com
+                            user_email_hash = EncryptCRC32(u.Email + u.Email.Length.ToString()),
                             user_birthday = "",
                             user_lastvisit = 0,
                             user_lastmark = 1396623164,
@@ -312,6 +322,7 @@ namespace KartRanking.Administrador
                         phpu.username = u.Email;
                         phpu.username_clean = u.Email;
                         phpu.user_email = u.Email;
+                        phpu.user_password = EncryptMd5(u.Senha);
                         dk.phpbb_users.InsertOnSubmit(phpu);
                         dk.SubmitChanges();
 
@@ -321,7 +332,6 @@ namespace KartRanking.Administrador
                         dk.phpbb_user_groups.InsertOnSubmit(new phpbb_user_group() { user_id = phpu.user_id, group_id = 7, group_leader = 0, user_pending = 0 });
                         dk.SubmitChanges();
                     }
-
 
                     Alert("Perfil atualizado com sucesso!", null, "/Administrador/home.aspx");
                 }
@@ -384,5 +394,6 @@ namespace KartRanking.Administrador
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Open", "OpenFileUpload();", true);
         }
+
     }
 }

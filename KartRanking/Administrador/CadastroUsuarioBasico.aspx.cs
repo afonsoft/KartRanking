@@ -127,11 +127,11 @@ namespace KartRanking.Administrador
                     user_regdate = 1396623164,
                     username = "",
                     username_clean = "",
-                    user_password = "$H$9knKhem4hHOyuZC8RDKFjiYSBEDY.q0", //r5q9y6t2
+                    user_password = EncryptMd5("123qwe"), 
                     user_passchg = 1396623164,
                     user_pass_convert = 0,
                     user_email = "",
-                    user_email_hash = 424624471618, //afonsoft@gmail.com
+                    user_email_hash = EncryptCRC32(usr.Email + usr.Email.Length.ToString()),
                     user_birthday = "",
                     user_lastvisit = 0,
                     user_lastmark = 1396623164,
