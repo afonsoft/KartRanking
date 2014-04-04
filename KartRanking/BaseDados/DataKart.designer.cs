@@ -87,7 +87,7 @@ namespace KartRanking.BaseDados
     #endregion
 		
 		public DataKartDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DataSourceConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["afonsoftcombr_dbConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

@@ -26,6 +26,24 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+    <div id="fb-root">
+    </div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '739364019428136',
+                status: true,
+                xfbml: true
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+    </script>
     <div id="main">
         <!--==============================header=================================-->
         <header class="header">
@@ -127,6 +145,11 @@
                                                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                                             })();
                                         </script>
+                                    </div>
+                                    <div class="text-bot">
+                                        <div class="fb-like" data-href="http://kart.afonsoft.com.br/<%= urlGrupo %>" data-layout="standard"
+                                            data-action="like" data-show-faces="true" data-width="300" data-share="true">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

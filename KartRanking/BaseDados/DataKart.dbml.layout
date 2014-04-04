@@ -95,7 +95,7 @@
         <classShapeMoniker Id="315bd48f-3b38-47a5-b61f-478116276a9b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 0.65625); (15.375 : 0.65625); (15.375 : 7.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 0.65625); (15.375 : 0.65625); (15.375 : 7.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Grid_Calendario" />
       <nodes>
         <classShapeMoniker Id="e81d3783-8c77-4e9f-9d1d-bf18f3362703" />
@@ -123,14 +123,14 @@
         <classShapeMoniker Id="7290135f-cc66-4d1a-853b-248bcc368158" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 10.3574039713542); (4.5 : 14.2989005533854); (6.25 : 14.2989005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 10.3574039713542); (4.5 : 14.2989005533854); (4.97916666666667 : 14.2989005533854 : JumpStart); (5.14583333333333 : 14.2989005533854 : JumpEnd); (6.25 : 14.2989005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Kart_Grupo/Kart_Grupo_Kart_Noticias_Grupo" />
       <nodes>
         <classShapeMoniker Id="32ee3e97-11ac-4d57-ac61-ce51558a3dd4" />
         <classShapeMoniker Id="99d626ee-a0be-4f48-bb84-93aab89d771e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 5.73232259114583); (2.875 : 6.10732259114583); (2.875 : 13.6806982766927); (3.10416666666667 : 13.6806982766927 : JumpStart); (3.27083333333333 : 13.6806982766927 : JumpEnd); (4.41666666666667 : 13.6806982766927 : JumpStart); (4.58333333333333 : 13.6806982766927 : JumpEnd); (4.97916666666667 : 13.6806982766927 : JumpStart); (5.14583333333333 : 13.6806982766927 : JumpEnd); (6.25 : 13.6806982766927)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 5.73232259114583); (2.875 : 6.10732259114583); (2.875 : 13.6806982766927); (6.25 : 13.6806982766927)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Noticias_Grupo" />
       <nodes>
         <classShapeMoniker Id="e81d3783-8c77-4e9f-9d1d-bf18f3362703" />
@@ -151,21 +151,21 @@
         <classShapeMoniker Id="a34e582a-482c-440d-9a0c-b3c367bdae06" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2 : 5.73232259114583); (2 : 13.0200512695313); (2.79166666666667 : 13.0200512695313 : JumpStart); (2.95833333333333 : 13.0200512695313 : JumpEnd); (3.10416666666667 : 13.0200512695313 : JumpStart); (3.27083333333333 : 13.0200512695313 : JumpEnd); (4.41666666666667 : 13.0200512695313 : JumpStart); (4.58333333333333 : 13.0200512695313 : JumpEnd); (4.97916666666667 : 13.0200512695313 : JumpStart); (5.14583333333333 : 13.0200512695313 : JumpEnd); (11.75 : 13.0200512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2 : 5.73232259114583); (2 : 13.0200512695313); (2.79166666666667 : 13.0200512695313 : JumpStart); (2.95833333333333 : 13.0200512695313 : JumpEnd); (3.10416666666667 : 13.0200512695313 : JumpStart); (3.27083333333333 : 13.0200512695313 : JumpEnd); (4.97916666666667 : 13.0200512695313 : JumpStart); (5.14583333333333 : 13.0200512695313 : JumpEnd); (11.75 : 13.0200512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Resultado_Calendario" />
       <nodes>
         <classShapeMoniker Id="e81d3783-8c77-4e9f-9d1d-bf18f3362703" />
         <classShapeMoniker Id="a34e582a-482c-440d-9a0c-b3c367bdae06" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(11 : 9.61464680989583); (11.2916691666667 : 9.61464680989583 : JumpStart); (11.4583358333333 : 9.61464680989583 : JumpEnd); (14.09375 : 9.61464680989583); (14.09375 : 6.70359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(11 : 9.61464680989583); (14.09375 : 9.61464680989583); (14.09375 : 6.70359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Kart_Equipe_Campeonato/Kart_Equipe_Campeonato_Kart_Usuario_Equipe_Campeonato" />
       <nodes>
         <classShapeMoniker Id="b7525f5d-cede-4a7f-8204-21203f617aad" />
         <classShapeMoniker Id="efcf44fb-ae4c-4ff3-8a2e-e51dba530550" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 4.73198979003906); (3.88541666666667 : 4.73198979003906 : JumpStart); (4.05208333333333 : 4.73198979003906 : JumpEnd); (4.97916666666667 : 4.73198979003906 : JumpStart); (5.14583333333333 : 4.73198979003906 : JumpEnd); (10.0416666666667 : 4.73198979003906 : JumpStart); (10.2083333333333 : 4.73198979003906 : JumpEnd); (11.1041654166667 : 4.73198979003906 : JumpStart); (11.2708320833333 : 4.73198979003906 : JumpEnd); (11.2916691666667 : 4.73198979003906 : JumpStart); (11.4583358333333 : 4.73198979003906 : JumpEnd); (12.78125 : 4.73198979003906); (12.78125 : 5.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 4.73198979003906); (4.97916666666667 : 4.73198979003906 : JumpStart); (5.14583333333333 : 4.73198979003906 : JumpEnd); (12.78125 : 4.73198979003906); (12.78125 : 5.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Usuario_Equipe_Campeonato" />
       <nodes>
         <classShapeMoniker Id="e81d3783-8c77-4e9f-9d1d-bf18f3362703" />
@@ -276,7 +276,7 @@
         <classShapeMoniker Id="195bdc89-8bb9-4758-8428-d1f2171de490" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 4.27647558007813); (3.88541666666667 : 4.27647558007813 : JumpStart); (4.05208333333333 : 4.27647558007813 : JumpEnd); (4.97916666666667 : 4.27647558007813 : JumpStart); (5.14583333333333 : 4.27647558007813 : JumpEnd); (10.0416666666667 : 4.27647558007813 : JumpStart); (10.2083333333333 : 4.27647558007813 : JumpEnd); (10.90624875 : 4.27647558007813); (10.90624875 : 3.97280110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 4.27647558007813); (3.88541666666667 : 4.27647558007813 : JumpStart); (4.05208333333333 : 4.27647558007813 : JumpEnd); (4.97916666666667 : 4.27647558007813 : JumpStart); (5.14583333333333 : 4.27647558007813 : JumpEnd); (10.90624875 : 4.27647558007813); (10.90624875 : 3.97280110677083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Videos_Grupo" />
       <nodes>
         <classShapeMoniker Id="e81d3783-8c77-4e9f-9d1d-bf18f3362703" />
@@ -302,14 +302,14 @@
         <classShapeMoniker Id="7627f5ad-a9a3-4201-a738-895c3f7cb80b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 1.0156275); (10.125 : 1.0156275); (10.125 : 5.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 1.0156275); (10.125 : 1.0156275); (10.125 : 5.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_Campeonato_Usuario_Desativado" />
       <nodes>
         <classShapeMoniker Id="e81d3783-8c77-4e9f-9d1d-bf18f3362703" />
         <classShapeMoniker Id="7627f5ad-a9a3-4201-a738-895c3f7cb80b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.2187475 : 9.25); (7.2187475 : 7.78125); (8.54166666666667 : 7.78125 : JumpStart); (8.70833333333333 : 7.78125 : JumpEnd); (11.2916691666667 : 7.78125 : JumpStart); (11.4583358333333 : 7.78125 : JumpEnd); (11.75 : 7.78125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7.2187475 : 9.25); (7.2187475 : 7.78125); (11.75 : 7.78125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Kart_Campeonato/Kart_Campeonato_Kart_Equipe_Campeonato_Desativado" />
       <nodes>
         <classShapeMoniker Id="15d436ec-f0a3-4ec3-9476-16ca0cba81dc" />
@@ -329,7 +329,7 @@
         <elementListCompartment Id="dce4cd45-520f-439f-b5f4-ce36919e66bf" absoluteBounds="15.765, 6.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 0.7656275); (15.2916666666667 : 0.765627499999999 : JumpStart); (15.4583333333333 : 0.7656275 : JumpEnd); (15.78125 : 0.7656275); (15.78125 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 0.7656275); (15.78125 : 0.7656275); (15.78125 : 5.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataKartDataContext/Usuario/Usuario_Kart_log_acesso" />
       <nodes>
         <classShapeMoniker Id="e81d3783-8c77-4e9f-9d1d-bf18f3362703" />
