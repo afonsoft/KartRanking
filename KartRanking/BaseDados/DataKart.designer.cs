@@ -84,6 +84,12 @@ namespace KartRanking.BaseDados
     partial void InsertKart_log_acesso(Kart_log_acesso instance);
     partial void UpdateKart_log_acesso(Kart_log_acesso instance);
     partial void DeleteKart_log_acesso(Kart_log_acesso instance);
+    partial void Insertphpbb_user(phpbb_user instance);
+    partial void Updatephpbb_user(phpbb_user instance);
+    partial void Deletephpbb_user(phpbb_user instance);
+    partial void Insertphpbb_user_group(phpbb_user_group instance);
+    partial void Updatephpbb_user_group(phpbb_user_group instance);
+    partial void Deletephpbb_user_group(phpbb_user_group instance);
     #endregion
 		
 		public DataKartDataContext() : 
@@ -297,6 +303,22 @@ namespace KartRanking.BaseDados
 			get
 			{
 				return this.GetTable<Kart_log_acesso>();
+			}
+		}
+		
+		public System.Data.Linq.Table<phpbb_user> phpbb_users
+		{
+			get
+			{
+				return this.GetTable<phpbb_user>();
+			}
+		}
+		
+		public System.Data.Linq.Table<phpbb_user_group> phpbb_user_groups
+		{
+			get
+			{
+				return this.GetTable<phpbb_user_group>();
 			}
 		}
 	}
@@ -7191,6 +7213,2026 @@ namespace KartRanking.BaseDados
 						this._idUsuario = default(int);
 					}
 					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="forumdb.phpbb_users")]
+	public partial class phpbb_user : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _user_id;
+		
+		private int _user_type;
+		
+		private int _group_id;
+		
+		private string _user_permissions;
+		
+		private int _user_perm_from;
+		
+		private string _user_ip;
+		
+		private int _user_regdate;
+		
+		private string _username;
+		
+		private string _username_clean;
+		
+		private string _user_password;
+		
+		private int _user_passchg;
+		
+		private int _user_pass_convert;
+		
+		private string _user_email;
+		
+		private double _user_email_hash;
+		
+		private string _user_birthday;
+		
+		private int _user_lastvisit;
+		
+		private int _user_lastmark;
+		
+		private int _user_lastpost_time;
+		
+		private string _user_lastpage;
+		
+		private string _user_last_confirm_key;
+		
+		private int _user_last_search;
+		
+		private int _user_warnings;
+		
+		private int _user_last_warning;
+		
+		private int _user_login_attempts;
+		
+		private int _user_inactive_reason;
+		
+		private int _user_inactive_time;
+		
+		private int _user_posts;
+		
+		private string _user_lang;
+		
+		private double _user_timezone;
+		
+		private int _user_dst;
+		
+		private string _user_dateformat;
+		
+		private int _user_style;
+		
+		private int _user_rank;
+		
+		private string _user_colour;
+		
+		private int _user_new_privmsg;
+		
+		private int _user_unread_privmsg;
+		
+		private int _user_last_privmsg;
+		
+		private int _user_message_rules;
+		
+		private int _user_full_folder;
+		
+		private int _user_emailtime;
+		
+		private int _user_topic_show_days;
+		
+		private string _user_topic_sortby_type;
+		
+		private string _user_topic_sortby_dir;
+		
+		private int _user_post_show_days;
+		
+		private string _user_post_sortby_type;
+		
+		private string _user_post_sortby_dir;
+		
+		private int _user_notify;
+		
+		private int _user_notify_pm;
+		
+		private int _user_notify_type;
+		
+		private int _user_allow_pm;
+		
+		private int _user_allow_viewonline;
+		
+		private int _user_allow_viewemail;
+		
+		private int _user_allow_massemail;
+		
+		private int _user_options;
+		
+		private string _user_avatar;
+		
+		private int _user_avatar_type;
+		
+		private int _user_avatar_width;
+		
+		private int _user_avatar_height;
+		
+		private string _user_sig;
+		
+		private string _user_sig_bbcode_uid;
+		
+		private string _user_sig_bbcode_bitfield;
+		
+		private string _user_from;
+		
+		private string _user_icq;
+		
+		private string _user_aim;
+		
+		private string _user_yim;
+		
+		private string _user_msnm;
+		
+		private string _user_jabber;
+		
+		private string _user_website;
+		
+		private string _user_occ;
+		
+		private string _user_interests;
+		
+		private string _user_actkey;
+		
+		private string _user_newpasswd;
+		
+		private string _user_form_salt;
+		
+		private int _user_new;
+		
+		private int _user_reminded;
+		
+		private int _user_reminded_time;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onuser_idChanging(int value);
+    partial void Onuser_idChanged();
+    partial void Onuser_typeChanging(int value);
+    partial void Onuser_typeChanged();
+    partial void Ongroup_idChanging(int value);
+    partial void Ongroup_idChanged();
+    partial void Onuser_permissionsChanging(string value);
+    partial void Onuser_permissionsChanged();
+    partial void Onuser_perm_fromChanging(int value);
+    partial void Onuser_perm_fromChanged();
+    partial void Onuser_ipChanging(string value);
+    partial void Onuser_ipChanged();
+    partial void Onuser_regdateChanging(int value);
+    partial void Onuser_regdateChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void Onusername_cleanChanging(string value);
+    partial void Onusername_cleanChanged();
+    partial void Onuser_passwordChanging(string value);
+    partial void Onuser_passwordChanged();
+    partial void Onuser_passchgChanging(int value);
+    partial void Onuser_passchgChanged();
+    partial void Onuser_pass_convertChanging(int value);
+    partial void Onuser_pass_convertChanged();
+    partial void Onuser_emailChanging(string value);
+    partial void Onuser_emailChanged();
+    partial void Onuser_email_hashChanging(double value);
+    partial void Onuser_email_hashChanged();
+    partial void Onuser_birthdayChanging(string value);
+    partial void Onuser_birthdayChanged();
+    partial void Onuser_lastvisitChanging(int value);
+    partial void Onuser_lastvisitChanged();
+    partial void Onuser_lastmarkChanging(int value);
+    partial void Onuser_lastmarkChanged();
+    partial void Onuser_lastpost_timeChanging(int value);
+    partial void Onuser_lastpost_timeChanged();
+    partial void Onuser_lastpageChanging(string value);
+    partial void Onuser_lastpageChanged();
+    partial void Onuser_last_confirm_keyChanging(string value);
+    partial void Onuser_last_confirm_keyChanged();
+    partial void Onuser_last_searchChanging(int value);
+    partial void Onuser_last_searchChanged();
+    partial void Onuser_warningsChanging(int value);
+    partial void Onuser_warningsChanged();
+    partial void Onuser_last_warningChanging(int value);
+    partial void Onuser_last_warningChanged();
+    partial void Onuser_login_attemptsChanging(int value);
+    partial void Onuser_login_attemptsChanged();
+    partial void Onuser_inactive_reasonChanging(int value);
+    partial void Onuser_inactive_reasonChanged();
+    partial void Onuser_inactive_timeChanging(int value);
+    partial void Onuser_inactive_timeChanged();
+    partial void Onuser_postsChanging(int value);
+    partial void Onuser_postsChanged();
+    partial void Onuser_langChanging(string value);
+    partial void Onuser_langChanged();
+    partial void Onuser_timezoneChanging(double value);
+    partial void Onuser_timezoneChanged();
+    partial void Onuser_dstChanging(int value);
+    partial void Onuser_dstChanged();
+    partial void Onuser_dateformatChanging(string value);
+    partial void Onuser_dateformatChanged();
+    partial void Onuser_styleChanging(int value);
+    partial void Onuser_styleChanged();
+    partial void Onuser_rankChanging(int value);
+    partial void Onuser_rankChanged();
+    partial void Onuser_colourChanging(string value);
+    partial void Onuser_colourChanged();
+    partial void Onuser_new_privmsgChanging(int value);
+    partial void Onuser_new_privmsgChanged();
+    partial void Onuser_unread_privmsgChanging(int value);
+    partial void Onuser_unread_privmsgChanged();
+    partial void Onuser_last_privmsgChanging(int value);
+    partial void Onuser_last_privmsgChanged();
+    partial void Onuser_message_rulesChanging(int value);
+    partial void Onuser_message_rulesChanged();
+    partial void Onuser_full_folderChanging(int value);
+    partial void Onuser_full_folderChanged();
+    partial void Onuser_emailtimeChanging(int value);
+    partial void Onuser_emailtimeChanged();
+    partial void Onuser_topic_show_daysChanging(int value);
+    partial void Onuser_topic_show_daysChanged();
+    partial void Onuser_topic_sortby_typeChanging(string value);
+    partial void Onuser_topic_sortby_typeChanged();
+    partial void Onuser_topic_sortby_dirChanging(string value);
+    partial void Onuser_topic_sortby_dirChanged();
+    partial void Onuser_post_show_daysChanging(int value);
+    partial void Onuser_post_show_daysChanged();
+    partial void Onuser_post_sortby_typeChanging(string value);
+    partial void Onuser_post_sortby_typeChanged();
+    partial void Onuser_post_sortby_dirChanging(string value);
+    partial void Onuser_post_sortby_dirChanged();
+    partial void Onuser_notifyChanging(int value);
+    partial void Onuser_notifyChanged();
+    partial void Onuser_notify_pmChanging(int value);
+    partial void Onuser_notify_pmChanged();
+    partial void Onuser_notify_typeChanging(int value);
+    partial void Onuser_notify_typeChanged();
+    partial void Onuser_allow_pmChanging(int value);
+    partial void Onuser_allow_pmChanged();
+    partial void Onuser_allow_viewonlineChanging(int value);
+    partial void Onuser_allow_viewonlineChanged();
+    partial void Onuser_allow_viewemailChanging(int value);
+    partial void Onuser_allow_viewemailChanged();
+    partial void Onuser_allow_massemailChanging(int value);
+    partial void Onuser_allow_massemailChanged();
+    partial void Onuser_optionsChanging(int value);
+    partial void Onuser_optionsChanged();
+    partial void Onuser_avatarChanging(string value);
+    partial void Onuser_avatarChanged();
+    partial void Onuser_avatar_typeChanging(int value);
+    partial void Onuser_avatar_typeChanged();
+    partial void Onuser_avatar_widthChanging(int value);
+    partial void Onuser_avatar_widthChanged();
+    partial void Onuser_avatar_heightChanging(int value);
+    partial void Onuser_avatar_heightChanged();
+    partial void Onuser_sigChanging(string value);
+    partial void Onuser_sigChanged();
+    partial void Onuser_sig_bbcode_uidChanging(string value);
+    partial void Onuser_sig_bbcode_uidChanged();
+    partial void Onuser_sig_bbcode_bitfieldChanging(string value);
+    partial void Onuser_sig_bbcode_bitfieldChanged();
+    partial void Onuser_fromChanging(string value);
+    partial void Onuser_fromChanged();
+    partial void Onuser_icqChanging(string value);
+    partial void Onuser_icqChanged();
+    partial void Onuser_aimChanging(string value);
+    partial void Onuser_aimChanged();
+    partial void Onuser_yimChanging(string value);
+    partial void Onuser_yimChanged();
+    partial void Onuser_msnmChanging(string value);
+    partial void Onuser_msnmChanged();
+    partial void Onuser_jabberChanging(string value);
+    partial void Onuser_jabberChanged();
+    partial void Onuser_websiteChanging(string value);
+    partial void Onuser_websiteChanged();
+    partial void Onuser_occChanging(string value);
+    partial void Onuser_occChanged();
+    partial void Onuser_interestsChanging(string value);
+    partial void Onuser_interestsChanged();
+    partial void Onuser_actkeyChanging(string value);
+    partial void Onuser_actkeyChanged();
+    partial void Onuser_newpasswdChanging(string value);
+    partial void Onuser_newpasswdChanged();
+    partial void Onuser_form_saltChanging(string value);
+    partial void Onuser_form_saltChanged();
+    partial void Onuser_newChanging(int value);
+    partial void Onuser_newChanged();
+    partial void Onuser_remindedChanging(int value);
+    partial void Onuser_remindedChanged();
+    partial void Onuser_reminded_timeChanging(int value);
+    partial void Onuser_reminded_timeChanged();
+    #endregion
+		
+		public phpbb_user()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int user_id
+		{
+			get
+			{
+				return this._user_id;
+			}
+			set
+			{
+				if ((this._user_id != value))
+				{
+					this.Onuser_idChanging(value);
+					this.SendPropertyChanging();
+					this._user_id = value;
+					this.SendPropertyChanged("user_id");
+					this.Onuser_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_type", DbType="Int NOT NULL")]
+		public int user_type
+		{
+			get
+			{
+				return this._user_type;
+			}
+			set
+			{
+				if ((this._user_type != value))
+				{
+					this.Onuser_typeChanging(value);
+					this.SendPropertyChanging();
+					this._user_type = value;
+					this.SendPropertyChanged("user_type");
+					this.Onuser_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_group_id", DbType="Int NOT NULL")]
+		public int group_id
+		{
+			get
+			{
+				return this._group_id;
+			}
+			set
+			{
+				if ((this._group_id != value))
+				{
+					this.Ongroup_idChanging(value);
+					this.SendPropertyChanging();
+					this._group_id = value;
+					this.SendPropertyChanged("group_id");
+					this.Ongroup_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_permissions", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string user_permissions
+		{
+			get
+			{
+				return this._user_permissions;
+			}
+			set
+			{
+				if ((this._user_permissions != value))
+				{
+					this.Onuser_permissionsChanging(value);
+					this.SendPropertyChanging();
+					this._user_permissions = value;
+					this.SendPropertyChanged("user_permissions");
+					this.Onuser_permissionsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_perm_from", DbType="Int NOT NULL")]
+		public int user_perm_from
+		{
+			get
+			{
+				return this._user_perm_from;
+			}
+			set
+			{
+				if ((this._user_perm_from != value))
+				{
+					this.Onuser_perm_fromChanging(value);
+					this.SendPropertyChanging();
+					this._user_perm_from = value;
+					this.SendPropertyChanged("user_perm_from");
+					this.Onuser_perm_fromChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_ip", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string user_ip
+		{
+			get
+			{
+				return this._user_ip;
+			}
+			set
+			{
+				if ((this._user_ip != value))
+				{
+					this.Onuser_ipChanging(value);
+					this.SendPropertyChanging();
+					this._user_ip = value;
+					this.SendPropertyChanged("user_ip");
+					this.Onuser_ipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_regdate", DbType="Int NOT NULL")]
+		public int user_regdate
+		{
+			get
+			{
+				return this._user_regdate;
+			}
+			set
+			{
+				if ((this._user_regdate != value))
+				{
+					this.Onuser_regdateChanging(value);
+					this.SendPropertyChanging();
+					this._user_regdate = value;
+					this.SendPropertyChanged("user_regdate");
+					this.Onuser_regdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username_clean", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string username_clean
+		{
+			get
+			{
+				return this._username_clean;
+			}
+			set
+			{
+				if ((this._username_clean != value))
+				{
+					this.Onusername_cleanChanging(value);
+					this.SendPropertyChanging();
+					this._username_clean = value;
+					this.SendPropertyChanged("username_clean");
+					this.Onusername_cleanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_password", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string user_password
+		{
+			get
+			{
+				return this._user_password;
+			}
+			set
+			{
+				if ((this._user_password != value))
+				{
+					this.Onuser_passwordChanging(value);
+					this.SendPropertyChanging();
+					this._user_password = value;
+					this.SendPropertyChanged("user_password");
+					this.Onuser_passwordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_passchg", DbType="Int NOT NULL")]
+		public int user_passchg
+		{
+			get
+			{
+				return this._user_passchg;
+			}
+			set
+			{
+				if ((this._user_passchg != value))
+				{
+					this.Onuser_passchgChanging(value);
+					this.SendPropertyChanging();
+					this._user_passchg = value;
+					this.SendPropertyChanged("user_passchg");
+					this.Onuser_passchgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_pass_convert", DbType="Int NOT NULL")]
+		public int user_pass_convert
+		{
+			get
+			{
+				return this._user_pass_convert;
+			}
+			set
+			{
+				if ((this._user_pass_convert != value))
+				{
+					this.Onuser_pass_convertChanging(value);
+					this.SendPropertyChanging();
+					this._user_pass_convert = value;
+					this.SendPropertyChanged("user_pass_convert");
+					this.Onuser_pass_convertChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_email", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string user_email
+		{
+			get
+			{
+				return this._user_email;
+			}
+			set
+			{
+				if ((this._user_email != value))
+				{
+					this.Onuser_emailChanging(value);
+					this.SendPropertyChanging();
+					this._user_email = value;
+					this.SendPropertyChanged("user_email");
+					this.Onuser_emailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_email_hash", DbType="Float NOT NULL")]
+		public double user_email_hash
+		{
+			get
+			{
+				return this._user_email_hash;
+			}
+			set
+			{
+				if ((this._user_email_hash != value))
+				{
+					this.Onuser_email_hashChanging(value);
+					this.SendPropertyChanging();
+					this._user_email_hash = value;
+					this.SendPropertyChanged("user_email_hash");
+					this.Onuser_email_hashChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_birthday", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string user_birthday
+		{
+			get
+			{
+				return this._user_birthday;
+			}
+			set
+			{
+				if ((this._user_birthday != value))
+				{
+					this.Onuser_birthdayChanging(value);
+					this.SendPropertyChanging();
+					this._user_birthday = value;
+					this.SendPropertyChanged("user_birthday");
+					this.Onuser_birthdayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_lastvisit", DbType="Int NOT NULL")]
+		public int user_lastvisit
+		{
+			get
+			{
+				return this._user_lastvisit;
+			}
+			set
+			{
+				if ((this._user_lastvisit != value))
+				{
+					this.Onuser_lastvisitChanging(value);
+					this.SendPropertyChanging();
+					this._user_lastvisit = value;
+					this.SendPropertyChanged("user_lastvisit");
+					this.Onuser_lastvisitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_lastmark", DbType="Int NOT NULL")]
+		public int user_lastmark
+		{
+			get
+			{
+				return this._user_lastmark;
+			}
+			set
+			{
+				if ((this._user_lastmark != value))
+				{
+					this.Onuser_lastmarkChanging(value);
+					this.SendPropertyChanging();
+					this._user_lastmark = value;
+					this.SendPropertyChanged("user_lastmark");
+					this.Onuser_lastmarkChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_lastpost_time", DbType="Int NOT NULL")]
+		public int user_lastpost_time
+		{
+			get
+			{
+				return this._user_lastpost_time;
+			}
+			set
+			{
+				if ((this._user_lastpost_time != value))
+				{
+					this.Onuser_lastpost_timeChanging(value);
+					this.SendPropertyChanging();
+					this._user_lastpost_time = value;
+					this.SendPropertyChanged("user_lastpost_time");
+					this.Onuser_lastpost_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_lastpage", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string user_lastpage
+		{
+			get
+			{
+				return this._user_lastpage;
+			}
+			set
+			{
+				if ((this._user_lastpage != value))
+				{
+					this.Onuser_lastpageChanging(value);
+					this.SendPropertyChanging();
+					this._user_lastpage = value;
+					this.SendPropertyChanged("user_lastpage");
+					this.Onuser_lastpageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_last_confirm_key", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string user_last_confirm_key
+		{
+			get
+			{
+				return this._user_last_confirm_key;
+			}
+			set
+			{
+				if ((this._user_last_confirm_key != value))
+				{
+					this.Onuser_last_confirm_keyChanging(value);
+					this.SendPropertyChanging();
+					this._user_last_confirm_key = value;
+					this.SendPropertyChanged("user_last_confirm_key");
+					this.Onuser_last_confirm_keyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_last_search", DbType="Int NOT NULL")]
+		public int user_last_search
+		{
+			get
+			{
+				return this._user_last_search;
+			}
+			set
+			{
+				if ((this._user_last_search != value))
+				{
+					this.Onuser_last_searchChanging(value);
+					this.SendPropertyChanging();
+					this._user_last_search = value;
+					this.SendPropertyChanged("user_last_search");
+					this.Onuser_last_searchChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_warnings", DbType="Int NOT NULL")]
+		public int user_warnings
+		{
+			get
+			{
+				return this._user_warnings;
+			}
+			set
+			{
+				if ((this._user_warnings != value))
+				{
+					this.Onuser_warningsChanging(value);
+					this.SendPropertyChanging();
+					this._user_warnings = value;
+					this.SendPropertyChanged("user_warnings");
+					this.Onuser_warningsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_last_warning", DbType="Int NOT NULL")]
+		public int user_last_warning
+		{
+			get
+			{
+				return this._user_last_warning;
+			}
+			set
+			{
+				if ((this._user_last_warning != value))
+				{
+					this.Onuser_last_warningChanging(value);
+					this.SendPropertyChanging();
+					this._user_last_warning = value;
+					this.SendPropertyChanged("user_last_warning");
+					this.Onuser_last_warningChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_login_attempts", DbType="Int NOT NULL")]
+		public int user_login_attempts
+		{
+			get
+			{
+				return this._user_login_attempts;
+			}
+			set
+			{
+				if ((this._user_login_attempts != value))
+				{
+					this.Onuser_login_attemptsChanging(value);
+					this.SendPropertyChanging();
+					this._user_login_attempts = value;
+					this.SendPropertyChanged("user_login_attempts");
+					this.Onuser_login_attemptsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_inactive_reason", DbType="Int NOT NULL")]
+		public int user_inactive_reason
+		{
+			get
+			{
+				return this._user_inactive_reason;
+			}
+			set
+			{
+				if ((this._user_inactive_reason != value))
+				{
+					this.Onuser_inactive_reasonChanging(value);
+					this.SendPropertyChanging();
+					this._user_inactive_reason = value;
+					this.SendPropertyChanged("user_inactive_reason");
+					this.Onuser_inactive_reasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_inactive_time", DbType="Int NOT NULL")]
+		public int user_inactive_time
+		{
+			get
+			{
+				return this._user_inactive_time;
+			}
+			set
+			{
+				if ((this._user_inactive_time != value))
+				{
+					this.Onuser_inactive_timeChanging(value);
+					this.SendPropertyChanging();
+					this._user_inactive_time = value;
+					this.SendPropertyChanged("user_inactive_time");
+					this.Onuser_inactive_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_posts", DbType="Int NOT NULL")]
+		public int user_posts
+		{
+			get
+			{
+				return this._user_posts;
+			}
+			set
+			{
+				if ((this._user_posts != value))
+				{
+					this.Onuser_postsChanging(value);
+					this.SendPropertyChanging();
+					this._user_posts = value;
+					this.SendPropertyChanged("user_posts");
+					this.Onuser_postsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_lang", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string user_lang
+		{
+			get
+			{
+				return this._user_lang;
+			}
+			set
+			{
+				if ((this._user_lang != value))
+				{
+					this.Onuser_langChanging(value);
+					this.SendPropertyChanging();
+					this._user_lang = value;
+					this.SendPropertyChanged("user_lang");
+					this.Onuser_langChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_timezone", DbType="Float NOT NULL")]
+		public double user_timezone
+		{
+			get
+			{
+				return this._user_timezone;
+			}
+			set
+			{
+				if ((this._user_timezone != value))
+				{
+					this.Onuser_timezoneChanging(value);
+					this.SendPropertyChanging();
+					this._user_timezone = value;
+					this.SendPropertyChanged("user_timezone");
+					this.Onuser_timezoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_dst", DbType="Int NOT NULL")]
+		public int user_dst
+		{
+			get
+			{
+				return this._user_dst;
+			}
+			set
+			{
+				if ((this._user_dst != value))
+				{
+					this.Onuser_dstChanging(value);
+					this.SendPropertyChanging();
+					this._user_dst = value;
+					this.SendPropertyChanged("user_dst");
+					this.Onuser_dstChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_dateformat", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string user_dateformat
+		{
+			get
+			{
+				return this._user_dateformat;
+			}
+			set
+			{
+				if ((this._user_dateformat != value))
+				{
+					this.Onuser_dateformatChanging(value);
+					this.SendPropertyChanging();
+					this._user_dateformat = value;
+					this.SendPropertyChanged("user_dateformat");
+					this.Onuser_dateformatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_style", DbType="Int NOT NULL")]
+		public int user_style
+		{
+			get
+			{
+				return this._user_style;
+			}
+			set
+			{
+				if ((this._user_style != value))
+				{
+					this.Onuser_styleChanging(value);
+					this.SendPropertyChanging();
+					this._user_style = value;
+					this.SendPropertyChanged("user_style");
+					this.Onuser_styleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_rank", DbType="Int NOT NULL")]
+		public int user_rank
+		{
+			get
+			{
+				return this._user_rank;
+			}
+			set
+			{
+				if ((this._user_rank != value))
+				{
+					this.Onuser_rankChanging(value);
+					this.SendPropertyChanging();
+					this._user_rank = value;
+					this.SendPropertyChanged("user_rank");
+					this.Onuser_rankChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_colour", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string user_colour
+		{
+			get
+			{
+				return this._user_colour;
+			}
+			set
+			{
+				if ((this._user_colour != value))
+				{
+					this.Onuser_colourChanging(value);
+					this.SendPropertyChanging();
+					this._user_colour = value;
+					this.SendPropertyChanged("user_colour");
+					this.Onuser_colourChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_new_privmsg", DbType="Int NOT NULL")]
+		public int user_new_privmsg
+		{
+			get
+			{
+				return this._user_new_privmsg;
+			}
+			set
+			{
+				if ((this._user_new_privmsg != value))
+				{
+					this.Onuser_new_privmsgChanging(value);
+					this.SendPropertyChanging();
+					this._user_new_privmsg = value;
+					this.SendPropertyChanged("user_new_privmsg");
+					this.Onuser_new_privmsgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_unread_privmsg", DbType="Int NOT NULL")]
+		public int user_unread_privmsg
+		{
+			get
+			{
+				return this._user_unread_privmsg;
+			}
+			set
+			{
+				if ((this._user_unread_privmsg != value))
+				{
+					this.Onuser_unread_privmsgChanging(value);
+					this.SendPropertyChanging();
+					this._user_unread_privmsg = value;
+					this.SendPropertyChanged("user_unread_privmsg");
+					this.Onuser_unread_privmsgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_last_privmsg", DbType="Int NOT NULL")]
+		public int user_last_privmsg
+		{
+			get
+			{
+				return this._user_last_privmsg;
+			}
+			set
+			{
+				if ((this._user_last_privmsg != value))
+				{
+					this.Onuser_last_privmsgChanging(value);
+					this.SendPropertyChanging();
+					this._user_last_privmsg = value;
+					this.SendPropertyChanged("user_last_privmsg");
+					this.Onuser_last_privmsgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_message_rules", DbType="Int NOT NULL")]
+		public int user_message_rules
+		{
+			get
+			{
+				return this._user_message_rules;
+			}
+			set
+			{
+				if ((this._user_message_rules != value))
+				{
+					this.Onuser_message_rulesChanging(value);
+					this.SendPropertyChanging();
+					this._user_message_rules = value;
+					this.SendPropertyChanged("user_message_rules");
+					this.Onuser_message_rulesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_full_folder", DbType="Int NOT NULL")]
+		public int user_full_folder
+		{
+			get
+			{
+				return this._user_full_folder;
+			}
+			set
+			{
+				if ((this._user_full_folder != value))
+				{
+					this.Onuser_full_folderChanging(value);
+					this.SendPropertyChanging();
+					this._user_full_folder = value;
+					this.SendPropertyChanged("user_full_folder");
+					this.Onuser_full_folderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_emailtime", DbType="Int NOT NULL")]
+		public int user_emailtime
+		{
+			get
+			{
+				return this._user_emailtime;
+			}
+			set
+			{
+				if ((this._user_emailtime != value))
+				{
+					this.Onuser_emailtimeChanging(value);
+					this.SendPropertyChanging();
+					this._user_emailtime = value;
+					this.SendPropertyChanged("user_emailtime");
+					this.Onuser_emailtimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_topic_show_days", DbType="Int NOT NULL")]
+		public int user_topic_show_days
+		{
+			get
+			{
+				return this._user_topic_show_days;
+			}
+			set
+			{
+				if ((this._user_topic_show_days != value))
+				{
+					this.Onuser_topic_show_daysChanging(value);
+					this.SendPropertyChanging();
+					this._user_topic_show_days = value;
+					this.SendPropertyChanged("user_topic_show_days");
+					this.Onuser_topic_show_daysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_topic_sortby_type", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string user_topic_sortby_type
+		{
+			get
+			{
+				return this._user_topic_sortby_type;
+			}
+			set
+			{
+				if ((this._user_topic_sortby_type != value))
+				{
+					this.Onuser_topic_sortby_typeChanging(value);
+					this.SendPropertyChanging();
+					this._user_topic_sortby_type = value;
+					this.SendPropertyChanged("user_topic_sortby_type");
+					this.Onuser_topic_sortby_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_topic_sortby_dir", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string user_topic_sortby_dir
+		{
+			get
+			{
+				return this._user_topic_sortby_dir;
+			}
+			set
+			{
+				if ((this._user_topic_sortby_dir != value))
+				{
+					this.Onuser_topic_sortby_dirChanging(value);
+					this.SendPropertyChanging();
+					this._user_topic_sortby_dir = value;
+					this.SendPropertyChanged("user_topic_sortby_dir");
+					this.Onuser_topic_sortby_dirChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_post_show_days", DbType="Int NOT NULL")]
+		public int user_post_show_days
+		{
+			get
+			{
+				return this._user_post_show_days;
+			}
+			set
+			{
+				if ((this._user_post_show_days != value))
+				{
+					this.Onuser_post_show_daysChanging(value);
+					this.SendPropertyChanging();
+					this._user_post_show_days = value;
+					this.SendPropertyChanged("user_post_show_days");
+					this.Onuser_post_show_daysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_post_sortby_type", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string user_post_sortby_type
+		{
+			get
+			{
+				return this._user_post_sortby_type;
+			}
+			set
+			{
+				if ((this._user_post_sortby_type != value))
+				{
+					this.Onuser_post_sortby_typeChanging(value);
+					this.SendPropertyChanging();
+					this._user_post_sortby_type = value;
+					this.SendPropertyChanged("user_post_sortby_type");
+					this.Onuser_post_sortby_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_post_sortby_dir", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string user_post_sortby_dir
+		{
+			get
+			{
+				return this._user_post_sortby_dir;
+			}
+			set
+			{
+				if ((this._user_post_sortby_dir != value))
+				{
+					this.Onuser_post_sortby_dirChanging(value);
+					this.SendPropertyChanging();
+					this._user_post_sortby_dir = value;
+					this.SendPropertyChanged("user_post_sortby_dir");
+					this.Onuser_post_sortby_dirChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_notify", DbType="Int NOT NULL")]
+		public int user_notify
+		{
+			get
+			{
+				return this._user_notify;
+			}
+			set
+			{
+				if ((this._user_notify != value))
+				{
+					this.Onuser_notifyChanging(value);
+					this.SendPropertyChanging();
+					this._user_notify = value;
+					this.SendPropertyChanged("user_notify");
+					this.Onuser_notifyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_notify_pm", DbType="Int NOT NULL")]
+		public int user_notify_pm
+		{
+			get
+			{
+				return this._user_notify_pm;
+			}
+			set
+			{
+				if ((this._user_notify_pm != value))
+				{
+					this.Onuser_notify_pmChanging(value);
+					this.SendPropertyChanging();
+					this._user_notify_pm = value;
+					this.SendPropertyChanged("user_notify_pm");
+					this.Onuser_notify_pmChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_notify_type", DbType="Int NOT NULL")]
+		public int user_notify_type
+		{
+			get
+			{
+				return this._user_notify_type;
+			}
+			set
+			{
+				if ((this._user_notify_type != value))
+				{
+					this.Onuser_notify_typeChanging(value);
+					this.SendPropertyChanging();
+					this._user_notify_type = value;
+					this.SendPropertyChanged("user_notify_type");
+					this.Onuser_notify_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_allow_pm", DbType="Int NOT NULL")]
+		public int user_allow_pm
+		{
+			get
+			{
+				return this._user_allow_pm;
+			}
+			set
+			{
+				if ((this._user_allow_pm != value))
+				{
+					this.Onuser_allow_pmChanging(value);
+					this.SendPropertyChanging();
+					this._user_allow_pm = value;
+					this.SendPropertyChanged("user_allow_pm");
+					this.Onuser_allow_pmChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_allow_viewonline", DbType="Int NOT NULL")]
+		public int user_allow_viewonline
+		{
+			get
+			{
+				return this._user_allow_viewonline;
+			}
+			set
+			{
+				if ((this._user_allow_viewonline != value))
+				{
+					this.Onuser_allow_viewonlineChanging(value);
+					this.SendPropertyChanging();
+					this._user_allow_viewonline = value;
+					this.SendPropertyChanged("user_allow_viewonline");
+					this.Onuser_allow_viewonlineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_allow_viewemail", DbType="Int NOT NULL")]
+		public int user_allow_viewemail
+		{
+			get
+			{
+				return this._user_allow_viewemail;
+			}
+			set
+			{
+				if ((this._user_allow_viewemail != value))
+				{
+					this.Onuser_allow_viewemailChanging(value);
+					this.SendPropertyChanging();
+					this._user_allow_viewemail = value;
+					this.SendPropertyChanged("user_allow_viewemail");
+					this.Onuser_allow_viewemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_allow_massemail", DbType="Int NOT NULL")]
+		public int user_allow_massemail
+		{
+			get
+			{
+				return this._user_allow_massemail;
+			}
+			set
+			{
+				if ((this._user_allow_massemail != value))
+				{
+					this.Onuser_allow_massemailChanging(value);
+					this.SendPropertyChanging();
+					this._user_allow_massemail = value;
+					this.SendPropertyChanged("user_allow_massemail");
+					this.Onuser_allow_massemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_options", DbType="Int NOT NULL")]
+		public int user_options
+		{
+			get
+			{
+				return this._user_options;
+			}
+			set
+			{
+				if ((this._user_options != value))
+				{
+					this.Onuser_optionsChanging(value);
+					this.SendPropertyChanging();
+					this._user_options = value;
+					this.SendPropertyChanged("user_options");
+					this.Onuser_optionsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_avatar", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string user_avatar
+		{
+			get
+			{
+				return this._user_avatar;
+			}
+			set
+			{
+				if ((this._user_avatar != value))
+				{
+					this.Onuser_avatarChanging(value);
+					this.SendPropertyChanging();
+					this._user_avatar = value;
+					this.SendPropertyChanged("user_avatar");
+					this.Onuser_avatarChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_avatar_type", DbType="Int NOT NULL")]
+		public int user_avatar_type
+		{
+			get
+			{
+				return this._user_avatar_type;
+			}
+			set
+			{
+				if ((this._user_avatar_type != value))
+				{
+					this.Onuser_avatar_typeChanging(value);
+					this.SendPropertyChanging();
+					this._user_avatar_type = value;
+					this.SendPropertyChanged("user_avatar_type");
+					this.Onuser_avatar_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_avatar_width", DbType="Int NOT NULL")]
+		public int user_avatar_width
+		{
+			get
+			{
+				return this._user_avatar_width;
+			}
+			set
+			{
+				if ((this._user_avatar_width != value))
+				{
+					this.Onuser_avatar_widthChanging(value);
+					this.SendPropertyChanging();
+					this._user_avatar_width = value;
+					this.SendPropertyChanged("user_avatar_width");
+					this.Onuser_avatar_widthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_avatar_height", DbType="Int NOT NULL")]
+		public int user_avatar_height
+		{
+			get
+			{
+				return this._user_avatar_height;
+			}
+			set
+			{
+				if ((this._user_avatar_height != value))
+				{
+					this.Onuser_avatar_heightChanging(value);
+					this.SendPropertyChanging();
+					this._user_avatar_height = value;
+					this.SendPropertyChanged("user_avatar_height");
+					this.Onuser_avatar_heightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_sig", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string user_sig
+		{
+			get
+			{
+				return this._user_sig;
+			}
+			set
+			{
+				if ((this._user_sig != value))
+				{
+					this.Onuser_sigChanging(value);
+					this.SendPropertyChanging();
+					this._user_sig = value;
+					this.SendPropertyChanged("user_sig");
+					this.Onuser_sigChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_sig_bbcode_uid", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string user_sig_bbcode_uid
+		{
+			get
+			{
+				return this._user_sig_bbcode_uid;
+			}
+			set
+			{
+				if ((this._user_sig_bbcode_uid != value))
+				{
+					this.Onuser_sig_bbcode_uidChanging(value);
+					this.SendPropertyChanging();
+					this._user_sig_bbcode_uid = value;
+					this.SendPropertyChanged("user_sig_bbcode_uid");
+					this.Onuser_sig_bbcode_uidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_sig_bbcode_bitfield", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string user_sig_bbcode_bitfield
+		{
+			get
+			{
+				return this._user_sig_bbcode_bitfield;
+			}
+			set
+			{
+				if ((this._user_sig_bbcode_bitfield != value))
+				{
+					this.Onuser_sig_bbcode_bitfieldChanging(value);
+					this.SendPropertyChanging();
+					this._user_sig_bbcode_bitfield = value;
+					this.SendPropertyChanged("user_sig_bbcode_bitfield");
+					this.Onuser_sig_bbcode_bitfieldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_from", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string user_from
+		{
+			get
+			{
+				return this._user_from;
+			}
+			set
+			{
+				if ((this._user_from != value))
+				{
+					this.Onuser_fromChanging(value);
+					this.SendPropertyChanging();
+					this._user_from = value;
+					this.SendPropertyChanged("user_from");
+					this.Onuser_fromChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_icq", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		public string user_icq
+		{
+			get
+			{
+				return this._user_icq;
+			}
+			set
+			{
+				if ((this._user_icq != value))
+				{
+					this.Onuser_icqChanging(value);
+					this.SendPropertyChanging();
+					this._user_icq = value;
+					this.SendPropertyChanged("user_icq");
+					this.Onuser_icqChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_aim", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string user_aim
+		{
+			get
+			{
+				return this._user_aim;
+			}
+			set
+			{
+				if ((this._user_aim != value))
+				{
+					this.Onuser_aimChanging(value);
+					this.SendPropertyChanging();
+					this._user_aim = value;
+					this.SendPropertyChanged("user_aim");
+					this.Onuser_aimChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_yim", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string user_yim
+		{
+			get
+			{
+				return this._user_yim;
+			}
+			set
+			{
+				if ((this._user_yim != value))
+				{
+					this.Onuser_yimChanging(value);
+					this.SendPropertyChanging();
+					this._user_yim = value;
+					this.SendPropertyChanged("user_yim");
+					this.Onuser_yimChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_msnm", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string user_msnm
+		{
+			get
+			{
+				return this._user_msnm;
+			}
+			set
+			{
+				if ((this._user_msnm != value))
+				{
+					this.Onuser_msnmChanging(value);
+					this.SendPropertyChanging();
+					this._user_msnm = value;
+					this.SendPropertyChanged("user_msnm");
+					this.Onuser_msnmChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_jabber", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string user_jabber
+		{
+			get
+			{
+				return this._user_jabber;
+			}
+			set
+			{
+				if ((this._user_jabber != value))
+				{
+					this.Onuser_jabberChanging(value);
+					this.SendPropertyChanging();
+					this._user_jabber = value;
+					this.SendPropertyChanged("user_jabber");
+					this.Onuser_jabberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_website", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string user_website
+		{
+			get
+			{
+				return this._user_website;
+			}
+			set
+			{
+				if ((this._user_website != value))
+				{
+					this.Onuser_websiteChanging(value);
+					this.SendPropertyChanging();
+					this._user_website = value;
+					this.SendPropertyChanged("user_website");
+					this.Onuser_websiteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_occ", DbType="VarChar(4000) NOT NULL", CanBeNull=false)]
+		public string user_occ
+		{
+			get
+			{
+				return this._user_occ;
+			}
+			set
+			{
+				if ((this._user_occ != value))
+				{
+					this.Onuser_occChanging(value);
+					this.SendPropertyChanging();
+					this._user_occ = value;
+					this.SendPropertyChanged("user_occ");
+					this.Onuser_occChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_interests", DbType="VarChar(4000) NOT NULL", CanBeNull=false)]
+		public string user_interests
+		{
+			get
+			{
+				return this._user_interests;
+			}
+			set
+			{
+				if ((this._user_interests != value))
+				{
+					this.Onuser_interestsChanging(value);
+					this.SendPropertyChanging();
+					this._user_interests = value;
+					this.SendPropertyChanged("user_interests");
+					this.Onuser_interestsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_actkey", DbType="VarChar(32) NOT NULL", CanBeNull=false)]
+		public string user_actkey
+		{
+			get
+			{
+				return this._user_actkey;
+			}
+			set
+			{
+				if ((this._user_actkey != value))
+				{
+					this.Onuser_actkeyChanging(value);
+					this.SendPropertyChanging();
+					this._user_actkey = value;
+					this.SendPropertyChanged("user_actkey");
+					this.Onuser_actkeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_newpasswd", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string user_newpasswd
+		{
+			get
+			{
+				return this._user_newpasswd;
+			}
+			set
+			{
+				if ((this._user_newpasswd != value))
+				{
+					this.Onuser_newpasswdChanging(value);
+					this.SendPropertyChanging();
+					this._user_newpasswd = value;
+					this.SendPropertyChanged("user_newpasswd");
+					this.Onuser_newpasswdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_form_salt", DbType="VarChar(32) NOT NULL", CanBeNull=false)]
+		public string user_form_salt
+		{
+			get
+			{
+				return this._user_form_salt;
+			}
+			set
+			{
+				if ((this._user_form_salt != value))
+				{
+					this.Onuser_form_saltChanging(value);
+					this.SendPropertyChanging();
+					this._user_form_salt = value;
+					this.SendPropertyChanged("user_form_salt");
+					this.Onuser_form_saltChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_new", DbType="Int NOT NULL")]
+		public int user_new
+		{
+			get
+			{
+				return this._user_new;
+			}
+			set
+			{
+				if ((this._user_new != value))
+				{
+					this.Onuser_newChanging(value);
+					this.SendPropertyChanging();
+					this._user_new = value;
+					this.SendPropertyChanged("user_new");
+					this.Onuser_newChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_reminded", DbType="Int NOT NULL")]
+		public int user_reminded
+		{
+			get
+			{
+				return this._user_reminded;
+			}
+			set
+			{
+				if ((this._user_reminded != value))
+				{
+					this.Onuser_remindedChanging(value);
+					this.SendPropertyChanging();
+					this._user_reminded = value;
+					this.SendPropertyChanged("user_reminded");
+					this.Onuser_remindedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_reminded_time", DbType="Int NOT NULL")]
+		public int user_reminded_time
+		{
+			get
+			{
+				return this._user_reminded_time;
+			}
+			set
+			{
+				if ((this._user_reminded_time != value))
+				{
+					this.Onuser_reminded_timeChanging(value);
+					this.SendPropertyChanging();
+					this._user_reminded_time = value;
+					this.SendPropertyChanged("user_reminded_time");
+					this.Onuser_reminded_timeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="forumdb.phpbb_user_group")]
+	public partial class phpbb_user_group : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _group_id;
+		
+		private int _user_id;
+		
+		private int _group_leader;
+		
+		private int _user_pending;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Ongroup_idChanging(int value);
+    partial void Ongroup_idChanged();
+    partial void Onuser_idChanging(int value);
+    partial void Onuser_idChanged();
+    partial void Ongroup_leaderChanging(int value);
+    partial void Ongroup_leaderChanged();
+    partial void Onuser_pendingChanging(int value);
+    partial void Onuser_pendingChanged();
+    #endregion
+		
+		public phpbb_user_group()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_group_id", DbType="Int NOT NULL")]
+		public int group_id
+		{
+			get
+			{
+				return this._group_id;
+			}
+			set
+			{
+				if ((this._group_id != value))
+				{
+					this.Ongroup_idChanging(value);
+					this.SendPropertyChanging();
+					this._group_id = value;
+					this.SendPropertyChanged("group_id");
+					this.Ongroup_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_id", DbType="Int NOT NULL")]
+		public int user_id
+		{
+			get
+			{
+				return this._user_id;
+			}
+			set
+			{
+				if ((this._user_id != value))
+				{
+					this.Onuser_idChanging(value);
+					this.SendPropertyChanging();
+					this._user_id = value;
+					this.SendPropertyChanged("user_id");
+					this.Onuser_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_group_leader", DbType="Int NOT NULL")]
+		public int group_leader
+		{
+			get
+			{
+				return this._group_leader;
+			}
+			set
+			{
+				if ((this._group_leader != value))
+				{
+					this.Ongroup_leaderChanging(value);
+					this.SendPropertyChanging();
+					this._group_leader = value;
+					this.SendPropertyChanged("group_leader");
+					this.Ongroup_leaderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_pending", DbType="Int NOT NULL")]
+		public int user_pending
+		{
+			get
+			{
+				return this._user_pending;
+			}
+			set
+			{
+				if ((this._user_pending != value))
+				{
+					this.Onuser_pendingChanging(value);
+					this.SendPropertyChanging();
+					this._user_pending = value;
+					this.SendPropertyChanged("user_pending");
+					this.Onuser_pendingChanged();
 				}
 			}
 		}
