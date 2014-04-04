@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="DataKartDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.afonsoft.com.br;Initial Catalog=afonsoftcombr_db;Persist Security Info=True;User ID=afonsoftcombr;Connect Timeout=360;Load Balance Timeout=360" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="afonsoftcombr_dbConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.afonsoft.com.br;Persist Security Info=True;User ID=afonsoftcombr;Connect Timeout=360" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="afonsoftcombr.Usuarios" Member="Usuarios">
     <Type Name="Usuario">
       <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -35,6 +35,8 @@
       <Association Name="Usuario_Kart_Album_Grupo" Member="Kart_Album_Grupos" ThisKey="idUsuario" OtherKey="IdUsuario" Type="Kart_Album_Grupo" />
       <Association Name="Usuario_Kart_Regras_Grupo" Member="Kart_Regras_Grupos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Regras_Grupo" />
       <Association Name="Usuario_Kart_Videos_Grupo" Member="Kart_Videos_Grupos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Videos_Grupo" />
+      <Association Name="Usuario_Kart_Campeonato_Usuario_Desativado" Member="Kart_Campeonato_Usuario_Desativados" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_Campeonato_Usuario_Desativado" />
+      <Association Name="Usuario_Kart_log_acesso" Member="Kart_log_acessos" ThisKey="idUsuario" OtherKey="idUsuario" Type="Kart_log_acesso" />
     </Type>
   </Table>
   <Table Name="afonsoftcombr.Kart_Calendario_Campeonato" Member="Kart_Calendario_Campeonatos">
@@ -65,6 +67,8 @@
       <Column Name="Ativo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Kart_Campeonato_Kart_Calendario_Campeonato" Member="Kart_Calendario_Campeonatos" ThisKey="idCampeonato" OtherKey="idCampeonato" Type="Kart_Calendario_Campeonato" />
       <Association Name="Kart_Campeonato_Kart_Equipe_Campeonato" Member="Kart_Equipe_Campeonatos" ThisKey="idCampeonato" OtherKey="idCampeonato" Type="Kart_Equipe_Campeonato" />
+      <Association Name="Kart_Campeonato_Kart_Campeonato_Usuario_Desativado" Member="Kart_Campeonato_Usuario_Desativados" ThisKey="idCampeonato" OtherKey="idCampeonato" Type="Kart_Campeonato_Usuario_Desativado" />
+      <Association Name="Kart_Campeonato_Kart_Equipe_Campeonato_Desativado" Member="Kart_Equipe_Campeonato_Desativados" ThisKey="idCampeonato" OtherKey="idCampeonato" Type="Kart_Equipe_Campeonato_Desativado" />
       <Association Name="Kart_Grupo_Kart_Campeonato" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
     </Type>
   </Table>
@@ -76,6 +80,7 @@
       <Column Name="Sigla" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="dtCriacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Kart_Equipe_Campeonato_Kart_Usuario_Equipe_Campeonato" Member="Kart_Usuario_Equipe_Campeonatos" ThisKey="idEquipeCampeonato" OtherKey="idEquipeCampeonato" Type="Kart_Usuario_Equipe_Campeonato" />
+      <Association Name="Kart_Equipe_Campeonato_Kart_Equipe_Campeonato_Desativado" Member="Kart_Equipe_Campeonato_Desativados" ThisKey="idEquipeCampeonato" OtherKey="idEquipeCampeonato" Type="Kart_Equipe_Campeonato_Desativado" />
       <Association Name="Kart_Campeonato_Kart_Equipe_Campeonato" Member="Kart_Campeonato" ThisKey="idCampeonato" OtherKey="idCampeonato" Type="Kart_Campeonato" IsForeignKey="true" />
     </Type>
   </Table>
@@ -296,6 +301,36 @@
       <Association Name="Kart_Calendario_Campeonato_Kart_Videos_Grupo" Member="Kart_Calendario_Campeonato" ThisKey="idCalendario" OtherKey="idCalendario" Type="Kart_Calendario_Campeonato" IsForeignKey="true" />
       <Association Name="Kart_Grupo_Kart_Videos_Grupo" Member="Kart_Grupo" ThisKey="idGrupo" OtherKey="idGrupo" Type="Kart_Grupo" IsForeignKey="true" />
       <Association Name="Usuario_Kart_Videos_Grupo" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Kart_Campeonato_Usuario_Desativados" Member="Kart_Campeonato_Usuario_Desativados">
+    <Type Name="Kart_Campeonato_Usuario_Desativado">
+      <Column Name="idDesativado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtCadastro" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="IdUsuarioCadastro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Kart_Campeonato_Kart_Campeonato_Usuario_Desativado" Member="Kart_Campeonato" ThisKey="idCampeonato" OtherKey="idCampeonato" Type="Kart_Campeonato" IsForeignKey="true" />
+      <Association Name="Usuario_Kart_Campeonato_Usuario_Desativado" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Kart_Equipe_Campeonato_Desativados" Member="Kart_Equipe_Campeonato_Desativados">
+    <Type Name="Kart_Equipe_Campeonato_Desativado">
+      <Column Name="idDesativados" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEquipeCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtCadastro" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="idUsuarioCadastro" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Kart_Campeonato_Kart_Equipe_Campeonato_Desativado" Member="Kart_Campeonato" ThisKey="idCampeonato" OtherKey="idCampeonato" Type="Kart_Campeonato" IsForeignKey="true" />
+      <Association Name="Kart_Equipe_Campeonato_Kart_Equipe_Campeonato_Desativado" Member="Kart_Equipe_Campeonato" ThisKey="idEquipeCampeonato" OtherKey="idEquipeCampeonato" Type="Kart_Equipe_Campeonato" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.Kart_log_acesso" Member="Kart_log_acessos">
+    <Type Name="Kart_log_acesso">
+      <Column Name="idAcesso" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtAcesso" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Kart_log_acesso" Member="Usuario" ThisKey="idUsuario" OtherKey="idUsuario" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

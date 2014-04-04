@@ -16,7 +16,7 @@ namespace KartRanking.Administrador
     * E-MAIL: afonsoft@outlook.com.br                      *
     * ******************************************************
     * ALTERAÇÕES:                                          *
-    *                                                      *
+    * 04/04/2014: Incluido os ativos e inativos            *
     ********************************************************/
     public partial class PilotosEquipesGrupo : PageBaseSecurity
     {
@@ -93,6 +93,7 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
+                HiddenFieldTab.Value = "0";
                 PanelPilotos.Visible = false;
                 PanelEquipes.Visible = false;
                 popularCampeonatos();
@@ -122,8 +123,42 @@ namespace KartRanking.Administrador
             PanelPilotos.Visible = true;
             PanelEquipes.Visible = false;
 
-            gvPilotos.DataSource = getUserGrid();
+            int[] PilotosDesativados = (from t0 in dk.Kart_Campeonato_Usuario_Desativados
+                                        where t0.idCampeonato == IdCampeonato
+                                        select t0.idUsuario).ToArray();
+
+            var pilotos = (from t0 in dk.Usuarios
+                           join t1 in dk.Kart_Usuario_Grupos on t0.idUsuario equals t1.idUsuario
+                           join t2 in dk.Kart_Campeonatos on t1.idGrupo equals t2.idGrupo
+                           join t3 in dk.View_Equipe_Usuarios on new { t0.idUsuario, t2.idCampeonato } equals new { t3.idUsuario, t3.idCampeonato } into t3_join
+                           from t3 in t3_join.DefaultIfEmpty()
+                           orderby t0.Nome ascending
+                           where t1.idGrupo == IdGrupo
+                           && t1.Aprovado == true
+                           && t2.idCampeonato == IdCampeonato
+                           select new
+                           {
+                               idUsuario = t0.idUsuario,
+                               t0.Nome,
+                               NomeEquipe = t3.NomeEquipe,
+                               Sigla = t3.Sigla,
+                               idGrupo = t1.idGrupo,
+                               idCampeonato = t2.idCampeonato
+                           }).ToArray();
+
+            var pilotosAtivos = (from p in pilotos
+                                 where !PilotosDesativados.Contains(p.idUsuario)
+                                 select p);
+
+            var pilotosInativos = (from p in pilotos
+                                   where PilotosDesativados.Contains(p.idUsuario)
+                                   select p);
+
+            gvPilotos.DataSource = pilotosAtivos;
             gvPilotos.DataBind();
+
+            gvPilotosInativos.DataSource = pilotosInativos;
+            gvPilotosInativos.DataBind();
 
         }
         private void PopularEquipes()
@@ -131,15 +166,30 @@ namespace KartRanking.Administrador
             PanelPilotos.Visible = false;
             PanelEquipes.Visible = true;
 
-            var equipes = from eq in dk.Kart_Equipe_Campeonatos
-                          join eg in dk.Kart_Campeonatos on eq.idCampeonato equals eg.idCampeonato
-                          orderby eq.NomeEquipe ascending
-                          where eg.idGrupo == IdGrupo
-                          && eg.idCampeonato == IdCampeonato
-                          select eq;
+            int[] EquipesDesativados = (from t0 in dk.Kart_Equipe_Campeonato_Desativados
+                                        where t0.idCampeonato == IdCampeonato
+                                        select t0.idEquipeCampeonato).ToArray();
 
-            gvEquipes.DataSource = equipes;
+            var TodasEquipes = (from eq in dk.Kart_Equipe_Campeonatos
+                                join eg in dk.Kart_Campeonatos on eq.idCampeonato equals eg.idCampeonato
+                                orderby eq.NomeEquipe ascending
+                                where eg.idGrupo == IdGrupo
+                                && eg.idCampeonato == IdCampeonato
+                                select eq).ToArray();
+
+            var equipesAtivos = (from t in TodasEquipes
+                                 where !EquipesDesativados.Contains(t.idEquipeCampeonato)
+                                 select t);
+
+            var equipesInativos = (from t in TodasEquipes
+                                   where EquipesDesativados.Contains(t.idEquipeCampeonato)
+                                   select t);
+
+            gvEquipes.DataSource = equipesAtivos;
             gvEquipes.DataBind();
+
+            gvEquipesInativos.DataSource = equipesInativos;
+            gvEquipesInativos.DataBind();
         }
 
         protected void gvEquipes_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -174,6 +224,20 @@ namespace KartRanking.Administrador
 
                         Alert("Equipe excluida com sucesso!");
                     }
+
+                    else if (e.CommandName == "Inativar")
+                    {
+                        dk.Kart_Equipe_Campeonato_Desativados.InsertOnSubmit(new Kart_Equipe_Campeonato_Desativado()
+                            {
+                                idEquipeCampeonato = IdEquipeCampeonato,
+                                idCampeonato = IdCampeonato,
+                                idUsuarioCadastro = UsuarioLogado.idUsuario,
+                                dtCadastro = DateTime.Now
+                            });
+                            dk.SubmitChanges();
+                            PopularEquipes();
+                            Alert("Equipe inativado com sucesso.");
+                    }
                 }
                 else
                     Alert("Você não é o administrador do grupo para efetuar essa operação!");
@@ -183,30 +247,7 @@ namespace KartRanking.Administrador
                 Alert(ex);
             }
         }
-
-        private object getUserGrid()
-        {
-            return from t0 in dk.Usuarios
-                   join t1 in dk.Kart_Usuario_Grupos on t0.idUsuario equals t1.idUsuario
-                   join t2 in dk.Kart_Campeonatos on t1.idGrupo equals t2.idGrupo
-                   join t3 in dk.View_Equipe_Usuarios on new { t0.idUsuario, t2.idCampeonato } equals new { t3.idUsuario, t3.idCampeonato } into t3_join
-                   from t3 in t3_join.DefaultIfEmpty()
-                   orderby t0.Nome ascending
-                   where
-                     t1.idGrupo == IdGrupo &&
-                     t1.Aprovado == true &&
-                     t2.idCampeonato == IdCampeonato
-                   select new
-                   {
-                       idUsuario = t0.idUsuario,
-                       t0.Nome,
-                       NomeEquipe = t3.NomeEquipe,
-                       Sigla = t3.Sigla,
-                       idGrupo = t1.idGrupo,
-                       idCampeonato = t2.idCampeonato
-                   };
-        }
-
+   
         protected void gvPilotos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             string idUsuario = e.CommandArgument.ToString();
@@ -214,6 +255,26 @@ namespace KartRanking.Administrador
                 Response.Redirect(String.Format("~/Administrador/perfil.aspx?idUsuario={0}&Edit={1}&idGrupo={2}", idUsuario, IsAdmin, IdGrupo));
             else if(e.CommandName == "ViewEquipe")
                 Response.Redirect("~/Administrador/PilotosEquipesGrupo.aspx?op=2");
+            else if (e.CommandName == "Inativar")
+            {
+                if (IsAdmin)
+                {
+                    dk.Kart_Campeonato_Usuario_Desativados.InsertOnSubmit(new Kart_Campeonato_Usuario_Desativado()
+                                    {
+                                        idUsuario = Convert.ToInt32(idUsuario),
+                                        idCampeonato = IdCampeonato,
+                                        IdUsuarioCadastro = UsuarioLogado.idUsuario,
+                                        dtCadastro = DateTime.Now
+                                    });
+                    dk.SubmitChanges();
+                    PopularPilotos();
+                    Alert("Piloto inativado com sucesso.");
+                }
+                else
+                {
+                    Alert("Você não é o administrador deste grupo!");
+                }
+            }
         }
 
         protected void gvPilotos_RowEditing(object sender, GridViewEditEventArgs e)
@@ -222,15 +283,15 @@ namespace KartRanking.Administrador
 
             if (IsAdmin)
             {
+                PopularPilotos();
                 (sender as GridView).EditIndex = index;
-                (sender as GridView).DataSource = getUserGrid();
                 (sender as GridView).DataBind();
             }
             else
             {
+                PopularPilotos();
                 e.Cancel = true;
                 (sender as GridView).EditIndex = -1;
-                (sender as GridView).DataSource = getUserGrid();
                 (sender as GridView).DataBind();
                 Alert("Você não é o administrador do grupo para efetuar essa operação!");
             }
@@ -275,8 +336,8 @@ namespace KartRanking.Administrador
                         dk.SubmitChanges();
                     }
 
+                    PopularPilotos();
                     (sender as GridView).EditIndex = -1;
-                    (sender as GridView).DataSource = getUserGrid();
                     (sender as GridView).DataBind();
                 }
                 else
@@ -287,8 +348,8 @@ namespace KartRanking.Administrador
         protected void gvPilotos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             e.Cancel = true;
+            PopularPilotos();
             (sender as GridView).EditIndex = -1;
-            (sender as GridView).DataSource = getUserGrid();
             (sender as GridView).DataBind();
         }
 
@@ -426,6 +487,48 @@ namespace KartRanking.Administrador
             catch (Exception ex)
             {
                 Alert(ex);
+            }
+        }
+
+        protected void gvPilotosInativos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (IsAdmin)
+            {
+                int idUsuario = Convert.ToInt32(e.CommandArgument.ToString());
+                var useruarioInativo = (from u in dk.Kart_Campeonato_Usuario_Desativados
+                                        where u.idUsuario == idUsuario
+                                        && u.idCampeonato == IdCampeonato
+                                        select u);
+
+                dk.Kart_Campeonato_Usuario_Desativados.DeleteAllOnSubmit(useruarioInativo);
+                dk.SubmitChanges();
+                PopularPilotos();
+                Alert("Piloto ativado com sucesso.");
+            }
+            else
+            {
+                Alert("Você não é o administrador deste grupo!");
+            }
+        }
+
+        protected void gvEquipesInativos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (IsAdmin)
+            {
+                int idEquipeCampeonato = Convert.ToInt32(e.CommandArgument.ToString());
+                var equipeInativo = (from u in dk.Kart_Equipe_Campeonato_Desativados
+                                     where u.idEquipeCampeonato == idEquipeCampeonato
+                                     && u.idCampeonato == IdCampeonato
+                                     select u);
+
+                dk.Kart_Equipe_Campeonato_Desativados.DeleteAllOnSubmit(equipeInativo);
+                dk.SubmitChanges();
+                PopularEquipes();
+                Alert("Equipe ativado com sucesso.");
+            }
+            else
+            {
+                Alert("Você não é o administrador deste grupo!");
             }
         }
     }

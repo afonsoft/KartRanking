@@ -9,12 +9,12 @@ using KartRanking.BaseDados;
 namespace KartRanking.Grupo
 {
     /********************************************************
-    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)   *
-    * DATA: 26-03-2014                                     *
-    * E-MAIL: afonsoft@outlook.com.br                      *
-    * ******************************************************
-    * ALTERAÇÕES:                                          *
-    *                                                      *
+    * CRIADO POR: AFONSO DUTRA NOGUEIRA FILHO (AFONSOFT)    *
+    * DATA: 26-03-2014                                      *
+    * E-MAIL: afonsoft@outlook.com.br                       *
+    * *******************************************************
+    * ALTERAÇÕES:                                           *
+    * 04/04/2014: Incluido o Google Plus button             *
     ********************************************************/
     public partial class KartGrupo : System.Web.UI.MasterPage
     {

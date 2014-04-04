@@ -147,6 +147,9 @@ namespace KartRanking.Administrador
 
                 CarregarGruposUsuario();
 
+                dk.Kart_log_acessos.InsertOnSubmit(new Kart_log_acesso() { dtAcesso = DateTime.Now, idUsuario = user.idUsuario });
+                dk.SubmitChanges();
+
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.location.href='/Administrador/home.aspx';", true);
             }
             catch (Exception ex)

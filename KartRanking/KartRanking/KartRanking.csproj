@@ -112,6 +112,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador\Financeiro.aspx" />
     <Content Include="Administrador\Informacoes.aspx" />
     <Content Include="Administrador\RegrasGrupo.aspx" />
     <Content Include="Administrador\Videos.aspx" />
@@ -264,6 +265,13 @@
     </Compile>
     <Compile Include="Administrador\Captcha.aspx.designer.cs">
       <DependentUpon>Captcha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Financeiro.aspx.cs">
+      <DependentUpon>Financeiro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Financeiro.aspx.designer.cs">
+      <DependentUpon>Financeiro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Fotos.aspx.cs">
       <DependentUpon>Fotos.aspx</DependentUpon>
