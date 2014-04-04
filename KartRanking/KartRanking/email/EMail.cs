@@ -22,12 +22,18 @@ namespace KartRanking.email
                 bool isSSL = Convert.ToBoolean(ConfigurationManager.AppSettings["SMTP_SSL"]);
                 string CopiaOculta = ConfigurationManager.AppSettings["SMTP_CCO"];
 
-                MailAddress para = new MailAddress(strEmail);
-                MailMessage mensagem = new MailMessage(de, para);
-
                 client.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["SMTP_Account"], ConfigurationManager.AppSettings["SMTP_Senha"]);
                 client.EnableSsl = isSSL;
 
+                MailMessage mensagem = new MailMessage();
+                mensagem.From = de;
+
+                if (!string.IsNullOrEmpty(strEmail) && strEmail.Length > 0)
+                {
+                    foreach (string i in strEmail.Split(';'))
+                        mensagem.To.Add(i);
+                }
+                
                 if (!string.IsNullOrEmpty(strCopia) && strCopia.Length > 0)
                 {
                     foreach (string i in strCopia.Split(';'))
