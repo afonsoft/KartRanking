@@ -80,6 +80,7 @@
                                                     <li><a itemprop="url" rel="tag" href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
                                                     <li><a itemprop="url" rel="tag" href="PermissaoGrupo.aspx">Permissões do Grupo</a></li>
                                                     <li><a itemprop="url" rel="tag" href="RegrasGrupo.aspx">Regras</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="Financeiro.aspx">Financeiro</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Pilotos</a>
@@ -162,7 +163,7 @@
                         </tr>
                     </table>
                     <!-- Fim -->
-                    <div style="position: absolute; left: 1%; top: 10%; z-index:-99999;">
+                    <div style="position: absolute; left: 1%; top: 10%; z-index:10;">
                         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                         <!-- LadoEsquerdo -->
                         <ins class="adsbygoogle" style="display: inline-block; width: 120px; height: 600px"

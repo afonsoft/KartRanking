@@ -13,6 +13,15 @@ namespace KartRanking.Administrador {
     public partial class PilotosEquipesGrupo {
         
         /// <summary>
+        /// HiddenFieldTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldTab;
+        
+        /// <summary>
         /// PanelPilotos control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace KartRanking.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPilotos;
+        
+        /// <summary>
+        /// gvPilotosInativos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvPilotosInativos;
         
         /// <summary>
         /// PanelEquipes control.
@@ -119,5 +137,14 @@ namespace KartRanking.Administrador {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvEquipes;
+        
+        /// <summary>
+        /// gvEquipesInativos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvEquipesInativos;
     }
 }

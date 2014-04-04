@@ -39,14 +39,6 @@
                     </ul>
                     <nav>
                         <ul class="sf-menu sf-js-enabled">
-                           <%-- 
-                           <li><a href="/Grupo/index.aspx?idGrupo=<%= IdGrupo %>"><strong><strong>home</strong></strong></a></li>
-                            <li><a href="/Grupo/pilotos.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Pilotos</strong></strong></a></li>
-                            <li><a href="/Grupo/noticias.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Notícias</strong></strong></a></li>
-                            <li><a href="/Grupo/fotos.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Fotos</strong></strong></a></li>
-                            <li><a href="/Grupo/videos.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Videos</strong></strong></a></li>
-                            <li><a href="/Grupo/informacoes.aspx?idGrupo=<%= IdGrupo  %>"><strong><strong>Informações</strong></strong></a></li>
-                            --%>
                             <li><a href="/<%= urlGrupo %>"><strong><strong>home</strong></strong></a></li>
                             <li><a href="/<%= urlGrupo %>/pilotos"><strong><strong>Pilotos</strong></strong></a></li>
                             <li><a href="/<%= urlGrupo %>/noticias"><strong><strong>Notícias</strong></strong></a></li>
@@ -62,19 +54,6 @@
         <!--==============================aside=================================-->
         <aside>
             <div class="main">
-               <%-- <figure>
-                    <center>
-                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- CabecalhoGrupoKart -->
-                        <ins class="adsbygoogle"
-                             style="display:inline-block;width:728px;height:90px"
-                             data-ad-client="ca-pub-2122647083447667"
-                             data-ad-slot="5191731603"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-                    </center>
-                </figure>--%>
                 <div>
                     <h4>
                         <b>
@@ -82,7 +61,7 @@
                 </div>
             </div>
         </aside>
-        <div style="position: absolute; left: 1%; top: 10%;z-index:-99999;">
+        <div style="position: absolute; left: 1%; top: 10%; z-index: 10;">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- LadoEsquerdo -->
             <ins class="adsbygoogle" style="display: inline-block; width: 120px; height: 600px"
@@ -136,6 +115,19 @@
                                 <div class="extra-wrap">
                                     <div class="text-bot">
                                         KartRanking © 2014</div>
+                                    <div class="text-bot">
+                                        <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300">
+                                        </div>
+                                        <!-- Place this tag after the last +1 button tag. -->
+                                        <script type="text/javascript">
+                                            window.___gcfg = { lang: 'pt-BR' };
+                                            (function () {
+                                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                                po.src = 'https://apis.google.com/js/plusone.js';
+                                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                            })();
+                                        </script>
+                                    </div>
                                 </div>
                             </div>
                         </div>
