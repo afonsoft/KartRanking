@@ -53,9 +53,9 @@ namespace KartRanking.Grupo
                 if (hm.Length > 0 && !string.IsNullOrEmpty(hm[1]))
                     date = date.AddMinutes(Convert.ToInt16(hm[1]));
 
-                TimeSpan ts = result.Data - DateTime.Now;
+                TimeSpan ts = date - DateTime.Now;
 
-                if (ts.TotalSeconds > 0)
+                if (ts.TotalSeconds >= 0)
                     HiddenFieldStartTime.Value = ts.TotalSeconds.ToString();
                 else
                     HiddenFieldStartTime.Value = "0";
