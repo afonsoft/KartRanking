@@ -525,6 +525,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Grupo\ImgTitleHandler.ashx" />
+    <None Include="crc32.php" />
     <None Include="Grupo\countdown\images\.DS_Store" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
   </ItemGroup>

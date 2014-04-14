@@ -157,117 +157,59 @@ namespace KartRanking.Page
         /// <summary>
         /// phpbb forum - crc32(strtolower($user_row['user_email'])) . strlen($user_row['user_email'])
         /// </summary>
-        public double EncryptCRC32(string input)
+        public uint EncryptCRC32(string input)
         {
             Crc32 crc32 = new Crc32();
             String hash = String.Empty;
             byte[] bytes = System.Text.Encoding.ASCII.GetBytes(input);
-            foreach (byte b in crc32.ComputeHash(bytes))
-                hash += b.ToString("x2").ToLower();
-
-            String AscIIHash = String.Empty;
-            byte[] ASCIIValues = System.Text.Encoding.ASCII.GetBytes(hash);
-            foreach (byte b in ASCIIValues)
-                AscIIHash += b;
-
-            return Convert.ToDouble(AscIIHash);
+            return crc32.ComputeChecksum(bytes);
         }
     }
 
-    public sealed class Crc32 : HashAlgorithm
+    /// <summary>
+    /// http://stackoverflow.com/questions/21175917/how-can-i-calculate-a-crc32-as-a-signed-integer-in-c
+    /// </summary>
+    public sealed class Crc32 
     {
-        public const UInt32 DefaultPolynomial = 0xedb88320u;
-        public const UInt32 DefaultSeed = 0xffffffffu;
+        //https://github.com/damieng/DamienGKit/blob/master/CSharp/DamienG.Library/Security/Cryptography/Crc32.cs
+        uint[] table;
+        public uint ComputeChecksum(byte[] bytes)
+        {
+            uint crc = 0xffffffff;
+            for (int i = 0; i < bytes.Length; ++i)
+            {
+                byte index = (byte)(((crc) & 0xff) ^ bytes[i]);
+                crc = (uint)((crc >> 8) ^ table[index]);
+            }
+            return ~crc;
+        }
 
-        private static UInt32[] defaultTable;
-
-        private readonly UInt32 seed;
-        private readonly UInt32[] table;
-        private UInt32 hash;
+        public byte[] ComputeChecksumBytes(byte[] bytes)
+        {
+            return BitConverter.GetBytes(ComputeChecksum(bytes));
+        }
 
         public Crc32()
-            : this(DefaultPolynomial, DefaultSeed)
         {
-        }
-
-        public Crc32(UInt32 polynomial, UInt32 seed)
-        {
-            table = InitializeTable(polynomial);
-            this.seed = hash = seed;
-        }
-
-        public override void Initialize()
-        {
-            hash = seed;
-        }
-
-        protected override void HashCore(byte[] buffer, int start, int length)
-        {
-            hash = CalculateHash(table, hash, buffer, start, length);
-        }
-        protected override byte[] HashFinal()
-        {
-            var hashBuffer = UInt32ToBigEndianBytes(~hash);
-            HashValue = hashBuffer;
-            return hashBuffer;
-        }
-
-        public override int HashSize { get { return 32; } }
-
-        public static UInt32 Compute(byte[] buffer)
-        {
-            return Compute(DefaultSeed, buffer);
-        }
-
-        public static UInt32 Compute(UInt32 seed, byte[] buffer)
-        {
-            return Compute(DefaultPolynomial, seed, buffer);
-        }
-
-        public static UInt32 Compute(UInt32 polynomial, UInt32 seed, byte[] buffer)
-        {
-            return ~CalculateHash(InitializeTable(polynomial), seed, buffer, 0, buffer.Length);
-        }
-
-        private static UInt32[] InitializeTable(UInt32 polynomial)
-        {
-            if (polynomial == DefaultPolynomial && defaultTable != null)
-                return defaultTable;
-
-            var createTable = new UInt32[256];
-            for (var i = 0; i < 256; i++)
+            uint poly = 0xedb88320;
+            table = new uint[256];
+            uint temp = 0;
+            for (uint i = 0; i < table.Length; ++i)
             {
-                var entry = (UInt32)i;
-                for (var j = 0; j < 8; j++)
-                    if ((entry & 1) == 1)
-                        entry = (entry >> 1) ^ polynomial;
+                temp = i;
+                for (int j = 8; j > 0; --j)
+                {
+                    if ((temp & 1) == 1)
+                    {
+                        temp = (uint)((temp >> 1) ^ poly);
+                    }
                     else
-                        entry = entry >> 1;
-                createTable[i] = entry;
+                    {
+                        temp >>= 1;
+                    }
+                }
+                table[i] = temp;
             }
-
-            if (polynomial == DefaultPolynomial)
-                defaultTable = createTable;
-
-            return createTable;
-        }
-
-        private static UInt32 CalculateHash(UInt32[] table, UInt32 seed, IList<byte> buffer, int start, int size)
-        {
-            var crc = seed;
-            for (var i = start; i < size - start; i++)
-                crc = (crc >> 8) ^ table[buffer[i] ^ crc & 0xff];
-            return crc;
-        }
-
-        private static byte[] UInt32ToBigEndianBytes(UInt32 uint32)
-        {
-            var result = BitConverter.GetBytes(uint32);
-
-            if (BitConverter.IsLittleEndian)
-                Array.Reverse(result);
-
-            return result;
         }
     }
 }
