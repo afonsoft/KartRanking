@@ -160,7 +160,6 @@ namespace KartRanking.Administrador
                     }
                     u.Senha = txtSenhaNova1.Text.Trim();
                     dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
-                    EMail.EnviarEmailBemvido(u, IdGrupo);
                     
                     txtSenhaAntiga.Text = "";
                     txtSenhaNova1.Text = "";
@@ -228,8 +227,6 @@ namespace KartRanking.Administrador
                     
                     if (UsuarioLogado.idUsuario == u.idUsuario)
                         Session["Usuario"] = u;
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "AddPHP", " $(document).ready(function() {$.ajax({ type: 'post', data: 'password=" + u.Senha.Trim() + "&email=" + u.Email.Trim() + "', url: 'http://forum.afonsoft.com.br/UserAddScript.php', success: function (retorno) { $('#" + HiddenFieldReturnAjax.ClientID + "').value = retorno; } }); });  ", true);
 
                     //Verificar se exsite no forum
                     bool exiteForum = (from f in dk.phpbb_users
@@ -342,7 +339,6 @@ namespace KartRanking.Administrador
             {
                 Alert(ex);
             }
-
         }
 
         protected void lnkUploadFile_Click(object sender, EventArgs e)
