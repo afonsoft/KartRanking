@@ -118,6 +118,7 @@
     <Content Include="Administrador\Videos.aspx" />
     <Content Include="AspNetInfo.aspx" />
     <Content Include="BingSiteAuth.xml" />
+    <Content Include="crc32.aspx" />
     <Content Include="dlls\AjaxControlToolkit.dll" />
     <Content Include="dlls\AjaxControlToolkit.resources.dll" />
     <Content Include="dlls\AjaxMin.dll" />
@@ -385,6 +386,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataKart.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="crc32.aspx.cs">
+      <DependentUpon>crc32.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="crc32.aspx.designer.cs">
+      <DependentUpon>crc32.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cryptographic\Encryption.cs" />
     <Compile Include="email\EMail.cs" />
