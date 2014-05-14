@@ -115,6 +115,7 @@
     <Content Include="Administrador\Financeiro.aspx" />
     <Content Include="Administrador\Informacoes.aspx" />
     <Content Include="Administrador\RegrasGrupo.aspx" />
+    <Content Include="Administrador\updateUserForum.aspx" />
     <Content Include="Administrador\Videos.aspx" />
     <Content Include="AspNetInfo.aspx" />
     <Content Include="BingSiteAuth.xml" />
@@ -374,6 +375,13 @@
     </Compile>
     <Compile Include="Administrador\RegrasGrupo.aspx.designer.cs">
       <DependentUpon>RegrasGrupo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\updateUserForum.aspx.cs">
+      <DependentUpon>updateUserForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\updateUserForum.aspx.designer.cs">
+      <DependentUpon>updateUserForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
