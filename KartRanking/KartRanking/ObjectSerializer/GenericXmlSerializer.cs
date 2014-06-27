@@ -32,7 +32,7 @@ namespace KartRanking.ObjectSerializer
             {
                 System.Xml.Serialization.XmlSerializer oXmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
                 oXmlSerializer.Serialize(oStreamWriter, obj);
-                oStreamWriter.Close();
+                //oStreamWriter.Close();
             }
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace KartRanking.ObjectSerializer
                 XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
                 oXmlSerializer.Serialize(xmlTextWriter, obj);
                 XmlizedString = UTF8ByteArrayToString(memoryStream.ToArray());
-                memoryStream.Close();
+                //memoryStream.Close();
             }
             return XmlizedString;
         }
@@ -62,7 +62,7 @@ namespace KartRanking.ObjectSerializer
             using (MemoryStream memoryStream = new MemoryStream(StringToUTF8ByteArray(pXmlizedString)))
             {
                 obj = (T)oXmlSerializer.Deserialize(memoryStream);
-                memoryStream.Close();
+                //memoryStream.Close();
             }
             return obj;
         }
@@ -77,7 +77,7 @@ namespace KartRanking.ObjectSerializer
             using (System.IO.StreamReader oStreamReader = new System.IO.StreamReader(Path.FullName))
             {
                 obj = (T)oXmlSerializer.Deserialize(oStreamReader);
-                oStreamReader.Close();
+                //oStreamReader.Close();
             }
             return obj;
         }

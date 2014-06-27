@@ -96,7 +96,7 @@ namespace KartRanking.LogErro
                     file.WriteLine("");
                     file.WriteLine("-------------------");
                     file.WriteLine("");
-                    file.Close();
+                    file.Flush();
                 }
             }
             catch

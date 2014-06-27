@@ -97,9 +97,9 @@ namespace KartRanking.Administrador
 
             if (cmd == "PagA")
             {
-                int pag = (Convert.ToInt16(arg) - 1) <= 0 ? 1 : Convert.ToInt16(arg) - 1;
+                int pag = (Convert.ToInt16(arg, culture) - 1) <= 0 ? 1 : Convert.ToInt16(arg, culture) - 1;
                 RepeaterVideos.DataSource = getVideos(pag, out totalCount, out numberOfPages);
-                ViewState["InfoPage"] = new string[] { pag + " de " + numberOfPages, pag.ToString(), totalCount.ToString(), numberOfPages.ToString() };
+                ViewState["InfoPage"] = new string[] { pag + " de " + numberOfPages, pag.ToString(culture), totalCount.ToString(culture), numberOfPages.ToString(culture) };
                 RepeaterVideos.DataBind();
             }
             else if (cmd == "PagP")
@@ -108,14 +108,14 @@ namespace KartRanking.Administrador
                 if (Convert.ToInt32(((string[])ViewState["InfoPage"])[3]) >= pag)
                 {
                     RepeaterVideos.DataSource = getVideos(pag, out totalCount, out numberOfPages);
-                    ViewState["InfoPage"] = new string[] { pag + " de " + numberOfPages, pag.ToString(), totalCount.ToString(), numberOfPages.ToString() };
+                    ViewState["InfoPage"] = new string[] { pag + " de " + numberOfPages, pag.ToString(culture), totalCount.ToString(culture), numberOfPages.ToString(culture) };
                     RepeaterVideos.DataBind();
                 }
             }
             else if (cmd == "Remover")
             {
                 var video = (from v in dk.Kart_Videos_Grupos
-                             where v.idVideo == Convert.ToInt32(arg)
+                             where v.idVideo == Convert.ToInt32(arg, culture)
                              select v).FirstOrDefault();
                 if (video != null)
                 {
@@ -153,12 +153,12 @@ namespace KartRanking.Administrador
                 video.txtTitulo = txtTituloVideo.Text;
 
                 if (!string.IsNullOrEmpty(txtDtEvento.Text))
-                    video.dtEvento = Convert.ToDateTime(txtDtEvento.Text);
+                    video.dtEvento = Convert.ToDateTime(txtDtEvento.Text, culture);
                 else
                     video.dtEvento = DateTime.Now;
 
-                if (ddlEtapas.SelectedIndex > 0 && Convert.ToInt32(ddlEtapas.SelectedValue) > 0)
-                    video.idCalendario = Convert.ToInt32(ddlEtapas.SelectedValue);
+                if (ddlEtapas.SelectedIndex > 0 && Convert.ToInt32(ddlEtapas.SelectedValue, culture) > 0)
+                    video.idCalendario = Convert.ToInt32(ddlEtapas.SelectedValue, culture);
 
                 dk.Kart_Videos_Grupos.InsertOnSubmit(video);
                 dk.SubmitChanges();
