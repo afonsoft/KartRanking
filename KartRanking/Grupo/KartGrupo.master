@@ -63,6 +63,7 @@
                             <li><a href="/<%= urlGrupo %>/fotos"><strong><strong>Fotos</strong></strong></a></li>
                             <li><a href="/<%= urlGrupo %>/videos"><strong><strong>Videos</strong></strong></a></li>
                             <li><a href="/<%= urlGrupo %>/informacoes"><strong><strong>Informações</strong></strong></a></li>
+                            <li><a href="http://forum.afonsoft.com.br/"><strong><strong>Forum</strong></strong></a></li>
                         </ul>
                     </nav>
                 </div>
