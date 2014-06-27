@@ -32,38 +32,41 @@ namespace KartRanking.Grupo
         }
         private void PopularProximaEtapa()
         {
-            var result = (from cal in dk.Kart_Calendario_Campeonatos
-                          join camp in dk.Kart_Campeonatos on cal.idCampeonato equals camp.idCampeonato
-                          orderby cal.Data ascending
-                          where camp.idGrupo == IdGrupo
-                          && camp.Ativo == true
-                          && cal.Data >= DateTime.Now.AddDays(-1)
-                          && camp.dtInicio <= DateTime.Now
-                          && camp.dtFim >= DateTime.Now
-                          select new { cal.Data, cal.Horario }).FirstOrDefault();
-            
-            if (result != null)
+            using (DataKartDataContext dk = new DataKartDataContext())
             {
-                DateTime date = result.Data;
-                LtProximaEtapa.Text = result.Data.ToString("dd/MM/yyyy") + " as " + result.Horario + ":00";
-                string[] hm = result.Horario.Split(':');
+                var result = (from cal in dk.Kart_Calendario_Campeonatos
+                              join camp in dk.Kart_Campeonatos on cal.idCampeonato equals camp.idCampeonato
+                              orderby cal.Data ascending
+                              where camp.idGrupo == IdGrupo
+                              && camp.Ativo == true
+                              && cal.Data >= DateTime.Now.AddDays(-1)
+                              && camp.dtInicio <= DateTime.Now
+                              && camp.dtFim >= DateTime.Now
+                              select new { cal.Data, cal.Horario }).FirstOrDefault();
 
-                if (!string.IsNullOrEmpty(hm[0]))
-                    date = date.AddHours(Convert.ToInt16(hm[0]));
-                if (hm.Length > 0 && !string.IsNullOrEmpty(hm[1]))
-                    date = date.AddMinutes(Convert.ToInt16(hm[1]));
+                if (result != null)
+                {
+                    DateTime date = result.Data;
+                    LtProximaEtapa.Text = result.Data.ToString("dd/MM/yyyy") + " as " + result.Horario + ":00";
+                    string[] hm = result.Horario.Split(':');
 
-                TimeSpan ts = date - DateTime.Now;
+                    if (!string.IsNullOrEmpty(hm[0]))
+                        date = date.AddHours(Convert.ToInt16(hm[0]));
+                    if (hm.Length > 0 && !string.IsNullOrEmpty(hm[1]))
+                        date = date.AddMinutes(Convert.ToInt16(hm[1]));
 
-                if (ts.TotalSeconds >= 0)
-                    HiddenFieldStartTime.Value = ts.TotalSeconds.ToString();
+                    TimeSpan ts = date - DateTime.Now;
+
+                    if (ts.TotalSeconds >= 0)
+                        HiddenFieldStartTime.Value = ts.TotalSeconds.ToString();
+                    else
+                        HiddenFieldStartTime.Value = "0";
+                }
                 else
+                {
+                    LtProximaEtapa.Text = "Nenhuma cadastrada";
                     HiddenFieldStartTime.Value = "0";
-            }
-            else
-            {
-                LtProximaEtapa.Text = "Nenhuma cadastrada";
-                HiddenFieldStartTime.Value = "0";
+                }
             }
         }
 

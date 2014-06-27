@@ -36,34 +36,34 @@ namespace KartRanking.Administrador
 
         private void PopularGrids()
         {
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var UsuarioLivre = from u in dk.Usuarios
+                                   join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
+                                   orderby u.Nome
+                                   where ug.idGrupo == IdGrupo
+                                   && ug.Aprovado == false
+                                   select u;
 
-            var UsuarioLivre = from u in dk.Usuarios
-                               join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
-                               orderby u.Nome
-                               where ug.idGrupo == IdGrupo
-                               && ug.Aprovado == false
-                               select u;
+                var UsuariosGrupo = from t0 in dk.Usuarios
+                                    join t1 in dk.Kart_Usuario_Grupos on t0.idUsuario equals t1.idUsuario
+                                    orderby t0.Nome
+                                    where t1.idGrupo == IdGrupo
+                                    && t1.Aprovado == true
+                                    select new
+                                    {
+                                        idUsuario = t0.idUsuario,
+                                        t0.Nome,
+                                        t0.Email,
+                                        idGrupo = t1.idGrupo,
+                                    };
 
-            gvUsuariosAdmin.DataSource = UsuarioLivre;
-            gvUsuariosAdmin.DataBind();
+                gvUsuariosAdmin.DataSource = UsuarioLivre;
+                gvUsuariosAdmin.DataBind();
 
-            
-            var UsuariosGrupo = from t0 in dk.Usuarios
-                                join t1 in dk.Kart_Usuario_Grupos on t0.idUsuario equals t1.idUsuario
-                                orderby t0.Nome
-                                where t1.idGrupo == IdGrupo 
-                                && t1.Aprovado == true
-                                select new
-                                {
-                                    idUsuario = t0.idUsuario,
-                                    t0.Nome,
-                                    t0.Email,
-                                    idGrupo = t1.idGrupo,
-                                };
-
-            gvPilotos.DataSource = UsuariosGrupo;
-            gvPilotos.DataBind();
-
+                gvPilotos.DataSource = UsuariosGrupo;
+                gvPilotos.DataBind();
+            }
         }
 
         protected void btnAddUsuarioGrupo_Click(object sender, EventArgs e)
@@ -72,6 +72,8 @@ namespace KartRanking.Administrador
             {
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
+
                     if (txtEmailNovoUsuario.Text.IndexOf('@') < 0 && txtEmailNovoUsuario.Text.IndexOf('.') < 0)
                         throw new Exception("E-Mail informado é inválido.");
 
@@ -125,6 +127,7 @@ namespace KartRanking.Administrador
             }
             finally
             {
+               
                 Page.ClientScript.RegisterStartupScript( this.GetType(), "Tab", "$(function() { $('#tabs').tabs( 'select' , 1 );});", true);
             }
         }
@@ -145,16 +148,17 @@ namespace KartRanking.Administrador
                 if (IsAdmin)
                 {
                     int idUsuario = Convert.ToInt16(e.CommandArgument);
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        Kart_Usuario_Grupo UsuarioAlterar = (from u in dk.Usuarios
+                                                             join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
+                                                             where ug.idUsuario == idUsuario
+                                                             && ug.idGrupo == IdGrupo
+                                                             select ug).FirstOrDefault();
 
-                    Kart_Usuario_Grupo UsuarioAlterar = (from u in dk.Usuarios
-                                                         join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
-                                                         where ug.idUsuario == idUsuario
-                                                         && ug.idGrupo == IdGrupo
-                                                         select ug).FirstOrDefault();
-
-                    UsuarioAlterar.Aprovado = true;
-
-                    dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+                        UsuarioAlterar.Aprovado = true;
+                        dk.SubmitChanges(System.Data.Linq.ConflictMode.FailOnFirstConflict);
+                    }
 
                     Alert("Alteração efetuado com sucesso!");
                     EMail.EnviarEmailStatus(idUsuario, IdGrupo);
@@ -176,6 +180,7 @@ namespace KartRanking.Administrador
                 {
                     if (IsAdmin)
                     {
+                        DataKartDataContext dk = new DataKartDataContext();
                         int idUsuario = Convert.ToInt16(Argument);
 
                         var ue = (from kart_usuario_grupos in dk.Kart_Usuario_Grupos

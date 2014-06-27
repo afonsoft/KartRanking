@@ -36,12 +36,15 @@ namespace KartRanking.Page
 
                 if (idGrupo <= 0 && UsuarioLogado != null && UsuarioLogado.idUsuario > 0)
                 {
-                    idGrupo = (from g in dk.Kart_Usuario_Grupos
-                               join g1 in dk.Kart_Grupos on g.idGrupo equals g1.idGrupo
-                               where g.idUsuario == UsuarioLogado.idUsuario
-                               && g1.Ativo == true
-                               orderby g1.dtCriacao descending
-                               select g.idGrupo).FirstOrDefault();
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        idGrupo = (from g in dk.Kart_Usuario_Grupos
+                                   join g1 in dk.Kart_Grupos on g.idGrupo equals g1.idGrupo
+                                   where g.idUsuario == UsuarioLogado.idUsuario
+                                   && g1.Ativo == true
+                                   orderby g1.dtCriacao descending
+                                   select g.idGrupo).FirstOrDefault();
+                    }
                 }
 
                 Session["IdGrupo"] = idGrupo;
@@ -71,11 +74,14 @@ namespace KartRanking.Page
 
                 if (IdGrupo > 0 && idCampeonato <= 0)
                 {
-                    idCampeonato = (from c in dk.Kart_Campeonatos
-                                    orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
-                                    where c.idGrupo == IdGrupo
-                                    && c.Ativo == true
-                                    select c.idCampeonato).FirstOrDefault();
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        idCampeonato = (from c in dk.Kart_Campeonatos
+                                        orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
+                                        where c.idGrupo == IdGrupo
+                                        && c.Ativo == true
+                                        select c.idCampeonato).FirstOrDefault();
+                    }
                 }
 
                 Session["IdCampeonato"] = idCampeonato;
@@ -110,14 +116,17 @@ namespace KartRanking.Page
                         if (Session["Usuario"] != null)
                         {
                             Usuario user = (Usuario)Session["Usuario"];
-                            var admin = (from t in new DataKartDataContext().Kart_Usuario_Grupos
-                                         where t.idGrupo == IdGrupo && t.idUsuario == user.idUsuario
-                                         select t).FirstOrDefault();
+                            using (DataKartDataContext db = new DataKartDataContext())
+                            {
+                                var admin = (from t in db.Kart_Usuario_Grupos
+                                             where t.idGrupo == IdGrupo && t.idUsuario == user.idUsuario
+                                             select t).FirstOrDefault();
 
-                            if (admin != null)
-                                return true;
-                            else
-                                return false;
+                                if (admin != null)
+                                    return true;
+                                else
+                                    return false;
+                            }
                         }
                         return false;
                     }
@@ -145,14 +154,17 @@ namespace KartRanking.Page
                         if (Session["Usuario"] != null)
                         {
                             Usuario user = (Usuario)Session["Usuario"];
-                            var admin = (from t in new DataKartDataContext().Kart_Usuario_Grupos
-                                         where t.idGrupo == IdGrupo && t.idUsuario == user.idUsuario
-                                         select new { t.Admin }).FirstOrDefault();
+                            using (DataKartDataContext db = new DataKartDataContext())
+                            {
+                                var admin = (from t in db.Kart_Usuario_Grupos
+                                             where t.idGrupo == IdGrupo && t.idUsuario == user.idUsuario
+                                             select new { t.Admin }).FirstOrDefault();
 
-                            if (admin != null && admin.Admin.HasValue)
-                                return admin.Admin.Value;
-                            else
-                                return false;
+                                if (admin != null && admin.Admin.HasValue)
+                                    return admin.Admin.Value;
+                                else
+                                    return false;
+                            }
                         }
                     }
                     return false;

@@ -25,13 +25,16 @@ namespace KartRanking
 
         protected void Page_Load( object sender, EventArgs e )
         {
-            if (dk.DatabaseExists())
-            { 
-                Response.Redirect("~/Administrador/index.aspx");
-            }
-            else
+            using (DataKartDataContext dk = new DataKartDataContext())
             {
-                Response.Redirect("~/InstallDb.aspx");
+                if (dk.DatabaseExists())
+                {
+                    Response.Redirect("~/Administrador/index.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/InstallDb.aspx");
+                }
             }
         }
     }
