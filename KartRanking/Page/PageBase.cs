@@ -17,10 +17,11 @@ namespace KartRanking.Page
     * *******************************************************
     * ALTERAÇÕES:                                           *
     * 04-04-2014 - MD5                                      *
+    * 27-06-2014 - Removendo o  DataKartDataContext         *
     ********************************************************/
     public class PageBase : System.Web.UI.Page
     {
-        private DataKartDataContext _dk = null;
+        public DataKartDataContext dk = new DataKartDataContext();
 
         #region AddMetaTag
 
@@ -73,18 +74,18 @@ namespace KartRanking.Page
             base.OnLoad(e);
         }
 
-        /// <summary>
-        /// Base de dados
-        /// </summary>
-        public DataKartDataContext dk
-        {
-            get
-            {
-                if (_dk == null)
-                    _dk = new DataKartDataContext();
-                return _dk;
-            }
-        }
+        // <summary>
+        // Base de dados
+        // </summary>
+        //public DataKartDataContext dk
+        //{
+        //    get
+        //    {
+        //        if (_dk == null)
+        //            _dk = new DataKartDataContext();
+        //        return _dk;
+        //    }
+        //}
 
         /// <summary>
         /// Alerta
@@ -168,6 +169,7 @@ namespace KartRanking.Page
 
     /// <summary>
     /// http://stackoverflow.com/questions/21175917/how-can-i-calculate-a-crc32-as-a-signed-integer-in-c
+    /// Classe CRC32 para validação
     /// </summary>
     public sealed class Crc32 
     {

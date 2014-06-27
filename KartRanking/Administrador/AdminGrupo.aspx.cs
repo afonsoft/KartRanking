@@ -23,7 +23,6 @@ namespace KartRanking.Administrador
     ********************************************************/
     public partial class AdminGrupo : PageBaseSecurity
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

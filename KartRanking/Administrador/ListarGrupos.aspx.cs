@@ -30,25 +30,30 @@ namespace KartRanking.Administrador
 
         private void PopularGrupos()
         {
-            List<Grupos> GruposAssociados = (from g in dk.Kart_Grupos
-                                             join gu in dk.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
-                                             join u in dk.Usuarios on g.Id_Usuario_Lider equals u.idUsuario
-                                             where gu.idUsuario == UsuarioLogado.idUsuario
-                                             orderby g.NomeGrupo ascending
-                                             select new Grupos
-                                             {
-                                                 idGrupo = g.idGrupo,
-                                                 NomeGrupo = g.NomeGrupo,
-                                                 Sigla = g.Sigla,
-                                                 permitirInsricoes = g.permitirInsricoes,
-                                                 UrlAcesso = g.UrlAcesso,
-                                                 Cidade = g.Cidade,
-                                                 Estado = g.Estado,
-                                                 Ativo = g.Ativo.Value,
-                                                 dtCriacao = g.dtCriacao.Value,
-                                                 Nome = u.Nome,
-                                                 Aprovado = gu.Aprovado.Value
-                                             }).Distinct().ToList();
+            List<Grupos> GruposAssociados = null;
+
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                GruposAssociados = (from g in dk.Kart_Grupos
+                                    join gu in dk.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
+                                    join u in dk.Usuarios on g.Id_Usuario_Lider equals u.idUsuario
+                                    where gu.idUsuario == UsuarioLogado.idUsuario
+                                    orderby g.NomeGrupo ascending
+                                    select new Grupos
+                                    {
+                                        idGrupo = g.idGrupo,
+                                        NomeGrupo = g.NomeGrupo,
+                                        Sigla = g.Sigla,
+                                        permitirInsricoes = g.permitirInsricoes,
+                                        UrlAcesso = g.UrlAcesso,
+                                        Cidade = g.Cidade,
+                                        Estado = g.Estado,
+                                        Ativo = g.Ativo.Value,
+                                        dtCriacao = g.dtCriacao.Value,
+                                        Nome = u.Nome,
+                                        Aprovado = gu.Aprovado.Value
+                                    }).Distinct().ToList();
+            }
 
             gvGruposAssociados.DataSource = GruposAssociados;
             gvGruposAssociados.PageIndex = 0;
@@ -61,55 +66,61 @@ namespace KartRanking.Administrador
 
         private List<Grupos> PopularGrupoDisponivel(string filtro)
         {
+            List<Grupos> lst = null;
             if (string.IsNullOrEmpty(filtro))
             {
-                return (from g in dk.Kart_Grupos
-                        join u in dk.Usuarios on g.Id_Usuario_Lider equals u.idUsuario
-                        where !(from gu in dk.Kart_Usuario_Grupos
-                                where gu.idUsuario == UsuarioLogado.idUsuario
-                                select gu.idGrupo).Contains(g.idGrupo)
-                        orderby g.NomeGrupo ascending
-                        select new Grupos
-                        {
-                            idGrupo = g.idGrupo,
-                            NomeGrupo = g.NomeGrupo,
-                            Sigla = g.Sigla,
-                            permitirInsricoes = g.permitirInsricoes,
-                            UrlAcesso = g.UrlAcesso,
-                            Cidade = g.Cidade,
-                            Estado = g.Estado,
-                            Ativo = g.Ativo.Value,
-                            dtCriacao = g.dtCriacao.Value,
-                            Nome = u.Nome,
-                            Aprovado = false
-                        }).Distinct().ToList();
-
-
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    lst = (from g in dk.Kart_Grupos
+                           join u in dk.Usuarios on g.Id_Usuario_Lider equals u.idUsuario
+                           where !(from gu in dk.Kart_Usuario_Grupos
+                                   where gu.idUsuario == UsuarioLogado.idUsuario
+                                   select gu.idGrupo).Contains(g.idGrupo)
+                           orderby g.NomeGrupo ascending
+                           select new Grupos
+                           {
+                               idGrupo = g.idGrupo,
+                               NomeGrupo = g.NomeGrupo,
+                               Sigla = g.Sigla,
+                               permitirInsricoes = g.permitirInsricoes,
+                               UrlAcesso = g.UrlAcesso,
+                               Cidade = g.Cidade,
+                               Estado = g.Estado,
+                               Ativo = g.Ativo.Value,
+                               dtCriacao = g.dtCriacao.Value,
+                               Nome = u.Nome,
+                               Aprovado = false
+                           }).Distinct().ToList();
+                }
             }
             else
             {
-                return (from g in dk.Kart_Grupos
-                        join u in dk.Usuarios on g.Id_Usuario_Lider equals u.idUsuario
-                        where !(from gu in dk.Kart_Usuario_Grupos
-                                where gu.idUsuario == UsuarioLogado.idUsuario
-                                select gu.idGrupo).Contains(g.idGrupo)
-                        && g.NomeGrupo.Contains(filtro)
-                        orderby g.NomeGrupo ascending
-                        select new Grupos
-                        {
-                            idGrupo = g.idGrupo,
-                            NomeGrupo = g.NomeGrupo,
-                            Sigla = g.Sigla,
-                            permitirInsricoes = g.permitirInsricoes,
-                            UrlAcesso = g.UrlAcesso,
-                            Cidade = g.Cidade,
-                            Estado = g.Estado,
-                            Ativo = g.Ativo.Value,
-                            dtCriacao = g.dtCriacao.Value,
-                            Nome = u.Nome,
-                            Aprovado = false
-                        }).Distinct().ToList();
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    lst = (from g in dk.Kart_Grupos
+                           join u in dk.Usuarios on g.Id_Usuario_Lider equals u.idUsuario
+                           where !(from gu in dk.Kart_Usuario_Grupos
+                                   where gu.idUsuario == UsuarioLogado.idUsuario
+                                   select gu.idGrupo).Contains(g.idGrupo)
+                           && g.NomeGrupo.Contains(filtro)
+                           orderby g.NomeGrupo ascending
+                           select new Grupos
+                           {
+                               idGrupo = g.idGrupo,
+                               NomeGrupo = g.NomeGrupo,
+                               Sigla = g.Sigla,
+                               permitirInsricoes = g.permitirInsricoes,
+                               UrlAcesso = g.UrlAcesso,
+                               Cidade = g.Cidade,
+                               Estado = g.Estado,
+                               Ativo = g.Ativo.Value,
+                               dtCriacao = g.dtCriacao.Value,
+                               Nome = u.Nome,
+                               Aprovado = false
+                           }).Distinct().ToList();
+                }
             }
+            return lst;
         }
 
         protected void gvGrupos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -120,29 +131,35 @@ namespace KartRanking.Administrador
 
                 if (e.CommandName == "Sair")
                 {
-                    Kart_Usuario_Grupo kug = (from ug in dk.Kart_Usuario_Grupos
-                                              where ug.idGrupo == idGrupo
-                                              && ug.idUsuario == UsuarioLogado.idUsuario
-                                              select ug).FirstOrDefault();
-                    if (kug != null)
+                    using (DataKartDataContext dk = new DataKartDataContext())
                     {
-                        dk.Kart_Usuario_Grupos.DeleteOnSubmit(kug);
-                        dk.SubmitChanges();
-                        Alert("Usuário excluido com suceso!");
+                        Kart_Usuario_Grupo kug = (from ug in dk.Kart_Usuario_Grupos
+                                                  where ug.idGrupo == idGrupo
+                                                  && ug.idUsuario == UsuarioLogado.idUsuario
+                                                  select ug).FirstOrDefault();
+                        if (kug != null)
+                        {
+                            dk.Kart_Usuario_Grupos.DeleteOnSubmit(kug);
+                            dk.SubmitChanges();
+                            Alert("Usuário excluido com suceso!");
+                        }
                     }
 
                 }
                 else if (e.CommandName == "Associar")
                 {
-                    Kart_Usuario_Grupo kug = new Kart_Usuario_Grupo();
-                    kug.Admin = false;
-                    kug.Aprovado = false;
-                    kug.idGrupo = idGrupo;
-                    kug.idUsuario = UsuarioLogado.idUsuario;
-                    kug.dtCriacao = DateTime.Now;
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        Kart_Usuario_Grupo kug = new Kart_Usuario_Grupo();
+                        kug.Admin = false;
+                        kug.Aprovado = false;
+                        kug.idGrupo = idGrupo;
+                        kug.idUsuario = UsuarioLogado.idUsuario;
+                        kug.dtCriacao = DateTime.Now;
 
-                    dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
-                    dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                        dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
+                        dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
+                    }
                     Alert("Usuário incluido com suceso!");
                 }
             }

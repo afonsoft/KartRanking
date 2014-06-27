@@ -40,53 +40,55 @@ namespace KartRanking.Administrador
         {
             PanelNoticias.Visible = true;
             PanelReadNoticia.Visible = false;
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var noticias = (from n in dk.Kart_Noticias_Grupos
+                                join u in dk.Usuarios on n.IdUsuario equals u.idUsuario
+                                where n.idGrupo == IdGrupo
+                                && n.Ativo == true
+                                orderby n.dtCriacao descending
+                                select new
+                                {
+                                    n.idNoticias,
+                                    n.IdUsuario,
+                                    u.Nome,
+                                    n.Titulo,
+                                    n.dtCriacao,
+                                    Noticia = n.Noticia.Substring(0, n.Noticia.Length > 150 ? 150 : n.Noticia.Length)
+                                }).Take(50);
 
-            var noticias = (from n in dk.Kart_Noticias_Grupos
-                            join u in dk.Usuarios on n.IdUsuario equals u.idUsuario
-                            where n.idGrupo == IdGrupo
-                            && n.Ativo == true
-                            orderby n.dtCriacao descending
-                            select new
-                            {
-                                n.idNoticias,
-                                n.IdUsuario,
-                                u.Nome,
-                                n.Titulo,
-                                n.dtCriacao,
-                                Noticia = n.Noticia.Substring(0, n.Noticia.Length > 150 ? 150 : n.Noticia.Length)
-                            }).Take(50);
-
-            RptNoticias.DataSource = noticias;
-            RptNoticias.DataBind();
-
+                RptNoticias.DataSource = noticias;
+                RptNoticias.DataBind();
+            }
         }
         private void popularNoticia(int idNoticia)
         {
             PanelNoticias.Visible = false;
             PanelReadNoticia.Visible = true;
-
-            var noticias = (from n in dk.Kart_Noticias_Grupos
-                            join u in dk.Usuarios on n.IdUsuario equals u.idUsuario
-                            where n.idGrupo == IdGrupo
-                            && n.idNoticias == idNoticia
-                            orderby n.dtCriacao ascending
-                            select new
-                            {
-                                n.idNoticias,
-                                n.IdUsuario,
-                                u.Nome,
-                                n.Titulo,
-                                n.Noticia,
-                                n.dtCriacao
-                            }).FirstOrDefault();
-
-            if (noticias != null)
+            using (DataKartDataContext dk = new DataKartDataContext())
             {
-                lbNoticia.Text = noticias.Noticia;
-                lbTitulo.Text = noticias.Titulo;
-                lbNome.Text = noticias.Nome;
-            }
+                var noticias = (from n in dk.Kart_Noticias_Grupos
+                                join u in dk.Usuarios on n.IdUsuario equals u.idUsuario
+                                where n.idGrupo == IdGrupo
+                                && n.idNoticias == idNoticia
+                                orderby n.dtCriacao ascending
+                                select new
+                                {
+                                    n.idNoticias,
+                                    n.IdUsuario,
+                                    u.Nome,
+                                    n.Titulo,
+                                    n.Noticia,
+                                    n.dtCriacao
+                                }).FirstOrDefault();
 
+                if (noticias != null)
+                {
+                    lbNoticia.Text = noticias.Noticia;
+                    lbTitulo.Text = noticias.Titulo;
+                    lbNome.Text = noticias.Nome;
+                }
+            }
         }
 
         protected void RptNoticias_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -123,38 +125,44 @@ namespace KartRanking.Administrador
 
         private void popularEditNoticia(int idNoticia)
         {
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var noticia = (from n in dk.Kart_Noticias_Grupos
+                               where n.idGrupo == IdGrupo
+                               && n.idNoticias == idNoticia
+                               orderby n.dtCriacao ascending
+                               select n).FirstOrDefault();
 
-             var noticia = (from n in dk.Kart_Noticias_Grupos
-                            where n.idGrupo == IdGrupo
-                            && n.idNoticias == idNoticia
-                            orderby n.dtCriacao ascending
-                            select n).FirstOrDefault();
+                if (noticia != null)
+                {
 
-             if (noticia != null)
-             {
-
-                 HiddenFieldIdNoticia.Value = noticia.idNoticias.ToString();
-                 txtTitulo.Text = noticia.Titulo;
-                 textarea.Text = noticia.Noticia;
-                 Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
-             }
-             else
-             {
-                 Alert("Não foi possivel abrir essa noticia para edição!");
-             }
+                    HiddenFieldIdNoticia.Value = noticia.idNoticias.ToString();
+                    txtTitulo.Text = noticia.Titulo;
+                    textarea.Text = noticia.Noticia;
+                    Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
+                }
+                else
+                {
+                    Alert("Não foi possivel abrir essa noticia para edição!");
+                }
+            }
         }
 
         private void deletarNoticia(int idNoticia)
         {
             try
             {
-                Kart_Noticias_Grupo noticias = (from n in dk.Kart_Noticias_Grupos
-                                                where n.idGrupo == IdGrupo
-                                                && n.idNoticias == idNoticia
-                                                select n).FirstOrDefault();
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    Kart_Noticias_Grupo noticias = (from n in dk.Kart_Noticias_Grupos
+                                                    where n.idGrupo == IdGrupo
+                                                    && n.idNoticias == idNoticia
+                                                    select n).FirstOrDefault();
 
-                noticias.Ativo = false;
-                dk.SubmitChanges();
+                    noticias.Ativo = false;
+                    dk.SubmitChanges();
+                }
+
                 popularNoticias();
                 Alert("Operação efetuado com sucesso.");
             }
@@ -195,6 +203,7 @@ namespace KartRanking.Administrador
         {
             if (IsAdmin)
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 Kart_Noticias_Grupo noticia = null;
                 int idNoticia = Convert.ToInt32(HiddenFieldIdNoticia.Value);
 

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.Tools;
+using KartRanking.BaseDados;
 
 namespace KartRanking.Administrador
 {
@@ -22,23 +23,24 @@ namespace KartRanking.Administrador
        
         private void popularCampeonatos(int idGrupo, int idCampeonato)
         {
-            var kg = (from g in dk.Kart_Campeonatos
-                      where g.idGrupo == idGrupo
-                      && (g.Ativo == true || g.idCampeonato == idCampeonato)
-                      select new { Text = g.NomeCampeonato, Value = g.idCampeonato, g.Ativo, g.idCampeonato });
+            
+                var kg = (from g in dk.Kart_Campeonatos
+                          where g.idGrupo == idGrupo
+                          && (g.Ativo == true || g.idCampeonato == idCampeonato)
+                          select new { Text = g.NomeCampeonato, Value = g.idCampeonato, g.Ativo, g.idCampeonato });
 
-            ddlCampeonatos1.Items.Clear();
-            ddlCampeonatos1.DataSource = kg;
-            ddlCampeonatos1.DataTextField = "Text";
-            ddlCampeonatos1.DataValueField = "Value";
-            ddlCampeonatos1.DataBind();
+                ddlCampeonatos1.Items.Clear();
+                ddlCampeonatos1.DataSource = kg;
+                ddlCampeonatos1.DataTextField = "Text";
+                ddlCampeonatos1.DataValueField = "Value";
+                ddlCampeonatos1.DataBind();
 
-            ddlCampeonatos2.Items.Clear();
-            ddlCampeonatos2.DataSource = kg;
-            ddlCampeonatos2.DataTextField = "Text";
-            ddlCampeonatos2.DataValueField = "Value";
-            ddlCampeonatos2.DataBind();
-
+                ddlCampeonatos2.Items.Clear();
+                ddlCampeonatos2.DataSource = kg;
+                ddlCampeonatos2.DataTextField = "Text";
+                ddlCampeonatos2.DataValueField = "Value";
+                ddlCampeonatos2.DataBind();
+           
             if (ddlCampeonatos1.Items.Count <= 0)
                 ddlCampeonatos1.Items.Add(new ListItem("Nenhum campeonato neste grupo", "0"));
             if (ddlCampeonatos2.Items.Count <= 0)

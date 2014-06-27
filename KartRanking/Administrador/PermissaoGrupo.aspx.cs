@@ -29,26 +29,29 @@ namespace KartRanking.Administrador
         }
         private void PopularGrids()
         {
-            var NAdmin = from u in dk.Usuarios
-                         join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
-                         orderby u.Nome
-                         where ug.idGrupo == IdGrupo
-                         && ug.Aprovado == true
-                         && ug.Admin == false
-                         select u;
 
-            var Admin = from u in dk.Usuarios
-                        join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
-                        orderby u.Nome
-                        where ug.idGrupo == IdGrupo
-                        && ug.Aprovado == true
-                        && ug.Admin == true
-                        select u;
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var users = (from u in dk.Usuarios
+                             join ug in dk.Kart_Usuario_Grupos on u.idUsuario equals ug.idUsuario
+                             orderby u.Nome
+                             where ug.idGrupo == IdGrupo
+                             && ug.Aprovado == true
+                             select new { u.Nome, u.Apelido, u.Email, u.idUsuario, ug.Admin }).ToArray();
 
-            gvUsuariosAdmin.DataSource = Admin;
-            gvUsuariosNAdmin.DataSource = NAdmin;
-            gvUsuariosNAdmin.DataBind();
-            gvUsuariosAdmin.DataBind();
+                var Admin = (from u in users
+                             where u.Admin == true
+                             select u);
+
+                var NAdmin = (from u in users
+                              where u.Admin == false
+                              select u);
+
+                gvUsuariosAdmin.DataSource = Admin;
+                gvUsuariosNAdmin.DataSource = NAdmin;
+                gvUsuariosNAdmin.DataBind();
+                gvUsuariosAdmin.DataBind();
+            }           
         }
         protected void gv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -56,6 +59,7 @@ namespace KartRanking.Administrador
             {
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
 
                     int idUsuario = Convert.ToInt16(e.CommandArgument);
                     int IdUsuarioLider = (from u in dk.Kart_Grupos where u.idGrupo == IdGrupo select u.Id_Usuario_Lider).FirstOrDefault();

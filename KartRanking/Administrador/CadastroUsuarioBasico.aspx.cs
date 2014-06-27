@@ -42,24 +42,26 @@ namespace KartRanking.Administrador
 
         private void PopularGrupo(int idGrupo)
         {
-            Kart_Grupo grupo = (from g in dk.Kart_Grupos
-                                where g.Ativo == true
-                                && g.idGrupo == idGrupo
-                                select g).FirstOrDefault();
-            if (grupo != null)
+            using (DataKartDataContext dk = new DataKartDataContext())
             {
-                var Lider = (from u in dk.Usuarios
-                             where u.idUsuario == grupo.Id_Usuario_Lider
-                             select new { u.Nome, u.Email }).FirstOrDefault();
+                Kart_Grupo grupo = (from g in dk.Kart_Grupos
+                                    where g.Ativo == true
+                                    && g.idGrupo == idGrupo
+                                    select g).FirstOrDefault();
+                if (grupo != null)
+                {
+                    var Lider = (from u in dk.Usuarios
+                                 where u.idUsuario == grupo.Id_Usuario_Lider
+                                 select new { u.Nome, u.Email }).FirstOrDefault();
 
-                if (Lider != null)
-                    lblGrupo.Text = "<b>" + grupo.NomeGrupo + "</b> - Lider: <a href='mailto:" + Lider.Email + "'>" + Lider.Nome + "</a>";
-                else
-                    lblGrupo.Text = "<b>" + grupo.NomeGrupo + "</b>";
+                    if (Lider != null)
+                        lblGrupo.Text = "<b>" + grupo.NomeGrupo + "</b> - Lider: <a href='mailto:" + Lider.Email + "'>" + Lider.Nome + "</a>";
+                    else
+                        lblGrupo.Text = "<b>" + grupo.NomeGrupo + "</b>";
 
-                ViewState["id"] = grupo.idGrupo.ToString();
+                    ViewState["id"] = grupo.idGrupo.ToString();
+                }
             }
-
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -91,6 +93,8 @@ namespace KartRanking.Administrador
                 Alert("O valor da captcha não confere.");
                 return;
             }
+
+            DataKartDataContext dk = new DataKartDataContext();
 
             //Verificar se já existe cadastro um usuario com este e-mail.
             Usuario usr = (from k in dk.Usuarios

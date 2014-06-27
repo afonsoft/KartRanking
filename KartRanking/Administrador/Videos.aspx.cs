@@ -36,21 +36,23 @@ namespace KartRanking.Administrador
         private void PopularEtapas()
         {
             ddlEtapas.Items.Clear();
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var LinqEtapas = (from e in dk.Kart_Calendario_Campeonatos
+                                  orderby e.Data ascending
+                                  where (e.Ativo == true || e.Ativo == null)
+                                  && e.idCampeonato == IdCampeonato
+                                  select new { e.Nome, e.Data, e.idCalendario }).ToList();
 
-            var LinqEtapas = (from e in dk.Kart_Calendario_Campeonatos
-                              orderby e.Data ascending
-                              where (e.Ativo == true || e.Ativo == null)
-                              && e.idCampeonato == IdCampeonato
-                              select new { e.Nome, e.Data, e.idCalendario }).ToList();
+                var etapas = (from l in LinqEtapas
+                              orderby l.Data ascending
+                              select new { Nome = l.Nome + " - " + l.Data.ToString("dd/MM/yyyy"), l.idCalendario });
 
-            var etapas = (from l in LinqEtapas
-                          orderby l.Data ascending
-                          select new { Nome = l.Nome + " - " + l.Data.ToString("dd/MM/yyyy"), l.idCalendario });
-            
-            ddlEtapas.DataSource = etapas;
-            ddlEtapas.DataTextField = "Nome";
-            ddlEtapas.DataValueField = "idCalendario";
-            ddlEtapas.DataBind();
+                ddlEtapas.DataSource = etapas;
+                ddlEtapas.DataTextField = "Nome";
+                ddlEtapas.DataValueField = "idCalendario";
+                ddlEtapas.DataBind();
+            }
 
             ddlEtapas.Items.Insert(0, new ListItem("Nenhum", "0"));
 

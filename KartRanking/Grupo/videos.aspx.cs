@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
+using KartRanking.BaseDados;
 
 namespace KartRanking.Grupo
 {
@@ -28,52 +29,58 @@ namespace KartRanking.Grupo
 
         private void popularVideos()
         {
-            var etp = (from cc in dk.Kart_Calendario_Campeonatos
-                       join c in dk.Kart_Campeonatos on cc.idCampeonato equals c.idCampeonato
-                       where c.idGrupo == IdGrupo
-                       && (c.Ativo == true || c.Ativo == null)
-                       && (cc.Ativo == true || cc.Ativo == null)
-                       select new { cc.idCalendario, cc.Nome, cc.Data }).ToList();
+            List<Etapas> etapas1 = null;
+            List<Videos> vds = null;
 
-            var vid = (from v in dk.Kart_Videos_Grupos
-                       orderby v.idCalendario descending
-                       where v.idGrupo == IdGrupo
-                       select new
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var etp = (from cc in dk.Kart_Calendario_Campeonatos
+                           join c in dk.Kart_Campeonatos on cc.idCampeonato equals c.idCampeonato
+                           where c.idGrupo == IdGrupo
+                           && (c.Ativo == true || c.Ativo == null)
+                           && (cc.Ativo == true || cc.Ativo == null)
+                           select new { cc.idCalendario, cc.Nome, cc.Data }).ToList();
+
+                var vid = (from v in dk.Kart_Videos_Grupos
+                           orderby v.idCalendario descending
+                           where v.idGrupo == IdGrupo
+                           select new
+                           {
+                               v.idVideo,
+                               v.dtEvento,
+                               v.idCalendario,
+                               v.txtTitulo,
+                               v.UrlVideo
+                           }).ToList();
+
+                //Pegar os videos associado a uma etapa.
+                etapas1 = (from e in etp
+                           select new Etapas
+                           {
+                               dtEvento = e.Data.ToString("dd/MM/yyyy"),
+                               idEtapa = e.idCalendario,
+                               NomeEtapa = e.Nome,
+                               lstVideos = (from v in vid
+                                            where v.idCalendario == e.idCalendario
+                                            select new Videos
+                                            {
+                                                idVideo = v.idVideo,
+                                                dtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
+                                                txtTitulo = v.txtTitulo,
+                                                UrlVideo = v.UrlVideo
+                                            }).ToList()
+                           }).ToList();
+
+                vds = (from v in vid
+                       where (v.idCalendario == null || v.idCalendario <= 0)
+                       select new Videos
                        {
-                           v.idVideo,
-                           v.dtEvento,
-                           v.idCalendario,
-                           v.txtTitulo,
-                           v.UrlVideo
+                           idVideo = v.idVideo,
+                           dtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
+                           txtTitulo = v.txtTitulo,
+                           UrlVideo = v.UrlVideo
                        }).ToList();
-
-            //Pegar os videos associado a uma etapa.
-            List<Etapas> etapas1 = (from e in etp
-                                   select new Etapas
-                                   {
-                                       dtEvento = e.Data.ToString("dd/MM/yyyy"),
-                                       idEtapa = e.idCalendario,
-                                       NomeEtapa = e.Nome,
-                                       lstVideos = (from v in vid
-                                                    where v.idCalendario == e.idCalendario
-                                                    select new Videos
-                                                    {
-                                                        idVideo = v.idVideo,
-                                                        dtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
-                                                        txtTitulo = v.txtTitulo,
-                                                        UrlVideo = v.UrlVideo
-                                                    }).ToList()
-                                   }).ToList();
-
-            List<Videos> vds = (from v in vid
-                                where (v.idCalendario == null || v.idCalendario <= 0)
-                                select new Videos
-                                {
-                                    idVideo = v.idVideo,
-                                    dtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
-                                    txtTitulo = v.txtTitulo,
-                                    UrlVideo = v.UrlVideo
-                                }).ToList();
+            }
 
             etapas1.Add(new Etapas()
             {
@@ -84,7 +91,7 @@ namespace KartRanking.Grupo
             });
 
             var etapas = (from e in etapas1
-                          where e.lstVideos != null 
+                          where e.lstVideos != null
                           && e.lstVideos.Count > 0
                           select e);
 

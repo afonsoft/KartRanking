@@ -27,7 +27,11 @@ namespace KartRanking.Administrador
                 PopularGrid();
                 CarregarNoticias();
 
-                string url = "http://kart.afonsoft.com.br/" + (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.UrlAcesso).FirstOrDefault();
+                string url = "";
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    url = "http://kart.afonsoft.com.br/" + (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.UrlAcesso).FirstOrDefault();
+                }
                 ltUrlAmigavel.Text = "<a href='" + url + "'> " + url + "</a>";
             }
         }
@@ -46,37 +50,44 @@ namespace KartRanking.Administrador
             if (IdGrupo > 0)
             {
                 Random rnd = new Random();
-                List<Usuario> users = (from u in dk.Usuarios
-                                       join g in dk.Kart_Usuario_Grupos on u.idUsuario equals g.idUsuario
-                                       where g.idGrupo == IdGrupo
-                                       && u.Ativo == true
-                                       select u).ToList();
+                List<Usuario> users = null;
+
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    users = (from u in dk.Usuarios
+                             join g in dk.Kart_Usuario_Grupos on u.idUsuario equals g.idUsuario
+                             where g.idGrupo == IdGrupo
+                             && u.Ativo == true
+                             select u).ToList();
+                }
 
                 if (users != null)
                 {
 
                     int UsuarioSelecionado = rnd.Next(users.Count());
                     Usuario user = users[UsuarioSelecionado];
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        string Equipe = (from e in dk.Kart_Equipe_Campeonatos
+                                         join eu in dk.Kart_Usuario_Equipe_Campeonatos on e.idEquipeCampeonato equals eu.idEquipeCampeonato
+                                         where e.idCampeonato == IdCampeonato
+                                         && eu.idUsuario == user.idUsuario
+                                         select e.NomeEquipe).FirstOrDefault();
 
-                    string Equipe = (from e in dk.Kart_Equipe_Campeonatos
-                                     join eu in dk.Kart_Usuario_Equipe_Campeonatos on e.idEquipeCampeonato equals eu.idEquipeCampeonato
-                                     where e.idCampeonato == IdCampeonato
-                                     && eu.idUsuario == user.idUsuario
-                                     select e.NomeEquipe).FirstOrDefault();
+                        int? Pontos = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                                       where vp.idCampeonato == IdCampeonato
+                                       && vp.idGrupo == IdGrupo
+                                       && vp.idUsuario == user.idUsuario
+                                       select vp.Pontos).FirstOrDefault();
 
-                    int? Pontos = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
-                                   where vp.idCampeonato == IdCampeonato
-                                   && vp.idGrupo == IdGrupo
-                                   && vp.idUsuario == user.idUsuario
-                                   select vp.Pontos).FirstOrDefault();
-
-                    lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "--/--/----";
-                    lbNome.Text = user.Nome;
-                    ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
-                    lbEquipe.Text = Equipe;
-                    lbPontos.Text = Pontos.HasValue ? Pontos.Value.ToString() : "0";
-                    ltPerfilFace.Text = string.IsNullOrEmpty(user.Perfil_Facebook) ? "------------" : "<a href='" + user.Perfil_Facebook + "' target='_blank'>" + (user.Perfil_Facebook.Length > 30 ? user.Perfil_Facebook.Substring(0, 30) + "..." : user.Perfil_Facebook) + "</a>";
-                    ViewState["UsuarioSelecionado"] = user.idUsuario;
+                        lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "--/--/----";
+                        lbNome.Text = user.Nome;
+                        ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
+                        lbEquipe.Text = Equipe;
+                        lbPontos.Text = Pontos.HasValue ? Pontos.Value.ToString() : "0";
+                        ltPerfilFace.Text = string.IsNullOrEmpty(user.Perfil_Facebook) ? "------------" : "<a href='" + user.Perfil_Facebook + "' target='_blank'>" + (user.Perfil_Facebook.Length > 30 ? user.Perfil_Facebook.Substring(0, 30) + "..." : user.Perfil_Facebook) + "</a>";
+                        ViewState["UsuarioSelecionado"] = user.idUsuario;
+                    }
                 }
             }
             else
@@ -95,25 +106,28 @@ namespace KartRanking.Administrador
         {
             if (IdGrupo > 0 && IdCampeonato > 0)
             {
-                //View para popular o grid (Ranking do Campeonato)
-                var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
-                                where vp.idCampeonato == IdCampeonato
-                                && vp.idGrupo == IdGrupo
-                                orderby vp.Pontos descending
-                                select vp).Take(10);
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    //View para popular o grid (Ranking do Campeonato)
+                    var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                                    where vp.idCampeonato == IdCampeonato
+                                    && vp.idGrupo == IdGrupo
+                                    orderby vp.Pontos descending
+                                    select vp).Take(10);
 
-                gvRankigCampeonato.DataSource = RankingC;
-                gvRankigCampeonato.DataBind();
+                    //View para popular o grid (Ranking das equipe)
+                    var RankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
+                                    where ve.idCampeonato == IdCampeonato
+                                    && ve.idGrupo == IdGrupo
+                                    orderby ve.Pontos descending
+                                    select ve).Take(10);
 
-                //View para popular o grid (Ranking das equipe)
-                var RankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
-                                where ve.idCampeonato == IdCampeonato
-                                && ve.idGrupo == IdGrupo
-                                orderby ve.Pontos descending
-                                select ve).Take(10);
+                    gvRankigCampeonato.DataSource = RankingC;
+                    gvRankigCampeonato.DataBind();
 
-                gvRankigEquipe.DataSource = RankingE;
-                gvRankigEquipe.DataBind();
+                    gvRankigEquipe.DataSource = RankingE;
+                    gvRankigEquipe.DataBind();
+                }
             }
             else
             {
@@ -130,11 +144,15 @@ namespace KartRanking.Administrador
             string strHtml = "";
             string strLista = "";
 
-            var noticias = (from n in dk.Kart_Noticias_Grupos
+            Kart_Noticias_Grupo[] noticias = null;
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                noticias = (from n in dk.Kart_Noticias_Grupos
                             where n.idGrupo == IdGrupo
                             && n.dtCriacao >= DateTime.Now.AddMonths(-3)
                             orderby n.dtCriacao descending
                             select n).ToArray();
+            }
 
             strHtml += " <div id='slider'> ";
             strHtml += " <ul>  ";

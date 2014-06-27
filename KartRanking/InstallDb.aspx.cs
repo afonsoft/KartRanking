@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.Tools;
+using KartRanking.BaseDados;
 
 namespace KartRanking
 {
@@ -13,18 +14,21 @@ namespace KartRanking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Instalar o Banco de dados
-            if (!dk.DatabaseExists())
+            using (DataKartDataContext dk = new DataKartDataContext())
             {
-                CreateSiteMap();
-                dk.CreateDatabase();
-                Response.Redirect("~/Administrador/index.aspx");
-                
-            }
-            else
-            {
-                CreateSiteMap();
-                Response.Redirect("~/Administrador/index.aspx");
+                //Instalar o Banco de dados
+                if (!dk.DatabaseExists())
+                {
+                    CreateSiteMap();
+                    dk.CreateDatabase();
+                    Response.Redirect("~/Administrador/index.aspx");
+
+                }
+                else
+                {
+                    CreateSiteMap();
+                    Response.Redirect("~/Administrador/index.aspx");
+                }
             }
         }
 
