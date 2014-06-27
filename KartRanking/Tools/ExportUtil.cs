@@ -262,9 +262,9 @@ namespace KartRanking.Tools
                     //  render the htmlwriter into the response
                     HttpContext.Current.Response.Write(sw.ToString());
                     HttpContext.Current.Response.Flush();
-                    HttpContext.Current.Response.End();
                 }
             }
+            HttpContext.Current.Response.End();
         }
 
         /// <summary>

@@ -118,38 +118,40 @@ namespace KartRanking.Administrador
                 if (string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtEmail.Text))
                     throw new Exception("Informe um usuário e senha.");
 
-                BaseDados.DataKartDataContext dk = new BaseDados.DataKartDataContext();
-
-                Usuario user = (from p in dk.Usuarios
-                                where p.Email.Equals(txtEmail.Text.ToLower().Trim()) && p.Senha.Equals(txtPassword.Text.ToLower().Trim())
-                                select p).FirstOrDefault();
-
-                if (user == null)
-                    throw new Exception("Usuário ou Senha inválidos!");
-
-                Session["Usuario"] = user;
-                lblNomeUsuario.Text = user.Nome;
-                pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
-                pnlLogin.Visible = pnlNotLogin.Visible = false;
-
-
-                HttpCookie cookieEmail = new HttpCookie("KartRankingUserName", txtEmail.Text);
-                cookieEmail.Expires = DateTime.Now.AddMonths(1);
-                Response.Cookies.Add(cookieEmail);
-
-                if (chkLembrar.Checked)
+                using (BaseDados.DataKartDataContext dk = new BaseDados.DataKartDataContext())
                 {
-                    //Criar um cookie
-                    HttpCookie cookie = new HttpCookie("KartRankingAutoLogin", txtEmail.Text);
-                    cookie.Expires = DateTime.Now.AddMonths(1);
-                    Response.Cookies.Add(cookie);
+                    Usuario user = (from p in dk.Usuarios
+                                    where p.Email.Equals(txtEmail.Text.ToLower().Trim()) && p.Senha.Equals(txtPassword.Text.ToLower().Trim())
+                                    select p).FirstOrDefault();
+
+                    if (user == null)
+                        throw new Exception("Usuário ou Senha inválidos!");
+
+                    Session["Usuario"] = user;
+                    lblNomeUsuario.Text = user.Nome;
+
+
+                    pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
+                    pnlLogin.Visible = pnlNotLogin.Visible = false;
+
+
+                    HttpCookie cookieEmail = new HttpCookie("KartRankingUserName", txtEmail.Text);
+                    cookieEmail.Expires = DateTime.Now.AddMonths(1);
+                    Response.Cookies.Add(cookieEmail);
+
+                    if (chkLembrar.Checked)
+                    {
+                        //Criar um cookie
+                        HttpCookie cookie = new HttpCookie("KartRankingAutoLogin", txtEmail.Text);
+                        cookie.Expires = DateTime.Now.AddMonths(1);
+                        Response.Cookies.Add(cookie);
+                    }
+
+                    CarregarGruposUsuario();
+
+                    dk.Kart_log_acessos.InsertOnSubmit(new Kart_log_acesso() { dtAcesso = DateTime.Now, idUsuario = user.idUsuario });
+                    dk.SubmitChanges();
                 }
-
-                CarregarGruposUsuario();
-
-                dk.Kart_log_acessos.InsertOnSubmit(new Kart_log_acesso() { dtAcesso = DateTime.Now, idUsuario = user.idUsuario });
-                dk.SubmitChanges();
-
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.location.href='/Administrador/home.aspx';", true);
             }
             catch (Exception ex)
