@@ -1,0 +1,281 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/KartRanking.Master" AutoEventWireup="true"
+    CodeBehind="Admin.master.cs" Inherits="KartRanking.Administrador.Admin" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link href="../css/menu.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        a:link, a:visited, a:active
+        {
+            text-decoration: none;
+            color: #696969;
+        }
+        a:hover
+        {
+            text-decoration: underline;
+            color: #696969;
+        }
+    </style>
+    <% if (pnlLogin.Visible)
+       { %>
+    <link href="../css/Login.css" rel="stylesheet" type="text/css" />
+    <%} %>
+    <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+    <script type="text/javascript">
+        $(function () {
+            $('li').has('ul').mouseover(function () {
+                $(this).children('ul').css('visibility', 'visible');
+            }).mouseout(function () {
+                $(this).children('ul').css('visibility', 'hidden');
+            })
+
+            /* Mobile */
+            $('#menu-wrap').prepend('<div id="menu-trigger">Menu</div>');
+            $("#menu-trigger").on("click", function () {
+                $("#menu").slideToggle();
+            });
+
+            // iPad
+            var isiPad = navigator.userAgent.match(/iPad/i) != null;
+            if (isiPad) $('#menu ul').addClass('no-transition');
+        });          
+    </script>
+    <% if (!pnlLogin.Visible)
+       { %>
+    <script type="text/javascript">
+        $(function () {
+            $("input:submit, input:button, button").button();
+        });          
+    </script>
+    <%} %>
+    <asp:HiddenField ID="HiddenidGrupo" runat="server" />
+    <div style="height: 100%; min-height: 600px; min-width: 795px; max-width: 1020px;
+        width: auto; text-align: left; border: 1px solid #ccc; background-color: #fff;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td style="background-color: #F5F5F5;">
+                    <!-- Cabeçalho -->
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td>
+                                <asp:Panel ID="pnlMenu" runat="server" itemprop="breadcrumb">
+                                    <nav id="menu-wrap">
+                                        <ul id="menu">
+                                            <li><a itemprop="url" rel="tag" href="home.aspx">Home</a></li>
+                                            <li><a itemprop="url" rel="tag" href="perfil.aspx">Seu Perfil</a></li>
+                                            <li><a href="#">Administração</a>
+                                                <ul>
+                                                    <li><a itemprop="url" rel="tag" href="AdminGrupo.aspx">Grupo</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="AdminCampeonato.aspx">Campeonatos</a>
+                                                        <ul>
+                                                            <li><a itemprop="url" rel="tag" href="CalendarioProvas.aspx">Calendário das Provas</a></li>
+                                                            <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=1">Classificação
+                                                                dos Pilotos</a></li>
+                                                            <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=2">Classificação
+                                                                das Equipes</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a itemprop="url" rel="tag" href="InscricoesUsuariosGrupo.aspx">Inscrições do Grupo</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="PermissaoGrupo.aspx">Permissões do Grupo</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="RegrasGrupo.aspx">Regras</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="Financeiro.aspx">Financeiro</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Pilotos</a>
+                                                <ul>
+                                                    <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=1">Classificação
+                                                        dos Pilotos</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="PilotosEquipesGrupo.aspx?op=1">Pilotos do Grupo</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="InscricoesUsuariosGrupo.aspx">Cadastrar / Remover</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Equipes</a>
+                                                <ul>
+                                                    <li><a itemprop="url" rel="tag" href="ClassificacaoCampeonato.aspx?op=2">Classificação
+                                                        das Equipes</a></li>
+                                                    <li><a itemprop="url" rel="tag" href="PilotosEquipesGrupo.aspx?op=2">Equipes do Campeonato</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a itemprop="url" rel="tag" href="Fotos.aspx">Fotos</a></li>
+                                            <li><a itemprop="url" rel="tag" href="Videos.aspx">Videos</a></li>
+                                            <li><a itemprop="url" rel="tag" href="Noticias.aspx">Noticias</a></li>
+                                            <li><a itemprop="url" rel="bookmark" href="http://forum.afonsoft.com.br/">Forum</a></li>
+                                            <li>
+                                                <asp:LinkButton ID="lnkSair" runat="server" OnClick="lnkSair_Click">Sair</asp:LinkButton></li>
+                                            <li style="vertical-align: middle; padding-left: 5px; padding-top: 6px; padding-right: 4px;">
+                                                <!-- Place this tag where you want the +1 button to render. -->
+                                                <div class="g-plusone" data-size="medium" data-annotation="none">
+                                                </div>
+                                                <!-- Place this tag after the last +1 button tag. -->
+                                                <script type="text/javascript">
+                                                    window.___gcfg = { lang: 'pt-BR' };
+                                                    (function () {
+                                                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                                        po.src = 'https://apis.google.com/js/plusone.js';
+                                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                                    })();
+                                                </script>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </asp:Panel>
+                                <asp:Panel ID="pnlLogin" runat="server">
+                                    <script src="../js/login.js" type="text/javascript"></script>
+                                    <nav id="menu-wrap">
+                                        <ul id="menu">
+                                            <!-- Login Starts Here -->
+                                            <li><a href="#" id="loginButton" style="text-decoration: none;"><span>Login</span><em></em></a>
+                                                <div style="clear: both">
+                                                </div>
+                                                <div id="loginBox">
+                                                    <div id="loginForm">
+                                                        <fieldset id="body">
+                                                            <fieldset>
+                                                                <label for='<%= txtEmail.ClientID %>'>
+                                                                    Email</label>
+                                                                <asp:TextBox ID="txtEmail" CssClass="inputlogin" MaxLength="200" placeholder="usuario@email.com.br"
+                                                                    runat="server"></asp:TextBox>
+                                                            </fieldset>
+                                                            <fieldset>
+                                                                <label for='<%= txtPassword.ClientID %>'>
+                                                                    Password</label>
+                                                                <asp:TextBox ID="txtPassword" CssClass="inputlogin" MaxLength="50" placeholder="Senha"
+                                                                    TextMode="Password" runat="server"></asp:TextBox>
+                                                            </fieldset>
+                                                            <asp:Button ID="btnLogin" CssClass="login" Width="60px" runat="server" Text="Entrar"
+                                                                OnClick="btnLogin_Click" />
+                                                            <label for="checkbox">
+                                                                <input type="checkbox" id="chkLembrar" class="checkbox" runat="server">Lembra-me</input>
+                                                        </fieldset>
+                                                        <span><a href="RecuperarSenha.aspx">Esqueceu a senha?</a></span>
+                                                    </div>
+                                                </div>
+                                                <!-- Login Ends Here -->
+                                            </li>
+                                            <li><a href="CadastroUsuarioBasico.aspx">Cadastrar</a></li>
+                                            <li><a href="Informacoes.aspx">Informações</a></li>
+                                        </ul>
+                                    </nav>
+                                </asp:Panel>
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- Fim -->
+                    <div style="position: absolute; left: 1%; top: 10%; z-index:10;">
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- LadoEsquerdo -->
+                        <ins class="adsbygoogle" style="display: inline-block; width: 120px; height: 600px"
+                            data-ad-client="ca-pub-2122647083447667" data-ad-slot="9975769206"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td style="background-color: #F5F5F5; width: 1%; height: 20px;">
+                            </td>
+                            <td style="background-color: #F5F5F5; width: 59%; height: 20px; vertical-align: middle;">
+                                <span>Bem Vindo:
+                                    <asp:Label ID="lblNomeUsuario" runat="server" Text="Visitante"></asp:Label></span>
+                            </td>
+                            <td style="background-color: #F5F5F5; width: 36%; height: 20px; text-align: right;
+                                vertical-align: middle;">
+                                Grupo:&nbsp;<asp:DropDownList ID="ddlGrupos" runat="server" Width="300px" OnSelectedIndexChanged="ddlGrupos_SelectedIndexChanged"
+                                    AutoPostBack="True">
+                                </asp:DropDownList>
+                            </td>
+                            <td style="background-color: #F5F5F5; width: 3%; height: 20px; text-align: right;
+                                vertical-align: middle;">
+                                <asp:ImageButton ID="imgAssociarGrupo" runat="server" Width="20px" Height="20px"
+                                    ImageUrl="~/images/Group.png" ToolTip="Associar-se a um grupo" AlternateText="Grupos"
+                                    OnClick="imgAssociarGrupo_Click" />
+                            </td>
+                            <td style="background-color: #F5F5F5; width: 1%; height: 20px;">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td>
+                                <div style="width: 98%; height: 100% auto; padding: 10px;">
+                                    <div style="width: 100%; text-align: center; padding-bottom: 3px;">
+                                        <script type="text/javascript">
+                                            google_ad_client = "ca-pub-2122647083447667";
+                                            /* Banner */
+                                            google_ad_slot = "3016994400";
+                                            google_ad_width = 468;
+                                            google_ad_height = 60;
+                                        </script>
+                                        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                                        </script>
+                                    </div>
+                                    <asp:Panel ID="pnlConteudo" Visible="false" runat="server">
+                                        <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </asp:Panel>
+                                    <asp:Panel ID="pnlNotLogin" Visible="true" runat="server">
+                                        <b>Efetue o Login no sistema</b><br />
+                                        <span style="font-style: italic; font-size: 9px;">Você não está logado no sistema, caso
+                                            queira acessar os recursos administrativo, favor efetuar o login.</span><br />
+                                        <br />
+                                        <br />
+                                        <p>
+                                            O <b>kart.afonsoft.com.br</b> é uma das primeiras comunidade Brasileira de kart
+                                            que oferece uma ferramenta completa para a administração e divulgação do seu campeonato
+                                            de kart.
+                                        </p>
+                                        <p>
+                                            Todos os serviços são <b>100% Free</b> e criados especialmente para você.
+                                        </p>
+                                        <p>
+                                            Cadastrando o seu campeonato (indoor, profissional, amador), você terá a sua disposição
+                                            um site personalizado com tudo que você precisa para turbinar o seu evento.<br />
+                                            Ex: kart.afonsoft.com.br/NomeGrupo.aspx<br />
+                                            Participe você também dessa comunidade de pilotos profissionais e amadores de todo
+                                            o mundo.
+                                        </p>
+                                        <p>
+                                            O cadastro leva aproximadamente 5 minutos e você terá a sua disposição um gestor
+                                            de conteúdo para publicar todas as informações do seu evento na internet de forma
+                                            muito simples.
+                                        </p>
+                                        <!-- Place this tag where you want the +1 button to render. -->
+                                        <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300">
+                                        </div>
+                                        <!-- Place this tag after the last +1 button tag. -->
+                                        <script type="text/javascript">
+                                            window.___gcfg = { lang: 'pt-BR' };
+                                            (function () {
+                                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                                po.src = 'https://apis.google.com/js/plusone.js';
+                                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                            })();
+                                        </script>
+                                    </asp:Panel>
+                                    <div style="color: #FFFFFF; text-align: justify; size: 4pt; z-index: -9999;">
+                                        <p>
+                                            kart <b>amador</b>, <b>kart</b> profissional, piloto kart, Kart, Campeonato, Grupo,
+                                            karting, Racing, <b>Rank</b>, <b>Ranking</b>, <b>kartodromo</b>, Granja Viana, Praia
+                                            Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, conteudo, <b>kart.afonsoft.com.br</b>,
+                                            forum.afonsoft.com.br, blog.afonsoft.com.br, <b>sistema de gerenciamento de conteúdo</b>,
+                                            <b>gerenciamento de conteúdo</b>, sistema de gerenciamento de informações</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</asp:Content>

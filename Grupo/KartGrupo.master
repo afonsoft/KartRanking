@@ -1,0 +1,165 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/KartRanking.Master" AutoEventWireup="true"
+    CodeBehind="KartGrupo.master.cs" Inherits="KartRanking.Grupo.KartGrupo" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/Grupo/css/grid.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" />
+    <style type="text/css">
+        @font-face {
+            font-family: 28 Days Later;
+            src: url('/Fonts/28dayslater-webfont.eot');
+            src: url('/Fonts/28dayslater-webfont.eot?#iefix') format('embedded-opentype'), url('/Fonts/28dayslater-webfont.woff') format('woff'), url('/Fonts/28dayslater-webfont.ttf') format('truetype'), url('/Fonts/28dayslater-webfont.svg#28_days_laterregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .TitleFont {
+            font-family: '28 Days Later', Tahoma !important;
+            font-style: normal;
+            font-weight: normal;
+            color: #fecc5f;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
+    <div id="fb-root">
+    </div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '739364019428136',
+                status: true,
+                xfbml: true
+            });
+        };
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="main">
+        <!--==============================header=================================-->
+        <header class="header">
+            <div class="row-top">
+                <div class="main">
+                    <h1>
+                        <a href="#">KartRanking</a></h1>
+                    <ul class="menu-top">
+                        <li><a href="/Administrador/CadastroUsuarioBasico.aspx?idGrupo=<%= IdGrupo %>">Cadastrar</a></li>
+                        <li><a href="/Administrador/index.aspx?idGrupo=<%= IdGrupo %>">Login</a></li>
+                    </ul>
+                    <nav>
+                        <ul class="sf-menu sf-js-enabled">
+                            <li><a href="/<%= urlGrupo %>"><strong><strong>Home</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/pilotos"><strong><strong>Pilotos</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/noticias"><strong><strong>Notícias</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/fotos"><strong><strong>Fotos</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/videos"><strong><strong>Videos</strong></strong></a></li>
+                            <li><a href="/<%= urlGrupo %>/informacoes"><strong><strong>Informações</strong></strong></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!--==============================End header=================================-->
+        <!--==============================aside=================================-->
+        <aside>
+            <div class="main">
+                <div>
+                    <h4>
+                        <b>
+                            <asp:Literal ID="ltNomeGrupo" runat="server"></asp:Literal></b></h4>
+                </div>
+            </div>
+        </aside>
+        <div style="position: absolute; left: 1%; top: 10%; z-index: 10;">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- LadoEsquerdo -->
+            <ins class="adsbygoogle" style="display: inline-block; width: 120px; height: 600px"
+                data-ad-client="ca-pub-2122647083447667" data-ad-slot="9975769206"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <!--==============================End aside=================================-->
+        <section id="content">
+            <div class="padding-content">
+                <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </section>
+        <!--==============================End content================================-->
+        <!--==============================footer=================================-->
+        <div class="main">
+            <figure>
+                <center>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- CabecalhoGrupoKart -->
+                    <ins class="adsbygoogle"
+                            style="display:inline-block;width:728px;height:90px"
+                            data-ad-client="ca-pub-2122647083447667"
+                            data-ad-slot="5191731603"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </center>
+            </figure>
+            <footer>
+                <div class="bg">
+                    <div class="padding-footer">
+                        <div class="wrapper">
+                            <div class="fleft">
+                                <ul class="menu-bot p1">
+                                    <li><a class="active" href="/<%= urlGrupo %>">
+                                        <canvas width="61" height="17" style="width: 61px; height: 17px; top: -3px; left: -3px;">
+                                        </canvas>Home</a></li>
+                                    <li><a href="/<%= urlGrupo %>/pilotos">
+                                        <canvas width="69" height="17" style="width: 69px; height: 17px; top: -3px; left: -3px;">
+                                        </canvas>Pilotos</a></li>
+                                    <li><a href="/<%= urlGrupo %>/noticias">
+                                        <canvas width="81" height="17" style="width: 81px; height: 17px; top: -3px; left: -3px;">
+                                        </canvas>Noticias</a></li>
+                                    <li><a href="/<%= urlGrupo %>/fotos">
+                                        <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
+                                        </canvas>Fotos</a></li>
+                                    <li><a href="http://forum.afonsoft.com.br/">
+                                        <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
+                                        </canvas>Forum</a></li>
+                                </ul>
+                                <div class="extra-wrap">
+                                    <div class="text-bot">
+                                        KartRanking © 2014</div>
+                                    <div class="text-bot">
+                                        <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300">
+                                        </div>
+                                        <!-- Place this tag after the last +1 button tag. -->
+                                        <script type="text/javascript">
+                                            window.___gcfg = { lang: 'pt-BR' };
+                                            (function () {
+                                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                                po.src = 'https://apis.google.com/js/plusone.js';
+                                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                            })();
+                                        </script>
+                                    </div>
+                                    <div class="text-bot">
+                                        <div class="fb-like" data-href="http://kart.afonsoft.com.br/<%= urlGrupo %>" data-layout="standard"
+                                            data-action="like" data-show-faces="true" data-width="300" data-share="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!--==============================End footer=================================-->
+    </div>
+</asp:Content>

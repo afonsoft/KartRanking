@@ -1,0 +1,7 @@
+# robots.txt
+User-agent: *
+Disallow: /Fotos/
+Disallow: /cgi-bin/
+Disallow: /InstallDb.aspx
+
+Sitemap: http://kart.afonsoft.com.br/SiteMap.xml
