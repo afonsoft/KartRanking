@@ -33,7 +33,7 @@ namespace KartRanking.email
                     foreach (string i in strEmail.Split(';'))
                         mensagem.To.Add(i);
                 }
-                
+
                 if (!string.IsNullOrEmpty(strCopia) && strCopia.Length > 0)
                 {
                     foreach (string i in strCopia.Split(';'))
@@ -54,7 +54,7 @@ namespace KartRanking.email
             }
             catch (Exception ex)
             {
-                throw new Exception("EnviaEmail - " + ex.Message , ex.InnerException);
+                throw new Exception("EnviaEmail - " + ex.Message, ex.InnerException);
             }
         }
 
@@ -156,8 +156,8 @@ namespace KartRanking.email
             }
 
             var Grupo = (from g in new DataKartDataContext().Kart_Grupos
-                                where g.idGrupo == idGrupo
-                                select g).SingleOrDefault();
+                         where g.idGrupo == idGrupo
+                         select g).SingleOrDefault();
 
             HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo);
             HTML = HTML.Replace("##URLGRUPO##", "http://kart.afonsoft.com.br/" + Grupo.UrlAcesso);
@@ -176,7 +176,7 @@ namespace KartRanking.email
                          && gu.Aprovado == true
                          select new { g.NomeGrupo, gu.idUsuario, u.Email, g.UrlAcesso }).ToArray();
 
-           
+
             string EmailAdmin = String.Join(";", (from g in Grupo select g.Email).ToArray<string>());
             string NomeUsuarioCadastro = uCadastrado.Nome + " (" + uCadastrado.Email + ")";
 
@@ -285,7 +285,7 @@ namespace KartRanking.email
 
             DataKartDataContext dk = new DataKartDataContext();
 
-            var InfoAlbum = (from n in dk.Kart_Album_Grupos where n.idGrupo == idGrupo && n.idAlbum== idAlbum select n).FirstOrDefault();
+            var InfoAlbum = (from n in dk.Kart_Album_Grupos where n.idGrupo == idGrupo && n.idAlbum == idAlbum select n).FirstOrDefault();
 
             if (InfoAlbum != null)
             {
@@ -330,6 +330,36 @@ namespace KartRanking.email
             HTML = HTML.Replace("##NOMEGRUPO##", Grupo.NomeGrupo).Replace("##SIGLAGRUPO##", Grupo.Sigla).Replace("##URLAMIGAVEL##", "http://kart.afonsoft.com.br/" + Grupo.UrlAcesso + "/informacoes");
 
             EMail.EnviaEmail(EmailUsuario, HTML, "KartRanking - Regra do grupo modificado.", "");
+        }
+
+        public static void EnviarEmailAoGrupo(int idGrupo, string CorpoEmail)
+        {
+
+            DataKartDataContext dk = new DataKartDataContext();
+
+            var Grupo = (from g in dk.Kart_Grupos
+                         join gu in dk.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
+                         join u in dk.Usuarios on gu.idUsuario equals u.idUsuario
+                         where g.idGrupo == idGrupo
+                         && gu.Aprovado == true
+                         select new { g.NomeGrupo, gu.idUsuario, u.Email, g.UrlAcesso }).ToList();
+
+            string NomeGrupo = (from g in Grupo select g.NomeGrupo).FirstOrDefault();
+
+            string Path = PathUtil.GetFullPathRoot() + @"\email\GrupoEmail.htm";
+            string HTML = "";
+            using (StreamReader sr = new StreamReader(Path, true))
+            {
+                HTML = sr.ReadToEnd();
+            }
+            //http://kart.afonsoft.com.br/KartAmigos
+            HTML = HTML.Replace("##NOMEGRUPO##", NomeGrupo).Replace("##URLSITE##", "http://kart.afonsoft.com.br/" + Grupo[0].UrlAcesso).Replace("##CORPO##", CorpoEmail);
+
+
+            foreach (var u in Grupo)
+            {
+                EnviaEmail(u.Email, HTML, "KartRanking - Novo e-mail do administrador", "");
+            }
         }
     }
 }

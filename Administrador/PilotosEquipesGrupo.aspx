@@ -18,10 +18,10 @@
     <asp:Panel ID="PanelPilotos" runat="server">
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="StepTitle">
-                    Pilotos do Grupo</h3>
+                <h3 class="StepTitle">Pilotos do Grupo</h3>
                 <div class="StepSubTitle">
-                    Informações e gerenciamento dos pilotos</div>
+                    Informações e gerenciamento dos pilotos
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -52,7 +52,8 @@
                                     <asp:BoundField HeaderText="" Visible="false" DataField="idUsuario" />
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Piloto</HeaderTemplate>
+                                            Piloto
+                                        </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkCodCalendario" runat="server" CommandArgument='<%# Eval( "idUsuario" )%>'
                                                 CommandName="ViewPilotoInfo"><%# Eval("Nome")%></asp:LinkButton>
@@ -65,7 +66,8 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Equipe</HeaderTemplate>
+                                            Equipe
+                                        </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idUsuario" )%>'
                                                 CommandName="ViewEquipe"><%# Eval("NomeEquipe")%></asp:LinkButton>
@@ -91,7 +93,8 @@
                                     </asp:CommandField>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Inativar</HeaderTemplate>
+                                            Inativar
+                                        </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="LinkButton1" CommandArgument='<%# Eval("idUsuario") %>' CommandName="Inativar"
                                                 runat="server">Inativar</asp:LinkButton>
@@ -112,7 +115,8 @@
                                     <asp:BoundField HeaderText="Equipe" DataField="NomeEquipe" />
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Ativar</HeaderTemplate>
+                                            Ativar
+                                        </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="LinkButton1" CommandArgument='<%# Eval("idUsuario") %>' CommandName="Ativar"
                                                 runat="server">Ativar</asp:LinkButton>
@@ -164,17 +168,17 @@
                         "Sair": function () { jQuery('#CopyCampeonatos').dialog("close"); return true; }
                     }
                 });
-                jQuery('#CopyCampeonatos').dialog({ width: 350, height: 150 });
+                jQuery('#CopyCampeonatos').dialog({ width: 350, height: 200 });
                 jQuery("#CopyCampeonatos").parent().appendTo(jQuery("form:first"));
                 jQuery('#CopyCampeonatos').dialog('open');
-            }    
+            }
         </script>
         <div class="container_12">
             <div class="grid_12">
-                <h3 class="StepTitle">
-                    Equipes do Grupo</h3>
+                <h3 class="StepTitle">Equipes do Grupo</h3>
                 <div class="StepSubTitle">
-                    Informações e gerenciamento das equipes</div>
+                    Informações e gerenciamento das equipes
+                </div>
             </div>
             <div class="clear espaco">
                 &nbsp;
@@ -194,8 +198,7 @@
                     id="Button1" type="button" value="Adicionar" onclick="OpenCadastro(1);" />
                 <!-- Dialog Cadastro -->
                 <asp:HiddenField ID="HiddenIdEquipeCampeonato" runat="server" />
-                <div id="CadEquipe" title="Cadastrar / Alterar Equipe" style="display: none; font-size: x-small;
-                    color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+                <div id="CadEquipe" title="Cadastrar / Alterar Equipe" style="display: none; font-size: x-small; color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
                     class="ui-dialog ui-resizable-handle">
                     <table width="98%" cellpadding="1" cellspacing="1" border="0">
                         <tr>
@@ -222,10 +225,13 @@
             </div>
             <!-- Fim Dialog Cadastro -->
             <!-- Dialog copiar -->
-            <div id="CopyCampeonatos" title="Copiar as equipes" style="display: none; font-size: x-small;
-                color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
+            <div id="CopyCampeonatos" title="Copiar as equipes" style="display: none; font-size: x-small; color: Black; font-family: Verdana; font-style: normal; font-weight: normal;"
                 class="ui-dialog ui-resizable-handle">
                 <table width="98%" cellpadding="1" cellspacing="1" border="0">
+                    <tr>
+                        <td colspan="2"></td>
+                        Para copiar as equipe do campeonato anterior para esse campeonato.
+                    </tr>
                     <tr>
                         <td>
                             <span><b>Campeonato:</b></span>
@@ -258,7 +264,8 @@
                                 <Columns>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Sigla</HeaderTemplate>
+                                            Sigla
+                                        </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkCodCalendario" runat="server" CommandArgument='<%# Eval( "idEquipeCampeonato" )%>'
                                                 CommandName="EditCalendario"><%# Eval("Sigla")%></asp:LinkButton>
@@ -267,7 +274,8 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Nome Equipe</HeaderTemplate>
+                                            Nome Equipe
+                                        </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkNomeCalendario" runat="server" CommandArgument='<%# Eval( "idEquipeCampeonato" )%>'
                                                 CommandName="EditCalendario"><%# Eval("NomeEquipe")%></asp:LinkButton>
@@ -285,7 +293,8 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Inativar</HeaderTemplate>
+                                            Inativar
+                                        </HeaderTemplate>
                                         <HeaderStyle HorizontalAlign="Center" Width="50px" />
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkInativar" CommandArgument='<%# Eval("idEquipeCampeonato") %>'
@@ -307,7 +316,8 @@
                                     <asp:BoundField HeaderText="Nome Equipe" DataField="NomeEquipe" />
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            Inativar</HeaderTemplate>
+                                            Inativar
+                                        </HeaderTemplate>
                                         <HeaderStyle HorizontalAlign="Center" Width="50px" />
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnkAtivar" CommandArgument='<%# Eval("idEquipeCampeonato") %>'

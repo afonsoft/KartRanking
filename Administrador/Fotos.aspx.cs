@@ -36,6 +36,7 @@ namespace KartRanking.Administrador
                         PanelAlbum.Visible = false;
                         PanelListAlbum.Visible = true;
                         PopularAlbuns();
+                        PopularEtapas();
                     }
                     else
                     {
@@ -57,6 +58,31 @@ namespace KartRanking.Administrador
             //}
         }
 
+        private void PopularEtapas()
+        {
+            ddlEtapas.Items.Clear();
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var LinqEtapas = (from e in dk.Kart_Calendario_Campeonatos
+                                  orderby e.Data ascending
+                                  where (e.Ativo == true || e.Ativo == null)
+                                  && e.idCampeonato == IdCampeonato
+                                  select new { e.Nome, e.Data, e.idCalendario }).ToList();
+
+                var etapas = (from l in LinqEtapas
+                              orderby l.Data ascending
+                              select new { Nome = l.Nome + " - " + l.Data.ToString("dd/MM/yyyy"), l.idCalendario });
+
+                ddlEtapas.DataSource = etapas;
+                ddlEtapas.DataTextField = "Nome";
+                ddlEtapas.DataValueField = "idCalendario";
+                ddlEtapas.DataBind();
+            }
+
+            ddlEtapas.Items.Insert(0, new ListItem("Nenhum", "0"));
+
+        }
+
         private void PopularAlbum(int idAlbum)
         {
             Album album = new Album();
@@ -75,6 +101,7 @@ namespace KartRanking.Administrador
                 album.NomeAlbum = fotos.NomeAlbum;
                 album.PathFotos = fotos.PathFotos;
                 album.UrlFotos = fotos.UrlFotos;
+                album.idCalendario = fotos.idCalendario.HasValue ? fotos.idCalendario.Value : 0;
                 album.Itens = RecuperarTodosItens(fotos.PathFotos, fotos.UrlFotos, fotos.idAlbum);
 
                 TotalCol = 0;
@@ -106,6 +133,7 @@ namespace KartRanking.Administrador
                     NomeAlbum = f.NomeAlbum,
                     PathFotos = f.PathFotos,
                     UrlFotos = f.UrlFotos,
+                    idCalendario = f.idCalendario.HasValue ? f.idCalendario.Value : 0,
                     Itens = RecuperarItens(f.PathFotos, f.UrlFotos, f.idAlbum)
                 });
             }
@@ -197,6 +225,8 @@ namespace KartRanking.Administrador
                     album.idGrupo = IdGrupo;
                     album.PathFotos = FullPath;
                     album.NomeAlbum = txtNomeAlbum.Text;
+                    if (ddlEtapas.SelectedIndex > 0)
+                        album.idCalendario = Convert.ToInt32(ddlEtapas.SelectedValue);
                     album.IdUsuario = UsuarioLogado.idUsuario;
                     album.UrlFotos = UrlPath;
                     album.Descricao = "";
@@ -297,6 +327,8 @@ namespace KartRanking.Administrador
     {
         public int idAlbum { get; set; }
         public int idGrupo { get; set; }
+        public int idCalendario { get; set; }
+        public string NomeCalendario { get; set; }
         public string NomeAlbum { get; set; }
         public DateTime dtEvento { get; set; }
         public string PathFotos { get; set; }

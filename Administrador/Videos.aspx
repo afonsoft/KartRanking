@@ -85,7 +85,7 @@
                         <span><b>Etapa:</b></span>
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlEtapas" runat="server" Width="60%">
+                        <asp:DropDownList ID="ddlEtapas" runat="server" Width="80%">
                         </asp:DropDownList>
                     </td>
                 </tr>

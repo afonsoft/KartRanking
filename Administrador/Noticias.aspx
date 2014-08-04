@@ -39,7 +39,10 @@
         <script type="text/javascript">
             $('.jqte').jqte();
 
-            function CadastrarNoticia() {
+            function CadastrarNoticia(save) {
+
+                document.getElementById('<%=HiddenFieldSave.ClientID%>').value = save;
+
                 $('#OpenCadastro').dialog({
                     autoOpen: false, hide: 'explode', modal: false, show: 'slide',
                     buttons: {
@@ -56,6 +59,7 @@
                 $('#OpenCadastro').dialog('open');
             }
         </script>
+        <asp:HiddenField ID="HiddenFieldSave" runat="server" />
         <div class="container_12">
             <div class="grid_12">
                 <h3 class="StepTitle">
@@ -69,7 +73,7 @@
             <div class="grid_12" style="text-align: right;">
                 <% if (IsAdmin)
                    { %>
-                <asp:Button ID="btnAddNoticias" runat="server" Text="Adicionar Noticias" OnClick="btnAddNoticias_Click" />
+                <asp:Button ID="btnEnvioEmailTodos" runat="server" Text="Enviar email a todos" OnClick="btnEnvioEmailTodos_Click" />&nbsp;&nbsp;<asp:Button ID="btnAddNoticias" runat="server" Text="Adicionar Noticias" OnClick="btnAddNoticias_Click" />
                 <% }
                    else
                    { %>
