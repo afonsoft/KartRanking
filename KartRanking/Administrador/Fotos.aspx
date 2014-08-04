@@ -25,6 +25,21 @@
                     this.title = 'Imagem ' + (this.index + 1) + ' de ' + this.group.length + (this.title ? ' - ' + this.title : '');
                 }
             });
+
+            $('#<%= txtDtEvento.ClientID %>').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd/mm/yy',
+                dayNames: ['Domingo', 'Segunda', 'Ter&ccedil;a', 'Quarta', 'Quinta', 'Sexta', 'S&aacute;bado', 'Domingo'],
+                dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S&aacute;b', 'Dom'],
+                monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                nextText: 'Pr&oacute;ximo',
+                prevText: 'Anterior',
+                showAnim: 'slideDown'
+            });
+
         });
     </script>
     <asp:Panel ID="PanelListAlbum" runat="server">
@@ -37,7 +52,7 @@
                         "Sair": function () { jQuery('#CadAlbum').dialog("close"); return true; }
                     }
                 });
-                jQuery('#CadAlbum').dialog({ width: 300, height: 160 });
+                jQuery('#CadAlbum').dialog({ width: 320, height: 200 });
                 jQuery("#CadAlbum").parent().appendTo(jQuery("form:first"));
                 jQuery('#CadAlbum').dialog('open');
             }
@@ -60,6 +75,15 @@
                     </td>
                     <td>
                         <asp:TextBox ID="txtDtEvento" MaxLength="10" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <span><b>Etapa:</b></span>
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlEtapas" runat="server" Width="80%">
+                        </asp:DropDownList>
                     </td>
                 </tr>
             </table>

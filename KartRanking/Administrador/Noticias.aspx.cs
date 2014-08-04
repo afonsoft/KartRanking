@@ -186,7 +186,29 @@ namespace KartRanking.Administrador
                     HiddenFieldIdNoticia.Value = "0";
                     txtTitulo.Text = "";
                     textarea.Text = "";
-                    Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia();", true);
+                    Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia(true);", true);
+                }
+                else
+                {
+                    Alert("Você não possue permissão para editar noticias deste grupo!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert(ex.Message, ex);
+            }
+        }
+
+        protected void btnEnvioEmailTodos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsAdmin)
+                {
+                    HiddenFieldIdNoticia.Value = "0";
+                    txtTitulo.Text = "";
+                    textarea.Text = "";
+                    Page.ClientScript.RegisterStartupScript(PanelNoticias.GetType(), "Cadastro", "CadastrarNoticia(false);", true);
                 }
                 else
                 {
@@ -203,42 +225,54 @@ namespace KartRanking.Administrador
         {
             if (IsAdmin)
             {
-                DataKartDataContext dk = new DataKartDataContext();
-                Kart_Noticias_Grupo noticia = null;
-                int idNoticia = Convert.ToInt32(HiddenFieldIdNoticia.Value);
+                bool save = true;
+                bool.TryParse(HiddenFieldSave.Value, out save);
+                if (save)
+                {
+                    DataKartDataContext dk = new DataKartDataContext();
+                    Kart_Noticias_Grupo noticia = null;
+                    int idNoticia = Convert.ToInt32(HiddenFieldIdNoticia.Value);
 
-                if (idNoticia <= 0)
-                    noticia = new Kart_Noticias_Grupo();
+                    if (idNoticia <= 0)
+                        noticia = new Kart_Noticias_Grupo();
+                    else
+                        noticia = (from n in dk.Kart_Noticias_Grupos
+                                   where n.idNoticias == idNoticia
+                                   select n).FirstOrDefault();
+
+                    if (noticia == null)
+                        noticia = new Kart_Noticias_Grupo();
+
+                    noticia.idGrupo = IdGrupo;
+                    noticia.dtCriacao = DateTime.Now;
+                    noticia.Ativo = true;
+                    noticia.IdUsuario = UsuarioLogado.idUsuario;
+                    noticia.Titulo = txtTitulo.Text;
+                    noticia.Noticia = textarea.Text;
+
+                    if (idNoticia <= 0)
+                        dk.Kart_Noticias_Grupos.InsertOnSubmit(noticia);
+
+                    dk.SubmitChanges();
+                    popularNoticias();
+
+                    if (idNoticia <= 0 && noticia.idNoticias > 0)
+                        EMail.EnviarEmailNoticias(IdGrupo, noticia.idNoticias);
+
+                    Alert("Operação efetuado com sucesso!");
+                }
                 else
-                    noticia = (from n in dk.Kart_Noticias_Grupos
-                               where n.idNoticias == idNoticia
-                               select n).FirstOrDefault();
-
-                if(noticia == null)
-                    noticia = new Kart_Noticias_Grupo();
-
-                noticia.idGrupo = IdGrupo;
-                noticia.dtCriacao = DateTime.Now;
-                noticia.Ativo = true;
-                noticia.IdUsuario = UsuarioLogado.idUsuario;
-                noticia.Titulo = txtTitulo.Text;
-                noticia.Noticia = textarea.Text;
-                
-                if (idNoticia <= 0)
-                    dk.Kart_Noticias_Grupos.InsertOnSubmit(noticia);
-
-                dk.SubmitChanges();
-                popularNoticias();
-
-                if (idNoticia <= 0 && noticia.idNoticias > 0)
-                    EMail.EnviarEmailNoticias(IdGrupo, noticia.idNoticias);
-                
-                Alert("Operação efetuado com sucesso!");
+                {
+                    email.EMail.EnviarEmailAoGrupo(IdGrupo, textarea.Text);
+                    Alert("Operação efetuado com sucesso!");
+                }
             }
             else
             {
                 Alert("Você não possue permissão para editar noticias deste grupo!");
             }
         }
+
+       
     }
 }

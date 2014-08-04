@@ -68,9 +68,17 @@
     <IncludeIisSettings>true</IncludeIisSettings>
     <PublishDatabaseSettings>
       <Objects>
+        <ObjectGroup Name="afonsoftcombr_dbConnectionString-Deployment" Order="1" xmlns="">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=mssql.afonsoft.com.br%3bInitial Catalog=afonsoftcombr_db%3bPersist Security Info=True%3bUser ID=afonsoftcombr%3bPassword=r5q9y6t2%3bConnect Timeout=360%3bLoad Balance Timeout=360" ScriptSchema="True" ScriptData="True" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\afonsoftcombr_dbConnectionString-Deployment_SchemaAndData.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
       </Objects>
     </PublishDatabaseSettings>
     <PublishDatabases>false</PublishDatabases>
+    <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>icons\helmet_256.ico</ApplicationIcon>
@@ -138,6 +146,7 @@
     <Content Include="dlls\AspNetInfo.SampleDiagnosticPlugIn.dll" />
     <Content Include="dlls\HtmlAgilityPack.dll" />
     <Content Include="dlls\Microsoft.WindowsAzure.Storage.dll" />
+    <Content Include="email\GrupoEmail.htm" />
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoRegraModificado.htm" />
