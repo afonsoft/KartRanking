@@ -218,46 +218,6 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
-		public System.Data.Linq.Table<View_Equipe_Usuario> View_Equipe_Usuarios
-		{
-			get
-			{
-				return this.GetTable<View_Equipe_Usuario>();
-			}
-		}
-		
-		public System.Data.Linq.Table<View_Kart_Usuario_Pontos_Grupo> View_Kart_Usuario_Pontos_Grupos
-		{
-			get
-			{
-				return this.GetTable<View_Kart_Usuario_Pontos_Grupo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<View_Kart_Equipe_Pontos_Campeonato> View_Kart_Equipe_Pontos_Campeonatos
-		{
-			get
-			{
-				return this.GetTable<View_Kart_Equipe_Pontos_Campeonato>();
-			}
-		}
-		
-		public System.Data.Linq.Table<View_Kart_Usuario_Historico> View_Kart_Usuario_Historicos
-		{
-			get
-			{
-				return this.GetTable<View_Kart_Usuario_Historico>();
-			}
-		}
-		
-		public System.Data.Linq.Table<View_Kart_Usuario_Pontos_Campeonato> View_Kart_Usuario_Pontos_Campeonatos
-		{
-			get
-			{
-				return this.GetTable<View_Kart_Usuario_Pontos_Campeonato>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Kart_Regras_Grupo> Kart_Regras_Grupos
 		{
 			get
@@ -319,6 +279,70 @@ namespace KartRanking.BaseDados
 			get
 			{
 				return this.GetTable<Kart_Album_Grupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Equipe_Usuario> View_Equipe_Usuarios
+		{
+			get
+			{
+				return this.GetTable<View_Equipe_Usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Equipe_Pontos_Campeonato> View_Kart_Equipe_Pontos_Campeonatos
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Equipe_Pontos_Campeonato>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Resultado_Calendario_Usuario> View_Kart_Resultado_Calendario_Usuarios
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Resultado_Calendario_Usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Usuario_Historico> View_Kart_Usuario_Historicos
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Usuario_Historico>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Usuario_Historico_Geral> View_Kart_Usuario_Historico_Gerals
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Usuario_Historico_Geral>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Usuario_Pontos_Campeonato> View_Kart_Usuario_Pontos_Campeonatos
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Usuario_Pontos_Campeonato>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Usuario_Pontos_Grupo> View_Kart_Usuario_Pontos_Grupos
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Usuario_Pontos_Grupo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<View_Kart_Usuario_Todo_Historico> View_Kart_Usuario_Todo_Historicos
+		{
+			get
+			{
+				return this.GetTable<View_Kart_Usuario_Todo_Historico>();
 			}
 		}
 	}
@@ -5079,609 +5103,6 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Equipe_Usuario")]
-	public partial class View_Equipe_Usuario
-	{
-		
-		private int _idUsuario;
-		
-		private string _NomeEquipe;
-		
-		private string _Sigla;
-		
-		private int _idEquipeCampeonato;
-		
-		private int _idCampeonato;
-		
-		public View_Equipe_Usuario()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeEquipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string NomeEquipe
-		{
-			get
-			{
-				return this._NomeEquipe;
-			}
-			set
-			{
-				if ((this._NomeEquipe != value))
-				{
-					this._NomeEquipe = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Sigla
-		{
-			get
-			{
-				return this._Sigla;
-			}
-			set
-			{
-				if ((this._Sigla != value))
-				{
-					this._Sigla = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
-		public int idEquipeCampeonato
-		{
-			get
-			{
-				return this._idEquipeCampeonato;
-			}
-			set
-			{
-				if ((this._idEquipeCampeonato != value))
-				{
-					this._idEquipeCampeonato = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
-		public int idCampeonato
-		{
-			get
-			{
-				return this._idCampeonato;
-			}
-			set
-			{
-				if ((this._idCampeonato != value))
-				{
-					this._idCampeonato = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Grupo")]
-	public partial class View_Kart_Usuario_Pontos_Grupo
-	{
-		
-		private int _idUsuario;
-		
-		private string _Nome;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private string _Grupo;
-		
-		private int _idGrupo;
-		
-		public View_Kart_Usuario_Pontos_Grupo()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this._Nome = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Grupo
-		{
-			get
-			{
-				return this._Grupo;
-			}
-			set
-			{
-				if ((this._Grupo != value))
-				{
-					this._Grupo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Equipe_Pontos_Campeonato")]
-	public partial class View_Kart_Equipe_Pontos_Campeonato
-	{
-		
-		private int _idEquipeCampeonato;
-		
-		private string _Equipe;
-		
-		private string _Sigla;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private string _Grupo;
-		
-		private string _Campeonato;
-		
-		private int _idCampeonato;
-		
-		private int _idGrupo;
-		
-		public View_Kart_Equipe_Pontos_Campeonato()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
-		public int idEquipeCampeonato
-		{
-			get
-			{
-				return this._idEquipeCampeonato;
-			}
-			set
-			{
-				if ((this._idEquipeCampeonato != value))
-				{
-					this._idEquipeCampeonato = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Equipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Equipe
-		{
-			get
-			{
-				return this._Equipe;
-			}
-			set
-			{
-				if ((this._Equipe != value))
-				{
-					this._Equipe = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Sigla
-		{
-			get
-			{
-				return this._Sigla;
-			}
-			set
-			{
-				if ((this._Sigla != value))
-				{
-					this._Sigla = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Grupo
-		{
-			get
-			{
-				return this._Grupo;
-			}
-			set
-			{
-				if ((this._Grupo != value))
-				{
-					this._Grupo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Campeonato
-		{
-			get
-			{
-				return this._Campeonato;
-			}
-			set
-			{
-				if ((this._Campeonato != value))
-				{
-					this._Campeonato = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
-		public int idCampeonato
-		{
-			get
-			{
-				return this._idCampeonato;
-			}
-			set
-			{
-				if ((this._idCampeonato != value))
-				{
-					this._idCampeonato = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Historico")]
-	public partial class View_Kart_Usuario_Historico
-	{
-		
-		private int _idUsuario;
-		
-		private string _Nome;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private System.Nullable<int> _Provas;
-		
-		private int _Vitorias;
-		
-		private int _Podios;
-		
-		public View_Kart_Usuario_Historico()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this._Nome = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Provas", DbType="Int")]
-		public System.Nullable<int> Provas
-		{
-			get
-			{
-				return this._Provas;
-			}
-			set
-			{
-				if ((this._Provas != value))
-				{
-					this._Provas = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vitorias", DbType="Int NOT NULL")]
-		public int Vitorias
-		{
-			get
-			{
-				return this._Vitorias;
-			}
-			set
-			{
-				if ((this._Vitorias != value))
-				{
-					this._Vitorias = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Podios", DbType="Int NOT NULL")]
-		public int Podios
-		{
-			get
-			{
-				return this._Podios;
-			}
-			set
-			{
-				if ((this._Podios != value))
-				{
-					this._Podios = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato")]
-	public partial class View_Kart_Usuario_Pontos_Campeonato
-	{
-		
-		private int _idUsuario;
-		
-		private string _Nome;
-		
-		private System.Nullable<int> _Pontos;
-		
-		private string _Grupo;
-		
-		private string _Campeonato;
-		
-		private int _idCampeonato;
-		
-		private int _idGrupo;
-		
-		public View_Kart_Usuario_Pontos_Campeonato()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
-		public int idUsuario
-		{
-			get
-			{
-				return this._idUsuario;
-			}
-			set
-			{
-				if ((this._idUsuario != value))
-				{
-					this._idUsuario = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Nome
-		{
-			get
-			{
-				return this._Nome;
-			}
-			set
-			{
-				if ((this._Nome != value))
-				{
-					this._Nome = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
-		public System.Nullable<int> Pontos
-		{
-			get
-			{
-				return this._Pontos;
-			}
-			set
-			{
-				if ((this._Pontos != value))
-				{
-					this._Pontos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Grupo
-		{
-			get
-			{
-				return this._Grupo;
-			}
-			set
-			{
-				if ((this._Grupo != value))
-				{
-					this._Grupo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Campeonato
-		{
-			get
-			{
-				return this._Campeonato;
-			}
-			set
-			{
-				if ((this._Campeonato != value))
-				{
-					this._Campeonato = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
-		public int idCampeonato
-		{
-			get
-			{
-				return this._idCampeonato;
-			}
-			set
-			{
-				if ((this._idCampeonato != value))
-				{
-					this._idCampeonato = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
-		public int idGrupo
-		{
-			get
-			{
-				return this._idGrupo;
-			}
-			set
-			{
-				if ((this._idGrupo != value))
-				{
-					this._idGrupo = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Regras_Grupo")]
 	public partial class Kart_Regras_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -9347,6 +8768,1518 @@ namespace KartRanking.BaseDados
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Equipe_Usuario")]
+	public partial class View_Equipe_Usuario
+	{
+		
+		private int _idUsuario;
+		
+		private string _NomeEquipe;
+		
+		private string _Sigla;
+		
+		private int _idEquipeCampeonato;
+		
+		private int _idCampeonato;
+		
+		public View_Equipe_Usuario()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeEquipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string NomeEquipe
+		{
+			get
+			{
+				return this._NomeEquipe;
+			}
+			set
+			{
+				if ((this._NomeEquipe != value))
+				{
+					this._NomeEquipe = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Sigla
+		{
+			get
+			{
+				return this._Sigla;
+			}
+			set
+			{
+				if ((this._Sigla != value))
+				{
+					this._Sigla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
+		public int idEquipeCampeonato
+		{
+			get
+			{
+				return this._idEquipeCampeonato;
+			}
+			set
+			{
+				if ((this._idEquipeCampeonato != value))
+				{
+					this._idEquipeCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Equipe_Pontos_Campeonato")]
+	public partial class View_Kart_Equipe_Pontos_Campeonato
+	{
+		
+		private int _idEquipeCampeonato;
+		
+		private string _Equipe;
+		
+		private string _Sigla;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private string _Grupo;
+		
+		private string _Campeonato;
+		
+		private int _idCampeonato;
+		
+		private int _idGrupo;
+		
+		public View_Kart_Equipe_Pontos_Campeonato()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEquipeCampeonato", DbType="Int NOT NULL")]
+		public int idEquipeCampeonato
+		{
+			get
+			{
+				return this._idEquipeCampeonato;
+			}
+			set
+			{
+				if ((this._idEquipeCampeonato != value))
+				{
+					this._idEquipeCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Equipe", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Equipe
+		{
+			get
+			{
+				return this._Equipe;
+			}
+			set
+			{
+				if ((this._Equipe != value))
+				{
+					this._Equipe = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sigla", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Sigla
+		{
+			get
+			{
+				return this._Sigla;
+			}
+			set
+			{
+				if ((this._Sigla != value))
+				{
+					this._Sigla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Grupo
+		{
+			get
+			{
+				return this._Grupo;
+			}
+			set
+			{
+				if ((this._Grupo != value))
+				{
+					this._Grupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Campeonato
+		{
+			get
+			{
+				return this._Campeonato;
+			}
+			set
+			{
+				if ((this._Campeonato != value))
+				{
+					this._Campeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Resultado_Calendario_Usuario")]
+	public partial class View_Kart_Resultado_Calendario_Usuario
+	{
+		
+		private int _idGrupo;
+		
+		private int _idCampeonato;
+		
+		private System.DateTime _Data;
+		
+		private int _idUsuario;
+		
+		private int _idResultado;
+		
+		private int _idCalendario;
+		
+		private int _Pos;
+		
+		private int _idEquipe;
+		
+		private int _tempoHoras;
+		
+		private int _tempoMinutos;
+		
+		private int _tempoSegundos;
+		
+		private int _tempoMilisegundos;
+		
+		private int _Ponto;
+		
+		private int _Voltas;
+		
+		public View_Kart_Resultado_Calendario_Usuario()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="SmallDateTime NOT NULL")]
+		public System.DateTime Data
+		{
+			get
+			{
+				return this._Data;
+			}
+			set
+			{
+				if ((this._Data != value))
+				{
+					this._Data = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idResultado", DbType="Int NOT NULL")]
+		public int idResultado
+		{
+			get
+			{
+				return this._idResultado;
+			}
+			set
+			{
+				if ((this._idResultado != value))
+				{
+					this._idResultado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCalendario", DbType="Int NOT NULL")]
+		public int idCalendario
+		{
+			get
+			{
+				return this._idCalendario;
+			}
+			set
+			{
+				if ((this._idCalendario != value))
+				{
+					this._idCalendario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pos", DbType="Int NOT NULL")]
+		public int Pos
+		{
+			get
+			{
+				return this._Pos;
+			}
+			set
+			{
+				if ((this._Pos != value))
+				{
+					this._Pos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idEquipe", DbType="Int NOT NULL")]
+		public int idEquipe
+		{
+			get
+			{
+				return this._idEquipe;
+			}
+			set
+			{
+				if ((this._idEquipe != value))
+				{
+					this._idEquipe = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tempoHoras", DbType="Int NOT NULL")]
+		public int tempoHoras
+		{
+			get
+			{
+				return this._tempoHoras;
+			}
+			set
+			{
+				if ((this._tempoHoras != value))
+				{
+					this._tempoHoras = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tempoMinutos", DbType="Int NOT NULL")]
+		public int tempoMinutos
+		{
+			get
+			{
+				return this._tempoMinutos;
+			}
+			set
+			{
+				if ((this._tempoMinutos != value))
+				{
+					this._tempoMinutos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tempoSegundos", DbType="Int NOT NULL")]
+		public int tempoSegundos
+		{
+			get
+			{
+				return this._tempoSegundos;
+			}
+			set
+			{
+				if ((this._tempoSegundos != value))
+				{
+					this._tempoSegundos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tempoMilisegundos", DbType="Int NOT NULL")]
+		public int tempoMilisegundos
+		{
+			get
+			{
+				return this._tempoMilisegundos;
+			}
+			set
+			{
+				if ((this._tempoMilisegundos != value))
+				{
+					this._tempoMilisegundos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ponto", DbType="Int NOT NULL")]
+		public int Ponto
+		{
+			get
+			{
+				return this._Ponto;
+			}
+			set
+			{
+				if ((this._Ponto != value))
+				{
+					this._Ponto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Voltas", DbType="Int NOT NULL")]
+		public int Voltas
+		{
+			get
+			{
+				return this._Voltas;
+			}
+			set
+			{
+				if ((this._Voltas != value))
+				{
+					this._Voltas = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Historico")]
+	public partial class View_Kart_Usuario_Historico
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private int _idGrupo;
+		
+		private int _idCampeonato;
+		
+		private System.Nullable<int> _pontos;
+		
+		private System.Nullable<int> _voltas;
+		
+		private System.Nullable<int> _Provas;
+		
+		private int _Pos_1;
+		
+		private int _Pos_2;
+		
+		private int _Pos_3;
+		
+		private int _Pos_4;
+		
+		private int _Pos_5;
+		
+		private int _Pos_6;
+		
+		private int _Pos_7;
+		
+		private int _Pos_8;
+		
+		private int _Pos_9;
+		
+		private int _Pos_10;
+		
+		public View_Kart_Usuario_Historico()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pontos", DbType="Int")]
+		public System.Nullable<int> pontos
+		{
+			get
+			{
+				return this._pontos;
+			}
+			set
+			{
+				if ((this._pontos != value))
+				{
+					this._pontos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voltas", DbType="Int")]
+		public System.Nullable<int> voltas
+		{
+			get
+			{
+				return this._voltas;
+			}
+			set
+			{
+				if ((this._voltas != value))
+				{
+					this._voltas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Provas", DbType="Int")]
+		public System.Nullable<int> Provas
+		{
+			get
+			{
+				return this._Provas;
+			}
+			set
+			{
+				if ((this._Provas != value))
+				{
+					this._Provas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.1]", Storage="_Pos_1", DbType="Int NOT NULL")]
+		public int Pos_1
+		{
+			get
+			{
+				return this._Pos_1;
+			}
+			set
+			{
+				if ((this._Pos_1 != value))
+				{
+					this._Pos_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.2]", Storage="_Pos_2", DbType="Int NOT NULL")]
+		public int Pos_2
+		{
+			get
+			{
+				return this._Pos_2;
+			}
+			set
+			{
+				if ((this._Pos_2 != value))
+				{
+					this._Pos_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.3]", Storage="_Pos_3", DbType="Int NOT NULL")]
+		public int Pos_3
+		{
+			get
+			{
+				return this._Pos_3;
+			}
+			set
+			{
+				if ((this._Pos_3 != value))
+				{
+					this._Pos_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.4]", Storage="_Pos_4", DbType="Int NOT NULL")]
+		public int Pos_4
+		{
+			get
+			{
+				return this._Pos_4;
+			}
+			set
+			{
+				if ((this._Pos_4 != value))
+				{
+					this._Pos_4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.5]", Storage="_Pos_5", DbType="Int NOT NULL")]
+		public int Pos_5
+		{
+			get
+			{
+				return this._Pos_5;
+			}
+			set
+			{
+				if ((this._Pos_5 != value))
+				{
+					this._Pos_5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.6]", Storage="_Pos_6", DbType="Int NOT NULL")]
+		public int Pos_6
+		{
+			get
+			{
+				return this._Pos_6;
+			}
+			set
+			{
+				if ((this._Pos_6 != value))
+				{
+					this._Pos_6 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.7]", Storage="_Pos_7", DbType="Int NOT NULL")]
+		public int Pos_7
+		{
+			get
+			{
+				return this._Pos_7;
+			}
+			set
+			{
+				if ((this._Pos_7 != value))
+				{
+					this._Pos_7 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.8]", Storage="_Pos_8", DbType="Int NOT NULL")]
+		public int Pos_8
+		{
+			get
+			{
+				return this._Pos_8;
+			}
+			set
+			{
+				if ((this._Pos_8 != value))
+				{
+					this._Pos_8 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.9]", Storage="_Pos_9", DbType="Int NOT NULL")]
+		public int Pos_9
+		{
+			get
+			{
+				return this._Pos_9;
+			}
+			set
+			{
+				if ((this._Pos_9 != value))
+				{
+					this._Pos_9 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.10]", Storage="_Pos_10", DbType="Int NOT NULL")]
+		public int Pos_10
+		{
+			get
+			{
+				return this._Pos_10;
+			}
+			set
+			{
+				if ((this._Pos_10 != value))
+				{
+					this._Pos_10 = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Historico_Geral")]
+	public partial class View_Kart_Usuario_Historico_Geral
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private int _idGrupo;
+		
+		private int _idCampeonato;
+		
+		private string _NomeCampeonato;
+		
+		private int _idCalendario;
+		
+		private string _NomeCalendario;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private System.Nullable<int> _Voltas;
+		
+		public View_Kart_Usuario_Historico_Geral()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeCampeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string NomeCampeonato
+		{
+			get
+			{
+				return this._NomeCampeonato;
+			}
+			set
+			{
+				if ((this._NomeCampeonato != value))
+				{
+					this._NomeCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCalendario", DbType="Int NOT NULL")]
+		public int idCalendario
+		{
+			get
+			{
+				return this._idCalendario;
+			}
+			set
+			{
+				if ((this._idCalendario != value))
+				{
+					this._idCalendario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeCalendario", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string NomeCalendario
+		{
+			get
+			{
+				return this._NomeCalendario;
+			}
+			set
+			{
+				if ((this._NomeCalendario != value))
+				{
+					this._NomeCalendario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Voltas", DbType="Int")]
+		public System.Nullable<int> Voltas
+		{
+			get
+			{
+				return this._Voltas;
+			}
+			set
+			{
+				if ((this._Voltas != value))
+				{
+					this._Voltas = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato")]
+	public partial class View_Kart_Usuario_Pontos_Campeonato
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private string _Grupo;
+		
+		private string _Campeonato;
+		
+		private int _idCampeonato;
+		
+		private int _idGrupo;
+		
+		public View_Kart_Usuario_Pontos_Campeonato()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Grupo
+		{
+			get
+			{
+				return this._Grupo;
+			}
+			set
+			{
+				if ((this._Grupo != value))
+				{
+					this._Grupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Campeonato", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Campeonato
+		{
+			get
+			{
+				return this._Campeonato;
+			}
+			set
+			{
+				if ((this._Campeonato != value))
+				{
+					this._Campeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCampeonato", DbType="Int NOT NULL")]
+		public int idCampeonato
+		{
+			get
+			{
+				return this._idCampeonato;
+			}
+			set
+			{
+				if ((this._idCampeonato != value))
+				{
+					this._idCampeonato = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Grupo")]
+	public partial class View_Kart_Usuario_Pontos_Grupo
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private System.Nullable<int> _Pontos;
+		
+		private string _Grupo;
+		
+		private int _idGrupo;
+		
+		public View_Kart_Usuario_Pontos_Grupo()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pontos", DbType="Int")]
+		public System.Nullable<int> Pontos
+		{
+			get
+			{
+				return this._Pontos;
+			}
+			set
+			{
+				if ((this._Pontos != value))
+				{
+					this._Pontos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grupo", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Grupo
+		{
+			get
+			{
+				return this._Grupo;
+			}
+			set
+			{
+				if ((this._Grupo != value))
+				{
+					this._Grupo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idGrupo", DbType="Int NOT NULL")]
+		public int idGrupo
+		{
+			get
+			{
+				return this._idGrupo;
+			}
+			set
+			{
+				if ((this._idGrupo != value))
+				{
+					this._idGrupo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Todo_Historico")]
+	public partial class View_Kart_Usuario_Todo_Historico
+	{
+		
+		private int _idUsuario;
+		
+		private string _Nome;
+		
+		private System.Nullable<int> _pontos;
+		
+		private System.Nullable<int> _voltas;
+		
+		private System.Nullable<int> _Provas;
+		
+		private int _Pos_1;
+		
+		private int _Pos_2;
+		
+		private int _Pos_3;
+		
+		private int _Pos_4;
+		
+		private int _Pos_5;
+		
+		private int _Pos_6;
+		
+		private int _Pos_7;
+		
+		private int _Pos_8;
+		
+		private int _Pos_9;
+		
+		private int _Pos_10;
+		
+		public View_Kart_Usuario_Todo_Historico()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", DbType="Int NOT NULL")]
+		public int idUsuario
+		{
+			get
+			{
+				return this._idUsuario;
+			}
+			set
+			{
+				if ((this._idUsuario != value))
+				{
+					this._idUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this._Nome = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pontos", DbType="Int")]
+		public System.Nullable<int> pontos
+		{
+			get
+			{
+				return this._pontos;
+			}
+			set
+			{
+				if ((this._pontos != value))
+				{
+					this._pontos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_voltas", DbType="Int")]
+		public System.Nullable<int> voltas
+		{
+			get
+			{
+				return this._voltas;
+			}
+			set
+			{
+				if ((this._voltas != value))
+				{
+					this._voltas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Provas", DbType="Int")]
+		public System.Nullable<int> Provas
+		{
+			get
+			{
+				return this._Provas;
+			}
+			set
+			{
+				if ((this._Provas != value))
+				{
+					this._Provas = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.1]", Storage="_Pos_1", DbType="Int NOT NULL")]
+		public int Pos_1
+		{
+			get
+			{
+				return this._Pos_1;
+			}
+			set
+			{
+				if ((this._Pos_1 != value))
+				{
+					this._Pos_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.2]", Storage="_Pos_2", DbType="Int NOT NULL")]
+		public int Pos_2
+		{
+			get
+			{
+				return this._Pos_2;
+			}
+			set
+			{
+				if ((this._Pos_2 != value))
+				{
+					this._Pos_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.3]", Storage="_Pos_3", DbType="Int NOT NULL")]
+		public int Pos_3
+		{
+			get
+			{
+				return this._Pos_3;
+			}
+			set
+			{
+				if ((this._Pos_3 != value))
+				{
+					this._Pos_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.4]", Storage="_Pos_4", DbType="Int NOT NULL")]
+		public int Pos_4
+		{
+			get
+			{
+				return this._Pos_4;
+			}
+			set
+			{
+				if ((this._Pos_4 != value))
+				{
+					this._Pos_4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.5]", Storage="_Pos_5", DbType="Int NOT NULL")]
+		public int Pos_5
+		{
+			get
+			{
+				return this._Pos_5;
+			}
+			set
+			{
+				if ((this._Pos_5 != value))
+				{
+					this._Pos_5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.6]", Storage="_Pos_6", DbType="Int NOT NULL")]
+		public int Pos_6
+		{
+			get
+			{
+				return this._Pos_6;
+			}
+			set
+			{
+				if ((this._Pos_6 != value))
+				{
+					this._Pos_6 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.7]", Storage="_Pos_7", DbType="Int NOT NULL")]
+		public int Pos_7
+		{
+			get
+			{
+				return this._Pos_7;
+			}
+			set
+			{
+				if ((this._Pos_7 != value))
+				{
+					this._Pos_7 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.8]", Storage="_Pos_8", DbType="Int NOT NULL")]
+		public int Pos_8
+		{
+			get
+			{
+				return this._Pos_8;
+			}
+			set
+			{
+				if ((this._Pos_8 != value))
+				{
+					this._Pos_8 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.9]", Storage="_Pos_9", DbType="Int NOT NULL")]
+		public int Pos_9
+		{
+			get
+			{
+				return this._Pos_9;
+			}
+			set
+			{
+				if ((this._Pos_9 != value))
+				{
+					this._Pos_9 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Pos.10]", Storage="_Pos_10", DbType="Int NOT NULL")]
+		public int Pos_10
+		{
+			get
+			{
+				return this._Pos_10;
+			}
+			set
+			{
+				if ((this._Pos_10 != value))
+				{
+					this._Pos_10 = value;
+				}
 			}
 		}
 	}

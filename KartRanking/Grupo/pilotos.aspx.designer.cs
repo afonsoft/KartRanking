@@ -91,7 +91,7 @@ namespace KartRanking.Grupo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNome;
+        protected global::System.Web.UI.WebControls.Label txtNome;
         
         /// <summary>
         /// txtDtNascimento control.
@@ -100,7 +100,7 @@ namespace KartRanking.Grupo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtNascimento;
+        protected global::System.Web.UI.WebControls.Label txtDtNascimento;
         
         /// <summary>
         /// txtApelido control.
@@ -109,7 +109,7 @@ namespace KartRanking.Grupo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApelido;
+        protected global::System.Web.UI.WebControls.Label txtApelido;
         
         /// <summary>
         /// txtPeso control.
@@ -118,7 +118,16 @@ namespace KartRanking.Grupo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPeso;
+        protected global::System.Web.UI.WebControls.Label txtPeso;
+        
+        /// <summary>
+        /// lbSexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbSexo;
         
         /// <summary>
         /// ddlSexo control.
@@ -136,7 +145,16 @@ namespace KartRanking.Grupo {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAltura;
+        protected global::System.Web.UI.WebControls.Label txtAltura;
+        
+        /// <summary>
+        /// lbEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbEstado;
         
         /// <summary>
         /// ddlEstado control.
@@ -148,48 +166,21 @@ namespace KartRanking.Grupo {
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
-        /// txtCidade control.
+        /// ChartTotalCampeonato control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCidade;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartTotalCampeonato;
         
         /// <summary>
-        /// txtPerfilFacebook control.
+        /// ChartTotalHistorico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPerfilFacebook;
-        
-        /// <summary>
-        /// txtPerfilTwitter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPerfilTwitter;
-        
-        /// <summary>
-        /// txtPerfilPlus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPerfilPlus;
-        
-        /// <summary>
-        /// txtObs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtObs;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ChartTotalHistorico;
     }
 }
