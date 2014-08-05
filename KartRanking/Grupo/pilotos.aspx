@@ -267,7 +267,7 @@
                                         <span class="label" style="font-size: 8pt;">Este Campeonato</span><br />
                                         <asp:Chart ID="ChartTotalCampeonato" runat="server" Width="400px" Height="200px">
                                             <Series>
-                                                <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
+                                                <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
                                             </Series>
                                             <ChartAreas>
                                                 <asp:ChartArea Name="chrtAreaTotalPodios" >
@@ -289,7 +289,7 @@
                                         <span class="label" style="font-size: 8pt;">Histórico Geral</span><br />
                                         <asp:Chart ID="ChartTotalHistorico" runat="server" Width="400px" Height="200px">
                                             <Series>
-                                                <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
+                                                <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
                                             </Series>
                                             <ChartAreas>
                                                 <asp:ChartArea Name="chrtAreaTotalPodios" >
