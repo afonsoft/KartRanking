@@ -64,18 +64,61 @@ namespace KartRanking.Grupo
                 txtApelido.Text = user.Apelido;
                 txtPeso.Text = user.Peso.ToString();
                 txtAltura.Text = user.Altura.ToString();
-                txtCidade.Text = user.Cidade;
                 if (!String.IsNullOrEmpty(user.Estado))
                     ddlEstado.Items.FindByValue(user.Estado).Selected = true;
                 if (user.Sexo.HasValue)
                     ddlSexo.Items.FindByValue(user.Sexo.Value.ToString()).Selected = true;
-
-                txtPerfilFacebook.Text = user.Perfil_Facebook;
-                txtPerfilTwitter.Text = user.Perfil_Twitter;
-                txtPerfilPlus.Text = user.Perfil_Plus;
-                txtObs.Text = user.Obs;
+                
+                lbSexo.Text = ddlSexo.SelectedValue;
+                lbEstado.Text = ddlEstado.SelectedValue;
                 id = user.idUsuario;
-                //ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
+
+                List<ChartUsuario> chartsCampeonato = new List<ChartUsuario>();
+                var UserHistorico = (from c in dk.View_Kart_Usuario_Historicos
+                                     where c.idGrupo == IdGrupo
+                                     && c.idCampeonato == IdCampeonato
+                                     && c.idUsuario == idUsuario
+                                     select c).FirstOrDefault();
+                if (UserHistorico != null)
+                {
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P1", value = UserHistorico.Pos_1 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P2", value = UserHistorico.Pos_2 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P3", value = UserHistorico.Pos_3 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P4", value = UserHistorico.Pos_4 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P5", value = UserHistorico.Pos_5 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P6", value = UserHistorico.Pos_6 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P7", value = UserHistorico.Pos_7 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P8", value = UserHistorico.Pos_8 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P9", value = UserHistorico.Pos_9 });
+                    chartsCampeonato.Add(new ChartUsuario() { text = "P10", value = UserHistorico.Pos_10 });
+                }
+                ChartTotalCampeonato.Series[0].XValueMember = "text";
+                ChartTotalCampeonato.Series[0].YValueMembers = "value";
+                ChartTotalCampeonato.DataSource = chartsCampeonato;
+                ChartTotalCampeonato.DataBind();
+
+                List<ChartUsuario> chartsHistoricoGeral = new List<ChartUsuario>();
+                var UserHistoricoGeral = (from c in dk.View_Kart_Usuario_Todo_Historicos
+                                     where c.idUsuario == idUsuario
+                                     select c).FirstOrDefault();
+                if (UserHistoricoGeral != null)
+                {
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P1", value = UserHistoricoGeral.Pos_1 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P2", value = UserHistoricoGeral.Pos_2 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P3", value = UserHistoricoGeral.Pos_3 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P4", value = UserHistoricoGeral.Pos_4 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P5", value = UserHistoricoGeral.Pos_5 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P6", value = UserHistoricoGeral.Pos_6 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P7", value = UserHistoricoGeral.Pos_7 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P8", value = UserHistoricoGeral.Pos_8 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P9", value = UserHistoricoGeral.Pos_9 });
+                    chartsHistoricoGeral.Add(new ChartUsuario() { text = "P10", value = UserHistoricoGeral.Pos_10 });
+                }
+                ChartTotalHistorico.Series[0].XValueMember = "text";
+                ChartTotalHistorico.Series[0].YValueMembers = "value";
+                ChartTotalHistorico.DataSource = chartsHistoricoGeral;
+                ChartTotalHistorico.DataBind();
+
             }
         }
 
@@ -123,5 +166,11 @@ namespace KartRanking.Grupo
             int idEquipe = 0;
             idEquipe = Convert.ToInt32(HiddenFieldidEquipeCampeonato.Value);
         }
+    }
+
+    public class ChartUsuario
+    {
+        public string text { get; set; }
+        public int value { get; set; }
     }
 }

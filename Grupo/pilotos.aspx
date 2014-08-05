@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Grupo/KartGrupo.master" AutoEventWireup="true"
     CodeBehind="pilotos.aspx.cs" Inherits="KartRanking.Grupo.pilotos" %>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
@@ -145,134 +147,170 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="grid_9">
+                            <div class="grid_5">
                                 <div class="container_12" style="margin-right: 0px; margin-left: 0px; width: 100%;">
-                                    <div class="grid_2">
-                                        <span class="label">Nome:</span><asp:HiddenField ID="IdUsuario" runat="server" />
-                                    </div>
-                                    <div class="grid_10">
-                                        <asp:TextBox ID="txtNome" runat="server" CssClass="text" ReadOnly="true" Enabled="false"></asp:TextBox>
+                                    <div class="grid_12">
+                                        <span class="label" style="font-size: 10pt;"><strong>Informações</strong></span>
                                     </div>
                                     <div class="clear espaco_mini">
                                         &nbsp;
                                     </div>
                                     <div class="grid_2">
-                                        <span class="label">Nascimento:</span>
+                                        <span class="label">Nome:</span><asp:HiddenField ID="IdUsuario" runat="server" />
+                                    </div>
+                                    <div class="grid_10">
+                                        <asp:Label ID="txtNome" runat="server" CssClass="label"></asp:Label>
+                                    </div>
+                                    <div class="clear espaco_mini">
+                                        &nbsp;
+                                    </div>
+                                    <div class="grid_2">
+                                        <span class="label">Nasc:</span>
                                     </div>
                                     <div class="grid_3">
-                                        <asp:TextBox ID="txtDtNascimento" ReadOnly="true" Enabled="false" MaxLength="10"
-                                            runat="server" CssClass="text"></asp:TextBox>
+                                        <asp:Label ID="txtDtNascimento" runat="server" CssClass="label"></asp:Label>
                                     </div>
                                     <div class="grid_2">
                                         <span class="label">Apelido:</span>
                                     </div>
                                     <div class="grid_5">
-                                        <asp:TextBox ID="txtApelido" ReadOnly="true" Enabled="false" runat="server" CssClass="text"></asp:TextBox>
+                                        <asp:Label ID="txtApelido" runat="server" CssClass="label"></asp:Label>
                                     </div>
                                     <div class="clear espaco_mini">
                                         &nbsp;
                                     </div>
                                     <div class="grid_2">
-                                        <span class="label">Peso:</span></div>
+                                        <span class="label">Peso:</span>
+                                    </div>
                                     <div class="grid_3">
-                                        <asp:TextBox ID="txtPeso" MaxLength="5" runat="server" CssClass="text" ReadOnly="true"
-                                            Enabled="false"></asp:TextBox>
+                                        <asp:Label ID="txtPeso" runat="server" CssClass="label"></asp:Label>
                                     </div>
                                     <div class="grid_2">
-                                        <span class="label">Sexo:</span></div>
+                                        <span class="label">Sexo:</span>
+                                    </div>
                                     <div class="grid_5">
-                                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="text" ReadOnly="true" Enabled="false">
-                                            <asp:ListItem Text="Masculino" Value="M" />
-                                            <asp:ListItem Text="Feminino" Value="F" />
-                                        </asp:DropDownList>
+                                        <asp:Label ID="lbSexo" runat="server" CssClass="label"></asp:Label>
+                                        <div style="display: none;">
+                                            <asp:DropDownList ID="ddlSexo" runat="server" CssClass="label">
+                                                <asp:ListItem Text="Masculino" Value="M" />
+                                                <asp:ListItem Text="Feminino" Value="F" />
+                                            </asp:DropDownList>
+                                        </div>
                                     </div>
                                     <div class="clear espaco_mini">
                                         &nbsp;
                                     </div>
                                     <div class="grid_2">
-                                        <span class="label">Altura:</span></div>
+                                        <span class="label">Altura:</span>
+                                    </div>
                                     <div class="grid_3">
-                                        <asp:TextBox ID="txtAltura" MaxLength="4" ReadOnly="true" Enabled="false" runat="server"
-                                            CssClass="text"></asp:TextBox>
+                                        <asp:Label ID="txtAltura" runat="server"
+                                            CssClass="label"></asp:Label>
                                     </div>
                                     <div class="grid_2">
-                                        <span class="label">Estado:</span></div>
+                                        <span class="label">Estado:</span>
+                                    </div>
                                     <div class="grid_5">
-                                        <asp:DropDownList ID="ddlEstado" runat="server" CssClass="text" ReadOnly="true" Enabled="false">
-                                            <asp:ListItem Text="Acre (AC)" Value="AC" />
-                                            <asp:ListItem Text="Alagoas (AL)" Value="AL" />
-                                            <asp:ListItem Text="Amapá (AP)" Value="AP" />
-                                            <asp:ListItem Text="Amazonas (AM)" Value="AM" />
-                                            <asp:ListItem Text="Bahia (BA)" Value="BA" />
-                                            <asp:ListItem Text="Ceará (CE)" Value="CE" />
-                                            <asp:ListItem Text="Distrito Federal (DF)" Value="DF" />
-                                            <asp:ListItem Text="Espírito Santo (ES)" Value="ES" />
-                                            <asp:ListItem Text="Goiás (GO)" Value="GO" />
-                                            <asp:ListItem Text="Maranhão (MA)" Value="MA" />
-                                            <asp:ListItem Text="Mato Grosso (MT)" Value="MT" />
-                                            <asp:ListItem Text="Mato Grosso do Sul (MS)" Value="MS" />
-                                            <asp:ListItem Text="Minas Gerais (MG)" Value="MG" />
-                                            <asp:ListItem Text="Pará (PA)" Value="PA" />
-                                            <asp:ListItem Text="Paraíba (PB)" Value="PB" />
-                                            <asp:ListItem Text="Paraná (PR)" Value="PR" />
-                                            <asp:ListItem Text="Pernambuco (PE)" Value="PE" />
-                                            <asp:ListItem Text="Piauí (PI)" Value="PI" />
-                                            <asp:ListItem Text="Rio de Janeiro (RJ)" Value="RJ" />
-                                            <asp:ListItem Text="Rio Grande do Norte (RN)" Value="RN" />
-                                            <asp:ListItem Text="Rio Grande do Sul (RS)" Value="RS" />
-                                            <asp:ListItem Text="Rondônia (RO)" Value="RO" />
-                                            <asp:ListItem Text="Roraima (RR)" Value="RR" />
-                                            <asp:ListItem Text="Santa Catarina (SC)" Value="SC" />
-                                            <asp:ListItem Text="São Paulo (SP)" Value="SP" />
-                                            <asp:ListItem Text="Sergipe (SE)" Value="SE" />
-                                            <asp:ListItem Text="Tocantins (TO)" Value="TO" />
-                                        </asp:DropDownList>
+                                        <asp:Label ID="lbEstado" runat="server" CssClass="label"></asp:Label>
+                                        <div style="display: none;">
+                                            <asp:DropDownList ID="ddlEstado" runat="server" CssClass="label">
+                                                <asp:ListItem Text="Acre (AC)" Value="AC" />
+                                                <asp:ListItem Text="Alagoas (AL)" Value="AL" />
+                                                <asp:ListItem Text="Amapá (AP)" Value="AP" />
+                                                <asp:ListItem Text="Amazonas (AM)" Value="AM" />
+                                                <asp:ListItem Text="Bahia (BA)" Value="BA" />
+                                                <asp:ListItem Text="Ceará (CE)" Value="CE" />
+                                                <asp:ListItem Text="Distrito Federal (DF)" Value="DF" />
+                                                <asp:ListItem Text="Espírito Santo (ES)" Value="ES" />
+                                                <asp:ListItem Text="Goiás (GO)" Value="GO" />
+                                                <asp:ListItem Text="Maranhão (MA)" Value="MA" />
+                                                <asp:ListItem Text="Mato Grosso (MT)" Value="MT" />
+                                                <asp:ListItem Text="Mato Grosso do Sul (MS)" Value="MS" />
+                                                <asp:ListItem Text="Minas Gerais (MG)" Value="MG" />
+                                                <asp:ListItem Text="Pará (PA)" Value="PA" />
+                                                <asp:ListItem Text="Paraíba (PB)" Value="PB" />
+                                                <asp:ListItem Text="Paraná (PR)" Value="PR" />
+                                                <asp:ListItem Text="Pernambuco (PE)" Value="PE" />
+                                                <asp:ListItem Text="Piauí (PI)" Value="PI" />
+                                                <asp:ListItem Text="Rio de Janeiro (RJ)" Value="RJ" />
+                                                <asp:ListItem Text="Rio Grande do Norte (RN)" Value="RN" />
+                                                <asp:ListItem Text="Rio Grande do Sul (RS)" Value="RS" />
+                                                <asp:ListItem Text="Rondônia (RO)" Value="RO" />
+                                                <asp:ListItem Text="Roraima (RR)" Value="RR" />
+                                                <asp:ListItem Text="Santa Catarina (SC)" Value="SC" />
+                                                <asp:ListItem Text="São Paulo (SP)" Value="SP" />
+                                                <asp:ListItem Text="Sergipe (SE)" Value="SE" />
+                                                <asp:ListItem Text="Tocantins (TO)" Value="TO" />
+                                            </asp:DropDownList>
+                                        </div>
                                     </div>
                                     <div class="clear espaco_mini">
                                         &nbsp;
                                     </div>
                                 </div>
                             </div>
-                            <div class="clear">
+                            <div class="grid_4">
                                 &nbsp;
-                            </div>
-                            <div class="grid_2">
-                                <span class="label">Cidade:</span>
-                            </div>
-                            <div class="grid_4">
-                                <asp:TextBox ID="txtCidade" ReadOnly="true" Enabled="false" runat="server" CssClass="text"></asp:TextBox>
-                            </div>
-                            <div class="grid_2">
-                                <span class="label">Perfil Facebook:</span>
-                            </div>
-                            <div class="grid_4">
-                                <asp:TextBox ID="txtPerfilFacebook" ReadOnly="true" Enabled="false" MaxLength="200"
-                                    runat="server" CssClass="text"></asp:TextBox>
                             </div>
                             <div class="clear espaco_mini">
                                 &nbsp;
                             </div>
-                            <div class="grid_2">
-                                <span class="label">Perfil Twitter:</span>
-                            </div>
-                            <div class="grid_4">
-                                <asp:TextBox ID="txtPerfilTwitter" ReadOnly="true" Enabled="false" MaxLength="200"
-                                    runat="server" CssClass="text"></asp:TextBox>
-                            </div>
-                            <div class="grid_2">
-                                <span class="label">Perfil Plus:</span></div>
-                            <div class="grid_4">
-                                <asp:TextBox ID="txtPerfilPlus" ReadOnly="true" Enabled="false" MaxLength="200" runat="server"
-                                    CssClass="text"></asp:TextBox>
-                            </div>
-                            <div class="clear espaco_mini">
-                                &nbsp;
-                            </div>
-                            <div class="grid_2">
-                                <span class="label">Obs:</span></div>
-                            <div class="grid_10">
-                                <asp:TextBox ID="txtObs" Height="100px" Width="100%" MaxLength="8000" ReadOnly="true"
-                                    Enabled="false" TextMode="MultiLine" CssClass="text" runat="server"></asp:TextBox>
+                            <div class="grid_12">
+                                <div class="container_12" style="margin-right: 0px; margin-left: 0px; width: 100%;">
+                                    <div class="grid_12">
+                                        <span class="label" style="font-size: 10pt;"><strong>Estatisticas</strong></span>
+                                    </div>
+                                    <div class="clear espaco_mini">
+                                        &nbsp;
+                                    </div>
+                                    <div class="grid_6">
+                                        <span class="label" style="font-size: 8pt;">Este Campeonato</span><br />
+                                        <asp:Chart ID="ChartTotalCampeonato" runat="server" Width="400px" Height="200px">
+                                            <Series>
+                                                <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
+                                            </Series>
+                                            <ChartAreas>
+                                                <asp:ChartArea Name="chrtAreaTotalPodios" >
+                                                    <AxisY LineColor="White" Title="Qts. Vezes" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisY>
+                                                    <AxisX LineColor="White" Title="Posições" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisX>
+                                                </asp:ChartArea>
+                                            </ChartAreas>
+                                        </asp:Chart>
+                                    </div>
+                                    <div class="grid_6">
+                                        <span class="label" style="font-size: 8pt;">Histórico Geral</span><br />
+                                        <asp:Chart ID="ChartTotalHistorico" runat="server" Width="400px" Height="200px">
+                                            <Series>
+                                                <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
+                                            </Series>
+                                            <ChartAreas>
+                                                <asp:ChartArea Name="chrtAreaTotalPodios" >
+                                                    <AxisY LineColor="White" Title="Qts. Vezes" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisY>
+                                                    <AxisX LineColor="White" Title="Posições" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisX>
+                                                </asp:ChartArea>
+                                            </ChartAreas>
+                                        </asp:Chart>
+                                    </div>
+                                    <div class="clear espaco_mini">
+                                        &nbsp;
+                                    </div>
+                                </div>
                             </div>
                             <div class="clear espaco_mini">
                                 &nbsp;
