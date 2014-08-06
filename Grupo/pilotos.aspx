@@ -103,15 +103,15 @@
                                         <div id='Info_<%# Container.ItemIndex + 1%>' class="ocultar" style="display: none; width: 100%">
                                             <div class="container_12" style="margin-right: 1%; margin-left: 1%; width: 100%;">
                                                 <div class="grid_6">
-                                                    <span class="label" style="font-size: 8pt; color:red;">Podios</span><br />
+                                                    <span class="label" style="font-size: 8pt; color: red;">Podios</span><br />
                                                     <asp:Chart ID="ChartTotalPontosCampeonato" EnableViewState="false" BackColor="Transparent" runat="server" DataSource='<%# Eval("lstPontos") %>' Width="430px" Height="200px">
                                                         <Series>
-                                                            <asp:Series Name="SeriesDataPodios" XValueMember = "text"  YValueMembers = "value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
+                                                            <asp:Series Name="SeriesDataPodios" XValueMember="text" YValueMembers="value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
                                                         </Series>
                                                         <ChartAreas>
                                                             <asp:ChartArea Name="chrtAreaTotalPodios" BackColor="Transparent">
                                                                 <AxisY LineColor="White" Title="Qts. Vezes" IsReversed="true" Interval="1" TitleForeColor="White">
-                                                                    <LabelStyle Font="Trebuchet MS, 8pt" ForeColor="White"/>
+                                                                    <LabelStyle Font="Trebuchet MS, 8pt" ForeColor="White" />
                                                                     <MajorGrid LineColor="#e6e6e6" />
                                                                     <MinorGrid Enabled="false" LineColor="#e6e6e6" />
                                                                 </AxisY>
@@ -125,10 +125,10 @@
                                                     </asp:Chart>
                                                 </div>
                                                 <div class="grid_6">
-                                                    <span class="label" style="font-size: 8pt; color:red;">Pontos das 10 Etapas</span><br />
+                                                    <span class="label" style="font-size: 8pt; color: red;">Pontos das 10 Etapas</span><br />
                                                     <asp:Chart ID="ChartTotalPodioCampeonato" runat="server" EnableViewState="false" DataSource='<%# Eval("lstPodios") %>' BackColor="Transparent" Width="450px" Height="200px">
                                                         <Series>
-                                                            <asp:Series Name="SeriesDataPodios" XValueMember = "text"  YValueMembers = "value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
+                                                            <asp:Series Name="SeriesDataPodios" XValueMember="text" YValueMembers="value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
                                                         </Series>
                                                         <ChartAreas>
                                                             <asp:ChartArea Name="chrtAreaTotalPodios" BackColor="Transparent">
@@ -412,6 +412,53 @@
                                     </div>
                                     <div class="clear espaco_mini">
                                         &nbsp;
+                                    </div>
+                                    <div class="grid_8">
+                                        <span class="label" style="font-size: 8pt;">Posição nas Etapas</span><br />
+                                        <asp:Chart ID="ChartTotalPodioCampeonato" runat="server" EnableViewState="false" Width="500px" Height="200px">
+                                            <Series>
+                                                <asp:Series Name="SeriesDataPodios" XValueMember="text" YValueMembers="value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
+                                            </Series>
+                                            <ChartAreas>
+                                                <asp:ChartArea Name="chrtAreaTotalPodios">
+                                                    <AxisY LineColor="White" Title="Posição" IsReversed="true" Minimum="1" Maximum="10" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisY>
+                                                    <AxisX LineColor="White" Title="Etapas" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisX>
+                                                </asp:ChartArea>
+                                            </ChartAreas>
+                                        </asp:Chart>
+                                    </div>
+                                    <div class="grid_4">
+                                        <span class="label" style="font-size: 8pt;">Estatistica deste Campeonato</span><br />
+                                        <table width="100%" cellpadding="3" cellspacing="3">
+                                            <tr>
+                                                <td><strong>N.º Provas:</strong></td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lbNprovas"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>N.º Vitórias:</strong></td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lbNvitorias"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>N.º Pódios:</strong></td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lbNpodios"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>N.º Pontos:</strong></td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="lbNpontos"></asp:Label></td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

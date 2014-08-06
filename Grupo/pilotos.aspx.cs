@@ -69,7 +69,7 @@ namespace KartRanking.Grupo
                     ddlEstado.Items.FindByValue(user.Estado).Selected = true;
                 if (user.Sexo.HasValue)
                     ddlSexo.Items.FindByValue(user.Sexo.Value.ToString()).Selected = true;
-                
+
                 lbSexo.Text = ddlSexo.SelectedValue;
                 lbEstado.Text = ddlEstado.SelectedValue;
                 id = user.idUsuario;
@@ -100,8 +100,8 @@ namespace KartRanking.Grupo
 
                 List<ChartUsuario> chartsHistoricoGeral = new List<ChartUsuario>();
                 var UserHistoricoGeral = (from c in dk.View_Kart_Usuario_Todo_Historicos
-                                     where c.idUsuario == idUsuario
-                                     select c).FirstOrDefault();
+                                          where c.idUsuario == idUsuario
+                                          select c).FirstOrDefault();
                 if (UserHistoricoGeral != null)
                 {
                     chartsHistoricoGeral.Add(new ChartUsuario() { text = "P1", value = UserHistoricoGeral.Pos_1 });
@@ -119,6 +119,28 @@ namespace KartRanking.Grupo
                 ChartTotalHistorico.Series[0].YValueMembers = "value";
                 ChartTotalHistorico.DataSource = chartsHistoricoGeral;
                 ChartTotalHistorico.DataBind();
+
+                ChartTotalPodioCampeonato.DataSource = getPodios(idUsuario, IdGrupo, IdCampeonato);
+                ChartTotalPodioCampeonato.DataBind();
+
+                //Estatistica fisica
+                lbNprovas.Text = "";
+                lbNvitorias.Text = "";
+                lbNpodios.Text = "";
+                lbNpontos.Text = "";
+
+                var infoUserEst = (from u in dk.View_Kart_Usuario_Historicos
+                                   where u.idUsuario == idUsuario
+                                   && u.idGrupo == IdGrupo
+                                   && u.idCampeonato == IdCampeonato
+                                   select u).FirstOrDefault();
+                if (infoUserEst != null)
+                {
+                    lbNprovas.Text = infoUserEst.Provas.HasValue ? infoUserEst.Provas.Value.ToString() : "0";
+                    lbNvitorias.Text = infoUserEst.Pos_1.ToString();
+                    lbNpodios.Text = (infoUserEst.Pos_1 + infoUserEst.Pos_2 + infoUserEst.Pos_3).ToString(); ;
+                    lbNpontos.Text = infoUserEst.pontos.HasValue ? infoUserEst.pontos.Value.ToString() : "0";
+                }
 
             }
         }
