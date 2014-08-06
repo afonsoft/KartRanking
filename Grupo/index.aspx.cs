@@ -139,12 +139,12 @@ namespace KartRanking.Grupo
         private void PopularGrid()
         {
             if (IdGrupo > 0 && IdCampeonato > 0)
-            {
+            { 
                 //View para popular o grid (Ranking do Campeonato)
-                var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                var RankingC = (from vp in dk.View_Kart_Usuario_Historicos
                                 where vp.idCampeonato == IdCampeonato
                                 && vp.idGrupo == IdGrupo
-                                orderby vp.Pontos descending
+                                orderby vp.pontos descending, vp.Pos_1 descending, vp.Pos_2 descending, vp.Pos_3 descending, vp.Pos_4 descending
                                 select vp).Take(10);
 
                 gvRankigCampeonato.DataSource = RankingC;

@@ -7,6 +7,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:Panel ID="PanelPiloto" runat="server" Visible="true">
+
+        <script type="text/javascript">
+            function openInfo(idDiv) {
+                $(".ocultar").slideUp();
+                if ($("#" + idDiv).is(":hidden")) {
+                    $("#" + idDiv).slideDown();
+                } else {
+                    $("#" + idDiv).slideUp();
+                }
+            }
+        </script>
+
         <div class="page1 box maxheight" style="height: auto; min-height: 380px;">
             <div class="padding-box">
                 <div class="indent-bot">
@@ -19,14 +31,29 @@
                                 <table style="width: 100%; padding: 2px; text-align: left; border: 0px solid #000;">
                                     <thead>
                                         <tr>
-                                            <th style="width: 30px;">
+                                            <th style="width: 20px;">
                                                 <b>Pos</b>
                                             </th>
                                             <th style="width: auto;">
                                                 <b>Nome</b>
                                             </th>
-                                            <th style="width: 30px;">
+                                            <th style="width: 40px;">
+                                                <b>Estatistica</b>
+                                            </th>
+                                            <th style="width: 35px;">
                                                 <b>Pontos</b>
+                                            </th>
+                                            <th style="width: 30px;">
+                                                <b>P.1</b>
+                                            </th>
+                                            <th style="width: 30px;">
+                                                <b>P.2</b>
+                                            </th>
+                                            <th style="width: 30px;">
+                                                <b>P.3</b>
+                                            </th>
+                                            <th style="width: 35px;">
+                                                <b>Voltas</b>
                                             </th>
                                         </tr>
                                     </thead>
@@ -34,7 +61,7 @@
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <tr>
-                                    <td style="width: 30px;">
+                                    <td style="width: 20px;">
                                         <span>
                                             <%# Container.ItemIndex + 1%></span>
                                     </td>
@@ -42,10 +69,86 @@
                                         <a href='/<%= UrlGrupo %>/pilotos/info/<%# Eval("idUsuario") %>'>
                                             <%# Eval("Nome") %></a>
                                     </td>
-                                    <td style="width: 30px;">
+                                    <td style="width: 40px;">
+                                        <a href="#" onclick="openInfo('Info_<%# Container.ItemIndex + 1%>');">Info</a>
+                                    </td>
+                                    <td style="width: 35px; text-align: center;">
                                         <span>
-                                            <%# Eval("Pontos") %>
+                                            <%# Eval("pontos") %>
                                         </span>
+                                    </td>
+                                    <td style="width: 30px; text-align: center;">
+                                        <span>
+                                            <%# Eval("Pos_1") %>
+                                        </span>
+                                    </td>
+                                    <td style="width: 30px; text-align: center;">
+                                        <span>
+                                            <%# Eval("Pos_2") %>
+                                        </span>
+                                    </td>
+                                    <td style="width: 30px; text-align: center;">
+                                        <span>
+                                            <%# Eval("Pos_3") %>
+                                        </span>
+                                    </td>
+                                    <td style="width: 30px; text-align: right;">
+                                        <span>
+                                            <%# Eval("voltas") %>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8">
+                                        <div id='Info_<%# Container.ItemIndex + 1%>' class="ocultar" style="display: none; width: 100%">
+                                            <div class="container_12" style="margin-right: 1%; margin-left: 1%; width: 100%;">
+                                                <div class="grid_6">
+                                                    <span class="label" style="font-size: 8pt; color:red;">Podios</span><br />
+                                                    <asp:Chart ID="ChartTotalPontosCampeonato" EnableViewState="false" BackColor="Transparent" runat="server" DataSource='<%# Eval("lstPontos") %>' Width="430px" Height="200px">
+                                                        <Series>
+                                                            <asp:Series Name="SeriesDataPodios" XValueMember = "text"  YValueMembers = "value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
+                                                        </Series>
+                                                        <ChartAreas>
+                                                            <asp:ChartArea Name="chrtAreaTotalPodios" BackColor="Transparent">
+                                                                <AxisY LineColor="White" Title="Qts. Vezes" IsReversed="true" Interval="1" TitleForeColor="White">
+                                                                    <LabelStyle Font="Trebuchet MS, 8pt" ForeColor="White"/>
+                                                                    <MajorGrid LineColor="#e6e6e6" />
+                                                                    <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                                </AxisY>
+                                                                <AxisX LineColor="White" Title="Posições" Interval="1" TitleForeColor="White">
+                                                                    <LabelStyle Font="Trebuchet MS, 8pt" ForeColor="White" />
+                                                                    <MajorGrid LineColor="#e6e6e6" />
+                                                                    <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                                </AxisX>
+                                                            </asp:ChartArea>
+                                                        </ChartAreas>
+                                                    </asp:Chart>
+                                                </div>
+                                                <div class="grid_6">
+                                                    <span class="label" style="font-size: 8pt; color:red;">Pontos das 10 Etapas</span><br />
+                                                    <asp:Chart ID="ChartTotalPodioCampeonato" runat="server" EnableViewState="false" DataSource='<%# Eval("lstPodios") %>' BackColor="Transparent" Width="450px" Height="200px">
+                                                        <Series>
+                                                            <asp:Series Name="SeriesDataPodios" XValueMember = "text"  YValueMembers = "value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
+                                                        </Series>
+                                                        <ChartAreas>
+                                                            <asp:ChartArea Name="chrtAreaTotalPodios" BackColor="Transparent">
+                                                                <AxisY LineColor="White" Title="Posição" IsReversed="true" Minimum="1" Maximum="10" Interval="1" TitleForeColor="White">
+                                                                    <LabelStyle Font="Trebuchet MS, 8pt" ForeColor="White" />
+                                                                    <MajorGrid LineColor="#e6e6e6" />
+                                                                    <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                                </AxisY>
+                                                                <AxisX LineColor="White" Title="Etapas" Interval="1" TitleForeColor="White">
+                                                                    <LabelStyle Font="Trebuchet MS, 8pt" ForeColor="White" />
+                                                                    <MajorGrid LineColor="#e6e6e6" />
+                                                                    <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                                </AxisX>
+                                                            </asp:ChartArea>
+                                                        </ChartAreas>
+                                                    </asp:Chart>
+                                                </div>
+                                                <div class="clear">&nbsp;</div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -270,7 +373,7 @@
                                                 <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
                                             </Series>
                                             <ChartAreas>
-                                                <asp:ChartArea Name="chrtAreaTotalPodios" >
+                                                <asp:ChartArea Name="chrtAreaTotalPodios">
                                                     <AxisY LineColor="White" Title="Qts. Vezes" Interval="1">
                                                         <LabelStyle Font="Trebuchet MS, 8pt" />
                                                         <MajorGrid LineColor="#e6e6e6" />
@@ -292,7 +395,7 @@
                                                 <asp:Series Name="SeriesDataPodios" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
                                             </Series>
                                             <ChartAreas>
-                                                <asp:ChartArea Name="chrtAreaTotalPodios" >
+                                                <asp:ChartArea Name="chrtAreaTotalPodios">
                                                     <AxisY LineColor="White" Title="Qts. Vezes" Interval="1">
                                                         <LabelStyle Font="Trebuchet MS, 8pt" />
                                                         <MajorGrid LineColor="#e6e6e6" />
