@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using KartRanking.BaseDados;
 using KartRanking.Page;
 
 namespace KartRanking.Grupo
@@ -122,6 +123,56 @@ namespace KartRanking.Grupo
             }
         }
 
+        private List<ChartUsuario> getPodios(int idUsuario, int idGrupo, int idCampeonato)
+        {
+            List<ChartUsuario> chartsCampeonato = new List<ChartUsuario>();
+            if (idUsuario > 0 && idGrupo > 0 && idCampeonato > 0)
+            {
+                List<View_Kart_Usuario_Historico_Geral> Historico_Gerals = null;
+                if (Session["Historico_Geral_" + idGrupo + "_" + idCampeonato] == null)
+                {
+                    Historico_Gerals = (from p in dk.View_Kart_Usuario_Historico_Gerals
+                                        where p.idGrupo == idGrupo
+                                        && p.idCampeonato == idCampeonato
+                                        select p).ToList();
+                }
+                else
+                {
+                    Historico_Gerals = (List<View_Kart_Usuario_Historico_Geral>)Session["Historico_Geral_" + idGrupo + "_" + idCampeonato];
+                }
+
+                var podiosEtapas = (from p in Historico_Gerals
+                                    where p.idUsuario == idUsuario
+                                    orderby p.DataCalendario descending
+                                    select p).Take(10);
+
+                var itenspodiosEtapas = (from p in podiosEtapas orderby p.DataCalendario ascending select p);
+
+                foreach (var item in itenspodiosEtapas)
+                    chartsCampeonato.Add(new ChartUsuario() { text = item.DataCalendario.ToString("dd-MM"), value = item.Pos });
+            }
+            return chartsCampeonato;
+
+        }
+        private List<ChartUsuario> getPontos(View_Kart_Usuario_Historico vp)
+        {
+            List<ChartUsuario> chartsCampeonato = new List<ChartUsuario>();
+            if (vp != null)
+            {
+                chartsCampeonato.Add(new ChartUsuario() { text = "P1", value = vp.Pos_1 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P2", value = vp.Pos_2 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P3", value = vp.Pos_3 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P4", value = vp.Pos_4 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P5", value = vp.Pos_5 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P6", value = vp.Pos_6 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P7", value = vp.Pos_7 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P8", value = vp.Pos_8 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P9", value = vp.Pos_9 });
+                chartsCampeonato.Add(new ChartUsuario() { text = "P10", value = vp.Pos_10 });
+            }
+            return chartsCampeonato;
+        }
+
         private void PopularGrid(int op)
         {
             gvRankigCampeonato.DataSource = null;
@@ -136,11 +187,37 @@ namespace KartRanking.Grupo
                 if (op == 1)
                 {
                     //View para popular o grid (Ranking do Campeonato)
-                    var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                    var _RankingC = (from vp in dk.View_Kart_Usuario_Historicos
                                     where vp.idCampeonato == IdCampeonato
                                     && vp.idGrupo == IdGrupo
-                                    orderby vp.Pontos descending
-                                    select vp);
+                                    orderby vp.pontos descending, vp.Pos_1 descending, vp.Pos_2 descending, vp.Pos_3 descending, vp.Pos_4 descending
+                                    select new 
+                                    {
+                                        vp.pontos,
+                                        vp.Nome,
+                                        vp.idUsuario,
+                                        vp.idGrupo, 
+                                        vp.idCampeonato,
+                                        vp.Pos_1,
+                                        vp.Pos_2,
+                                        vp.Pos_3,
+                                        vp.voltas,
+                                        lstPontos = getPontos(vp)
+                                    }).ToList();
+
+                    var RankingC = (from vp in _RankingC
+                                    select new
+                                    {
+                                        vp.pontos,
+                                        vp.Nome,
+                                        vp.idUsuario,
+                                        vp.Pos_1,
+                                        vp.Pos_2,
+                                        vp.Pos_3,
+                                        vp.voltas,
+                                        vp.lstPontos,
+                                        lstPodios = getPodios(vp.idUsuario, vp.idGrupo, vp.idCampeonato)
+                                    }).ToList();
 
                     gvRankigCampeonato.DataSource = RankingC;
                     gvRankigCampeonato.DataBind();

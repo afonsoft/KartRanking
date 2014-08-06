@@ -434,19 +434,6 @@
       <Column Name="[Pos.10]" Member="Pos_10" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="afonsoftcombr.View_Kart_Usuario_Historico_Geral" Member="View_Kart_Usuario_Historico_Gerals">
-    <Type Name="View_Kart_Usuario_Historico_Geral">
-      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NomeCampeonato" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="idCalendario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NomeCalendario" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Voltas" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato" Member="View_Kart_Usuario_Pontos_Campeonatos">
     <Type Name="View_Kart_Usuario_Pontos_Campeonato">
       <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -484,6 +471,21 @@
       <Column Name="[Pos.8]" Member="Pos_8" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="[Pos.9]" Member="Pos_9" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="[Pos.10]" Member="Pos_10" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afonsoftcombr.View_Kart_Usuario_Historico_Geral" Member="View_Kart_Usuario_Historico_Gerals">
+    <Type Name="View_Kart_Usuario_Historico_Geral">
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCampeonato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NomeCampeonato" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="idCalendario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NomeCalendario" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DataCalendario" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Pos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pontos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Voltas" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

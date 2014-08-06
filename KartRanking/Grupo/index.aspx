@@ -171,7 +171,7 @@
                                             </td>
                                             <td style="width: 30px;">
                                                 <span>
-                                                    <%# Eval("Pontos") %>
+                                                    <%# Eval("pontos") %>
                                                 </span>
                                             </td>
                                         </tr>
