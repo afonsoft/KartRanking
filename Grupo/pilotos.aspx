@@ -440,9 +440,9 @@
                                     <div class="clear espaco_mini">
                                         &nbsp;
                                     </div>
-                                    <div class="grid_8">
+                                    <div class="grid_9">
                                         <span class="label" style="font-size: 8pt;">Posição nas Etapas</span><br />
-                                        <asp:Chart ID="ChartTotalPodioCampeonato" runat="server" EnableViewState="false" Width="500px" Height="200px">
+                                        <asp:Chart ID="ChartTotalPodioCampeonato" runat="server" EnableViewState="false" Width="600px" Height="200px">
                                             <Series>
                                                 <asp:Series Name="SeriesDataPodios" XValueMember="text" YValueMembers="value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Line"></asp:Series>
                                             </Series>
@@ -462,20 +462,20 @@
                                             </ChartAreas>
                                         </asp:Chart>
                                     </div>
-                                    <div class="grid_4">
+                                    <div class="grid_3">
                                         <span class="label" style="font-size: 8pt;">Grid neste Campeonato</span><br />
-                                        <asp:Chart ID="ChartTotalPolesCampeonato" runat="server" EnableViewState="false" Width="200px" Height="200px">
+                                        <asp:Chart ID="ChartTotalPolesCampeonato" runat="server" EnableViewState="false" Width="190px" Height="200px">
                                             <Series>
                                                 <asp:Series Name="SeriesDataPodios" XValueMember="text" YValueMembers="value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
                                             </Series>
                                             <ChartAreas>
                                                 <asp:ChartArea Name="chrtAreaTotalPodios">
-                                                    <AxisY LineColor="White" Title="Qts. Vezes" IsReversed="true" Minimum="1" Maximum="10" Interval="1">
+                                                    <AxisY LineColor="White" Title="Qts. Vezes" IsReversed="true" Minimum="0" Interval="1">
                                                         <LabelStyle Font="Trebuchet MS, 8pt" />
                                                         <MajorGrid LineColor="#e6e6e6" />
                                                         <MinorGrid Enabled="false" LineColor="#e6e6e6" />
                                                     </AxisY>
-                                                    <AxisX LineColor="White" Title="Grid Posições" Interval="1">
+                                                      <AxisX LineColor="White" Title="Grid Posições" Interval="1">
                                                         <LabelStyle Font="Trebuchet MS, 8pt" />
                                                         <MajorGrid LineColor="#e6e6e6" />
                                                         <MinorGrid Enabled="false" LineColor="#e6e6e6" />
