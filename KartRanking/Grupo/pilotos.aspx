@@ -353,7 +353,34 @@
                                 </div>
                             </div>
                             <div class="grid_4">
-                                &nbsp;
+                                <span class="label" style="font-size: 10pt;"><strong>Estatistica deste Campeonato</strong></span>
+                                <table width="100%" cellpadding="3" cellspacing="3">
+                                    <tr>
+                                        <td class="label"><span class="label"><strong>N.º Provas:</strong></span></td>
+                                        <td class="label">
+                                            <asp:Label runat="server" ID="lbNprovas" CssClass="label"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><span class="label"><strong>N.º Vitórias:</strong></span></td>
+                                        <td class="label">
+                                            <asp:Label runat="server" CssClass="label" ID="lbNvitorias"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><span class="label"><strong>N.º Pódios:</strong></span></td>
+                                        <td class="label">
+                                            <asp:Label runat="server" ID="lbNpodios" CssClass="label"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><span class="label"><strong>N.º Poles:</strong></span></td>
+                                        <td class="label">
+                                            <asp:Label runat="server" ID="lbNpoles" CssClass="label"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><span class="label"><strong>N.º Pontos:</strong></span></td>
+                                        <td class="label">
+                                            <asp:Label runat="server" ID="lbNpontos" CssClass="label"></asp:Label></td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="clear espaco_mini">
                                 &nbsp;
@@ -436,29 +463,26 @@
                                         </asp:Chart>
                                     </div>
                                     <div class="grid_4">
-                                        <span class="label" style="font-size: 8pt;">Estatistica deste Campeonato</span><br />
-                                        <table width="100%" cellpadding="3" cellspacing="3">
-                                            <tr>
-                                                <td><strong>N.º Provas:</strong></td>
-                                                <td>
-                                                    <asp:Label runat="server" ID="lbNprovas"></asp:Label></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>N.º Vitórias:</strong></td>
-                                                <td>
-                                                    <asp:Label runat="server" ID="lbNvitorias"></asp:Label></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>N.º Pódios:</strong></td>
-                                                <td>
-                                                    <asp:Label runat="server" ID="lbNpodios"></asp:Label></td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>N.º Pontos:</strong></td>
-                                                <td>
-                                                    <asp:Label runat="server" ID="lbNpontos"></asp:Label></td>
-                                            </tr>
-                                        </table>
+                                        <span class="label" style="font-size: 8pt;">Grid neste Campeonato</span><br />
+                                        <asp:Chart ID="ChartTotalPolesCampeonato" runat="server" EnableViewState="false" Width="200px" Height="200px">
+                                            <Series>
+                                                <asp:Series Name="SeriesDataPodios" XValueMember="text" YValueMembers="value" ChartArea="chrtAreaTotalPodios" Color="Red" XValueType="String" YValueType="Int32" ChartType="Column"></asp:Series>
+                                            </Series>
+                                            <ChartAreas>
+                                                <asp:ChartArea Name="chrtAreaTotalPodios">
+                                                    <AxisY LineColor="White" Title="Qts. Vezes" IsReversed="true" Minimum="1" Maximum="10" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisY>
+                                                    <AxisX LineColor="White" Title="Grid Posições" Interval="1">
+                                                        <LabelStyle Font="Trebuchet MS, 8pt" />
+                                                        <MajorGrid LineColor="#e6e6e6" />
+                                                        <MinorGrid Enabled="false" LineColor="#e6e6e6" />
+                                                    </AxisX>
+                                                </asp:ChartArea>
+                                            </ChartAreas>
+                                        </asp:Chart>
                                     </div>
                                 </div>
                             </div>

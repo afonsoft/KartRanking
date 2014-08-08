@@ -75,6 +75,7 @@ namespace KartRanking.Grupo
                 id = user.idUsuario;
 
                 List<ChartUsuario> chartsCampeonato = new List<ChartUsuario>();
+                List<ChartUsuario> chartsPoleCampeonato = new List<ChartUsuario>();
                 var UserHistorico = (from c in dk.View_Kart_Usuario_Historicos
                                      where c.idGrupo == IdGrupo
                                      && c.idCampeonato == IdCampeonato
@@ -92,11 +93,19 @@ namespace KartRanking.Grupo
                     chartsCampeonato.Add(new ChartUsuario() { text = "P8", value = UserHistorico.Pos_8 });
                     chartsCampeonato.Add(new ChartUsuario() { text = "P9", value = UserHistorico.Pos_9 });
                     chartsCampeonato.Add(new ChartUsuario() { text = "P10", value = UserHistorico.Pos_10 });
+
+                    chartsPoleCampeonato.Add(new ChartUsuario() { text = "G1", value = UserHistorico.Grid_1 }); 
+                    chartsPoleCampeonato.Add(new ChartUsuario() { text = "G2", value = UserHistorico.Grid_2 });
+                    chartsPoleCampeonato.Add(new ChartUsuario() { text = "G3", value = UserHistorico.Grid_3 });
+
                 }
                 ChartTotalCampeonato.Series[0].XValueMember = "text";
                 ChartTotalCampeonato.Series[0].YValueMembers = "value";
                 ChartTotalCampeonato.DataSource = chartsCampeonato;
                 ChartTotalCampeonato.DataBind();
+
+                ChartTotalPolesCampeonato.DataSource = chartsPoleCampeonato;
+                ChartTotalPolesCampeonato.DataBind();
 
                 List<ChartUsuario> chartsHistoricoGeral = new List<ChartUsuario>();
                 var UserHistoricoGeral = (from c in dk.View_Kart_Usuario_Todo_Historicos
@@ -128,6 +137,7 @@ namespace KartRanking.Grupo
                 lbNvitorias.Text = "";
                 lbNpodios.Text = "";
                 lbNpontos.Text = "";
+                lbNpoles.Text = "";
 
                 var infoUserEst = (from u in dk.View_Kart_Usuario_Historicos
                                    where u.idUsuario == idUsuario
@@ -138,7 +148,8 @@ namespace KartRanking.Grupo
                 {
                     lbNprovas.Text = infoUserEst.Provas.HasValue ? infoUserEst.Provas.Value.ToString() : "0";
                     lbNvitorias.Text = infoUserEst.Pos_1.ToString();
-                    lbNpodios.Text = (infoUserEst.Pos_1 + infoUserEst.Pos_2 + infoUserEst.Pos_3).ToString(); ;
+                    lbNpodios.Text = (infoUserEst.Pos_1 + infoUserEst.Pos_2 + infoUserEst.Pos_3).ToString();
+                    lbNpoles.Text = infoUserEst.Grid_1.ToString();
                     lbNpontos.Text = infoUserEst.pontos.HasValue ? infoUserEst.pontos.Value.ToString() : "0";
                 }
 
