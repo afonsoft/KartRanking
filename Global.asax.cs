@@ -41,7 +41,7 @@ namespace KartRanking
 
                 if ((NomeGrupo.IndexOf(".") < 0 && NomeGrupo.IndexOf("?") < 0))
                 {
-                    NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                    NomeGrupo = NomeGrupo.Replace(".aspx", "").Replace("/",""); 
                     int? idGrupo = GetIdGrupo(NomeGrupo);
                     if (idGrupo.HasValue && idGrupo.Value > 0)
                     {
@@ -57,11 +57,11 @@ namespace KartRanking
 
                 if (NomeGrupo.IndexOf(".") < 0 && NomeGrupo.IndexOf('?') < 0 && caminho.IndexOf(".") < 0 && caminho.IndexOf('?') < 0)
                 {
-                    NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                    NomeGrupo = NomeGrupo.Replace(".aspx", "").Replace("/", "");
                     int? idGrupo = GetIdGrupo(NomeGrupo);
                     if (idGrupo.HasValue && idGrupo.Value > 0)
                     {
-                        Context.RewritePath("~/Grupo/" + caminho + ".aspx?idGrupo=" + idGrupo);
+                        Context.RewritePath("~/Grupo/" + caminho.Replace("/", "") + ".aspx?idGrupo=" + idGrupo);
                         //Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
                     }
                 }
@@ -69,7 +69,7 @@ namespace KartRanking
             else if (Request.Url.ToString().Contains("/pilotos/"))
             {
                 string NomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
-                NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                NomeGrupo = NomeGrupo.Replace(".aspx", "").Replace("/", "");
                 int? idGrupo = GetIdGrupo(NomeGrupo);
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
@@ -80,24 +80,21 @@ namespace KartRanking
                     {
                         string idusuario = Request.Url.Segments[4];
                         Context.RewritePath("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=info&idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=" + op);
                     }
                     else if (url.Contains("/equipes") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
                     {
                         Context.RewritePath("~/Grupo/pilotos.aspx?op=equipes" + "&idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?op=equipes" + "&idgrupo=" + idGrupo);
                     }
                     else if (url.Contains("/pilotos") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
                     {
                         Context.RewritePath("~/Grupo/pilotos.aspx?op=pilotos" + "&idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?op=pilotos" + "&idgrupo=" + idGrupo);
                     }
                 }
             }
             else if (Request.Url.ToString().Contains("/noticias/"))
             {
                 string NomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
-                NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                NomeGrupo = NomeGrupo.Replace(".aspx", "").Replace("/", "");
                 int? idGrupo = GetIdGrupo(NomeGrupo);
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
@@ -115,7 +112,7 @@ namespace KartRanking
             else if (Request.Url.ToString().Contains("/fotos/"))
             {
                 string NomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
-                NomeGrupo = NomeGrupo.Replace(".aspx", "");
+                NomeGrupo = NomeGrupo.Replace(".aspx", "").Replace("/", "");
                 int? idGrupo = GetIdGrupo(NomeGrupo);
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
