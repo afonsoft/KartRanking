@@ -165,12 +165,14 @@
                     <!-- Fim -->
                     <div style="position: absolute; left: 1%; top: 10%; z-index:10;">
                         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- LadoEsquerdo -->
-                        <ins class="adsbygoogle" style="display: inline-block; width: 120px; height: 600px"
-                            data-ad-client="ca-pub-2122647083447667" data-ad-slot="9975769206"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
+						<!-- LadoEsquerdo1 -->
+						<ins class="adsbygoogle"
+							 style="display:inline-block;width:120px;height:600px"
+							 data-ad-client="ca-pub-2122647083447667"
+							 data-ad-slot="5372571608"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
                     </div>
                 </td>
             </tr>
@@ -209,15 +211,15 @@
                             <td>
                                 <div style="width: 98%; height: 100% auto; padding: 10px;">
                                     <div style="width: 100%; text-align: center; padding-bottom: 3px;">
-                                        <script type="text/javascript">
-                                            google_ad_client = "ca-pub-2122647083447667";
-                                            /* Banner */
-                                            google_ad_slot = "3016994400";
-                                            google_ad_width = 468;
-                                            google_ad_height = 60;
-                                        </script>
-                                        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                                        </script>
+                                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+										<!-- Banner1 -->
+										<ins class="adsbygoogle"
+											 style="display:inline-block;width:468px;height:60px"
+											 data-ad-client="ca-pub-2122647083447667"
+											 data-ad-slot="6849304804"></ins>
+										<script>
+										(adsbygoogle = window.adsbygoogle || []).push({});
+										</script>
                                     </div>
                                     <asp:Panel ID="pnlConteudo" Visible="false" runat="server">
                                         <asp:ContentPlaceHolder ID="ContentPlaceCorpo" runat="server">
