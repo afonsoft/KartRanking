@@ -4,69 +4,67 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHead" runat="server">
     <script src="/grupo/countdown/countdown.js" type="text/javascript"></script>
     <style type="text/css">
-        #slider, #slider li
-        {
+        #slider, #slider li {
             width: 100%;
             min-height: 190px;
             height: auto;
             overflow: hidden;
         }
-        #slider li p
-        {
-            padding-bottom: 15px;
-        }
-        span#prevBtn
-        {
+
+            #slider li p {
+                padding-bottom: 15px;
+            }
+
+        span#prevBtn {
             text-decoration: none;
             font-style: normal;
         }
-        span#nextBtn
-        {
+
+        span#nextBtn {
             text-decoration: none;
             font-style: normal;
         }
-        .sliderSinopise
-        {
+
+        .sliderSinopise {
             padding: 0px 5px 5px 5px;
             color: rgb(189, 178, 178);
             font-size: 10px;
         }
-        .sliderTitulo
-        {
+
+        .sliderTitulo {
             font-size: 11px;
             color: #fff;
             font-weight: bold;
             margin: 0px;
             padding: 2px 5px;
         }
-        #defaultCountdown
-        {
+
+        #defaultCountdown {
             width: 240px;
             height: 45px;
         }
-        
-        .cntSeparator
-        {
+
+        .cntSeparator {
             font-size: 54px;
             margin: 30px 8px;
         }
-        .desc
-        {
+
+        .desc {
             margin: 7px 3px;
         }
-        .desc div
-        {
-            float: left;
-            font-family: Arial, Tahoma;
-            width: 60px;
-            margin-right: 45px;
-            margin-left: 25px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: normal;
-        }
-        .p2
-        {
+
+            .desc div {
+                float: left;
+                font-family: Arial, Tahoma;
+                width: 60px;
+                margin-right: 45px;
+                margin-left: 25px;
+                text-align: center;
+                font-size: 13px;
+                font-weight: normal;
+            }
+
+        .p2 {
             color: #fecc5f;
             font-size: 20px;
             font-weight: bold;
@@ -80,25 +78,55 @@
         $(document).ready(function () {
 
             $("#slider").easySlider({
-                loop: true,                           // Looping
-                orientation: 'vertical',              // Fading
-                autoplayDuration: 6500,               // Autoplay with 1 second intervals
-                autogeneratePagination: true,         // Automatically generate pagination links
-                restartDuration: 1500,                // In case of user interaction, restart the autoplay after 2.5 seconds
+                loop: true,
+                orientation: 'vertical',
+                autoplayDuration: 6500,
+                autogeneratePagination: true,
+                restartDuration: 1500,
                 nextId: 'next',
                 prevId: 'prev',
-                pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
+                pauseable: true
             });
         });
 
         function changeChampionship(event) {
-            alert("open select Championship");
+            $('#OpenDlgCampeonatos').dialog({
+                autoOpen: false, bgiframe: false, hide: 'explode', resizable: false, draggable: false,
+                modal: false, show: 'slide', Height: 300, Width: 500, title: "Selecionar Campeonato",
+                buttons: {
+                    "Selecionar": function ()
+                    {
+                        $('#OpenDlgCampeonatos').dialog("close");
+                        window.location.href = '/<%= UrlGrupo %>/campeonato/';
+                        return true;
+                    },
+                    "Fechar": function () { $('#OpenDlgCampeonatos').dialog("close"); return true; }
+                }
+            });
+
+            $("#OpenDlgCampeonatos").parent().appendTo(jQuery("form:first"));
+            $('#OpenDlgCampeonatos').dialog('open');
         }
 
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <asp:HiddenField ID="HiddenIdGrupo" runat="server" />
+
+    <div id="OpenDlgCampeonatos" style="display: none; font-size: x-small; color: Black; font-family: Verdana; font-style: normal; font-weight: normal;" class="ui-dialog ui-resizable-handle">
+        <div class="container_12">
+            <div class="grid_4">
+                <b>Campeonatos</b>
+            </div>
+            <div class="grid_8">
+                <asp:DropDownList ID="ddlCampeonatos" runat="server" Width="100%"></asp:DropDownList>
+            </div>
+            <div class="clear">
+                &nbsp;
+            </div>
+        </div>
+    </div>
+
     <div class="container_12">
         <div class="wrapper">
             <div class="grid_12">
@@ -115,15 +143,17 @@
                                 <tr>
                                     <td style="width: 80%; vertical-align: top;">
                                         <p>
-                                            Campeonato</p>
-                                        <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Alterar o Campeonato" onclick="return changeChampionship(this);" onmouseover="" style="cursor: pointer;" />
+                                            Campeonato
+                                        </p>
+                                        <%--<img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Alterar o Campeonato" onclick="return changeChampionship(this);" onmouseover="" style="cursor: pointer;" />--%>
+                                        <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Alterar o Campeonato"  />
                                     </td>
                                     <td>
                                         <p>
                                             Proxima Etapa:
-                                            <asp:Literal ID="LtProximaEtapa" runat="server"></asp:Literal></p>
+                                            <asp:Literal ID="LtProximaEtapa" runat="server"></asp:Literal>
+                                        </p>
                                         <script type="text/javascript">
-                                            // 86400 seconds = 1 day
                                             var timeSec = document.getElementById('<%= HiddenFieldStartTime.ClientID %>').value;
                                             var myCountdownLeftGame = new Countdown({ time: timeSec, width: 300, height: 60, rangeHi: "day", style: "flip" });
                                         </script>
@@ -200,7 +230,8 @@
                                 <img src="/Grupo/ImgTitleHandler.ashx?Text=Noticias&f=40" alt="Noticias" />
                             </h3>
                             <div style="font-size: 7pt; color: #FFF;">
-                                <asp:Literal ID="ltNoticias" runat="server"></asp:Literal></div>
+                                <asp:Literal ID="ltNoticias" runat="server"></asp:Literal>
+                            </div>
                             <div class="border-bot">
                             </div>
                         </div>
@@ -279,7 +310,7 @@
                                     cellspacing="1">
                                     <tr>
                                         <td rowspan="6" style="height: 170px; width: 150px; text-align: left; vertical-align: top;">
-                                            <img src= "/Administrador/ImageHandler.ashx?id=<%= IdUsuarioDestaque %>" Width="140px" Height="160px"alt="Piloto Destaque" />
+                                            <img src="/Administrador/ImageHandler.ashx?id=<%= IdUsuarioDestaque %>" width="140px" height="160px" alt="Piloto Destaque" />
                                         </td>
                                         <td style="width: 50px;">
                                             <b>Nome:</b>
@@ -322,13 +353,11 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="4">
-                                            &nbsp;
+                                        <td colspan="4">&nbsp;
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="4">
-                                            &nbsp;
+                                        <td colspan="4">&nbsp;
                                         </td>
                                     </tr>
                                 </table>

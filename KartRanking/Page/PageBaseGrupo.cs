@@ -85,7 +85,10 @@ namespace KartRanking.Page
             }
             else
             {
-                CarregarCampeonatoPrincipal(IdGrupo);
+                if (Request.QueryString["idCampeonato"] != null)
+                    IdCampeonato = Convert.ToInt32(Request.QueryString["idCampeonato"]);
+                else
+                    CarregarCampeonatoPrincipal(IdGrupo);
             }
 
         }
