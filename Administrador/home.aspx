@@ -45,14 +45,14 @@
         $(document).ready(function () {
 
             $("#slider").easySlider({
-                loop: true,                           // Looping
-                orientation: 'vertical',              // Fading
-                autoplayDuration: 6500,               // Autoplay with 1 second intervals
-                autogeneratePagination: true,         // Automatically generate pagination links
-                restartDuration: 1500,                // In case of user interaction, restart the autoplay after 2.5 seconds
+                loop: true,                           
+                orientation: 'vertical',              
+                autoplayDuration: 6500,               
+                autogeneratePagination: true,         
+                restartDuration: 1500,                
                 nextId: 'next',
                 prevId: 'prev',
-                pauseable: true                       // Pause by hovering over the image!  Then restart after 2.5 seconds (see above)
+                pauseable: true                       
             });
         });
     </script>

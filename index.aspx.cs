@@ -25,15 +25,21 @@ namespace KartRanking
 
         protected void Page_Load( object sender, EventArgs e )
         {
-            using (DataKartDataContext dk = new DataKartDataContext())
+            if (!IsPostBack)
             {
-                if (dk.DatabaseExists())
+                if (Request.Url.AbsoluteUri.IndexOf(".aspx") > 0)
                 {
-                    Response.Redirect("~/Administrador/index.aspx");
-                }
-                else
-                {
-                    Response.Redirect("~/InstallDb.aspx");
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        if (dk.DatabaseExists())
+                        {
+                            Response.Redirect("~/Administrador/index.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/InstallDb.aspx");
+                        }
+                    }
                 }
             }
         }

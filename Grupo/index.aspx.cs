@@ -28,7 +28,22 @@ namespace KartRanking.Grupo
             PilotoDestaque();
             PopularGrid(); 
             CarregarNoticias();
-            
+            popularCampeonatos();
+        }
+
+        private void popularCampeonatos()
+        {
+            var campeonato = (from c in dk.Kart_Campeonatos
+                              where c.idGrupo == IdGrupo
+                              && c.Ativo == true
+                              orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
+                              select new { c.idCampeonato, text = c.dtFim.Year + " - " + c.NomeCampeonato }).ToArray();
+
+            ddlCampeonatos.DataSource = campeonato;
+            ddlCampeonatos.DataTextField = "text";
+            ddlCampeonatos.DataValueField = "idCampeonato";
+            ddlCampeonatos.DataBind();
+
         }
         private void PopularProximaEtapa()
         {
@@ -276,6 +291,13 @@ namespace KartRanking.Grupo
                 }
             }
             return new string(array, 0, arrayIndex);
+        }
+
+        protected void lnkChangeChampionship_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(ddlCampeonatos.SelectedValue);
+            IdCampeonato = id;
+            Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + IdGrupo + "&idCampeonato=" + IdCampeonato);
         }
     }
 }

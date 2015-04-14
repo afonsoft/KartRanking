@@ -22,6 +22,15 @@ namespace KartRanking.Grupo {
         protected global::System.Web.UI.WebControls.HiddenField HiddenIdGrupo;
         
         /// <summary>
+        /// ddlCampeonatos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCampeonatos;
+        
+        /// <summary>
         /// HiddenFieldStartTime control.
         /// </summary>
         /// <remarks>
