@@ -91,6 +91,10 @@
             });
         });
 
+        function changeChampionship(event) {
+            alert("open select Championship");
+        }
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
@@ -112,7 +116,7 @@
                                     <td style="width: 80%; vertical-align: top;">
                                         <p>
                                             Campeonato</p>
-                                        <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Campeonato" />
+                                        <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Alterar o Campeonato" onclick="return changeChampionship(this);" onmouseover="" style="cursor: pointer;" />
                                     </td>
                                     <td>
                                         <p>
