@@ -565,6 +565,7 @@
     <Content Include="crc32.php" />
     <None Include="Grupo\countdown\images\.DS_Store" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
+    <None Include="Properties\PublishProfiles\Kart_file.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -318,6 +318,39 @@ namespace KartRanking.Administrador
             return ""; 
         }
 
+        protected void btnDesativarAlbum_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
+
+                string PathFoto = (from al in dk.Kart_Album_Grupos
+                                   where al.idAlbum == idAlbum
+                                   && al.idGrupo == IdGrupo
+                                   select al.PathFotos).FirstOrDefault();
+
+
+                if (Directory.Exists(PathFoto))
+                {
+                    string[] Arquivos = Directory.GetFiles(PathFoto);
+                    foreach (string arquivo in Arquivos)
+                        File.Delete(arquivo);
+
+                    Directory.Delete(PathFoto);
+
+                    var delItem = dk.Kart_Album_Grupos.Where(x => x.idAlbum == idAlbum && x.idGrupo == IdGrupo);
+                    dk.Kart_Album_Grupos.DeleteAllOnSubmit(delItem);
+                    dk.SubmitChanges();
+
+                    Alert("Album deletado com sucesso.", null, "/Administrador/Fotos.aspx");
+                }
+            }
+            catch (Exception ex)
+            {
+                Alert(ex);
+            }
+        }
+
     }
 
     #region Classe Album e Item

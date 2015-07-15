@@ -226,15 +226,17 @@
             <div class="clear espaco">
                 &nbsp;
             </div>
-            <div class="grid_6">
+            <div class="grid_5">
                 <b>Album:</b>&nbsp;<asp:Label ID="lbTituloAlbum" runat="server" Text=""></asp:Label>
             </div>
             <div class="grid_4" style="text-align: right;">
                 <b>Data do album:</b><asp:Label ID="lbDtEvento" runat="server" Text=""></asp:Label>
             </div>
-            <div class="grid_2" style="text-align: right; white-space: nowrap;">
+            <div class="grid_3" style="text-align: right; white-space: nowrap;">
                 <% if (IsAdmin)
                    { %>
+                <asp:Button ID="btnDesativarAlbum" runat="server" Text="Excluir" OnClientClick="return confirm('Deseja excluir esse album?');" OnClick="btnDesativarAlbum_Click" />
+                &nbsp;
                 <input id="btnOpenUpload" type="button" value="Upload" runat="server" onclick="OpenUploadPhoto();" />
                 <%}%>
                 &nbsp;

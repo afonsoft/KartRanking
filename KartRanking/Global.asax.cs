@@ -32,8 +32,19 @@ namespace KartRanking
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //string originalPath = Request.Url.ToString().ToLower();
-            //string UrlAmigavel = originalPath.Substring(originalPath.LastIndexOf('/') + 1, originalPath.Length - originalPath.LastIndexOf('/') - 1);
+            string originalPath = Request.Url.ToString().ToLower();
+            //Ignorar alguns itens
+            if (originalPath.IndexOf(".css") > 0 || 
+                originalPath.IndexOf(".js") > 0 || 
+                originalPath.IndexOf(".jpg") > 0 ||
+                originalPath.IndexOf(".ashx") > 0 ||
+                originalPath.IndexOf(".png") > 0 ||
+                originalPath.IndexOf(".gif") > 0 ||
+                originalPath.IndexOf(".eot") > 0 || 
+                originalPath.IndexOf("/administrador/") > 0)
+                return;
+
+            string UrlAmigavel = originalPath.Substring(originalPath.LastIndexOf('/') + 1, originalPath.Length - originalPath.LastIndexOf('/') - 1);
 
             if (Request.Url.Segments.Length == 2)
             {
@@ -46,7 +57,6 @@ namespace KartRanking
                     if (idGrupo.HasValue && idGrupo.Value > 0)
                     {
                         Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
                     }
                 }
             }
@@ -62,7 +72,6 @@ namespace KartRanking
                     if (idGrupo.HasValue && idGrupo.Value > 0)
                     {
                         Context.RewritePath("~/Grupo/" + caminho.Replace("/", "") + ".aspx?idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
                     }
                 }
             }

@@ -36,8 +36,8 @@ namespace KartRanking.Grupo
             {
                 PanelAlbum.Visible = true;
                 PanelListAlbum.Visible = false;
-                int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
-                PopularAlbum(idAlbum);
+                IdAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
+                PopularAlbum(IdAlbum);
             }
         }
 
@@ -129,7 +129,7 @@ namespace KartRanking.Grupo
                     });
                 }
             }
-           
+
             return Itens;
         }
 

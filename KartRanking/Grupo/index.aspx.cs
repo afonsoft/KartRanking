@@ -21,12 +21,13 @@ namespace KartRanking.Grupo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             HiddenFieldStartTime.Value = "00:00:00:00";//dd:hh:mm:ss
             HiddenIdGrupo.Value = "0";
             HiddenIdGrupo.Value = IdGrupo.ToString();
             PopularProximaEtapa();
             PilotoDestaque();
-            PopularGrid(); 
+            PopularGrid();
             CarregarNoticias();
             popularCampeonatos();
         }
