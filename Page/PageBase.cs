@@ -23,6 +23,7 @@ namespace KartRanking.Page
     ********************************************************/
     public class PageBase : System.Web.UI.Page
     {
+        //TODO: Remover o DataContext no futuro para performace
         public DataKartDataContext dk = new DataKartDataContext();
 
         #region AddMetaTag
@@ -145,7 +146,8 @@ namespace KartRanking.Page
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            GZipEncodePage();
+            RemoveSpaceHTML = false;
+            RemoveGZipEncodePage = true;
         }
 
         /// <summary>
