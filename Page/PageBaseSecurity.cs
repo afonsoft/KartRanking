@@ -17,6 +17,17 @@ namespace KartRanking.Page
     *********************************************************/
     public class PageBaseSecurity : PageBase
     {
+        public string SetTitle
+        {
+            get
+            {
+                if (Session["Title"] == null)
+                    Session["Title"] = "Gerenciamento de campeonatos de Kart com ranking";
+                return Session["Title"].ToString();
+
+            }
+            set { Session["Title"] = value; }
+        }
 
         public int IdGrupo
         {

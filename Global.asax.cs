@@ -19,6 +19,26 @@ namespace KartRanking
     ********************************************************/
     public class Global : System.Web.HttpApplication
     {
+
+        public string SetTitle
+        {
+            get
+            {
+                if (Session != null)
+                {
+                    if (Session["Title"] == null)
+                        Session["Title"] = "Gerenciamento de campeonatos de Kart com ranking";
+                    return Session["Title"].ToString();
+                }
+                return "Gerenciamento de campeonatos de Kart com ranking";
+            }
+            set
+            {
+                if (Session != null)
+                    Session["Title"] = value;
+            }
+        }
+
         //Fontes: http://rankingkart.codeplex.com/
         protected void Application_Start(object sender, EventArgs e)
         {
@@ -49,10 +69,10 @@ namespace KartRanking
             if (Request.Url.Segments.Length == 2)
             {
                 string NomeGrupo = Request.Url.Segments[1];
-
+                
                 if ((NomeGrupo.IndexOf(".") < 0 && NomeGrupo.IndexOf("?") < 0))
                 {
-                    NomeGrupo = NomeGrupo.Replace(".aspx", "").Replace("/",""); 
+                    NomeGrupo = NomeGrupo.Replace(".aspx", "").Replace("/","");
                     int? idGrupo = GetIdGrupo(NomeGrupo);
                     if (idGrupo.HasValue && idGrupo.Value > 0)
                     {
@@ -159,6 +179,7 @@ namespace KartRanking
 
         private int? GetIdGrupo(string NomeGrupo)
         {
+            SetTitle = NomeGrupo;
             List<Kart_Grupo> lstGrupos = new List<Kart_Grupo>();
 
             if (!CacheHelper.Exists("AllGrupo"))

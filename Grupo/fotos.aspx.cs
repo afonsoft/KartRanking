@@ -31,6 +31,7 @@ namespace KartRanking.Grupo
                 PanelAlbum.Visible = false;
                 PanelListAlbum.Visible = true;
                 PopularAlbuns();
+                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Fotos";
             }
             else
             {
@@ -39,6 +40,8 @@ namespace KartRanking.Grupo
                 IdAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
                 PopularAlbum(IdAlbum);
             }
+
+            
         }
 
         public string NomeAlbum
@@ -78,6 +81,8 @@ namespace KartRanking.Grupo
                 TotalImgCount = 0;
                 RepeaterFotos.DataSource = album.Itens;
                 RepeaterFotos.DataBind();
+
+                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Fotos - " + fotos.NomeAlbum;
             }
             else
             {
