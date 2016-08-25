@@ -27,7 +27,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <div id="fb-root">
     </div>
-    <script>
+    <script type="text/javascript">
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '739364019428136',
@@ -128,13 +128,13 @@
                                     <li><a href="/<%= urlGrupo %>/fotos">
                                         <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Fotos</a></li>
-                                    <li><a href="http://forum.afonsoft.com.br/">
+                                    <li><a href="http://forum.afonsoft.com.br/" target="_blank">
                                         <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Forum</a></li>
                                 </ul>
                                 <div class="extra-wrap">
                                     <div class="text-bot">
-                                        KartRanking © 2014</div>
+                                        KartRanking ©2016</div>
                                     <div class="text-bot">
                                         <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300">
                                         </div>

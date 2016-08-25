@@ -86,20 +86,12 @@ dir="ltr" lang="pt-br" xml:lang="pt-br">
                 </div>
             </center>
         </div>
-
         <br />
-        <%--
-    <table width="100%" border="0" cellpadding="5" cellspacing="5">
-        <tr>
-            <td>
-                <span><a href="http://www.afonsoft.com.br">AFONSOFT</a></span>
-            </td>
-            <td align="right">
-                <span><a href="mailto:afonsoft@afonsoft.com.br">Feedback</a></span>
-            </td>
-        </tr>
-    </table>
-        --%>
+        <div style="color: #FFFFFF; text-align: justify; font-size: 1pt; z-index: -9999; display: none;">
+            <p>
+                kart <b>amador</b>, <b>kart</b> profissional, piloto kart, Kart, Campeonato, Grupo, karting, Racing, <b>Rank</b>, <b>Ranking</b>, <b>kartodromo</b>, Granja Viana, Praia Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, conteudo, <b>kart.afonsoft.com.br</b>, forum.afonsoft.com.br, blog.afonsoft.com.br, <b>sistema de gerenciamento de conteúdo</b>,<b>gerenciamento de conteúdo</b>, sistema de gerenciamento de informações, http://www.afonsoft.com.br, http://kart.afonsoft.com.br, http://forum.afonsoft.com.br
+            </p>
+        </div>
     </form>
 </body>
 </html>

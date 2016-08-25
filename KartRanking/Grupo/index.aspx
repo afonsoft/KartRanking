@@ -94,8 +94,7 @@
                 autoOpen: false, bgiframe: false, hide: 'explode', resizable: false, draggable: false,
                 modal: false, show: 'slide', Height: 300, Width: 500, title: "Selecionar Campeonato",
                 buttons: {
-                    "Selecionar": function ()
-                    {
+                    "Selecionar": function () {
                         $('#OpenDlgCampeonatos').dialog("close");
                         window.location.href = '/<%= UrlGrupo %>/campeonato/';
                         return true;
@@ -146,7 +145,7 @@
                                             Campeonato
                                         </p>
                                         <%--<img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Alterar o Campeonato" onclick="return changeChampionship(this);" onmouseover="" style="cursor: pointer;" />--%>
-                                        <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Alterar o Campeonato"  />
+                                        <img src="/Grupo/ImgTitleHandler.ashx?Text=<%= NomeCampeonato %>&f=40" alt="Alterar o Campeonato" />
                                     </td>
                                     <td>
                                         <p>
