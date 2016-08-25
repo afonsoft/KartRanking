@@ -24,6 +24,7 @@ namespace KartRanking.Grupo
             if (!IsPostBack)
             {
                 popularVideos();
+                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Videos";
             }
         }
 

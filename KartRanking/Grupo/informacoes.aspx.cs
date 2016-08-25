@@ -24,6 +24,7 @@ namespace KartRanking.Grupo
             if (!IsPostBack)
             {
                 PopularRegras();
+                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Informações";
             }
         }
 

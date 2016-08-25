@@ -16,6 +16,17 @@ namespace KartRanking.Page
     ********************************************************/
     public class PageBaseGrupo : PageBase
     {
+        public string SetTitle
+        {
+            get
+            {
+                if (Session["Title"] == null)
+                    Session["Title"] = "Gerenciamento de campeonatos de Kart com ranking";
+                return Session["Title"].ToString();
+
+            }
+            set { Session["Title"] = value; }
+        }
         public int IdGrupo
         {
             get
@@ -66,7 +77,27 @@ namespace KartRanking.Page
                 return (string)Session["UrlGrupo"];
             }
         }
-        
+
+        public string NomeGrupo
+        {
+            get
+            {
+                if (IdGrupo > 0)
+                    return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
+                return "";
+            }
+        }
+
+        public string NomeCampeonato
+        {
+            get
+            {
+                if (IdCampeonato > 0)
+                    return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
+                return "";
+            }
+        }
+
         protected override void OnInit(EventArgs e)
         {
             IdGrupo = 0;

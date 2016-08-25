@@ -31,6 +31,7 @@ namespace KartRanking.Grupo
                 {
                     popularNoticias();
                 }
+                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Noticias";
             }
         }
 

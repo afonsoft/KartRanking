@@ -33,6 +33,7 @@ namespace KartRanking.Grupo
                     PanelPiloto.Visible = true;
                     PanelEquipes.Visible = false;
                     PanelInfo.Visible = false;
+                    SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Pilotos";
                 }
                 else if (op == "equipes")
                 {
@@ -40,6 +41,7 @@ namespace KartRanking.Grupo
                     PanelPiloto.Visible = false;
                     PanelEquipes.Visible = true;
                     PanelInfo.Visible = false;
+                    SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Equipes";
                 }
                 else if (op == "info" && !string.IsNullOrEmpty(sidUsuario))
                 {
@@ -59,6 +61,9 @@ namespace KartRanking.Grupo
 
             if (user != null)
             {
+
+                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Info - " + user.Nome + " (" + user.Apelido + ")";
+
                 IdUsuario.Value = user.idUsuario.ToString();
                 txtNome.Text = user.Nome;
                 txtDtNascimento.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "";

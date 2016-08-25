@@ -21,7 +21,6 @@ namespace KartRanking.Grupo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             HiddenFieldStartTime.Value = "00:00:00:00";//dd:hh:mm:ss
             HiddenIdGrupo.Value = "0";
             HiddenIdGrupo.Value = IdGrupo.ToString();
@@ -30,6 +29,7 @@ namespace KartRanking.Grupo
             PopularGrid();
             CarregarNoticias();
             popularCampeonatos();
+            SetTitle = NomeGrupo + " - " + NomeCampeonato;
         }
 
         private void popularCampeonatos()
@@ -85,23 +85,6 @@ namespace KartRanking.Grupo
                 }
             }
         }
-
-        public string NomeGrupo
-        {
-            get
-            {
-                return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
-            }
-        }
-
-        public string NomeCampeonato
-        {
-            get
-            {
-                return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
-            }
-        }
-
 
         public int IdUsuarioDestaque { get; set; }
         private void PilotoDestaque()

@@ -11,7 +11,11 @@ namespace KartRanking
     {
         protected void Page_Load( object sender, EventArgs e )
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["Title"] == null)
+                    Session["Title"] = "Gerenciamento de campeonatos de Kart com ranking";
+            }
         }
     }
 }
