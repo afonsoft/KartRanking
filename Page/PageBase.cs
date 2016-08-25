@@ -68,12 +68,22 @@ namespace KartRanking.Page
 
         protected override void OnLoad(EventArgs e)
         {
+            string url = Request.Url.AbsoluteUri.ToString();
+            try
+            {
+                url = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery.ToString(), "") + Request.RawUrl.ToString(); 
+            }
+            catch
+            {
+                url = Request.Url.AbsoluteUri.ToString();
+            }
+
             HtmlLink link = new HtmlLink();
             link.Attributes.Add("rel", "canonical");
-            link.Attributes.Add("href", Request.Url.ToString());
+            link.Attributes.Add("href", url);
             this.Header.Controls.AddAt(0, link);
-            AddMetaTag("url", Request.Url.ToString());
-            AddMetaTag("", "property", "og:url", Request.Url.ToString());
+            AddMetaTag("url", url);
+            AddMetaTag("", "property", "og:url", url);
             base.OnLoad(e);
         }
 
