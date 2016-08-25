@@ -62,7 +62,7 @@ namespace KartRanking.Grupo
             if (user != null)
             {
 
-                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Info - " + user.Nome + " (" + user.Apelido + ")";
+                SetTitle = NomeGrupo + " - " + NomeCampeonato + " - Info - " + user.Nome.Trim() + " (" + user.Apelido.Trim() + ")";
 
                 IdUsuario.Value = user.idUsuario.ToString();
                 txtNome.Text = user.Nome;

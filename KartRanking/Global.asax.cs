@@ -88,7 +88,7 @@ namespace KartRanking
 
                     if (url.Contains("/info/") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
                     {
-                        string idusuario = Request.Url.Segments[4];
+                        string idusuario = Request.Url.Segments[4].Trim();
                         Context.RewritePath("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=info&idGrupo=" + idGrupo);
                     }
                     else if (url.Contains("/equipes") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)

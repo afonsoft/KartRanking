@@ -83,7 +83,7 @@ namespace KartRanking.Page
             get
             {
                 if (IdGrupo > 0)
-                    return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
+                    return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault().Trim();
                 return "";
             }
         }
@@ -93,7 +93,7 @@ namespace KartRanking.Page
             get
             {
                 if (IdCampeonato > 0)
-                    return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
+                    return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault().Trim();
                 return "";
             }
         }

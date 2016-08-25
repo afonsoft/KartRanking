@@ -563,6 +563,9 @@
     </Content>
     <Content Include="Grupo\ImgTitleHandler.ashx" />
     <Content Include="crc32.php" />
+    <Content Include="BaseDados\DataKart.dbml.views">
+      <DependentUpon>DataKart.dbml</DependentUpon>
+    </Content>
     <None Include="Grupo\countdown\images\.DS_Store" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
     <None Include="Properties\PublishProfiles\Kart_file.pubxml" />
@@ -768,6 +771,11 @@
     <Folder Include="App_Data\" />
     <Folder Include="Fotos\" />
     <Folder Include="temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BaseDados\DataKart.dbml.views_def.layout">
+      <DependentUpon>DataKart.dbml</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
