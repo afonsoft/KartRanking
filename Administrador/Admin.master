@@ -99,7 +99,7 @@
                                             <li><a itemprop="url" rel="tag" href="Fotos.aspx">Fotos</a></li>
                                             <li><a itemprop="url" rel="tag" href="Videos.aspx">Videos</a></li>
                                             <li><a itemprop="url" rel="tag" href="Noticias.aspx">Noticias</a></li>
-                                            <li><a itemprop="url" rel="bookmark" href="http://forum.afonsoft.com.br/">Forum</a></li>
+                                            <li><a itemprop="url" rel="bookmark" target="_blank" href="http://forum.afonsoft.com.br/">Forum</a></li>
                                             <li>
                                                 <asp:LinkButton ID="lnkSair" runat="server" OnClick="lnkSair_Click">Sair</asp:LinkButton></li>
                                             <li style="vertical-align: middle; padding-left: 5px; padding-top: 6px; padding-right: 4px;">
@@ -232,7 +232,7 @@
                                         <p>
                                             O <b>kart.afonsoft.com.br</b> é uma das primeiras comunidade Brasileira de kart
                                             que oferece uma ferramenta completa para a administração e divulgação do seu campeonato
-                                            de kart.
+                                            de kart deste 2014.
                                         </p>
                                         <p>
                                             Todos os serviços são <b>100% Free</b> e criados especialmente para você.
@@ -240,7 +240,7 @@
                                         <p>
                                             Cadastrando o seu campeonato (indoor, profissional, amador), você terá a sua disposição
                                             um site personalizado com tudo que você precisa para turbinar o seu evento.<br />
-                                            Ex: kart.afonsoft.com.br/NomeGrupo.aspx<br />
+                                            Ex: http://kart.afonsoft.com.br/KartAmigos <br />
                                             Participe você também dessa comunidade de pilotos profissionais e amadores de todo
                                             o mundo.
                                         </p>
@@ -262,14 +262,6 @@
                                             })();
                                         </script>
                                     </asp:Panel>
-                                    <div style="color: #FFFFFF; text-align: justify; size: 4pt; z-index: -9999;">
-                                        <p>
-                                            kart <b>amador</b>, <b>kart</b> profissional, piloto kart, Kart, Campeonato, Grupo,
-                                            karting, Racing, <b>Rank</b>, <b>Ranking</b>, <b>kartodromo</b>, Granja Viana, Praia
-                                            Grande, Registro, Esporte, Corrida, Aldeia da Serra, Internacional, conteudo, <b>kart.afonsoft.com.br</b>,
-                                            forum.afonsoft.com.br, blog.afonsoft.com.br, <b>sistema de gerenciamento de conteúdo</b>,
-                                            <b>gerenciamento de conteúdo</b>, sistema de gerenciamento de informações</p>
-                                    </div>
                                 </div>
                             </td>
                         </tr>

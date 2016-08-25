@@ -63,10 +63,12 @@ var myCountdown4 = new Countdown({
 									day:1, 
 									width:300, 
 									height:40, 
+									padding : 1.0, // Sets the text size to a percentage of the overall height. (I probably should have nemed this better.)
 									numbers		: 	{
 													font 	: "Arial",
 													color	: "#FFFFFF",
 													bkgd	: "#365D8B",
+													fontSize : 200,
 													rounded	: 0.15,				// percentage of size 
 													shadow	: {
 																x : 0,			// x offset (in pixels)
@@ -75,7 +77,13 @@ var myCountdown4 = new Countdown({
 																c : "#000000",	// color
 																a : 0.4			// alpha	// <- no comma on last item!
 																}
-													} // <- no comma on last item!
+													},
+									
+									labels : {
+												textScale : 0.8,
+												offset : 5
+											} // <- no comma on last item!
+									
 									});
 
 </script>

@@ -10,8 +10,6 @@
 
 
 
-
-
 <p>Example 1 - Time until April 1, 2016</p>
 
 <!-- START COUNTDOWN -->
@@ -19,7 +17,9 @@
 <script type="application/javascript">
 
 var myCountdownTest = new Countdown({
-								 	year	: 2016,
+									// I'm cheating here... so I don't have to update this every year!
+									// year : 2042, // <-- This is a better example of what to use.
+								 	year: (new Date().getFullYear() + 1),
 									month	: 4, 
 									day		: 1,
 									width	: 300, 

@@ -19,7 +19,7 @@
             <b>O que é KartRanking?</b>
             <p>
                 É uma comunidade de kart que ofereçe 100% Free, tudo que você precisa para administrar
-                e divulgar o seu campeonato de kart! Aqui você cria em até 3 minutos um site completo
+                e divulgar o seu campeonato de kart! Aqui você cria em até 5 minutos um site completo
                 e profissional para seu evento. Não se preocupe com design, registros de domínios
                 e coisas do tipo. Cadastrando o seu campeonato e os pilotos participantes, você
                 terá a sua disposição inúmeras ferramentas para facilitar o seu trabalho.</p>
@@ -67,7 +67,7 @@
             <p>
                 Veja como será o seu site visitando um dos grupos já cadastrados!
                 <br />
-                <a href="http://kart.afonsoft.com.br/KartAmigos">http://kart.afonsoft.com.br/KartAmigos</a>
+                <a href="http://kart.afonsoft.com.br/KartAmigos" target="_blank">http://kart.afonsoft.com.br/KartAmigos</a>
             </p>
         </div>
         <div class="clear espaco_mini">
