@@ -106,13 +106,14 @@ namespace KartRanking.Page
 
         private bool ValidarSeAtivo()
         {
-            Usuario user = (Usuario)Session["Usuario"];
-            if (user.Ativo == false)
+            if (Session["Usuario"] != null)
             {
-                Response.Redirect("~/Administrador/perfil.aspx", true);
-                return false;
+                Usuario user = (Usuario) Session["Usuario"];
+                if (user.Ativo == false)
+                    return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public bool IsThisGroup
@@ -219,29 +220,29 @@ namespace KartRanking.Page
 
             ViewState["Usuario"] = Session["Usuario"];
             //Verificar se o Usuario pertence ao grupo
-            if (!IsThisGroup)
+
+            if (ValidarSeAtivo())
             {
-                Alert("Você não possue permissão para acessar este grupo.", null, "~/Administrador/index.aspx");
-                return;
+                if (Request.QueryString["IdGrupo"] != null)
+                {
+                    IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
+                }
+                if (!IsThisGroup)
+                {
+                    Alert("Você não possue permissão para acessar este grupo.", null, "~/Administrador/index.aspx");
+                    return;
+                }
             }
             else
             {
-                if (ValidarSeAtivo())
-                {
-                    if (Request.QueryString["IdGrupo"] != null)
-                    {
-                        IdGrupo = Convert.ToInt16(Request.QueryString["IdGrupo"]);
-                    }
-                }
+                if (Session["Usuario"] != null && Request.Path.IndexOf("perfil") < 0)
+                    Response.Redirect("~/Administrador/perfil.aspx?idUsuario=" + UsuarioLogado.idUsuario, true);
             }
         }
 
         public Usuario UsuarioLogado
         {
-            get
-            {
-                return (Usuario)Session["Usuario"];
-            }
+            get { return (Usuario) Session["Usuario"]; }
         }
     }
 }
