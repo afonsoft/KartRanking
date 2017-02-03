@@ -23,17 +23,22 @@ namespace KartRanking.Administrador
         {
             if (!IsPostBack)
             {
-                PilotoDestaque();
-                PopularGrid();
-                CarregarNoticias();
+                ltUrlAmigavel.Text = "";
 
-                string url = "";
-                using (DataKartDataContext dk = new DataKartDataContext())
+                if (IdGrupo > 0)
                 {
-                    url = "http://kart.afonsoft.com.br/" + (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.UrlAcesso).FirstOrDefault();
-                }
-                ltUrlAmigavel.Text = "<a href='" + url + "' target='_blank'> " + url + "</a>";
+                    PilotoDestaque();
+                    PopularGrid();
+                    CarregarNoticias();
 
+                    string url = "";
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        url = "http://kart.afonsoft.com.br/" +
+                              (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.UrlAcesso).FirstOrDefault();
+                    }
+                    ltUrlAmigavel.Text = "<a href='" + url + "' target='_blank'> " + url + "</a>";
+                }
                 Session["Title"] = "Gerenciamento de campeonatos de Kart com ranking";
             }
         }

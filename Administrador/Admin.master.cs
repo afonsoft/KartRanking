@@ -191,16 +191,19 @@ namespace KartRanking.Administrador
 
                 if (Session["Usuario"] != null)
                 {
-                    lblNomeUsuario.Text = ((Usuario)Session["Usuario"]).Nome;
+                    lblNomeUsuario.Text = ((Usuario) Session["Usuario"]).Nome;
                     pnlMenu.Visible = pnlConteudo.Visible = true;
                     pnlLogin.Visible = pnlNotLogin.Visible = false;
-                    CarregarGruposUsuario();
 
-                    if (!((Usuario)Session["Usuario"]).Ativo.Value && Request.Path.IndexOf("perfil") < 0)
+                    if (!((Usuario) Session["Usuario"]).Ativo.Value && Request.Path.IndexOf("perfil") < 0)
                     {
-                        Response.Redirect("~/Administrador/perfil.aspx?idUsuario=" + ((Usuario)Session["Usuario"]).idUsuario);
+                        Response.Redirect("~/Administrador/perfil.aspx?idUsuario=" +
+                                          ((Usuario) Session["Usuario"]).idUsuario);
                     }
-
+                    else
+                    {
+                        CarregarGruposUsuario();
+                    }
                 }
                 else
                 {
@@ -217,7 +220,8 @@ namespace KartRanking.Administrador
 
             }
 
-            AutoLogin();
+            if (Session["Usuario"] == null)
+                AutoLogin();
         }
 
         private void CarregarGruposUsuario()
@@ -251,7 +255,7 @@ namespace KartRanking.Administrador
             else
             {
                 ddlGrupos.Items.Insert(0, new ListItem("Nenhum Grupo associado", "0", true));
-                Response.Redirect("~/Administrador/AdminGrupo.aspx");
+                //Response.Redirect("~/Administrador/AdminGrupo.aspx");
             }
 
         }
