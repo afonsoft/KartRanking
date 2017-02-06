@@ -63,8 +63,7 @@ namespace KartRanking.Page
         {
             get
             {
-
-                if (Session["UrlGrupo"] == null)
+                if (Session["UrlGrupo"] == null || string.IsNullOrEmpty((string)Session["UrlGrupo"]))
                 {
                     Session["UrlGrupo"] = "";
                     if (IdGrupo > 0)
@@ -102,8 +101,6 @@ namespace KartRanking.Page
 
         protected override void OnInit(EventArgs e)
         {
-            IdGrupo = 0;
-
             base.OnInit(e);
 
             if (Request.QueryString["IdGrupo"] != null)
@@ -126,7 +123,6 @@ namespace KartRanking.Page
                         CarregarCampeonatoPrincipal(IdGrupo);
                 }
             }
-
         }
 
         private void CarregarCampeonatoPrincipal(int idGrupo)
