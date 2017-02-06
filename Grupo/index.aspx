@@ -96,7 +96,7 @@
                 buttons: {
                     "Selecionar": function () {
                         $('#OpenDlgCampeonatos').dialog("close");
-                        window.location.href = '/<%= UrlGrupo %>/campeonato/';
+                        //window.location.href = '/<%= UrlGrupo %>/campeonato/';
                         return true;
                     },
                     "Fechar": function () { $('#OpenDlgCampeonatos').dialog("close"); return true; }
