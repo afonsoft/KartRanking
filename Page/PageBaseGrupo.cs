@@ -66,12 +66,14 @@ namespace KartRanking.Page
 
                 if (Session["UrlGrupo"] == null)
                 {
-                    using (DataKartDataContext db = new DataKartDataContext())
+                    Session["UrlGrupo"] = "";
+                    if (IdGrupo > 0)
                     {
-                        db.ObjectTrackingEnabled = false;
-                        Session["UrlGrupo"] = (from g in db.Kart_Grupos
-                                               where g.idGrupo == IdGrupo
-                                               select g.UrlAcesso).FirstOrDefault();
+                        using (DataKartDataContext db = new DataKartDataContext())
+                        {
+                            db.ObjectTrackingEnabled = false;
+                            Session["UrlGrupo"] = (from g in db.Kart_Grupos where g.idGrupo == IdGrupo select g.UrlAcesso.Trim()).FirstOrDefault();
+                        }
                     }
                 }
                 return (string)Session["UrlGrupo"];
@@ -83,7 +85,7 @@ namespace KartRanking.Page
             get
             {
                 if (IdGrupo > 0)
-                    return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault().Trim();
+                    return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo.Trim()).FirstOrDefault();
                 return "";
             }
         }
@@ -92,8 +94,8 @@ namespace KartRanking.Page
         {
             get
             {
-                if (IdCampeonato > 0)
-                    return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault().Trim();
+                if (IdCampeonato > 0 && IdGrupo > 0)
+                    return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato.Trim()).FirstOrDefault();
                 return "";
             }
         }
@@ -116,26 +118,29 @@ namespace KartRanking.Page
             }
             else
             {
-                if (Request.QueryString["idCampeonato"] != null)
-                    IdCampeonato = Convert.ToInt32(Request.QueryString["idCampeonato"]);
-                else
-                    CarregarCampeonatoPrincipal(IdGrupo);
+                if (!IsPostBack)
+                {
+                    if (Request.QueryString["idCampeonato"] != null)
+                        IdCampeonato = Convert.ToInt32(Request.QueryString["idCampeonato"]);
+                    else
+                        CarregarCampeonatoPrincipal(IdGrupo);
+                }
             }
 
         }
 
         private void CarregarCampeonatoPrincipal(int idGrupo)
         {
-            var campeonato = (from c in dk.Kart_Campeonatos
-                              where c.idGrupo == idGrupo
-                              && c.Ativo == true
-                              orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
-                              select c).FirstOrDefault();
+            if (idGrupo > 0)
+            {
+                var campeonato = (from c in dk.Kart_Campeonatos
+                    where c.idGrupo == idGrupo
+                          && c.Ativo == true
+                    orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
+                    select c).FirstOrDefault();
 
-            if (campeonato != null)
-                IdCampeonato = campeonato.idCampeonato;
-            else
-                IdCampeonato = 0;
+                IdCampeonato = campeonato != null ? campeonato.idCampeonato : 0;
+            }
         }
     }
 }

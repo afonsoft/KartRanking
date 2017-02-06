@@ -24,7 +24,12 @@ namespace KartRanking.Page
     public class PageBase : System.Web.UI.Page
     {
         //TODO: Remover o DataContext no futuro para performace
-        public DataKartDataContext dk = new DataKartDataContext();
+        public DataKartDataContext _dk = null;
+
+        public DataKartDataContext dk
+        {
+            get { return _dk ?? (_dk = new DataKartDataContext()); }
+        }
 
         #region AddMetaTag
 
@@ -85,170 +90,6 @@ namespace KartRanking.Page
             AddMetaTag("url", url);
             AddMetaTag("", "property", "og:url", url);
             base.OnLoad(e);
-        }
-
-        #region Otimiza o HTML gerado, removendo os espaços desnecessários
-
-        /// <summary>
-        /// Remove os espaço entre as Tags Html, deixando a pagina mais rapida e leve,
-        /// não funciona com o UpdatePanel do AjaxToolKit. Padrão: true
-        /// </summary>
-        public bool RemoveSpaceHTML
-        {
-            get
-            {
-                if (ViewState["RemoveSpaceHTML"] == null)
-                    ViewState["RemoveSpaceHTML"] = true;
-                return Convert.ToBoolean(ViewState["RemoveSpaceHTML"]);
-            }
-            set
-            {
-                ViewState["RemoveSpaceHTML"] = value;
-            }
-        }
-
-        // Otimiza o HTML gerado, removendo os espaços desnecessários   
-        /// <summary>
-        /// Metodo para Modificar as tag
-        /// </summary>
-        protected override void Render(System.Web.UI.HtmlTextWriter writer)
-        {
-            try
-            {
-                if (RemoveSpaceHTML)
-                {
-                    if (!IsAjax)
-                    {
-                        //html minifier 
-                        using (TextWriter tw = new StringWriter())
-                        {
-                            using (HtmlTextWriter htmlwriter = new HtmlTextWriter(tw))
-                            {
-                                base.Render(htmlwriter);
-                            }
-
-                            string htmlMin = tw.ToString();
-                            htmlMin = Regex.Replace(htmlMin, @"(?<=[^])\t{2,}|(?<=[>])\s{2,3}(?=[<])|(?<=[>])\s{2,3}(?=[<])|(?=[\n])\s{2,3}", String.Empty);
-                            htmlMin = Regex.Replace(htmlMin, @"[\f\r\t\v]?([\n\xFE\xFF/{}[\];,<>*%&|^!~?:=])[\f\r\t\v]?", "$1");
-                            htmlMin = Regex.Replace(htmlMin, @"\t", " ");
-                            htmlMin = Regex.Replace(htmlMin, @">\s+<", "><").Trim();
-                            htmlMin = htmlMin.Replace(";\n", ";");
-                            writer.Write(htmlMin);
-                        }
-                    }
-                    else
-                    {
-                        RemoveSpaceHTML = false;
-                        base.Render(writer);
-                    }
-
-                }
-                else
-                {
-                    base.Render(writer);
-                }
-            }
-            catch (Exception) { RemoveSpaceHTML = false; Response.Redirect(Request.Url.ToString()); }
-
-        }
-        #endregion
-
-        protected override void OnInit(EventArgs e)
-        {
-            base.OnInit(e);
-            RemoveSpaceHTML = false;
-            RemoveGZipEncodePage = true;
-        }
-
-        /// <summary>
-        /// Page use Ajax
-        /// </summary>
-        public bool IsAjax
-        {
-            get
-            {
-                if (Request != null)
-                {
-                    if (Request.Headers["HTTP_X_MICROSOFTAJAX"] != null)
-                        return true;
-                    if (Request.Headers["X-MicrosoftAjax"] == "Delta=true")
-                        return true;
-                    return false;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-        }
-
-        private void GZipEncodePage()
-        {
-            try
-            {
-                HttpResponse Response = HttpContext.Current.Response;
-
-                if (IsGZipSupported())
-                {
-                    string AcceptEncoding = Convert.ToString(HttpContext.Current.Request.Headers["Accept-Encoding"]).ToLower();
-
-                    string filter = Response.Filter.ToString().ToLower();
-                    if (filter.Contains("gzip") | filter.Contains("deflate"))
-                        return;
-
-                    if (AcceptEncoding.Contains("gzip"))
-                    {
-                        Response.Filter = new System.IO.Compression.GZipStream(Response.Filter, System.IO.Compression.CompressionMode.Compress);
-                        try { Response.Headers.Remove("Content-Encoding"); }
-                        catch { }
-                        Response.AppendHeader("Content-Encoding", "gzip");
-                    }
-                    else if (AcceptEncoding.Contains("deflate") || AcceptEncoding == "*")
-                    {
-                        Response.Filter = new System.IO.Compression.DeflateStream(Response.Filter, System.IO.Compression.CompressionMode.Compress);
-                        try { Response.Headers.Remove("Content-Encoding"); }
-                        catch { }
-                        Response.AppendHeader("Content-Encoding", "deflate");
-                    }
-                    Response.Cache.SetOmitVaryStar(true);
-                    Response.Cache.VaryByHeaders["Accept-encoding"] = true;
-                    Response.Cache.VaryByHeaders["Content-Encoding"] = true;
-                    Response.Cache.SetVaryByCustom("Accept-Encoding");
-                }
-            }
-            catch { }
-        }
-
-        /// <summary>
-        /// Disable GZip Encode Page
-        /// </summary>
-        public bool RemoveGZipEncodePage
-        {
-            get
-            {
-                if (ViewState["RemoveGZipEncodePage"] == null)
-                    ViewState["RemoveGZipEncodePage"] = false;
-                return Convert.ToBoolean(ViewState["RemoveGZipEncodePage"]);
-            }
-            set
-            {
-                ViewState["RemoveGZipEncodePage"] = value;
-            }
-        }
-
-        /// <summary>
-        /// Determines if GZip is supported
-        /// </summary>
-        /// <returns></returns>
-        public bool IsGZipSupported()
-        {
-            string AcceptEncoding = HttpContext.Current.Request.Headers["Accept-Encoding"];
-            if (!string.IsNullOrEmpty(AcceptEncoding) && (AcceptEncoding.Contains("gzip") || AcceptEncoding.Contains("deflate")))
-                if (RemoveGZipEncodePage == false)
-                    return true;
-
-            return false;
         }
 
         /// <summary>
