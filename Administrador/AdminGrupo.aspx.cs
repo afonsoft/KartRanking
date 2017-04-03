@@ -132,7 +132,7 @@ namespace KartRanking.Administrador
         {
             try
             {
-                Usuario user = (Usuario)Session["Usuario"];
+                Usuario user = (Usuario) Session["Usuario"];
                 Kart_Grupo kg = null;
 
                 ValidarCampos();
@@ -140,10 +140,10 @@ namespace KartRanking.Administrador
                 if (IdGrupo <= 0)
                 {
                     int count = (from g in dk.Kart_Grupos
-                                 where g.Sigla.Equals(txtSigla.Text)
-                                 || g.NomeGrupo.Equals(txtNomeGrupo.Text)
-                                 || g.UrlAcesso.Equals(txtUrlAcesso.Text)
-                                 select g).Count();
+                        where g.Sigla.Equals(txtSigla.Text)
+                              || g.NomeGrupo.Equals(txtNomeGrupo.Text)
+                              || g.UrlAcesso.Equals(txtUrlAcesso.Text)
+                        select g).Count();
 
                     if (count > 0)
                         throw new Exception("Já existe um grupo cadastro com essas informações!");
@@ -182,23 +182,20 @@ namespace KartRanking.Administrador
 
                     Alert("Cadastro do Grupo efetuado com sucesso!");
                     DisableEditGrupo(true);
-
-                    List<Kart_Grupo> lstGrupos = (from g in new DataKartDataContext().Kart_Grupos where g.Ativo == true select g).ToList();
-                   CacheHelper.Add(lstGrupos, "AllGrupo");
                 }
                 else
                 {
                     if (IsAdmin)
                     {
                         kg = (from g in dk.Kart_Grupos
-                              where g.idGrupo == IdGrupo
-                              select g).FirstOrDefault();
+                            where g.idGrupo == IdGrupo
+                            select g).FirstOrDefault();
 
                         if (kg.NomeGrupo != txtNomeGrupo.Text)
                         {
                             int count = (from g in dk.Kart_Grupos
-                                         where g.NomeGrupo.Equals(txtNomeGrupo.Text)
-                                         select g).Count();
+                                where g.NomeGrupo.Equals(txtNomeGrupo.Text)
+                                select g).Count();
 
                             if (count > 0)
                                 throw new Exception("Já existe um grupo cadastro com esse Nome!");
@@ -207,8 +204,8 @@ namespace KartRanking.Administrador
                         if (kg.Sigla != txtSigla.Text)
                         {
                             int count = (from g in dk.Kart_Grupos
-                                         where g.Sigla.Equals(txtSigla.Text)
-                                         select g).Count();
+                                where g.Sigla.Equals(txtSigla.Text)
+                                select g).Count();
 
                             if (count > 0)
                                 throw new Exception("Já existe um grupo cadastro com essa Sigla!");
@@ -217,8 +214,8 @@ namespace KartRanking.Administrador
                         if (kg.UrlAcesso != txtUrlAcesso.Text)
                         {
                             int count = (from g in dk.Kart_Grupos
-                                         where g.UrlAcesso.Equals(txtUrlAcesso.Text)
-                                         select g).Count();
+                                where g.UrlAcesso.Equals(txtUrlAcesso.Text)
+                                select g).Count();
 
                             if (count > 0)
                                 throw new Exception("Já existe um grupo cadastro com essa Url!");
@@ -246,10 +243,10 @@ namespace KartRanking.Administrador
                         {
                             //Pegar os usuarário do grupo e disparar o e-mail informando da alteração.
                             int[] idUsuarios = (from ug in dk.Kart_Usuario_Grupos
-                                                where ug.idGrupo == kg.idGrupo
-                                                && ug.idUsuario != user.idUsuario
-                                                && ug.Aprovado == true
-                                                select ug.idUsuario).ToArray();
+                                where ug.idGrupo == kg.idGrupo
+                                      && ug.idUsuario != user.idUsuario
+                                      && ug.Aprovado == true
+                                select ug.idUsuario).ToArray();
 
                             foreach (int idusuario in idUsuarios)
                             {
@@ -282,6 +279,10 @@ namespace KartRanking.Administrador
             catch (Exception ex)
             {
                 Alert(ex);
+            }
+            finally
+            {
+                CacheHelper.Clear("AllGrupo");
             }
 
         }
