@@ -57,6 +57,11 @@ namespace KartRanking
                     int? idGrupo = GetIdGrupo(NomeGrupo);
                     if (idGrupo.HasValue && idGrupo.Value > 0)
                     {
+                        if (Session != null)
+                        {
+                            Session["idGrupoGrupos"] = idGrupo;
+                            Session["UrlGrupo"] = NomeGrupo;
+                        }
                         Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + idGrupo);
                     }
                 }
@@ -72,6 +77,12 @@ namespace KartRanking
                     int? idGrupo = GetIdGrupo(NomeGrupo);
                     if (idGrupo.HasValue && idGrupo.Value > 0)
                     {
+                        if (Session != null)
+                        {
+                            Session["idGrupoGrupos"] = idGrupo;
+                            Session["UrlGrupo"] = NomeGrupo;
+                        }
+
                         Context.RewritePath("~/Grupo/" + caminho.Replace("/", "") + ".aspx?idGrupo=" + idGrupo);
                     }
                 }
@@ -84,6 +95,12 @@ namespace KartRanking
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
                 {
+                    if (Session != null)
+                    {
+                        Session["idGrupoGrupos"] = idGrupo;
+                        Session["UrlGrupo"] = NomeGrupo;
+                    }
+
                     string url = Request.Url.AbsolutePath;
 
                     if (url.Contains("/info/") && url.IndexOf(".") < 0 && url.IndexOf('?') < 0)
@@ -109,6 +126,12 @@ namespace KartRanking
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
                 {
+                    if (Session != null)
+                    {
+                        Session["idGrupoGrupos"] = idGrupo;
+                        Session["UrlGrupo"] = NomeGrupo;
+                    }
+
                     string sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
                     int id = 0;
                     int.TryParse(sId, out id);
@@ -127,6 +150,12 @@ namespace KartRanking
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
                 {
+                    if (Session != null)
+                    {
+                        Session["idGrupoGrupos"] = idGrupo;
+                        Session["UrlGrupo"] = NomeGrupo;
+                    }
+
                     string sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
                     int id = 0;
                     int.TryParse(sId, out id);
@@ -145,6 +174,12 @@ namespace KartRanking
 
                 if (idGrupo.HasValue && idGrupo.Value > 0)
                 {
+                    if (Session != null)
+                    {
+                        Session["idGrupoGrupos"] = idGrupo;
+                        Session["UrlGrupo"] = NomeGrupo;
+                    }
+
                     string sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
                     int id = 0;
                     int.TryParse(sId, out id);
