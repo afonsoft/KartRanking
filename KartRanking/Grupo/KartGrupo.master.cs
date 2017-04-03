@@ -51,15 +51,11 @@ namespace KartRanking.Grupo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["idGrupo"] != null)
-            {
-                IdGrupo = Convert.ToInt16(Request.QueryString["idGrupo"]);
-            }
+            if (Request.QueryString["idGrupo"] != null && IdGrupo != Convert.ToInt32(Request.QueryString["IdGrupo"]))
+                IdGrupo = Convert.ToInt32(Request.QueryString["idGrupo"]);
 
-            if (Request.QueryString["id"] != null)
-            {
-                IdGrupo = Convert.ToInt16(Request.QueryString["id"]);
-            }
+            if (Request.QueryString["idGrupo"] == null && Request.QueryString["Id"] != null && IdGrupo != Convert.ToInt32(Request.QueryString["Id"]))
+                IdGrupo = Convert.ToInt32(Request.QueryString["Id"]);
         }
     }
 }

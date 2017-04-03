@@ -103,12 +103,12 @@ namespace KartRanking.Page
         {
             base.OnInit(e);
 
-            if (Request.QueryString["IdGrupo"] != null)
+            if (Request.QueryString["IdGrupo"] != null && IdGrupo != Convert.ToInt32(Request.QueryString["IdGrupo"]))
                 IdGrupo = Convert.ToInt32(Request.QueryString["IdGrupo"]);
 
-            if (IdGrupo <= 0 && Request.QueryString["Id"] != null)
+            if (Request.QueryString["IdGrupo"] == null && Request.QueryString["Id"] != null && IdGrupo != Convert.ToInt32(Request.QueryString["Id"]))
                 IdGrupo = Convert.ToInt32(Request.QueryString["Id"]);
-
+            
             if (IdGrupo <= 0)
             {
                 Alert("Grupo inválido.", "/Administrador/index.aspx");
