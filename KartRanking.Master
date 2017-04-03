@@ -9,7 +9,7 @@
 <html class="no-js" xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xmlns:og="http://opengraphprotocol.org/schema/"dir="ltr" xml:lang="pt-br">
 <!--<![endif]-->
 <head runat="server" profile="http://gmpg.org/xfn/11">
-    <title>Kart Ranking - <%=  (Session["Title"] != null ? Session["Title"].ToString() : "") %></title>
+    <title>Kart Ranking <%=  (Session["Title"] != null ? " - " + Session["Title"].ToString() : "") %></title>
     <meta name="copyright" content="AFONSOFT 2017" />
     <meta http-equiv="content-language" content="pt-br" />
     <meta name="robots" content="follow, all" />
