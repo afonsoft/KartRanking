@@ -117,7 +117,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="bin/KartRanking.dll">
-      <publishTime>04/10/2017 09:07:37</publishTime>
+      <publishTime>04/10/2017 16:26:04</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>
@@ -435,7 +435,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:57</publishTime>
     </File>
     <File Include="Grupo/countdown/countdown.js">
-      <publishTime>04/10/2017 08:04:57</publishTime>
+      <publishTime>04/10/2017 16:27:58</publishTime>
     </File>
     <File Include="Grupo/countdown/examples 1.html">
       <publishTime>04/10/2017 08:04:57</publishTime>
@@ -573,7 +573,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:57</publishTime>
     </File>
     <File Include="Grupo/index.aspx">
-      <publishTime>04/10/2017 08:04:57</publishTime>
+      <publishTime>04/10/2017 16:24:51</publishTime>
     </File>
     <File Include="Grupo/informacoes.aspx">
       <publishTime>04/10/2017 08:04:57</publishTime>

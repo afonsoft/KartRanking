@@ -12,8 +12,8 @@
          <Members>
           <Member Name="#Export(System.String,System.Web.UI.WebControls.GridView)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Não descartar objetos várias vezes" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-04-10 12:07:39Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="C:\AFONSO\KartRanking\KartRanking\Tools" File="ExportUtil.cs" Line="264">O objeto 'sw' pode ser descartado mais de uma vez no método 'ExportUtil.Export(string, GridView)'. Para evitar a geração de System.ObjectDisposedException, não chame Dispose mais de uma vez em um objeto.: Lines: 264</Issue>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-04-10 19:26:05Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\AFONSO\KartRanking\KartRanking\Tools" File="ExportUtil.cs" Line="264">Object 'sw' can be disposed more than once in method 'ExportUtil.Export(string, GridView)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 264</Issue>
             </Message>
            </Messages>
           </Member>
@@ -27,10 +27,10 @@
   </Target>
  </Targets>
  <Rules>
-  <Rule TypeName="Não descartar objetos várias vezes" Category="Microsoft.Usage" CheckId="CA2202">
-   <Name>Não descartar objetos várias vezes</Name>
-   <Description>Um método Dispose implementado corretamente pode ser chamado várias vezes sem lançar uma exceção. No entanto, isso não é garantido e, para evitar a geração de System.ObjectDisposedException, não chame Dispose mais de uma vez em um objeto.</Description>
-   <Resolution Name="Default">O objeto {0} pode ser descartado mais de uma vez no método {1}. Para evitar a geração de System.ObjectDisposedException, não chame Dispose mais de uma vez em um objeto.: Lines: 264</Resolution>
+  <Rule TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>Do not dispose objects multiple times</Name>
+   <Description>A correctly implemented Dispose method can be called multiple times without throwing an exception. However, this is not guaranteed and to avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.</Description>
+   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 264</Resolution>
    <Owner>RuleOwner</Owner>
    <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
    <Email />
@@ -39,27 +39,27 @@
   </Rule>
  </Rules>
  <Localized>
-  <String Key="Category">Categoria</String>
-  <String Key="Certainty">Certeza</String>
-  <String Key="CollapseAll">Recolher Tudo</String>
-  <String Key="CheckId">Verificar ID</String>
-  <String Key="Error">Erro</String>
-  <String Key="Errors">erro(s)</String>
-  <String Key="ExpandAll">Expandir Tudo</String>
-  <String Key="Help">Ajuda</String>
-  <String Key="Line">Linha</String>
-  <String Key="Messages">mensagem(ns)</String>
-  <String Key="LocationNotStoredInPdb">[Local não armazenado em Pdb]</String>
-  <String Key="Project">Projeto</String>
-  <String Key="Resolution">Resolução</String>
-  <String Key="Rule">Regra</String>
-  <String Key="RuleFile">Arquivo de Regra</String>
-  <String Key="RuleDescription">Descrição da Regra</String>
-  <String Key="Source">Origem</String>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
   <String Key="Status">Status</String>
-  <String Key="Target">Destino</String>
-  <String Key="Warning">Aviso</String>
-  <String Key="Warnings">aviso(s)</String>
-  <String Key="ReportTitle">Relatório de Análise de Código</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
  </Localized>
 </FxCopReport>
