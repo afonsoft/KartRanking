@@ -1,146 +1,812 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
-    <lastmod>2013-03-26</lastmod>
+    <loc>http://kart.afonsoft.com.br/kart.afonsoft.com.br/AspNetInfo.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  <url> 
+  <url>
+    <loc>http://kart.afonsoft.com.br/kart.afonsoft.com.br/crc32.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/kart.afonsoft.com.br/index.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/kart.afonsoft.com.br/InstallDb.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/kart.afonsoft.com.br/PageError.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
-    <lastmod>2013-03-27</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
-    <lastmod>2013-03-26</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
-    <lastmod>2013-03-15</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
-    <lastmod>2013-03-26</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
-    <lastmod>2013-03-13</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
-    <lastmod>2013-03-20</lastmod>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
-    <lastmod>2013-04-03</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
-    <lastmod>2013-03-15</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
-    <lastmod>2013-03-15</lastmod>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
-    <lastmod>2013-03-12</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
-    <lastmod>2013-03-15</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
-    <lastmod>2013-03-14</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
-    <lastmod>2013-03-20</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
-    <lastmod>2013-03-12</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
-    <lastmod>2013-03-27</lastmod>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
-    <lastmod>2013-03-15</lastmod>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspInfo.aspx</loc>
+    <lastmod>2016-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspNetInfo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/CadastroUsuario.aspx</loc>
+    <lastmod>2016-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/crc32.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/index.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/InstallDb.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/PageError.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/TesteMenu.aspx</loc>
-    <lastmod>2013-01-16</lastmod>
+    <lastmod>2016-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
-    <lastmod>2012-12-18</lastmod>
+    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
-    <lastmod>2012-12-17</lastmod>
+    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
-    <lastmod>2012-12-18</lastmod>
+    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
-    <lastmod>2012-12-18</lastmod>
+    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
-    <lastmod>2012-12-18</lastmod>
+    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
-    <lastmod>2012-12-18</lastmod>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/TesteMenu.aspx</loc>
+    <lastmod>2016-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspInfo.aspx</loc>
+    <lastmod>2016-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspNetInfo.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/CadastroUsuario.aspx</loc>
+    <lastmod>2016-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/crc32.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/index.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/InstallDb.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/PageError.aspx</loc>
+    <lastmod>2017-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
+    <lastmod>2017-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

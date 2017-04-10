@@ -25,11 +25,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <script type="text/javascript">
         $(function () {
-            $('li').has('ul').mouseover(function () {
-                $(this).children('ul').css('visibility', 'visible');
-            }).mouseout(function () {
-                $(this).children('ul').css('visibility', 'hidden');
-            })
+            $('li')
+                .has('ul')
+                .mouseover(function() {
+                    $(this).children('ul').css('visibility', 'visible');
+                })
+                .mouseout(function() {
+                    $(this).children('ul').css('visibility', 'hidden');
+                });
 
             /* Mobile */
             $('#menu-wrap').prepend('<div id="menu-trigger">Menu</div>');
