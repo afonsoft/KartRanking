@@ -16,26 +16,16 @@ namespace KartRanking
      * ******************************************************
      * ALTERAÇÕES:                                          *
      * 26-03-2014: Incluido a url do issues                 *
-     *                                                      *
+     * 10-04-2017: Redirect                                 *
      ********************************************************/
     public partial class index : PageBase
     {
         //Fontes: http://rankingkart.codeplex.com/
         //Issues: https://rankingkart.codeplex.com/workitem/list/basic
 
-        protected void Page_Load( object sender, EventArgs e )
+        protected void Page_Load(object sender, EventArgs e)
         {
-            using (DataKartDataContext dk = new DataKartDataContext())
-            {
-                if (dk.DatabaseExists())
-                {
-                    Response.Redirect("~/Administrador/index.aspx");
-                }
-                else
-                {
-                    Response.Redirect("~/InstallDb.aspx");
-                }
-            }
+            Response.Redirect("~/Administrador/index.aspx");
         }
     }
 }
