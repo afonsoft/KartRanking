@@ -10,6 +10,8 @@ namespace KartRanking
 {
     public partial class PageError : System.Web.UI.Page
     {
+        public string ErrorMsg => Convert.ToString(ViewState["ErrorMsg"]);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -66,6 +68,7 @@ namespace KartRanking
 
 
             lblErrorCode.Text = string.Format("Erro Code: {0} - Mensagem: {1}", StatusCode.ToString(), ex.Message.Replace("\n", "<br/>").Replace("   at ", "&nbsp;&nbsp;at "));
+            ViewState["ErrorMsg"] = lblErrorCode.Text.Replace("<br/>", " ").Replace("&nbsp;", " ");
 
             while (tmpex != null)
             {
