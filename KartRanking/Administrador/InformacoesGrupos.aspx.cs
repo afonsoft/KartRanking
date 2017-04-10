@@ -24,7 +24,7 @@ namespace KartRanking.Administrador
             if (!IsPostBack)
             {
                 ((Admin)Page.Master).ConteudoVisible = true;
-                GetGroups();
+                GetGroups(); 
             }
         }
 
