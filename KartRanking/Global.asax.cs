@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using KartRanking.BaseDados;
+using KartRanking.LogErro;
 using KartRanking.Tools;
 
 namespace KartRanking
@@ -15,117 +16,144 @@ namespace KartRanking
     * ALTERAÇÕES:                                          *
     * 26-03-2014: Alteração para incluir a url amigavel.   *
     ********************************************************/
+
     public class Global : HttpApplication
     {
         //Fontes: http://rankingkart.codeplex.com/
         protected void Application_Start(object sender, EventArgs e)
         {
-
         }
 
         protected void Session_Start(object sender, EventArgs e)
         {
+        }
 
+        protected void Application_AcquireRequestState(object sender, EventArgs e)
+        {
+            var context = HttpContext.Current;
+            if (context?.Session != null)
+            {
+                if (Convert.ToString(context.Session["idGrupoGrupos"]) !=
+                    Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]) &&
+                    Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]) != "0")
+                {
+                    context.Session["idGrupoGrupos"] = Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]);
+                    context.Session["UrlGrupo"] = null;
+                    context.Session["IdCampeonato"] = null;
+                }
+            }
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //string originalPath = Request.Url.ToString().ToLower();
-            //string UrlAmigavel = originalPath.Substring(originalPath.LastIndexOf('/') + 1, originalPath.Length - originalPath.LastIndexOf('/') - 1);
+
+            if (Request.Url.LocalPath.IndexOf(".", StringComparison.Ordinal) >= 0 ||
+                Request.Url.LocalPath.IndexOf("?", StringComparison.Ordinal) >= 0)
+                return;
+
+            HttpContext.Current.Items["idGrupoGrupos"] = 0;
 
             if (Request.Url.Segments.Length == 2)
             {
-                string nomeGrupo = Request.Url.Segments[1];
+                var nomeGrupo = Request.Url.Segments[1];
 
-                if (nomeGrupo.IndexOf(".", StringComparison.Ordinal) < 0 && nomeGrupo.IndexOf("?", StringComparison.Ordinal) < 0)
+                if ((nomeGrupo.IndexOf(".", StringComparison.Ordinal) < 0) &&
+                    (nomeGrupo.IndexOf("?", StringComparison.Ordinal) < 0))
                 {
                     nomeGrupo = nomeGrupo.Replace(".aspx", "");
-                    int? idGrupo = GetIdGrupo(nomeGrupo);
-                    if (idGrupo.HasValue && idGrupo.Value > 0)
+                    var idGrupo = GetIdGrupo(nomeGrupo);
+                    if (idGrupo.HasValue && (idGrupo.Value > 0))
                     {
-                        Context.RewritePath("~/Grupo/index.aspx?idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                        HttpContext.Current.Items["idGrupoGrupos"] = idGrupo;
+                        Context.RewritePath("~/Grupo/index.aspx?IdGrupo=" + idGrupo);
                     }
                 }
             }
             else if (Request.Url.Segments.Length == 3)
             {
-                string nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
-                string caminho = Request.Url.Segments[2];
+                var nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
+                var caminho = Request.Url.Segments[2];
 
-                if (nomeGrupo.IndexOf(".", StringComparison.Ordinal) < 0 && nomeGrupo.IndexOf('?') < 0 && caminho.IndexOf(".", StringComparison.Ordinal) < 0 && caminho.IndexOf('?') < 0)
+                if ((nomeGrupo.IndexOf(".", StringComparison.Ordinal) < 0) && (nomeGrupo.IndexOf('?') < 0) &&
+                    (caminho.IndexOf(".", StringComparison.Ordinal) < 0) && (caminho.IndexOf('?') < 0))
                 {
                     nomeGrupo = nomeGrupo.Replace(".aspx", "");
-                    int? idGrupo = GetIdGrupo(nomeGrupo);
-                    if (idGrupo.HasValue && idGrupo.Value > 0)
+                    var idGrupo = GetIdGrupo(nomeGrupo);
+                    if (idGrupo.HasValue && (idGrupo.Value > 0))
                     {
-                        Context.RewritePath("~/Grupo/" + caminho + ".aspx?idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/index.aspx?idGrupo=" + idGrupo);
+                        HttpContext.Current.Items["idGrupoGrupos"] = idGrupo;
+                        Context.RewritePath("~/Grupo/" + caminho + ".aspx?IdGrupo=" + idGrupo);
                     }
                 }
             }
             else if (Request.Url.ToString().Contains("/pilotos/"))
             {
-                string nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
+                var nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
                 nomeGrupo = nomeGrupo.Replace(".aspx", "");
-                int? idGrupo = GetIdGrupo(nomeGrupo);
+                var idGrupo = GetIdGrupo(nomeGrupo);
 
-                if (idGrupo.HasValue && idGrupo.Value > 0)
+                if (idGrupo.HasValue && (idGrupo.Value > 0))
                 {
-                    string url = Request.Url.AbsolutePath;
+                    HttpContext.Current.Items["idGrupoGrupos"] = idGrupo;
+                    var url = Request.Url.AbsolutePath;
 
-                    if (url.Contains("/info/") && url.IndexOf(".", StringComparison.Ordinal) < 0 && url.IndexOf('?') < 0)
+                    if (url.Contains("/info/") && (url.IndexOf(".", StringComparison.Ordinal) < 0) &&
+                        (url.IndexOf('?') < 0))
                     {
-                        string idusuario = Request.Url.Segments[4];
-                        Context.RewritePath("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=info&idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=" + op);
+                        var idusuario = Request.Url.Segments[4];
+                        Context.RewritePath("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=info&IdGrupo=" +
+                                            idGrupo);
                     }
-                    else if (url.Contains("/equipes") && url.IndexOf(".", StringComparison.Ordinal) < 0 && url.IndexOf('?') < 0)
+                    else if (url.Contains("/equipes") && (url.IndexOf(".", StringComparison.Ordinal) < 0) &&
+                             (url.IndexOf('?') < 0))
                     {
-                        Context.RewritePath("~/Grupo/pilotos.aspx?op=equipes" + "&idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?op=equipes" + "&idgrupo=" + idGrupo);
+                        Context.RewritePath("~/Grupo/pilotos.aspx?op=equipes" + "&IdGrupo=" + idGrupo);
                     }
-                    else if (url.Contains("/pilotos") && url.IndexOf(".", StringComparison.Ordinal) < 0 && url.IndexOf('?') < 0)
+                    else if (url.Contains("/pilotos") && (url.IndexOf(".", StringComparison.Ordinal) < 0) &&
+                             (url.IndexOf('?') < 0))
                     {
-                        Context.RewritePath("~/Grupo/pilotos.aspx?op=pilotos" + "&idGrupo=" + idGrupo);
-                        //Context.Response.Redirect("~/Grupo/pilotos.aspx?op=pilotos" + "&idgrupo=" + idGrupo);
+                        Context.RewritePath("~/Grupo/pilotos.aspx?op=pilotos" + "&IdGrupo=" + idGrupo);
                     }
                 }
             }
             else if (Request.Url.ToString().Contains("/noticias/"))
             {
-                string nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
+                var nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
                 nomeGrupo = nomeGrupo.Replace(".aspx", "");
-                int? idGrupo = GetIdGrupo(nomeGrupo);
+                var idGrupo = GetIdGrupo(nomeGrupo);
 
-                if (idGrupo.HasValue && idGrupo.Value > 0)
+                if (idGrupo.HasValue && (idGrupo.Value > 0))
                 {
-                    string sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
+                    HttpContext.Current.Items["idGrupoGrupos"] = idGrupo;
+                    var sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1,
+                        Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
                     int id;
                     int.TryParse(sId, out id);
 
                     if (id == 0)
-                        Context.RewritePath("~/Grupo/noticias.aspx?idGrupo=" + idGrupo);
+                        Context.RewritePath("~/Grupo/noticias.aspx?IdGrupo=" + idGrupo);
                     else
-                        Context.RewritePath("~/Grupo/noticias.aspx?idNoticia=" + id.ToString() + "&idGrupo=" + idGrupo);
+                        Context.RewritePath("~/Grupo/noticias.aspx?idNoticia=" + id + "&IdGrupo=" + idGrupo);
                 }
             }
             else if (Request.Url.ToString().Contains("/fotos/"))
             {
-                string nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
+                var nomeGrupo = Request.Url.Segments[1].Substring(0, Request.Url.Segments[1].Length - 1);
                 nomeGrupo = nomeGrupo.Replace(".aspx", "");
-                int? idGrupo = GetIdGrupo(nomeGrupo);
+                var idGrupo = GetIdGrupo(nomeGrupo);
 
-                if (idGrupo.HasValue && idGrupo.Value > 0)
+                if (idGrupo.HasValue && (idGrupo.Value > 0))
                 {
-                    string sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1, Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
+                    HttpContext.Current.Items["idGrupoGrupos"] = idGrupo;
+                    var sId = Request.Url.AbsolutePath.Substring(Request.Url.AbsolutePath.LastIndexOf('/') + 1,
+                        Request.Url.AbsolutePath.Length - Request.Url.AbsolutePath.LastIndexOf('/') - 1);
                     int id;
                     int.TryParse(sId, out id);
 
                     if (id == 0)
-                        Context.RewritePath("~/Grupo/fotos.aspx?idGrupo=" + idGrupo);
+                        Context.RewritePath("~/Grupo/fotos.aspx?IdGrupo=" + idGrupo);
                     else
-                        Context.RewritePath("~/Grupo/fotos.aspx?idalbum=" + id.ToString() + "&idGrupo=" + idGrupo);
+                        Context.RewritePath("~/Grupo/fotos.aspx?idalbum=" + id + "&IdGrupo=" + idGrupo);
                 }
             }
         }
@@ -144,30 +172,30 @@ namespace KartRanking
                 CacheHelper.Get("AllGrupo", out lstGrupos);
 
             return (from g in lstGrupos
-                    where g.UrlAcesso.ToLower() == nomeGrupo.ToLower()
-                    select (int?)g.idGrupo).SingleOrDefault();
+                where g.UrlAcesso.ToLower() == nomeGrupo.ToLower()
+                select (int?) g.idGrupo).SingleOrDefault();
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-
         }
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
             try
             {
-                HttpContext ctx = HttpContext.Current;
-                Exception exception = ctx.Server.GetLastError();
+                var ctx = HttpContext.Current;
+                var exception = ctx.Server.GetLastError();
 
-                if (exception != null && exception.Message.Contains("callback"))
+                if ((exception != null) && exception.Message.Contains("callback"))
                 {
                     // This is a robot spam attack so we send it a 404 status to make it go away.
                     ctx.Response.StatusCode = 404;
                     ctx.Server.ClearError();
                 }
-                else if (exception != null && (exception.Message.Contains("File") || exception.Message.Contains("Arquivo") || exception.Message.Contains("inexistente") || exception.Message.Contains("not exist")))
+                else if ((exception != null) &&
+                         (exception.Message.Contains("File") || exception.Message.Contains("Arquivo") ||
+                          exception.Message.Contains("inexistente") || exception.Message.Contains("not exist")))
                 {
                     ctx.Server.ClearError();
                 }
@@ -209,18 +237,16 @@ namespace KartRanking
             }
             catch (Exception ex)
             {
-                LogErro.Log.Logar(ex, HttpContext.Current);
+                Log.Logar(ex, HttpContext.Current);
             }
         }
 
         protected void Session_End(object sender, EventArgs e)
         {
-
         }
 
         protected void Application_End(object sender, EventArgs e)
         {
-
         }
     }
 }

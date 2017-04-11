@@ -30,22 +30,6 @@ namespace KartRanking.Page
             }
         }
 
-        public int IdCampeonato
-        {
-            get
-            {
-                if (Session["IdCampeonatoGrupos"] != null)
-                    return Convert.ToInt32(Session["IdCampeonatoGrupos"]);
-                else
-                    Session["IdCampeonatoGrupos"] = 0;
-                return 0;
-            }
-            set
-            {
-                Session["IdCampeonatoGrupos"] = value.ToString();
-            }
-        }
-
         public string UrlGrupo
         {
             get
@@ -65,10 +49,45 @@ namespace KartRanking.Page
             }
         }
         
+        public int IdCampeonato
+        {
+            get
+            {
+                int idCampeonato = 0;
+                if (Request.QueryString["IdCampeonato"] != null)
+                {
+                    int.TryParse(Request.QueryString["IdCampeonato"], out idCampeonato);
+                    if (idCampeonato > 0)
+                        Session["IdCampeonato"] = idCampeonato;
+                }
+                if (Session["IdCampeonato"] != null)
+                {
+                    int.TryParse(Session["IdCampeonato"].ToString(), out idCampeonato);
+                }
+
+                if (IdGrupo > 0 && idCampeonato <= 0)
+                {
+                    using (DataKartDataContext dk = new DataKartDataContext())
+                    {
+                        idCampeonato = (from c in dk.Kart_Campeonatos
+                                        orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
+                                        where c.idGrupo == IdGrupo
+                                        && c.Ativo == true
+                                        select c.idCampeonato).FirstOrDefault();
+                    }
+                }
+
+                Session["IdCampeonato"] = idCampeonato;
+                return idCampeonato;
+            }
+            set
+            {
+                Session["IdCampeonato"] = value.ToString();
+            }
+        }
+
         protected override void OnInit(EventArgs e)
         {
-            IdGrupo = 0;
-
             base.OnInit(e);
 
             if (Request.QueryString["IdGrupo"] != null)
@@ -81,25 +100,7 @@ namespace KartRanking.Page
             {
                 Alert("Grupo inválido.", "/Administrador/index.aspx");
             }
-            else
-            {
-                CarregarCampeonatoPrincipal(IdGrupo);
-            }
 
-        }
-
-        private void CarregarCampeonatoPrincipal(int idGrupo)
-        {
-            using (DataKartDataContext dk = new DataKartDataContext())
-            {
-                var campeonato = (from c in dk.Kart_Campeonatos
-                    where c.idGrupo == idGrupo
-                          && c.Ativo == true
-                    orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
-                    select c).FirstOrDefault();
-
-                IdCampeonato = campeonato?.idCampeonato ?? 0;
-            }
         }
     }
 }
