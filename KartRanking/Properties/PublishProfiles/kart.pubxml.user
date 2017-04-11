@@ -117,7 +117,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="bin/KartRanking.dll">
-      <publishTime>04/10/2017 17:16:06</publishTime>
+      <publishTime>04/11/2017 15:30:07</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>
@@ -390,22 +390,22 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="email/AssociadoGrupo.htm">
-      <publishTime>04/10/2017 08:04:58</publishTime>
+      <publishTime>04/11/2017 13:58:52</publishTime>
     </File>
     <File Include="email/AssociadoGrupoAdmin.htm">
-      <publishTime>04/10/2017 08:04:58</publishTime>
+      <publishTime>04/11/2017 13:59:09</publishTime>
     </File>
     <File Include="email/benvindo.htm">
-      <publishTime>04/10/2017 08:04:58</publishTime>
+      <publishTime>04/11/2017 14:00:12</publishTime>
     </File>
     <File Include="email/GrupoFotos.htm">
-      <publishTime>04/10/2017 08:04:58</publishTime>
+      <publishTime>04/11/2017 14:00:35</publishTime>
     </File>
     <File Include="email/GrupoModificado.htm">
-      <publishTime>04/10/2017 08:04:58</publishTime>
+      <publishTime>04/11/2017 15:09:05</publishTime>
     </File>
     <File Include="email/GrupoNoticias.htm">
-      <publishTime>04/10/2017 08:04:58</publishTime>
+      <publishTime>04/11/2017 15:12:10</publishTime>
     </File>
     <File Include="email/GrupoRegraModificado.htm">
       <publishTime>04/10/2017 08:04:58</publishTime>
@@ -582,13 +582,13 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:57</publishTime>
     </File>
     <File Include="Grupo/KartGrupo.master">
-      <publishTime>04/10/2017 17:01:15</publishTime>
+      <publishTime>04/11/2017 13:41:05</publishTime>
     </File>
     <File Include="Grupo/noticias.aspx">
       <publishTime>04/10/2017 08:04:57</publishTime>
     </File>
     <File Include="Grupo/pilotos.aspx">
-      <publishTime>04/10/2017 08:04:57</publishTime>
+      <publishTime>04/11/2017 13:42:26</publishTime>
     </File>
     <File Include="Grupo/videos.aspx">
       <publishTime>04/10/2017 08:04:57</publishTime>
@@ -948,10 +948,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="KartRanking.Master">
-      <publishTime>04/10/2017 17:20:03</publishTime>
+      <publishTime>04/11/2017 15:35:29</publishTime>
     </File>
     <File Include="PageError.aspx">
-      <publishTime>04/10/2017 17:14:47</publishTime>
+      <publishTime>04/11/2017 13:25:22</publishTime>
     </File>
     <File Include="piloto-sem-foto.jpg">
       <publishTime>04/10/2017 08:04:58</publishTime>
