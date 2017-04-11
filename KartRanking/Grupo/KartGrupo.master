@@ -56,12 +56,12 @@
                     </ul>
                     <nav>
                         <ul class="sf-menu sf-js-enabled">
-                            <li><a href="/<%= urlGrupo %>"><strong><strong>Home</strong></strong></a></li>
-                            <li><a href="/<%= urlGrupo %>/pilotos"><strong><strong>Pilotos</strong></strong></a></li>
-                            <li><a href="/<%= urlGrupo %>/noticias"><strong><strong>Notícias</strong></strong></a></li>
-                            <li><a href="/<%= urlGrupo %>/fotos"><strong><strong>Fotos</strong></strong></a></li>
-                            <li><a href="/<%= urlGrupo %>/videos"><strong><strong>Videos</strong></strong></a></li>
-                            <li><a href="/<%= urlGrupo %>/informacoes"><strong><strong>Informações</strong></strong></a></li>
+                            <li><a href="/<%= UrlGrupo %>"><strong><strong>Home</strong></strong></a></li>
+                            <li><a href="/<%= UrlGrupo %>/pilotos"><strong><strong>Pilotos</strong></strong></a></li>
+                            <li><a href="/<%= UrlGrupo %>/noticias"><strong><strong>Notícias</strong></strong></a></li>
+                            <li><a href="/<%= UrlGrupo %>/fotos"><strong><strong>Fotos</strong></strong></a></li>
+                            <li><a href="/<%= UrlGrupo %>/videos"><strong><strong>Videos</strong></strong></a></li>
+                            <li><a href="/<%= UrlGrupo %>/informacoes"><strong><strong>Informações</strong></strong></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -116,16 +116,16 @@
                         <div class="wrapper">
                             <div class="fleft">
                                 <ul class="menu-bot p1">
-                                    <li><a class="active" href="/<%= urlGrupo %>">
+                                    <li><a class="active" href="/<%= UrlGrupo %>">
                                         <canvas width="61" height="17" style="width: 61px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Home</a></li>
-                                    <li><a href="/<%= urlGrupo %>/pilotos">
+                                    <li><a href="/<%= UrlGrupo %>/pilotos">
                                         <canvas width="69" height="17" style="width: 69px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Pilotos</a></li>
-                                    <li><a href="/<%= urlGrupo %>/noticias">
+                                    <li><a href="/<%= UrlGrupo %>/noticias">
                                         <canvas width="81" height="17" style="width: 81px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Noticias</a></li>
-                                    <li><a href="/<%= urlGrupo %>/fotos">
+                                    <li><a href="/<%= UrlGrupo %>/fotos">
                                         <canvas width="82" height="17" style="width: 82px; height: 17px; top: -3px; left: -3px;">
                                         </canvas>Fotos</a></li>
                                     <li><a href="http://forum.afonsoft.com.br/">
@@ -149,7 +149,7 @@
                                         </script>
                                     </div>
                                     <div class="text-bot">
-                                        <div class="fb-like" data-href="http://kart.afonsoft.com.br/<%= urlGrupo %>" data-layout="standard"
+                                        <div class="fb-like" data-href="http://kart.afonsoft.com.br/<%= UrlGrupo %>" data-layout="standard"
                                             data-action="like" data-show-faces="true" data-width="300" data-share="true">
                                         </div>
                                     </div>

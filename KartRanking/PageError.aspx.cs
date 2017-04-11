@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Configuration;
 
 namespace KartRanking
@@ -18,39 +14,38 @@ namespace KartRanking
             {
                 try
                 {
-                    Exception ex1 = null;
+                    Exception ex1;
 
                     if (Context.Items["Exception"] != null)
                         ex1 = (Exception)(Context.Items["Exception"]);
                     else if (Session["Exception"] != null)
                         ex1 = (Exception)(Session["Exception"]);
-                    else if (ex1 == null)
-                        ex1 = Server.GetLastError();
+                    else ex1 = Server.GetLastError();
 
-                    int StatusCode = 0;
-                    string _StatusCode = "";
+                    int statusCode;
+                    string sStatusCode;
                     if (Context.Items["StatusCode"] != null)
                     {
-                        _StatusCode = Context.Items["StatusCode"].ToString();
-                        int.TryParse(_StatusCode, out StatusCode);
+                        sStatusCode = Context.Items["StatusCode"].ToString();
+                        int.TryParse(sStatusCode, out statusCode);
                     }
                     else if (Session["StatusCode"] != null)
                     {
-                        _StatusCode = Session["StatusCode"].ToString();
-                        int.TryParse(_StatusCode, out StatusCode);
+                        sStatusCode = Session["StatusCode"].ToString();
+                        int.TryParse(sStatusCode, out statusCode);
                     }
                     else
-                        StatusCode = HttpContext.Current.Response.StatusCode;
+                        statusCode = HttpContext.Current.Response.StatusCode;
 
-                    string[] Keys = null;
+                    string[] keys;
                     if (Context.Items["AllKeys"] != null)
-                        Keys = (string[])Context.Items["AllKeys"];
+                        keys = (string[])Context.Items["AllKeys"];
                     else if (Session["AllKeys"] != null)
-                        Keys = (string[])Context.Items["AllKeys"];
+                        keys = (string[])Context.Items["AllKeys"];
                     else
-                        Keys = Request.Form.AllKeys;
+                        keys = Request.Form.AllKeys;
 
-                    PrintError(ex1, StatusCode, Keys);
+                    PrintError(ex1, statusCode, keys);
                 }
                 catch (Exception ex)
                 {
@@ -58,7 +53,7 @@ namespace KartRanking
                 }
             }
         }
-        private void PrintError(Exception ex, int StatusCode, string[] Keys)
+        private void PrintError(Exception ex, int statusCode, string[] keys)
         {
             if (ex == null) ex = new Exception("Erro desconhecido.");
             Exception tmpex = ex;
@@ -67,7 +62,7 @@ namespace KartRanking
             string msgError = Request.QueryString["msg"] ?? "";
 
 
-            lblErrorCode.Text = string.Format("Erro Code: {0} - Mensagem: {1}", StatusCode.ToString(), ex.Message.Replace("\n", "<br/>").Replace("   at ", "&nbsp;&nbsp;at "));
+            lblErrorCode.Text = $"Erro Code: {statusCode} - Mensagem: {ex.Message.Replace("\n", "<br/>").Replace("   at ", "&nbsp;&nbsp;at ")}";
             ViewState["ErrorMsg"] = lblErrorCode.Text.Replace("<br/>", " ").Replace("&nbsp;", " ");
 
             while (tmpex != null)
@@ -76,19 +71,19 @@ namespace KartRanking
                 tmpex = tmpex.InnerException;
             }
 
-            strBody += "<p><b>URL: </b>" + HttpContext.Current.Request.Url.ToString();
-            strBody += "</p><p><b>RawUrl: </b>" + HttpContext.Current.Request.RawUrl.ToString();
-            strBody += "</p><p><b>QueryString: </b>" + HttpContext.Current.Request.QueryString.ToString();
+            strBody += "<p><b>URL: </b>" + HttpContext.Current.Request.Url;
+            strBody += "</p><p><b>RawUrl: </b>" + HttpContext.Current.Request.RawUrl;
+            strBody += "</p><p><b>QueryString: </b>" + HttpContext.Current.Request.QueryString;
             strBody += "</p><p><b>User IP: </b>" + HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"] + " &nbsp;";
             strBody += "</p><p><b>Date/Time: </b>" + DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
             strBody += "</p><p><b>User Agent: </b>" + HttpContext.Current.Request.UserAgent;
             if (HttpContext.Current.Request.UrlReferrer != null)
-                strBody += "</p><p><b>Referrer: </b>" + HttpContext.Current.Request.UrlReferrer.ToString();
+                strBody += "</p><p><b>Referrer: </b>" + HttpContext.Current.Request.UrlReferrer;
 
             strBody += "<br/></p><p><font color=red><b>Erro: </b>" + msgError + "</font>";
 
             string str = "";
-            foreach (string s in Keys)
+            foreach (string s in keys)
             {
                 if (s != "__VIEWSTATE")
                     str += s + ":" + Request.Form[s] + "<br>";

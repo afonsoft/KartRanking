@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
 
@@ -23,14 +20,14 @@ namespace KartRanking.Grupo
         {
             if (!IsPostBack)
             {
-                popularVideos();
+                PopularVideos();
             }
         }
 
-        private void popularVideos()
+        private void PopularVideos()
         {
-            List<Etapas> etapas1 = null;
-            List<Videos> vds = null;
+            List<Etapas> etapas1;
+            List<Videos> vds;
 
             using (DataKartDataContext dk = new DataKartDataContext())
             {
@@ -57,16 +54,16 @@ namespace KartRanking.Grupo
                 etapas1 = (from e in etp
                            select new Etapas
                            {
-                               dtEvento = e.Data.ToString("dd/MM/yyyy"),
-                               idEtapa = e.idCalendario,
+                               DtEvento = e.Data.ToString("dd/MM/yyyy"),
+                               IdEtapa = e.idCalendario,
                                NomeEtapa = e.Nome,
-                               lstVideos = (from v in vid
+                               LstVideos = (from v in vid
                                             where v.idCalendario == e.idCalendario
                                             select new Videos
                                             {
-                                                idVideo = v.idVideo,
-                                                dtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
-                                                txtTitulo = v.txtTitulo,
+                                                IdVideo = v.idVideo,
+                                                DtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
+                                                TxtTitulo = v.txtTitulo,
                                                 UrlVideo = v.UrlVideo
                                             }).ToList()
                            }).ToList();
@@ -75,24 +72,24 @@ namespace KartRanking.Grupo
                        where (v.idCalendario == null || v.idCalendario <= 0)
                        select new Videos
                        {
-                           idVideo = v.idVideo,
-                           dtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
-                           txtTitulo = v.txtTitulo,
+                           IdVideo = v.idVideo,
+                           DtEvento = v.dtEvento.ToString("dd/MM/yyyy"),
+                           TxtTitulo = v.txtTitulo,
                            UrlVideo = v.UrlVideo
                        }).ToList();
             }
 
             etapas1.Add(new Etapas()
             {
-                dtEvento = "",
-                idEtapa = 0,
+                DtEvento = "",
+                IdEtapa = 0,
                 NomeEtapa = "Nenhuma etapa associado",
-                lstVideos = vds
+                LstVideos = vds
             });
 
             var etapas = (from e in etapas1
-                          where e.lstVideos != null
-                          && e.lstVideos.Count > 0
+                          where e.LstVideos != null
+                          && e.LstVideos.Count > 0
                           select e);
 
             rptEtapas.DataSource = etapas;
@@ -104,17 +101,17 @@ namespace KartRanking.Grupo
     [Serializable]
     public class Videos
     {
-        public int idVideo { get; set; }
+        public int IdVideo { get; set; }
         public string UrlVideo { get; set; }
-        public string txtTitulo { get; set; }
-        public string dtEvento { get; set; }
+        public string TxtTitulo { get; set; }
+        public string DtEvento { get; set; }
     }
     [Serializable]
     public class Etapas
     {
-        public List<Videos> lstVideos { get; set; }
+        public List<Videos> LstVideos { get; set; }
         public string NomeEtapa { get; set; }
-        public string dtEvento { get; set; }
-        public int idEtapa { get; set; }
+        public string DtEvento { get; set; }
+        public int IdEtapa { get; set; }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
 
@@ -57,10 +55,7 @@ namespace KartRanking.Grupo
 
                     TimeSpan ts = date - DateTime.Now;
 
-                    if (ts.TotalSeconds >= 0)
-                        HiddenFieldStartTime.Value = ts.TotalSeconds.ToString();
-                    else
-                        HiddenFieldStartTime.Value = "0";
+                    HiddenFieldStartTime.Value = ts.TotalSeconds >= 0 ? ts.TotalSeconds.ToString(culture) : "0";
                 }
                 else
                 {
@@ -111,25 +106,25 @@ namespace KartRanking.Grupo
                 if (users != null)
                 {
 
-                    int UsuarioSelecionado = rnd.Next(users.Count());
-                    Usuario user = users[UsuarioSelecionado];
+                    int usuarioSelecionado = rnd.Next(users.Count);
+                    Usuario user = users[usuarioSelecionado];
 
-                    string Equipe = (from e in dk.Kart_Equipe_Campeonatos
+                    string equipe = (from e in dk.Kart_Equipe_Campeonatos
                                      join eu in dk.Kart_Usuario_Equipe_Campeonatos on e.idEquipeCampeonato equals eu.idEquipeCampeonato
                                      where e.idCampeonato == IdCampeonato
                                      && eu.idUsuario == user.idUsuario
                                      select e.NomeEquipe).FirstOrDefault();
 
-                    int? Pontos = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                    int? pontos = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
                                    where vp.idCampeonato == IdCampeonato
                                    && vp.idGrupo == IdGrupo
                                    && vp.idUsuario == user.idUsuario
                                    select vp.Pontos).FirstOrDefault();
 
-                    lbData.Text = user.DtNascimento.HasValue ? user.DtNascimento.Value.ToString("dd/MM/yyyy") : "--/--/----";
+                    lbData.Text = user.DtNascimento?.ToString("dd/MM/yyyy") ?? "--/--/----";
                     lbNome.Text = user.Nome;
-                    lbEquipe.Text = Equipe;
-                    lbPontos.Text = Pontos.HasValue ? Pontos.Value.ToString() : "0";
+                    lbEquipe.Text = equipe;
+                    lbPontos.Text = pontos?.ToString() ?? "0";
                     ltPerfilFace.Text = string.IsNullOrEmpty(user.Perfil_Facebook) ? "------------" : "<a href='" + user.Perfil_Facebook + "' target='_blank'>" + (user.Perfil_Facebook.Length > 30 ? user.Perfil_Facebook.Substring(0, 30) + "..." : user.Perfil_Facebook) + "</a>";
                     IdUsuarioDestaque = user.idUsuario;
                 }
@@ -151,23 +146,23 @@ namespace KartRanking.Grupo
             {
                 DataKartDataContext dk = new DataKartDataContext();
                 //View para popular o grid (Ranking do Campeonato)
-                var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                var rankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
                                 where vp.idCampeonato == IdCampeonato
                                 && vp.idGrupo == IdGrupo
                                 orderby vp.Pontos descending
                                 select vp).Take(10);
 
-                gvRankigCampeonato.DataSource = RankingC;
+                gvRankigCampeonato.DataSource = rankingC;
                 gvRankigCampeonato.DataBind();
 
                 //View para popular o grid (Ranking das equipe)
-                var RankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
+                var rankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
                                 where ve.idCampeonato == IdCampeonato
                                 && ve.idGrupo == IdGrupo
                                 orderby ve.Pontos descending
                                 select ve).Take(10);
 
-                gvRankigEquipe.DataSource = RankingE;
+                gvRankigEquipe.DataSource = rankingE;
                 gvRankigEquipe.DataBind();
             }
             else
@@ -205,7 +200,8 @@ namespace KartRanking.Grupo
                     strLista += n.Titulo;
                     strLista += "             </div> ";
                     strLista += "             <div class='sliderSinopise' style='padding: 0px 0px 1px 0px;'>";
-                    strLista += Sinopse(n.Noticia, n.idNoticias, n.dtCriacao.Value.ToString("dd/MM/yyyy"));
+                    if (n.dtCriacao != null)
+                        strLista += Sinopse(n.Noticia, n.idNoticias, n.dtCriacao.Value.ToString("dd/MM/yyyy"));
                     strLista += "             </div> ";
                 }
                 else
@@ -214,7 +210,8 @@ namespace KartRanking.Grupo
                     strLista += n.Titulo;
                     strLista += "             </div> ";
                     strLista += "             <div class='sliderSinopise' style='padding: 0px 0px 1px 0px;'>";
-                    strLista += Sinopse(n.Noticia, n.idNoticias, n.dtCriacao.Value.ToString("dd/MM/yyyy"));
+                    if (n.dtCriacao != null)
+                        strLista += Sinopse(n.Noticia, n.idNoticias, n.dtCriacao.Value.ToString("dd/MM/yyyy"));
                     strLista += "             </div> ";
                 }
                 if (iFormatar == 3)
@@ -237,7 +234,6 @@ namespace KartRanking.Grupo
 
                 strLista += "         </li> ";
                 strHtml += strLista;
-                strLista = "";
             }
 
             strHtml += "     </ul> ";
@@ -248,7 +244,7 @@ namespace KartRanking.Grupo
 
         private string Sinopse(string texto, int id, string data)
         {
-            string r = "";
+            string r;
             if (texto.Length >= 97)
                 r = texto.Substring(0, 97) + "...";
             else

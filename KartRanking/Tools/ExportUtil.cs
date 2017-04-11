@@ -255,15 +255,11 @@ namespace KartRanking.Tools
             HttpContext.Current.Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
             HttpContext.Current.Response.ContentType = "application/ms-excel";
 
-            using (StringWriter sw = new StringWriter())
-            {
-                using (HtmlTextWriter htw = new HtmlTextWriter(sw))
-                {
-                    gv.RenderControl(htw);
-                    //  render the htmlwriter into the response
-                    HttpContext.Current.Response.Write(sw.ToString());
-                }
-            }
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            gv.RenderControl(htw);
+            //  render the htmlwriter into the response
+            HttpContext.Current.Response.Write(sw.ToString());
             HttpContext.Current.Response.Flush();
             HttpContext.Current.Response.End();
         }

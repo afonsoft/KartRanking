@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.BaseDados;
 using KartRanking.Page;
 
@@ -19,7 +15,7 @@ namespace KartRanking.Grupo
     ********************************************************/
     public partial class pilotos : PageBaseGrupo
     {
-        public int id { set; get; }
+        public int Id { set; get; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -46,15 +42,15 @@ namespace KartRanking.Grupo
                     PanelPiloto.Visible = false;
                     PanelEquipes.Visible = false;
                     PanelInfo.Visible = true;
-                    popularInfo(Convert.ToInt32(sidUsuario));
+                    PopularInfo(Convert.ToInt32(sidUsuario));
                 }
             }
         }
 
-        private void popularInfo(int idUsuario)
+        private void PopularInfo(int idUsuario)
         {
             DataKartDataContext dk = new DataKartDataContext();
-            BaseDados.Usuario user = (from p in dk.Usuarios
+            var user = (from p in dk.Usuarios
                                       where p.idUsuario == idUsuario
                                       select p).FirstOrDefault();
 
@@ -76,7 +72,7 @@ namespace KartRanking.Grupo
                 txtPerfilTwitter.Text = user.Perfil_Twitter;
                 txtPerfilPlus.Text = user.Perfil_Plus;
                 txtObs.Text = user.Obs;
-                id = user.idUsuario;
+                Id = user.idUsuario;
                 //ImgPerfil.ImageUrl = "~/Administrador/ImageHandler.ashx?id=" + user.idUsuario;
             }
         }
@@ -95,25 +91,25 @@ namespace KartRanking.Grupo
                 if (op == 1)
                 {
                     //View para popular o grid (Ranking do Campeonato)
-                    var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
+                    var rankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
                                     where vp.idCampeonato == IdCampeonato
                                     && vp.idGrupo == IdGrupo
                                     orderby vp.Pontos descending
                                     select vp);
 
-                    gvRankigCampeonato.DataSource = RankingC;
+                    gvRankigCampeonato.DataSource = rankingC;
                     gvRankigCampeonato.DataBind();
                 }
                 else if (op == 2)
                 {
                     //View para popular o grid (Ranking das equipe)
-                    var RankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
+                    var rankingE = (from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
                                     where ve.idCampeonato == IdCampeonato
                                     && ve.idGrupo == IdGrupo
                                     orderby ve.Pontos descending
                                     select ve);
 
-                    gvRankigEquipe.DataSource = RankingE;
+                    gvRankigEquipe.DataSource = rankingE;
                     gvRankigEquipe.DataBind();
                 }
             }
@@ -121,7 +117,7 @@ namespace KartRanking.Grupo
 
         protected void lnkOpenInfoEquipe_Click(object sender, EventArgs e)
         {
-            //Abrir um popup com as informações do pilotos da equipe selecionada;
+            //TODO: Abrir um popup com as informações do pilotos da equipe selecionada;
             int idEquipe = 0;
             idEquipe = Convert.ToInt32(HiddenFieldidEquipeCampeonato.Value);
         }

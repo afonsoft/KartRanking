@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.BaseDados;
 
 namespace KartRanking
@@ -20,13 +15,7 @@ namespace KartRanking
             }
         }
 
-        public Usuario UsuarioLogado
-        {
-            get
-            {
-                return (Usuario) Session["Usuario"];
-            }
-        }
+        public Usuario UsuarioLogado => (Usuario) Session["Usuario"];
 
         protected void Page_Load( object sender, EventArgs e )
         {

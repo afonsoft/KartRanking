@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
 
@@ -30,13 +26,13 @@ namespace KartRanking.Grupo
         private void PopularRegras()
         {
             ExibirRegras.InnerHtml = "";
-            string regra = "";
+            string regra;
 
             using (DataKartDataContext dk = new DataKartDataContext())
             {
                 regra = (from r in dk.Kart_Regras_Grupos
                                 where r.idGrupo == IdGrupo
-                                && r.Ativo == true
+                                && r.Ativo
                                 select r.Regra).FirstOrDefault();
 
             }

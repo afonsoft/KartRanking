@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Text;
 using System.Security.Cryptography;
 
@@ -30,11 +27,10 @@ namespace KartRanking.Cryptographic
             tdes.Key = Encoding.ASCII.GetBytes("passwordDR0wSS@P6660juht");
             tdes.IV = Encoding.ASCII.GetBytes(chaveCriptografia);
             byte[] data = Encoding.ASCII.GetBytes(texto);
-            byte[] enc = new byte[0];
             tdes.Mode = CipherMode.CBC;
             tdes.Padding = PaddingMode.Zeros;
             ICryptoTransform ict = tdes.CreateEncryptor();
-            enc = ict.TransformFinalBlock(data, 0, data.Length);
+            var enc = ict.TransformFinalBlock(data, 0, data.Length);
             return ByteArrayToString(enc);
 
         }
@@ -69,9 +65,9 @@ namespace KartRanking.Cryptographic
 
         public byte[] StringToByteArray(string hex)
         {
-            int NumberChars = hex.Length;
-            byte[] bytes = new byte[NumberChars / 2];
-            for (int i = 0; i < NumberChars; i += 2)
+            int numberChars = hex.Length;
+            byte[] bytes = new byte[numberChars / 2];
+            for (int i = 0; i < numberChars; i += 2)
                 bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
             return bytes;
         }

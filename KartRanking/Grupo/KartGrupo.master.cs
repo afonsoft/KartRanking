@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.BaseDados;
 
 namespace KartRanking.Grupo
@@ -30,7 +26,7 @@ namespace KartRanking.Grupo
             get { return Session["idGrupoGrupos"] != null ? Convert.ToInt16(Session["idGrupoGrupos"]) : 0; }
         }
 
-        public string urlGrupo
+        public string UrlGrupo
         {
             get
             {

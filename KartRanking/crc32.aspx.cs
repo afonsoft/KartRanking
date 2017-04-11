@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Net;
 using KartRanking.Page;
 
@@ -16,8 +11,8 @@ namespace KartRanking
             if (!IsPostBack)
             {
                 string p = Request.QueryString["p"];
-                string s2 = "";
-                uint s1 = EncryptCrc32(p + p.Length.ToString());
+                string s2;
+                uint s1 = EncryptCrc32(p + p.Length);
 
                 using (WebClient client = new WebClient())
                 {

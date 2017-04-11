@@ -137,7 +137,7 @@
                             <div class="grid_3">
                                 <div class="container_12">
                                     <div class="grid_12">
-                                        <img src="/Administrador/ImageHandler.ashx?id=<%= id %>" width="150px" height="170px"
+                                        <img src="/Administrador/ImageHandler.ashx?id=<%= Id %>" width="150px" height="170px"
                                             alt="Foto" />
                                     </div>
                                     <div class="clear espaco_mini">

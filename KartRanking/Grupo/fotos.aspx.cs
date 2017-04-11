@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.Page;
 using System.IO;
 using KartRanking.BaseDados;
@@ -37,8 +34,8 @@ namespace KartRanking.Grupo
             {
                 PanelAlbum.Visible = true;
                 PanelListAlbum.Visible = false;
-                int idAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
-                PopularAlbum(idAlbum);
+                IdAlbum = Convert.ToInt32(Request.QueryString["idalbum"]);
+                PopularAlbum(IdAlbum);
             }
         }
 
@@ -68,16 +65,16 @@ namespace KartRanking.Grupo
                          select f).FirstOrDefault();
             if (fotos != null)
             {
-                album.dtEvento = fotos.dtEvento;
-                album.idAlbum = fotos.idAlbum;
-                album.idGrupo = fotos.idGrupo;
+                album.DtEvento = fotos.dtEvento;
+                album.IdAlbum = fotos.idAlbum;
+                album.IdGrupo = fotos.idGrupo;
                 album.NomeAlbum = fotos.NomeAlbum;
                 album.PathFotos = fotos.PathFotos;
                 album.UrlFotos = fotos.UrlFotos;
                 album.Itens = RecuperarTodosItens(fotos.PathFotos, fotos.UrlFotos, fotos.idAlbum, fotos.idGrupo);
 
                 TotalCol = 0;
-                TotalImg = (from a in album.Itens where a.Ativo == true select a).Count();
+                TotalImg = (from a in album.Itens where a.Ativo select a).Count();
                 TotalImgCount = 0;
                 RepeaterFotos.DataSource = album.Itens;
                 RepeaterFotos.DataBind();
@@ -90,18 +87,18 @@ namespace KartRanking.Grupo
         private void PopularAlbuns()
         {
             DataKartDataContext dk = new DataKartDataContext();
-            List<Album> Albuns = new List<Album>();
+            List<Album> albuns = new List<Album>();
             var ft = (from f in dk.Kart_Album_Grupos
                       where f.idGrupo == IdGrupo
                       select f);
 
             foreach (var f in ft)
             {
-                Albuns.Add(new Album()
+                albuns.Add(new Album()
                 {
-                    dtEvento = f.dtEvento,
-                    idAlbum = f.idAlbum,
-                    idGrupo = f.idGrupo,
+                    DtEvento = f.dtEvento,
+                    IdAlbum = f.idAlbum,
+                    IdGrupo = f.idGrupo,
                     NomeAlbum = f.NomeAlbum,
                     PathFotos = f.PathFotos,
                     UrlFotos = f.UrlFotos,
@@ -109,13 +106,13 @@ namespace KartRanking.Grupo
                 });
             }
 
-            RepeaterAlbum.DataSource = Albuns;
+            RepeaterAlbum.DataSource = albuns;
             RepeaterAlbum.DataBind();
         }
 
         private List<Item> RecuperarTodosItens(string path, string url, int idAlbum, int idGrupo)
         {
-            List<Item> Itens = new List<Item>();
+            List<Item> itens = new List<Item>();
 
             if (Directory.Exists(path))
             {
@@ -123,23 +120,23 @@ namespace KartRanking.Grupo
 
                 foreach (string i in str)
                 {
-                    Itens.Add(new Item()
+                    itens.Add(new Item()
                     {
-                        Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                        Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                        Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\", StringComparison.Ordinal) + 1, i.Length - i.LastIndexOf("\\", StringComparison.Ordinal) - 1),
+                        Nome = i.Substring(i.LastIndexOf("\\", StringComparison.Ordinal) + 1, i.Length - i.LastIndexOf("\\", StringComparison.Ordinal) - 1),
                         Ativo = true,
-                        idAlbum = idAlbum,
-                        idGrupo = idGrupo
+                        IdAlbum = idAlbum,
+                        IdGrupo = idGrupo
                     });
                 }
             }
            
-            return Itens;
+            return itens;
         }
 
         private List<Item> RecuperarItens(string path, string url, int idAlbum, int idGrupo)
         {
-            List<Item> Itens = new List<Item>();
+            List<Item> itens = new List<Item>();
 
             if (Directory.Exists(path))
             {
@@ -147,24 +144,24 @@ namespace KartRanking.Grupo
 
                 foreach (string i in str)
                 {
-                    Itens.Add(new Item()
+                    itens.Add(new Item()
                     {
-                        Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
-                        Nome = i.Substring(i.LastIndexOf("\\") + 1, i.Length - i.LastIndexOf("\\") - 1),
+                        Foto = "http://kart.afonsoft.com.br" + url + "/" + i.Substring(i.LastIndexOf("\\", StringComparison.Ordinal) + 1, i.Length - i.LastIndexOf("\\", StringComparison.Ordinal) - 1),
+                        Nome = i.Substring(i.LastIndexOf("\\", StringComparison.Ordinal) + 1, i.Length - i.LastIndexOf("\\", StringComparison.Ordinal) - 1),
                         Ativo = true,
-                        idAlbum = idAlbum,
-                        idGrupo = idGrupo
+                        IdAlbum = idAlbum,
+                        IdGrupo = idGrupo
                     });
                 }
             }
 
-            if (Itens.Count() < 6)
+            if (itens.Count < 6)
             {
-                for (int i = Itens.Count(); i < 6; i++)
-                    Itens.Add(new Item() { Foto = "", Nome = "", Ativo = false });
+                for (int i = itens.Count; i < 6; i++)
+                    itens.Add(new Item() { Foto = "", Nome = "", Ativo = false });
             }
 
-            return Itens.Take(6).ToList();
+            return itens.Take(6).ToList();
         }
     }
 
@@ -173,24 +170,24 @@ namespace KartRanking.Grupo
     [Serializable]
     public class Album
     {
-        public int idAlbum { get; set; }
-        public int idGrupo { get; set; }
+        public int IdAlbum { get; set; }
+        public int IdGrupo { get; set; }
         public string NomeAlbum { get; set; }
-        public DateTime dtEvento { get; set; }
+        public DateTime DtEvento { get; set; }
         public string PathFotos { get; set; }
         public string UrlFotos { get; set; }
         public List<Item> Itens { get; set; }
-        public int TotalItens { get { return Itens == null ? 0 : Itens.Count(); } }
+        public int TotalItens => Itens?.Count ?? 0;
     }
 
     [Serializable]
     public class Item
     {
-        public int idAlbum { get; set; }
+        public int IdAlbum { get; set; }
         public string Foto { get; set; }
         public string Nome { get; set; }
         public bool Ativo { get; set; }
-        public int idGrupo { get; set; }
+        public int IdGrupo { get; set; }
     }
 
     #endregion

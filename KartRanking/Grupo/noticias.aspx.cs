@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
 
@@ -25,16 +21,16 @@ namespace KartRanking.Grupo
             {
                 if (Request.QueryString["idNoticia"] != null)
                 {
-                    popularNoticia(Convert.ToInt32(Request.QueryString["idNoticia"]));
+                    PopularNoticia(Convert.ToInt32(Request.QueryString["idNoticia"]));
                 }
                 else
                 {
-                    popularNoticias();
+                    PopularNoticias();
                 }
             }
         }
 
-        private void popularNoticias()
+        private void PopularNoticias()
         {
             PanelNoticias.Visible = true;
             PanelReadNoticia.Visible = false;
@@ -44,7 +40,7 @@ namespace KartRanking.Grupo
                 var noticias = (from n in dk.Kart_Noticias_Grupos
                                 join u in dk.Usuarios on n.IdUsuario equals u.idUsuario
                                 where n.idGrupo == IdGrupo
-                                && n.Ativo == true
+                                && n.Ativo
                                 orderby n.dtCriacao descending
                                 select new
                                 {
@@ -60,7 +56,7 @@ namespace KartRanking.Grupo
                 RptNoticias.DataBind();
             }
         }
-        private void popularNoticia(int idNoticia)
+        private void PopularNoticia(int idNoticia)
         {
             PanelNoticias.Visible = false;
             PanelReadNoticia.Visible = true;
