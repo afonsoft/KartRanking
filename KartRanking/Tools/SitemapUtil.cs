@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Xml.Linq;
 using System.IO;
 
@@ -9,23 +7,23 @@ namespace KartRanking.Tools
 {
     public class SitemapUtil 
     {
-        public void createSiteMap()
+        public void CreateSiteMap()
         {
             XNamespace ns = XNamespace.Get("http://www.sitemaps.org/schemas/sitemap/0.9");
-            XElement urlset = null;
+            XElement urlset;
             XDocument siteMapDocument = new XDocument(urlset = new XElement(ns + "urlset"));
-            foreach (url links in CreateSiteMapNodes())
+            foreach (Url links in CreateSiteMapNodes())
             {
                 urlset.Add(new XElement
                 (ns + "url",
-                new XElement(ns + "loc", links.loc),
-                new XElement(ns + "lastmod", links.lastmod.ToString("yyyy-MM-dd")),
-                new XElement(ns + "changefreq", links.changefreq),
-                new XElement(ns + "priority", links.priority)
+                new XElement(ns + "loc", links.Loc),
+                new XElement(ns + "lastmod", links.Lastmod.ToString("yyyy-MM-dd")),
+                new XElement(ns + "changefreq", links.Changefreq),
+                new XElement(ns + "priority", links.Priority)
                 ));
             }
 
-            siteMapDocument.Save(String.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, "SiteMap.xml"));
+            siteMapDocument.Save($"{AppDomain.CurrentDomain.BaseDirectory}\\SiteMap.xml");
         }
 
         #region Members
@@ -35,8 +33,7 @@ namespace KartRanking.Tools
 
         private string[] getDirectory(string path)
         {
-            List<string> lstDir = new List<string>();
-            lstDir.Add(path);
+            List<string> lstDir = new List<string> {path};
             string[] dirs = Directory.GetDirectories(path);   
             
             foreach(string dir in dirs)
@@ -46,7 +43,7 @@ namespace KartRanking.Tools
             return lstDir.ToArray();
         }
 
-        private string[] getFiles()
+        private string[] GetFiles()
         {
             List<string> lstfiles = new List<string>();
 
@@ -60,41 +57,41 @@ namespace KartRanking.Tools
             return lstfiles.ToArray();
         }
 
-        private List<url> CreateSiteMapNodes()
+        private List<Url> CreateSiteMapNodes()
         {
-            List<url> urls = new List<url>();
+            List<Url> urls = new List<Url>();
 
-            string[] files = getFiles();
+            string[] files = GetFiles();
 
-            url u = null;
-
-            string diretory = "";
-            string urlfull = "";
             string urlsite = "http://kart.afonsoft.com.br/";
 
             foreach (string file in files)
             {
                 FileInfo info = new FileInfo(file);
-                diretory = info.DirectoryName.Substring(info.DirectoryName.LastIndexOf("\\") + 1, info.DirectoryName.Length - info.DirectoryName.LastIndexOf("\\") - 1);
+                if (info.DirectoryName != null)
+                {
+                    var diretory = info.DirectoryName.Substring(info.DirectoryName.LastIndexOf("\\", StringComparison.Ordinal) + 1, info.DirectoryName.Length - info.DirectoryName.LastIndexOf("\\", StringComparison.Ordinal) - 1);
 
-                if (diretory.ToLower() != "kartranking" && diretory.ToLower() != "kart" && diretory.ToLower() != "aspnet" && diretory.ToLower() != "test")
-                    urlfull = urlsite + diretory + "/" + info.Name;
-                else
-                    urlfull = urlsite + "/" + info.Name;
+                    string urlfull;
+                    if (diretory.ToLower() != "kartranking" && diretory.ToLower() != "kart" && diretory.ToLower() != "aspnet" && diretory.ToLower() != "test")
+                        urlfull = urlsite + diretory + "/" + info.Name;
+                    else
+                        urlfull = urlsite + "/" + info.Name;
 
-                u = new url() { lastmod = info.LastWriteTime, priority = "0.5", changefreq = "monthly", loc = urlfull };
-                urls.Add(u);
+                    var u = new Url() { Lastmod = info.LastWriteTime, Priority = "0.5", Changefreq = "monthly", Loc = urlfull };
+                    urls.Add(u);
+                }
             }
             return urls;
         }
 
     }
 
-    public class url
+    public class Url
     {
-        public string loc { get; set; }
-        public DateTime lastmod { get; set; }
-        public string changefreq { get; set; }
-        public string priority { get; set; }
+        public string Loc { get; set; }
+        public DateTime Lastmod { get; set; }
+        public string Changefreq { get; set; }
+        public string Priority { get; set; }
     }
 }

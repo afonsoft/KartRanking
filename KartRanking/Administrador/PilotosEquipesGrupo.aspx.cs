@@ -44,6 +44,7 @@ namespace KartRanking.Administrador
 
         private void popularCampeonatos()
         {
+            DataKartDataContext dk = new DataKartDataContext();
             var kg = (from g in dk.Kart_Campeonatos
                       orderby g.dtCriacao ascending
                       where g.idGrupo == IdGrupo
@@ -122,7 +123,7 @@ namespace KartRanking.Administrador
         {
             PanelPilotos.Visible = true;
             PanelEquipes.Visible = false;
-
+            DataKartDataContext dk = new DataKartDataContext();
             int[] PilotosDesativados = (from t0 in dk.Kart_Campeonato_Usuario_Desativados
                                         where t0.idCampeonato == IdCampeonato
                                         select t0.idUsuario).ToArray();
@@ -165,6 +166,7 @@ namespace KartRanking.Administrador
         {
             PanelPilotos.Visible = false;
             PanelEquipes.Visible = true;
+            DataKartDataContext dk = new DataKartDataContext();
 
             int[] EquipesDesativados = (from t0 in dk.Kart_Equipe_Campeonato_Desativados
                                         where t0.idCampeonato == IdCampeonato
@@ -199,6 +201,7 @@ namespace KartRanking.Administrador
                 int IdEquipeCampeonato = 0;
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     HiddenIdEquipeCampeonato.Value = e.CommandArgument.ToString();
                     IdEquipeCampeonato = Convert.ToInt32(HiddenIdEquipeCampeonato.Value);
 
@@ -252,13 +255,14 @@ namespace KartRanking.Administrador
         {
             string idUsuario = e.CommandArgument.ToString();
             if (e.CommandName == "ViewPilotoInfo")
-                Response.Redirect(String.Format("~/Administrador/perfil.aspx?idUsuario={0}&Edit={1}&idGrupo={2}", idUsuario, IsAdmin, IdGrupo));
+                Response.Redirect(string.Format("~/Administrador/perfil.aspx?idUsuario={0}&Edit={1}&idGrupo={2}", idUsuario, IsAdmin, IdGrupo));
             else if(e.CommandName == "ViewEquipe")
                 Response.Redirect("~/Administrador/PilotosEquipesGrupo.aspx?op=2");
             else if (e.CommandName == "Inativar")
             {
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     dk.Kart_Campeonato_Usuario_Desativados.InsertOnSubmit(new Kart_Campeonato_Usuario_Desativado()
                                     {
                                         idUsuario = Convert.ToInt32(idUsuario),
@@ -303,6 +307,7 @@ namespace KartRanking.Administrador
             {
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     int index = e.RowIndex;
                     GridViewRow row = (sender as GridView).Rows[e.RowIndex];
 
@@ -360,6 +365,7 @@ namespace KartRanking.Administrador
             {
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     if (String.IsNullOrEmpty(HiddenIdEquipeCampeonato.Value))
                         HiddenIdEquipeCampeonato.Value = "0";
 
@@ -431,6 +437,7 @@ namespace KartRanking.Administrador
 
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     idCampeonatoAntigo = Convert.ToInt32(ddlTodosCampeonatos.SelectedItem.Value);
 
                     if (idCampeonatoAntigo == IdCampeonato)
@@ -494,6 +501,7 @@ namespace KartRanking.Administrador
         {
             if (IsAdmin)
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 int idUsuario = Convert.ToInt32(e.CommandArgument.ToString());
                 var useruarioInativo = (from u in dk.Kart_Campeonato_Usuario_Desativados
                                         where u.idUsuario == idUsuario
@@ -515,6 +523,7 @@ namespace KartRanking.Administrador
         {
             if (IsAdmin)
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 int idEquipeCampeonato = Convert.ToInt32(e.CommandArgument.ToString());
                 var equipeInativo = (from u in dk.Kart_Equipe_Campeonato_Desativados
                                      where u.idEquipeCampeonato == idEquipeCampeonato

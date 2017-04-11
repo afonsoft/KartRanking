@@ -47,7 +47,7 @@ namespace KartRanking.Administrador
                 btnSalvar.Visible = false;
                 chkEnviarTodosUsuarios.Visible = false;
             }
-
+            DataKartDataContext dk = new DataKartDataContext();
             Kart_Regras_Grupo regra = (from r in dk.Kart_Regras_Grupos
                                        where r.idGrupo == IdGrupo
                                        && r.Ativo == true
@@ -70,6 +70,7 @@ namespace KartRanking.Administrador
         {
             try
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 var regras = (from r in dk.Kart_Regras_Grupos
                               where r.idGrupo == IdGrupo
                               && r.Ativo == true

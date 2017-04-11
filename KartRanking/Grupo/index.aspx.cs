@@ -74,7 +74,10 @@ namespace KartRanking.Grupo
         {
             get
             {
-                return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    return (from g in dk.Kart_Grupos where g.idGrupo == IdGrupo select g.NomeGrupo).FirstOrDefault();
+                }
             }
         }
 
@@ -82,7 +85,12 @@ namespace KartRanking.Grupo
         {
             get
             {
-                return (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato).FirstOrDefault();
+                using (DataKartDataContext dk = new DataKartDataContext())
+                {
+                    return
+                        (from c in dk.Kart_Campeonatos where c.idCampeonato == IdCampeonato select c.NomeCampeonato)
+                            .FirstOrDefault();
+                }
             }
         }
 
@@ -92,6 +100,7 @@ namespace KartRanking.Grupo
         {
             if (IdGrupo > 0)
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 Random rnd = new Random();
                 List<Usuario> users = (from u in dk.Usuarios
                                        join g in dk.Kart_Usuario_Grupos on u.idUsuario equals g.idUsuario
@@ -140,6 +149,7 @@ namespace KartRanking.Grupo
         {
             if (IdGrupo > 0 && IdCampeonato > 0)
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 //View para popular o grid (Ranking do Campeonato)
                 var RankingC = (from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
                                 where vp.idCampeonato == IdCampeonato
@@ -174,7 +184,7 @@ namespace KartRanking.Grupo
         {
             string strHtml = "";
             string strLista = "";
-
+            DataKartDataContext dk = new DataKartDataContext();
             var noticias = (from n in dk.Kart_Noticias_Grupos
                             where n.idGrupo == IdGrupo
                             && n.dtCriacao >= DateTime.Now.AddYears(-1)

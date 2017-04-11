@@ -60,6 +60,7 @@ namespace KartRanking.Administrador
         private void PopularAlbum(int idAlbum)
         {
             Album album = new Album();
+            DataKartDataContext dk = new DataKartDataContext();
             var fotos = (from f in dk.Kart_Album_Grupos
                      where f.idGrupo == IdGrupo
                      && f.idAlbum == idAlbum
@@ -91,6 +92,7 @@ namespace KartRanking.Administrador
 
         private void PopularAlbuns()
         {
+            DataKartDataContext dk = new DataKartDataContext();
             List<Album> Albuns = new List<Album>();
             var ft = (from f in dk.Kart_Album_Grupos
                       where f.idGrupo == IdGrupo
@@ -178,6 +180,7 @@ namespace KartRanking.Administrador
             {
                 if (IsAdmin)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     DateTime dtEvento = DateTime.Now;
 
                     try
@@ -254,6 +257,7 @@ namespace KartRanking.Administrador
 
         private string UploadFile(FileUpload FileUploadControl, int idAlbum)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             if (FileUploadControl.HasFile)
             {
                 try

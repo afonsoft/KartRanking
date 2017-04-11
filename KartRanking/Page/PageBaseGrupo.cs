@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using KartRanking.BaseDados;
 
 namespace KartRanking.Page
@@ -92,16 +90,16 @@ namespace KartRanking.Page
 
         private void CarregarCampeonatoPrincipal(int idGrupo)
         {
-            var campeonato = (from c in dk.Kart_Campeonatos
-                              where c.idGrupo == idGrupo
-                              && c.Ativo == true
-                              orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
-                              select c).FirstOrDefault();
+            using (DataKartDataContext dk = new DataKartDataContext())
+            {
+                var campeonato = (from c in dk.Kart_Campeonatos
+                    where c.idGrupo == idGrupo
+                          && c.Ativo == true
+                    orderby c.dtFim descending, c.dtCriacao descending, c.NomeCampeonato ascending
+                    select c).FirstOrDefault();
 
-            if (campeonato != null)
-                IdCampeonato = campeonato.idCampeonato;
-            else
-                IdCampeonato = 0;
+                IdCampeonato = campeonato?.idCampeonato ?? 0;
+            }
         }
     }
 }

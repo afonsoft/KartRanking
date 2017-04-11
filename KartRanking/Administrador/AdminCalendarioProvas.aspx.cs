@@ -62,6 +62,7 @@ namespace KartRanking.Administrador
 
         private void popularCampeonatos(int idGrupo, int idCampeonato)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             var kg = (from g in dk.Kart_Campeonatos
                       where g.idGrupo == idGrupo
                       && (g.Ativo == true || g.idCampeonato == idCampeonato)
@@ -86,6 +87,7 @@ namespace KartRanking.Administrador
 
         private void popularEtapas(int idCampeonato)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             bool? kgAtivo = (from g in dk.Kart_Campeonatos
                         where g.idGrupo == IdGrupo
                         && g.idCampeonato == idCampeonato
@@ -109,6 +111,7 @@ namespace KartRanking.Administrador
 
         private void popularTelaEdit(int idCampeonato, int idCalendario)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             Kart_Calendario_Campeonato cc = (from c in dk.Kart_Calendario_Campeonatos
                                              where c.idCalendario == idCalendario
                                              && c.idCampeonato == IdCampeonato
@@ -151,6 +154,7 @@ namespace KartRanking.Administrador
             {
                 try
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     Kart_Calendario_Campeonato cc = (from c in dk.Kart_Calendario_Campeonatos
                                                      where c.idCalendario == idCalendario
                                                      && c.idCampeonato == IdCampeonato
@@ -203,7 +207,7 @@ namespace KartRanking.Administrador
 
                 if (ValidarCampos())
                 {
-
+                    DataKartDataContext dk = new DataKartDataContext();
                     Kart_Calendario_Campeonato cc = null;
 
                     if (IdCalendario <= 0)

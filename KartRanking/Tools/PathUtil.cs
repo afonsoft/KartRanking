@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 
 namespace KartRanking.Tools
 {
@@ -10,15 +9,15 @@ namespace KartRanking.Tools
         /// </summary>
         public static string GetPathFromRoot(string pathWithoutRoot)
         {
-            string _ApplicationPath = HttpContext.Current.Request.ApplicationPath;
-            System.Text.StringBuilder _PathToReturn = new System.Text.StringBuilder(_ApplicationPath);
+            string applicationPath = HttpContext.Current.Request.ApplicationPath;
+            System.Text.StringBuilder pathToReturn = new System.Text.StringBuilder(applicationPath);
             
-            if (!pathWithoutRoot.StartsWith("/") && !_ApplicationPath.EndsWith("/"))
-                _PathToReturn.Append("/");
+            if (applicationPath != null && (!pathWithoutRoot.StartsWith("/") && !applicationPath.EndsWith("/")))
+                pathToReturn.Append("/");
             
-            _PathToReturn.Append(pathWithoutRoot);
+            pathToReturn.Append(pathWithoutRoot);
             
-            return _PathToReturn.ToString();
+            return pathToReturn.ToString();
         }
 
         /// <summary>

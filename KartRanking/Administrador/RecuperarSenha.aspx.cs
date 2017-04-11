@@ -53,7 +53,7 @@ namespace KartRanking.Administrador
                 Alert("O valor da captcha não confere.");
                 return;
             }
-
+            DataKartDataContext dk = new DataKartDataContext();
             //Verificar se já existe cadastro um usuario com este e-mail.
             Usuario usr = (from k in dk.Usuarios
                            where k.Email == mail

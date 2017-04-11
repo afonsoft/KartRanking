@@ -23,8 +23,8 @@ namespace KartRanking.Administrador
        
         private void popularCampeonatos(int idGrupo, int idCampeonato)
         {
-            
-                var kg = (from g in dk.Kart_Campeonatos
+            DataKartDataContext dk = new DataKartDataContext();
+            var kg = (from g in dk.Kart_Campeonatos
                           where g.idGrupo == idGrupo
                           && (g.Ativo == true || g.idCampeonato == idCampeonato)
                           select new { Text = g.NomeCampeonato, Value = g.idCampeonato, g.Ativo, g.idCampeonato });
@@ -111,7 +111,7 @@ namespace KartRanking.Administrador
         {
             PanelPilotos.Visible = false;
             PanelEquipes.Visible = true;
-
+            DataKartDataContext dk = new DataKartDataContext();
             //View para popular o grid (Ranking das equipe)
             var RankingE = from ve in dk.View_Kart_Equipe_Pontos_Campeonatos
                            where ve.idCampeonato == IdCampeonato
@@ -127,7 +127,7 @@ namespace KartRanking.Administrador
         {
             PanelPilotos.Visible = true;
             PanelEquipes.Visible = false;
-
+            DataKartDataContext dk = new DataKartDataContext();
             //View para popular o grid (Ranking do Campeonato)
             var RankingC = from vp in dk.View_Kart_Usuario_Pontos_Campeonatos
                            where vp.idCampeonato == IdCampeonato

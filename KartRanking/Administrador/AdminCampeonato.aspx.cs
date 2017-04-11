@@ -67,6 +67,7 @@ namespace KartRanking.Administrador
 
         private void popularCalendario(int IdCampeonato)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             //Listar as Etapas do Campeonato
             var Calendario_Campeonato = (from cc in dk.Kart_Calendario_Campeonatos
                                          where cc.idCampeonato == IdCampeonato
@@ -88,6 +89,7 @@ namespace KartRanking.Administrador
 
         private void PopularTela(int idCampeonato, int idGrupo)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             Kart_Campeonato kc = (from k in dk.Kart_Campeonatos where k.idGrupo == idGrupo && k.idCampeonato == idCampeonato select k).FirstOrDefault();
 
             if (kc != null)
@@ -122,7 +124,7 @@ namespace KartRanking.Administrador
             try
             {
                 Kart_Campeonato kc = null;
-
+                DataKartDataContext dk = new DataKartDataContext();
                 if (IdCampeonato > 0)
                 {
                     if (IsAdmin)

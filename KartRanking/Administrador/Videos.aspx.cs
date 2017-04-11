@@ -69,6 +69,7 @@ namespace KartRanking.Administrador
         #region getVideos RepeaterVideos_ItemCommand
         private Kart_Videos_Grupo[] getVideos(int pageIndex, out int totalCount, out int numberOfPages)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             totalCount = (from v in dk.Kart_Videos_Grupos
                           where v.idGrupo == IdGrupo
                           select v).Count();
@@ -116,6 +117,7 @@ namespace KartRanking.Administrador
             }
             else if (cmd == "Remover")
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 var video = (from v in dk.Kart_Videos_Grupos
                              where v.idVideo == Convert.ToInt32(arg, culture)
                              select v).FirstOrDefault();
@@ -162,6 +164,7 @@ namespace KartRanking.Administrador
                 if (ddlEtapas.SelectedIndex > 0 && Convert.ToInt32(ddlEtapas.SelectedValue, culture) > 0)
                     video.idCalendario = Convert.ToInt32(ddlEtapas.SelectedValue, culture);
 
+                DataKartDataContext dk = new DataKartDataContext();
                 dk.Kart_Videos_Grupos.InsertOnSubmit(video);
                 dk.SubmitChanges();
                 CarregarVideos();

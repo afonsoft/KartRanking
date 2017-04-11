@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data;
 using System.IO;
-using System.Data.Linq;
 using System.Drawing;
 
 namespace KartRanking.Tools
@@ -14,37 +9,37 @@ namespace KartRanking.Tools
         /// <summary>
         /// ResizeImage
         /// </summary>
-        public static System.Drawing.Image ResizeImage(System.Drawing.Image FullsizeImage, int NewWidth, int MaxHeight, bool OnlyResizeIfWider)
+        public static Image ResizeImage(Image fullsizeImage, int newWidth, int maxHeight, bool onlyResizeIfWider)
         {
             // Prevent using images internal thumbnail
-            FullsizeImage.RotateFlip(System.Drawing.RotateFlipType.Rotate180FlipNone);
-            FullsizeImage.RotateFlip(System.Drawing.RotateFlipType.Rotate180FlipNone);
+            fullsizeImage.RotateFlip(RotateFlipType.Rotate180FlipNone);
+            fullsizeImage.RotateFlip(RotateFlipType.Rotate180FlipNone);
 
-            if (OnlyResizeIfWider)
+            if (onlyResizeIfWider)
             {
-                if (FullsizeImage.Width <= NewWidth)
-                    NewWidth = FullsizeImage.Width;
+                if (fullsizeImage.Width <= newWidth)
+                    newWidth = fullsizeImage.Width;
             }
-            int NewHeight = FullsizeImage.Height * NewWidth / FullsizeImage.Width;
+            int newHeight = fullsizeImage.Height * newWidth / fullsizeImage.Width;
 
-            if (NewHeight > MaxHeight)
+            if (newHeight > maxHeight)
             {
                 // Resize with height instead
-                NewWidth = FullsizeImage.Width * MaxHeight / FullsizeImage.Height;
-                NewHeight = MaxHeight;
+                newWidth = fullsizeImage.Width * maxHeight / fullsizeImage.Height;
+                newHeight = maxHeight;
             }
-            System.Drawing.Image NewImage = FullsizeImage.GetThumbnailImage(NewWidth, NewHeight, null, IntPtr.Zero);
+            var newImage = fullsizeImage.GetThumbnailImage(newWidth, newHeight, null, IntPtr.Zero);
             // Clear handle to original file so that we can overwrite it if necessary
-            FullsizeImage.Dispose();
+            fullsizeImage.Dispose();
             // Save resized picture
-            return NewImage;
+            return newImage;
         }
         /// <summary>
         /// FileToImage
         /// </summary>
         public static Image FileToImage( string imagePath )
         {
-            return byteArrayToImage( ImageToBinary( imagePath ) );
+            return ByteArrayToImage( ImageToBinary( imagePath ) );
         }
         /// <summary>
         /// ImageToBinary
@@ -63,7 +58,7 @@ namespace KartRanking.Tools
         /// <summary>
         /// ImageToBinary
         /// </summary>
-        public static byte[] ImageToBinary(System.Drawing.Image imageIn)
+        public static byte[] ImageToBinary(Image imageIn)
         {
             MemoryStream ms = new MemoryStream();
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -72,7 +67,7 @@ namespace KartRanking.Tools
         /// <summary>
         /// byteArrayToImage
         /// </summary>
-        public static Image byteArrayToImage(byte[] byteArrayIn)
+        public static Image ByteArrayToImage(byte[] byteArrayIn)
         {
             MemoryStream ms = new MemoryStream(byteArrayIn);
             Image returnImage = Image.FromStream(ms);

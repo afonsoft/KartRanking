@@ -33,7 +33,7 @@ namespace KartRanking.Administrador
                     int idUsuario = 0;
                     int idGrupo = 0;
                     Usuario user = null;
-
+                    DataKartDataContext dk = new DataKartDataContext();
                     if (Request.QueryString["idUsuario"] != null)
                     {
                         idUsuario = Convert.ToInt16(Request.QueryString["idUsuario"]);
@@ -142,6 +142,7 @@ namespace KartRanking.Administrador
         {
             try
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 Usuario u = (from p in dk.Usuarios
                              where p.idUsuario == Convert.ToInt16(IdUsuario.Value)
                              select p).FirstOrDefault();
@@ -172,7 +173,7 @@ namespace KartRanking.Administrador
                     if (userbb != null)
                     {
                         userbb.user_password = EncryptMd5(u.Senha);
-                        userbb.user_email_hash = EncryptCRC32(u.Email + u.Email.Length.ToString());
+                        userbb.user_email_hash = EncryptCrc32(u.Email + u.Email.Length.ToString());
                         dk.SubmitChanges();
                     }
 
@@ -193,6 +194,7 @@ namespace KartRanking.Administrador
 
             try
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 Usuario u = (from p in dk.Usuarios
                              where p.idUsuario == Convert.ToInt16(IdUsuario.Value)
                              select p).FirstOrDefault();
@@ -251,7 +253,7 @@ namespace KartRanking.Administrador
                             user_passchg = 1396623164,
                             user_pass_convert = 0,
                             user_email = "",
-                            user_email_hash = EncryptCRC32(u.Email + u.Email.Length.ToString()),
+                            user_email_hash = EncryptCrc32(u.Email + u.Email.Length.ToString()),
                             user_birthday = "",
                             user_lastvisit = 0,
                             user_lastmark = 1396623164,
@@ -345,7 +347,7 @@ namespace KartRanking.Administrador
         {
             try
             {
-
+                DataKartDataContext dk = new DataKartDataContext();
                 if (!string.IsNullOrEmpty(flUpload.FileName))
                 {
                     if (flUpload.HasFile)

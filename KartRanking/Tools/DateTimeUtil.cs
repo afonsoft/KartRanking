@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace KartRanking.Tools
 {
@@ -15,15 +12,15 @@ namespace KartRanking.Tools
         /// </summary>
         /// <param name="hor">00:00:000</param>
         /// <returns>Int</returns>
-        public static int getIntFromHor(string hor)
+        public static int GetIntFromHor(string hor)
         {
-            string[] Hr = hor.Split(':');
+            string[] hr = hor.Split(':');
 
-            int hm = Convert.ToInt16(Hr[0]) * 60 * 60 * 1000;
-            int Mm = Convert.ToInt16(Hr[1]) * 60 * 1000;
-            int Sm = Convert.ToInt16(Hr[2]) * 1000;
+            int hm = Convert.ToInt16(hr[0]) * 60 * 60 * 1000;
+            int mm = Convert.ToInt16(hr[1]) * 60 * 1000;
+            int sm = Convert.ToInt16(hr[2]) * 1000;
 
-            return hm + Mm + Sm;
+            return hm + mm + sm;
         }
     }
 
@@ -35,37 +32,36 @@ namespace KartRanking.Tools
         /// <summary>
         /// Gera uma chave unica utilizando o RNGCryptoServiceProvider
         /// </summary>
-        public static string GetUniqueKey(int Size)
+        public static string GetUniqueKey(int size)
         {
-            return GetUniqueKey(Size, true, true);
+            return GetUniqueKey(size, true, true);
         }
         /// <summary>
         /// Gera uma chave unica utilizando o RNGCryptoServiceProvider
         /// </summary>
-        public static string GetUniqueKey(int Size, bool OnlyUpper)
+        public static string GetUniqueKey(int size, bool onlyUpper)
         {
-            return GetUniqueKey(Size, OnlyUpper, false);
+            return GetUniqueKey(size, onlyUpper, false);
         }
 
         /// <summary>
         /// Gera uma chave unica utilizando o RNGCryptoServiceProvider
         /// </summary>
-        public static string GetUniqueKey(int Size, bool OnlyUpper, bool RemoveZero)
+        public static string GetUniqueKey(int size, bool onlyUpper, bool removeZero)
         {
             //Remover o Zero 0 e o "O"
-            string letters = "";
-            if(OnlyUpper && RemoveZero)
+            string letters;
+            if(onlyUpper && removeZero)
                 letters = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ";
-            else if(!OnlyUpper && RemoveZero)
+            else if(!onlyUpper && removeZero)
                 letters = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz";
-            else if (OnlyUpper && !RemoveZero)
+            else if (onlyUpper)
                 letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            else if (!OnlyUpper && !RemoveZero)
-                letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            else letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
             char[] chars = letters.ToCharArray(); 
-            byte[] data = new byte[Size];
-            System.Text.StringBuilder result = new System.Text.StringBuilder(Size);
+            byte[] data = new byte[size];
+            System.Text.StringBuilder result = new System.Text.StringBuilder(size);
             System.Security.Cryptography.RNGCryptoServiceProvider crypto = new System.Security.Cryptography.RNGCryptoServiceProvider();
             crypto.GetNonZeroBytes(data);
             foreach (byte b in data)

@@ -53,7 +53,7 @@ namespace KartRanking.Administrador
                             user_passchg = 1396623164,
                             user_pass_convert = 0,
                             user_email = "",
-                            user_email_hash = EncryptCRC32(u.Email + u.Email.Length.ToString()),
+                            user_email_hash = EncryptCrc32(u.Email + u.Email.Length.ToString()),
                             user_birthday = "",
                             user_lastvisit = 0,
                             user_lastmark = 1396623164,

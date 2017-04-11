@@ -70,7 +70,7 @@ namespace KartRanking.Administrador
 
         private void PopularDDL(int idCalendario)
         {
-
+            DataKartDataContext dk = new DataKartDataContext();
             //recuperar somente os usuarios que não está cadastro no resultados.
             var PilotosEtapa = (from kart_usuario_grupos in dk.Kart_Usuario_Grupos
                                 join usuarios in dk.Usuarios on kart_usuario_grupos.idUsuario equals usuarios.idUsuario
@@ -123,6 +123,7 @@ namespace KartRanking.Administrador
 
         private void popularCampeonatos(int idGrupo, int idCampeonato)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             var kg = (from g in dk.Kart_Campeonatos
                       where g.idGrupo == idGrupo
                       && (g.Ativo == true || g.idCampeonato == idCampeonato)
@@ -149,6 +150,7 @@ namespace KartRanking.Administrador
 
         private void popularEtapas(int idCampeonato)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             bool? kgAtivo = (from g in dk.Kart_Campeonatos
                              where g.idGrupo == IdGrupo
                              && g.idCampeonato == idCampeonato
@@ -192,7 +194,7 @@ namespace KartRanking.Administrador
 
         private void popularTelaEtapa(int idCalendario)
         {
-
+            DataKartDataContext dk = new DataKartDataContext();
             lbCalendarioSelecionado.Text = (from cc in dk.Kart_Calendario_Campeonatos
                                             where cc.idCalendario == idCalendario
                                             select cc.Nome).FirstOrDefault();
@@ -304,6 +306,7 @@ namespace KartRanking.Administrador
 
             if (IsAdmin)
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 if (e.CommandName == "Alterar")
                 {
                     var kr = (from k in dk.Kart_Grid_Calendarios
@@ -376,6 +379,7 @@ namespace KartRanking.Administrador
             HiddenFieldOpEdit.Value = "2";
             if (IsAdmin)
             {
+                DataKartDataContext dk = new DataKartDataContext();
                 if (e.CommandName == "Alterar")
                 {
                     var kr = (from k in dk.Kart_Resultado_Calendarios
@@ -470,6 +474,7 @@ namespace KartRanking.Administrador
         private void GravarGrid(int IdGrid, int idUsuario)
         {
             Kart_Grid_Calendario kr = null;
+            DataKartDataContext dk = new DataKartDataContext();
             if (IdGrid <= 0)
                 kr = new Kart_Grid_Calendario();
             else
@@ -531,7 +536,7 @@ namespace KartRanking.Administrador
         private void GravarEtapa(int IdResultado, int idUsuario)
         {
             Kart_Resultado_Calendario kr = null;
-
+            DataKartDataContext dk = new DataKartDataContext();
             if (IdResultado <= 0)
                 kr = new Kart_Resultado_Calendario();
             else

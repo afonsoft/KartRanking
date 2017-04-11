@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using KartRanking.BaseDados;
 
 namespace KartRanking.Page
@@ -160,7 +158,7 @@ namespace KartRanking.Page
                                              where t.idGrupo == IdGrupo && t.idUsuario == user.idUsuario
                                              select new { t.Admin }).FirstOrDefault();
 
-                                if (admin != null && admin.Admin.HasValue)
+                                if (admin?.Admin != null)
                                     return admin.Admin.Value;
                                 else
                                     return false;
@@ -185,7 +183,7 @@ namespace KartRanking.Page
                              where t.idGrupo == idGrupo && t.idUsuario == user.idUsuario
                              select new { t.Admin }).FirstOrDefault();
 
-                if (admin != null && admin.Admin.HasValue)
+                if (admin?.Admin != null)
                     return admin.Admin.Value;
                 else
                     return false;
@@ -200,7 +198,7 @@ namespace KartRanking.Page
             if (ViewState["Usuario"] != null && Session["Usuario"] == null)
                 Session["Usuario"] = ViewState["Usuario"];
 
-            if (Session["Usuario"] != null && Session["Usuario"].GetType() != typeof(BaseDados.Usuario))
+            if (Session["Usuario"] != null && Session["Usuario"].GetType() != typeof(Usuario))
                 Session["Usuario"] = null;
 
             if (Session["Usuario"] == null)
@@ -211,7 +209,6 @@ namespace KartRanking.Page
             if (!IsThisGroup)
             {
                 Alert("Você não possue permissão para acessar este grupo.", null, "~/Administrador/index.aspx");
-                return;
             }
             else
             {
@@ -225,12 +222,6 @@ namespace KartRanking.Page
             }
         }
 
-        public Usuario UsuarioLogado
-        {
-            get
-            {
-                return (Usuario)Session["Usuario"];
-            }
-        }
+        public Usuario UsuarioLogado => (Usuario)Session["Usuario"];
     }
 }

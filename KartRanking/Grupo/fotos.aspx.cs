@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using KartRanking.Page;
 using System.IO;
+using KartRanking.BaseDados;
 
 namespace KartRanking.Grupo
 {
@@ -47,6 +48,7 @@ namespace KartRanking.Grupo
             {
                 if (IdAlbum > 0)
                 {
+                    DataKartDataContext dk = new DataKartDataContext();
                     return (from f in dk.Kart_Album_Grupos
                             where f.idGrupo == IdGrupo
                             && f.idAlbum == IdAlbum
@@ -58,6 +60,7 @@ namespace KartRanking.Grupo
 
         private void PopularAlbum(int idAlbum)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             Album album = new Album();
             var fotos = (from f in dk.Kart_Album_Grupos
                          where f.idGrupo == IdGrupo
@@ -86,6 +89,7 @@ namespace KartRanking.Grupo
         }
         private void PopularAlbuns()
         {
+            DataKartDataContext dk = new DataKartDataContext();
             List<Album> Albuns = new List<Album>();
             var ft = (from f in dk.Kart_Album_Grupos
                       where f.idGrupo == IdGrupo

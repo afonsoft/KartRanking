@@ -52,7 +52,7 @@ namespace KartRanking.Administrador
         private void CarregarGruposDesativados()
         {
             Usuario user = (Usuario)Session["Usuario"];
-
+            DataKartDataContext dk = new DataKartDataContext();
             var Grupos = (from gu in dk.Kart_Usuario_Grupos
                           join g in dk.Kart_Grupos
                           on gu.idGrupo equals g.idGrupo
@@ -78,7 +78,7 @@ namespace KartRanking.Administrador
         private void CarregarCampeonato(int idGrupo)
         {
             Usuario user = (Usuario)HttpContext.Current.Session["Usuario"];
-
+            DataKartDataContext dk = new DataKartDataContext();
             var Campeonatos = (from c in dk.Kart_Campeonatos
                                where c.idGrupo == idGrupo
                                orderby c.idGrupo descending
@@ -111,6 +111,7 @@ namespace KartRanking.Administrador
 
         private void popularTela(int idGrupo)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             Kart_Grupo gr = (from g in dk.Kart_Grupos where g.idGrupo == idGrupo select g).FirstOrDefault();
 
             if (gr != null)
@@ -136,6 +137,8 @@ namespace KartRanking.Administrador
                 Kart_Grupo kg = null;
 
                 ValidarCampos();
+
+                DataKartDataContext dk = new DataKartDataContext();
 
                 if (IdGrupo <= 0)
                 {

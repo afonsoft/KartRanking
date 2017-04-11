@@ -15,84 +15,81 @@ namespace KartRanking.LogErro
     ********************************************************/
     public static class Log
     {
-        public static void Logar(string msg, System.Web.HttpContext Current)
+        public static void Logar(string msg, System.Web.HttpContext current)
         {
-            Logar(msg, null, Current);
+            Logar(msg, null, current);
         }
 
-        public static void Logar(Exception ex, System.Web.HttpContext Current)
+        public static void Logar(Exception ex, System.Web.HttpContext current)
         {
             if (ex != null)
             {
-                Logar(ex.Message, ex, Current);
+                Logar(ex.Message, ex, current);
             }
         }
        
-        public static void Logar(string msg, Exception ex, System.Web.HttpContext Current)
+        public static void Logar(string msg, Exception ex, System.Web.HttpContext current)
         {
             try
             {
                 Exception tmp = ex;
-                string MsgEr = "";
-                string StackTrace = "";
-                string TargetSite = "";
-                string Source = "";
+                string msgEr = "";
+                string stackTrace = "";
+                string targetSite = "";
+                string source = "";
                 string path = PathUtil.GetFullPathRoot() + "\\log\\";
-                string FileName = path + DateTime.Now.ToString("dd-MM-yyyy") + ".log";
+                string fileName = path + DateTime.Now.ToString("dd-MM-yyyy") + ".log";
 
                 Usuario user = null;
 
-                if (Current.Session != null && Current.Session["Usuario"] != null)
-                    user = (Usuario)Current.Session["Usuario"];
+                if (current.Session?["Usuario"] != null)
+                    user = (Usuario)current.Session["Usuario"];
                 
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
 
-                if (!File.Exists(FileName))
-                    File.Create(FileName);
+                if (!File.Exists(fileName))
+                    File.Create(fileName);
 
                 while (tmp != null)
                 {
-                    MsgEr += ex.Message + Environment.NewLine;
-                    StackTrace += ex.StackTrace + Environment.NewLine;
-                    TargetSite += ex.TargetSite + Environment.NewLine;
-                    Source += ex.Source + Environment.NewLine;
+                    msgEr += ex.Message + Environment.NewLine;
+                    stackTrace += ex.StackTrace + Environment.NewLine;
+                    targetSite += ex.TargetSite + Environment.NewLine;
+                    source += ex.Source + Environment.NewLine;
                     tmp = tmp.InnerException;
                 }
 
-                LogDb(msg, MsgEr, StackTrace, TargetSite, Source, Current);
+                LogDb(msg, msgEr, stackTrace, targetSite, source, current);
 
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(FileName, true))
+                using (var file = new StreamWriter(fileName, true))
                 {
-                    file.WriteLine(string.Format("---------------{0}------------------", DateTime.Now.ToString("HH:mm:ss")));
+                    file.WriteLine($"---------------{DateTime.Now:HH:mm:ss}------------------");
                     file.WriteLine("");
                     file.WriteLine("Mensagem: " + msg);
                     file.WriteLine("");
-                    file.WriteLine("Erro: " + MsgEr);
-                    file.WriteLine("StackTrace: " + StackTrace);
-                    file.WriteLine("TargetSite: " + TargetSite);
-                    file.WriteLine("Source: " + Source);
+                    file.WriteLine("Erro: " + msgEr);
+                    file.WriteLine("StackTrace: " + stackTrace);
+                    file.WriteLine("TargetSite: " + targetSite);
+                    file.WriteLine("Source: " + source);
                     file.WriteLine("");
-                    if (Current.Request != null)
-                    {
-                        file.WriteLine("URL: " + Current.Request.Url.ToString());
-                        file.WriteLine("RawUrl: " + Current.Request.RawUrl.ToString());
-                        file.WriteLine("QueryString: " + Current.Request.QueryString.ToString());
-                        file.WriteLine("User Agent: " + Current.Request.UserAgent.ToString());
-                        file.WriteLine("User IP: " + Current.Request.ServerVariables["REMOTE_ADDR"].ToString());
-                        file.WriteLine("Referrer: " + Current.Request.UrlReferrer != null ? Current.Request.UrlReferrer.ToString() : "");
-
-                    }
+                    file.WriteLine("URL: " + current.Request.Url);
+                    file.WriteLine("RawUrl: " + current.Request.RawUrl);
+                    file.WriteLine("QueryString: " + current.Request.QueryString);
+                    if (current.Request.UserAgent != null)
+                        file.WriteLine("User Agent: " + current.Request.UserAgent);
+                    file.WriteLine("User IP: " + current.Request.ServerVariables["REMOTE_ADDR"]);
+                    if (current.Request.UrlReferrer != null) file.WriteLine(current.Request.UrlReferrer.ToString());
                     string keys = "";
-                    foreach (string s in Current.Request.Form.AllKeys)
+                    foreach (string s in current.Request.Form.AllKeys)
                     {
                         if (s != "__VIEWSTATE")
-                            keys += s + ":" + Current.Request.Form[s] + Environment.NewLine;
+                            keys += s + ":" + current.Request.Form[s] + Environment.NewLine;
                     }
                     if (!string.IsNullOrEmpty(keys))
                         file.WriteLine("Keys: " + keys);
 
-                    file.WriteLine("idUsuario: " + user != null ? user.idUsuario : 0);
+                    if (user != null) file.WriteLine(user.idUsuario);
                     file.WriteLine("");
                     file.WriteLine("-------------------");
                     file.WriteLine("");
@@ -101,53 +98,49 @@ namespace KartRanking.LogErro
             }
             catch
             {
-                return;
+                // ignored
             }
         }
 
-        private static void LogDb(string msg, string MsgEr, string StackTrace, string TargetSite, string Source, System.Web.HttpContext Current)
+        private static void LogDb(string msg, string msgEr, string stackTrace, string targetSite, string source, System.Web.HttpContext current)
         {
             try
             {
-                string Keys = "";
+                string keys = "";
                 int idUsuario = 0;
 
-                Kart_log_erro erro = new Kart_log_erro();
-                erro.dtErro = DateTime.Now;
+                Kart_log_erro erro = new Kart_log_erro {dtErro = DateTime.Now};
 
                 Usuario user = null;
 
-                if (Current.Session != null && Current.Session["Usuario"] != null)
-                    user = (Usuario)Current.Session["Usuario"];
+                if (current.Session?["Usuario"] != null)
+                    user = (Usuario)current.Session["Usuario"];
 
                 if(user != null)
                     idUsuario = user.idUsuario;
 
-                foreach (string s in Current.Request.Form.AllKeys)
+                foreach (string s in current.Request.Form.AllKeys)
                 {
                     if (s != "__VIEWSTATE")
-                        Keys += s + ":" + Current.Request.Form[s] + Environment.NewLine;
+                        keys += s + ":" + current.Request.Form[s] + Environment.NewLine;
                 }
 
-                if (!string.IsNullOrEmpty(Keys))
-                    erro.Keys = Keys;
+                if (!string.IsNullOrEmpty(keys))
+                    erro.Keys = keys;
 
-                if (Current.Request != null)
-                {
-                    erro.URL = Current.Request.Url.ToString();
-                    erro.RawUrl = Current.Request.RawUrl.ToString();
-                    erro.QueryString = Current.Request.QueryString.ToString();
-                    erro.UserAgent = Current.Request.UserAgent.ToString();
-                    erro.UserIP = Current.Request.ServerVariables["REMOTE_ADDR"].ToString();
-                    erro.Referrer = Current.Request.UrlReferrer != null ? Current.Request.UrlReferrer.ToString() : "";
-                }
+                erro.URL = current.Request.Url.ToString();
+                erro.RawUrl = current.Request.RawUrl;
+                erro.QueryString = current.Request.QueryString.ToString();
+                erro.UserAgent = current.Request.UserAgent;
+                erro.UserIP = current.Request.ServerVariables["REMOTE_ADDR"];
+                erro.Referrer = current.Request.UrlReferrer != null ? current.Request.UrlReferrer.ToString() : "";
 
-                erro.Erro = MsgEr;
+                erro.Erro = msgEr;
                 erro.idUsuario = idUsuario <= 0 ? null : (int?)idUsuario;
                 erro.Mensagem = msg;
-                erro.StackTrace = StackTrace;
-                erro.TargetSite = TargetSite;
-                erro.Source = Source;
+                erro.StackTrace = stackTrace;
+                erro.TargetSite = targetSite;
+                erro.Source = source;
 
                 DataKartDataContext db = new DataKartDataContext();
                 db.GetTable<Kart_log_erro>().InsertOnSubmit( erro );
@@ -155,7 +148,7 @@ namespace KartRanking.LogErro
             }
             catch
             {
-                return;
+                // ignored
             }
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using KartRanking.BaseDados;
 using KartRanking.Page;
 
 namespace KartRanking.Grupo
@@ -52,6 +53,7 @@ namespace KartRanking.Grupo
 
         private void popularInfo(int idUsuario)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             BaseDados.Usuario user = (from p in dk.Usuarios
                                       where p.idUsuario == idUsuario
                                       select p).FirstOrDefault();
@@ -89,7 +91,7 @@ namespace KartRanking.Grupo
 
             if (IdGrupo > 0 && IdCampeonato > 0)
             {
-
+                DataKartDataContext dk = new DataKartDataContext();
                 if (op == 1)
                 {
                     //View para popular o grid (Ranking do Campeonato)

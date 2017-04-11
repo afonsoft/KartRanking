@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Xml;
 using System.IO;
 using System.Text;
@@ -18,17 +15,12 @@ namespace KartRanking.ObjectSerializer
     ********************************************************/
     public class GenericXmlSerializer<T>
     {
-
-        public GenericXmlSerializer()
-        {
-        }
-
         /// <summary>
         /// Serializar um objeto em arquivo
         /// </summary>
-        public void Serialize(T obj, string Path)
+        public void Serialize(T obj, string path)
         {
-            using (System.IO.StreamWriter oStreamWriter = new System.IO.StreamWriter(Path))
+            using (var oStreamWriter = new StreamWriter(path))
             {
                 System.Xml.Serialization.XmlSerializer oXmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
                 oXmlSerializer.Serialize(oStreamWriter, obj);
@@ -40,16 +32,16 @@ namespace KartRanking.ObjectSerializer
         /// </summary>
         public String Serialize(T obj)
         {
-            String XmlizedString = null;
+            String xmlizedString;
             using (MemoryStream memoryStream = new MemoryStream())
             {
                 System.Xml.Serialization.XmlSerializer oXmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
                 XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
                 oXmlSerializer.Serialize(xmlTextWriter, obj);
-                XmlizedString = UTF8ByteArrayToString(memoryStream.ToArray());
+                xmlizedString = Utf8ByteArrayToString(memoryStream.ToArray());
                 //memoryStream.Close();
             }
-            return XmlizedString;
+            return xmlizedString;
         }
 
         /// <summary>
@@ -59,7 +51,7 @@ namespace KartRanking.ObjectSerializer
         {
             T obj;
             System.Xml.Serialization.XmlSerializer oXmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
-            using (MemoryStream memoryStream = new MemoryStream(StringToUTF8ByteArray(pXmlizedString)))
+            using (MemoryStream memoryStream = new MemoryStream(StringToUtf8ByteArray(pXmlizedString)))
             {
                 obj = (T)oXmlSerializer.Deserialize(memoryStream);
                 //memoryStream.Close();
@@ -70,11 +62,11 @@ namespace KartRanking.ObjectSerializer
         /// <summary>
         /// deserializar uma arquivo em objeto
         /// </summary>
-        public T Deserialize(FileInfo Path)
+        public T Deserialize(FileInfo path)
         {
             T obj;
             System.Xml.Serialization.XmlSerializer oXmlSerializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
-            using (System.IO.StreamReader oStreamReader = new System.IO.StreamReader(Path.FullName))
+            using (var oStreamReader = new StreamReader(path.FullName))
             {
                 obj = (T)oXmlSerializer.Deserialize(oStreamReader);
                 //oStreamReader.Close();
@@ -82,7 +74,7 @@ namespace KartRanking.ObjectSerializer
             return obj;
         }
 
-        public String UTF8ByteArrayToString(Byte[] characters)
+        public String Utf8ByteArrayToString(Byte[] characters)
         {
 
             UTF8Encoding encoding = new UTF8Encoding();
@@ -90,7 +82,7 @@ namespace KartRanking.ObjectSerializer
             return (constructedString);
         }
 
-        public Byte[] StringToUTF8ByteArray(String pXmlString)
+        public Byte[] StringToUtf8ByteArray(String pXmlString)
         {
             UTF8Encoding encoding = new UTF8Encoding();
             Byte[] byteArray = encoding.GetBytes(pXmlString);

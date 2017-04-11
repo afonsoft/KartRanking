@@ -35,7 +35,7 @@ namespace KartRanking
         private void CreateSiteMap()
         {
             SitemapUtil sitemap = new SitemapUtil();
-            sitemap.createSiteMap();
+            sitemap.CreateSiteMap();
         }
     }
 }

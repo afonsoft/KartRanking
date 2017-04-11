@@ -20,9 +20,9 @@ namespace KartRanking.Tools
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();
-            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Unicode;
+            HttpContext.Current.Response.ContentEncoding = Encoding.Unicode;
 
-            HttpContext.Current.Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", fileName));
+            HttpContext.Current.Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
             HttpContext.Current.Response.ContentType = "application/Ms-Excel";
 
             StringBuilder sb = new StringBuilder();
@@ -36,7 +36,7 @@ namespace KartRanking.Tools
                     sb.Append(";");
                 }
             }
-            HttpContext.Current.Response.Write(sb.ToString() + "\n");
+            HttpContext.Current.Response.Write(sb + "\n");
             HttpContext.Current.Response.Flush();
             //Append Data
 
@@ -50,7 +50,7 @@ namespace KartRanking.Tools
                     sb.Append(";");
                 }
 
-                HttpContext.Current.Response.Write(sb.ToString() + "\n");
+                HttpContext.Current.Response.Write(sb + "\n");
                 HttpContext.Current.Response.Flush();
             }
             //dr.Dispose();
@@ -61,20 +61,21 @@ namespace KartRanking.Tools
         /// <summary>
         /// Exportar um objeto para o excel
         /// </summary>
-        public static void Export<T>(string fileName, IEnumerable<T> Obj)
+        public static void Export<T>(string fileName, IEnumerable<T> obj)
         {
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();
-            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Unicode;
+            HttpContext.Current.Response.ContentEncoding = Encoding.Unicode;
 
             HttpContext.Current.Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
             HttpContext.Current.Response.ContentType = "application/vnd.xls";
 
-            if (Obj == null)
+            if (obj == null)
                 return;
 
-            Type type = Obj.ToArray()[0].GetType();
+            var enumerable = obj as T[] ?? obj.ToArray();
+            Type type = enumerable.ToArray()[0].GetType();
 
             StringBuilder sb = new StringBuilder();
 
@@ -93,11 +94,11 @@ namespace KartRanking.Tools
                 }
             }
 
-            HttpContext.Current.Response.Write(sb.ToString() + "\n");
+            HttpContext.Current.Response.Write(sb + "\n");
             HttpContext.Current.Response.Flush();
 
             //Append Data
-            foreach (T t in Obj)
+            foreach (T t in enumerable)
             {
                 //Varrendo item por item do objeto
                 type = t.GetType();
@@ -110,19 +111,19 @@ namespace KartRanking.Tools
 
                     if (!string.IsNullOrEmpty(property.Name))
                     {
-                        object Value = type.InvokeMember(property.Name, System.Reflection.BindingFlags.GetProperty, null, t, new object[0]);
+                        object value = type.InvokeMember(property.Name, System.Reflection.BindingFlags.GetProperty, null, t, new object[0]);
 
-                        if (Value != null && !string.IsNullOrEmpty(Value.ToString()))
+                        if (!string.IsNullOrEmpty(value?.ToString()))
                         {
-                            Value = Value.ToString().Trim();
-                            sb.Append(Value.ToString().Replace(";", " "));
+                            value = value.ToString().Trim();
+                            sb.Append(value.ToString().Replace(";", " "));
                         }
                         sb.Append(";");
                     }
 
                 }
 
-                HttpContext.Current.Response.Write(sb.ToString() + "\n");
+                HttpContext.Current.Response.Write(sb + "\n");
                 HttpContext.Current.Response.Flush();
             }
 
@@ -137,12 +138,12 @@ namespace KartRanking.Tools
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();
-            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Unicode;
+            HttpContext.Current.Response.ContentEncoding = Encoding.Unicode;
 
-            HttpContext.Current.Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", fileName));
+            HttpContext.Current.Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
             HttpContext.Current.Response.ContentType = "application/vnd.xls";
 
-            System.Data.DataTable dt = dv.ToTable();
+            var dt = dv.ToTable();
 
             StringBuilder sb = new StringBuilder();
             //Add Header    
@@ -155,7 +156,7 @@ namespace KartRanking.Tools
                     sb.Append(";");
                 }
             }
-            HttpContext.Current.Response.Write(sb.ToString() + "\n");
+            HttpContext.Current.Response.Write(sb + "\n");
             HttpContext.Current.Response.Flush();
             //Append Data
 
@@ -169,7 +170,7 @@ namespace KartRanking.Tools
                     sb.Append(";");
                 }
 
-                HttpContext.Current.Response.Write(sb.ToString() + "\n");
+                HttpContext.Current.Response.Write(sb + "\n");
                 HttpContext.Current.Response.Flush();
             }
             //dr.Dispose();
@@ -186,9 +187,9 @@ namespace KartRanking.Tools
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();
-            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Unicode;
+            HttpContext.Current.Response.ContentEncoding = Encoding.Unicode;
 
-            HttpContext.Current.Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", fileName));
+            HttpContext.Current.Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
             HttpContext.Current.Response.ContentType = "application/vnd.xls";
 
             StringBuilder sb = new StringBuilder();
@@ -203,7 +204,7 @@ namespace KartRanking.Tools
                     sb.Append(";");
                 }
             }
-            HttpContext.Current.Response.Write(sb.ToString() + "\n");
+            HttpContext.Current.Response.Write(sb + "\n");
             HttpContext.Current.Response.Flush();
             //Append Data
 
@@ -220,7 +221,7 @@ namespace KartRanking.Tools
                 }
                 if (!dr.IsDBNull(dr.FieldCount - 1))
                     sb.Append(dr.GetValue(dr.FieldCount - 1).ToString().Replace(";", " "));
-                HttpContext.Current.Response.Write(sb.ToString() + "\n");
+                HttpContext.Current.Response.Write(sb + "\n");
                 HttpContext.Current.Response.Flush();
             }
             dr.Dispose();
@@ -240,7 +241,7 @@ namespace KartRanking.Tools
         /// <summary>
         /// Exportar um objeto para o excel
         /// </summary>
-        public static void Export(string fileName, System.Web.UI.WebControls.GridView gv)
+        public static void Export(string fileName, GridView gv)
         {
 
             if (gv == null)
@@ -249,9 +250,9 @@ namespace KartRanking.Tools
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ClearHeaders();
             HttpContext.Current.Response.ClearContent();
-            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.Unicode;
+            HttpContext.Current.Response.ContentEncoding = Encoding.Unicode;
 
-            HttpContext.Current.Response.AddHeader("content-disposition", string.Format("attachment; filename={0}", fileName));
+            HttpContext.Current.Response.AddHeader("content-disposition", $"attachment; filename={fileName}");
             HttpContext.Current.Response.ContentType = "application/ms-excel";
 
             using (StringWriter sw = new StringWriter())
@@ -265,47 +266,6 @@ namespace KartRanking.Tools
             }
             HttpContext.Current.Response.Flush();
             HttpContext.Current.Response.End();
-        }
-
-        /// <summary>
-        /// Replace any of the contained controls with literals
-        /// </summary>
-        private static void PrepareControlForExport(System.Web.UI.Control control)
-        {
-            for (int i = 0; i < control.Controls.Count; i++)
-            {
-                System.Web.UI.Control current = control.Controls[i];
-                if (current is LinkButton)
-                {
-                    control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl(((LinkButton)current).Text));
-                }
-                else if (current is ImageButton)
-                {
-                    control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl(((ImageButton)current).AlternateText));
-                }
-                else if (current is HyperLink)
-                {
-                    control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl(((HyperLink)current).Text));
-                }
-                else if (current is DropDownList)
-                {
-                    control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl(((DropDownList)current).SelectedItem.Text));
-                }
-                else if (current is CheckBox)
-                {
-                    control.Controls.Remove(current);
-                    control.Controls.AddAt(i, new LiteralControl(((CheckBox)current).Checked ? "True" : "False"));
-                }
-
-                if (current.HasControls())
-                {
-                    PrepareControlForExport(current);
-                }
-            }
         }
     }
 }

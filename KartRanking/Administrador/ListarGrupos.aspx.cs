@@ -30,14 +30,15 @@ namespace KartRanking.Administrador
 
         private void PopularGrupos()
         {
-            List<Grupos> GruposAssociados = null;
+            List<Grupos> gruposAssociados = null;
 
             using (DataKartDataContext dk = new DataKartDataContext())
             {
-                GruposAssociados = (from g in dk.Kart_Grupos
+                gruposAssociados = (from g in dk.Kart_Grupos
                                     join gu in dk.Kart_Usuario_Grupos on g.idGrupo equals gu.idGrupo
                                     join u in dk.Usuarios on g.Id_Usuario_Lider equals u.idUsuario
                                     where gu.idUsuario == UsuarioLogado.idUsuario
+                                    && g.Ativo.Value == true   
                                     orderby g.NomeGrupo ascending
                                     select new Grupos
                                     {
@@ -55,7 +56,7 @@ namespace KartRanking.Administrador
                                     }).Distinct().ToList();
             }
 
-            gvGruposAssociados.DataSource = GruposAssociados;
+            gvGruposAssociados.DataSource = gruposAssociados;
             gvGruposAssociados.PageIndex = 0;
             gvGruposAssociados.DataBind();
 
@@ -76,6 +77,7 @@ namespace KartRanking.Administrador
                            where !(from gu in dk.Kart_Usuario_Grupos
                                    where gu.idUsuario == UsuarioLogado.idUsuario
                                    select gu.idGrupo).Contains(g.idGrupo)
+                                   && g.Ativo.Value == true
                            orderby g.NomeGrupo ascending
                            select new Grupos
                            {

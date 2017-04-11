@@ -17,7 +17,7 @@ namespace KartRanking
             {
                 string p = Request.QueryString["p"];
                 string s2 = "";
-                uint s1 = EncryptCRC32(p + p.Length.ToString());
+                uint s1 = EncryptCrc32(p + p.Length.ToString());
 
                 using (WebClient client = new WebClient())
                 {

@@ -12,8 +12,8 @@
          <Members>
           <Member Name="#Export(System.String,System.Web.UI.WebControls.GridView)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-04-10 20:16:07Z" FixCategory="DependsOnFix">
-             <Issue Certainty="75" Level="Warning" Path="C:\AFONSO\KartRanking\KartRanking\Tools" File="ExportUtil.cs" Line="264">Object 'sw' can be disposed more than once in method 'ExportUtil.Export(string, GridView)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 264</Issue>
+            <Message TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2017-04-11 14:45:57Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\AFONSO\KartRanking\KartRanking\Tools" File="ExportUtil.cs" Line="266">Object 'sw' can be disposed more than once in method 'ExportUtil.Export(string, GridView)'. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 266</Issue>
             </Message>
            </Messages>
           </Member>
@@ -30,7 +30,7 @@
   <Rule TypeName="Do not dispose objects multiple times" Category="Microsoft.Usage" CheckId="CA2202">
    <Name>Do not dispose objects multiple times</Name>
    <Description>A correctly implemented Dispose method can be called multiple times without throwing an exception. However, this is not guaranteed and to avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.</Description>
-   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 264</Resolution>
+   <Resolution Name="Default">Object {0} can be disposed more than once in method {1}. To avoid generating a System.ObjectDisposedException you should not call Dispose more than one time on an object.: Lines: 266</Resolution>
    <Owner>RuleOwner</Owner>
    <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
    <Email />

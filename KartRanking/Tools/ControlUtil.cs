@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI.WebControls;
+﻿using System.Web.UI.WebControls;
 using System.Data;
 
 namespace KartRanking.Tools
@@ -25,10 +21,10 @@ namespace KartRanking.Tools
         /// Selecionar um item de um DropDownList
         /// </summary>
         /// <param name="ddl">DropDownList</param>
-        /// <param name="value">E o valor que se procura</param>
+        /// <param name="text">E o valor que se procura</param>
         public static void SelectByText(ref DropDownList ddl, string text)
         {
-            System.Web.UI.WebControls.ListItem l = ddl.Items.FindByText(text);
+            var l = ddl.Items.FindByText(text);
             int i = ddl.Items.IndexOf(l);
             ddl.SelectedIndex = i;
         }
@@ -36,108 +32,108 @@ namespace KartRanking.Tools
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo<T>(DropDownList DDL, T obj, string Value, string Text)
+        public static void PopulaCombo<T>(DropDownList ddl, T obj, string value, string text)
         {
-            PopulaCombo(DDL, obj, Value, Text, false);
+            PopulaCombo(ddl, obj, value, text, false);
         }
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo<T>(DropDownList DDL, T obj, string Value, string Text, string TextSelecione)
+        public static void PopulaCombo<T>(DropDownList ddl, T obj, string value, string text, string textSelecione)
         {
-            PopulaCombo(DDL, obj, Value, Text, true, TextSelecione);
+            PopulaCombo(ddl, obj, value, text, true, textSelecione);
         }
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo<T>(DropDownList DDL, T obj, string Value, string Text, bool ExibirSelecione)
+        public static void PopulaCombo<T>(DropDownList ddl, T obj, string value, string text, bool exibirSelecione)
         {
-            PopulaCombo(DDL, obj, Value, Text, ExibirSelecione, "Selecione");
+            PopulaCombo(ddl, obj, value, text, exibirSelecione, "Selecione");
         }
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo<T>(DropDownList DDL, T obj, string Value, string Text, bool ExibirSelecione, string TextSelecione)
+        public static void PopulaCombo<T>(DropDownList ddl, T obj, string value, string text, bool exibirSelecione, string textSelecione)
         {
-            DDL.DataSource = obj;
-            DDL.DataValueField = Value;
-            DDL.DataTextField = Text;
-            DDL.DataBind();
+            ddl.DataSource = obj;
+            ddl.DataValueField = value;
+            ddl.DataTextField = text;
+            ddl.DataBind();
 
-            if (ExibirSelecione)
-                DDL.Items.Insert(0, new System.Web.UI.WebControls.ListItem(TextSelecione, "0", true));
+            if (exibirSelecione)
+                ddl.Items.Insert(0, new ListItem(textSelecione, "0", true));
         }
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo(DropDownList DDL, DataSet DS, string Value, string Text)
+        public static void PopulaCombo(DropDownList ddl, DataSet ds, string value, string text)
         {
-            PopulaCombo(DDL, DS.Tables[0], Value, Text);
+            PopulaCombo(ddl, ds.Tables[0], value, text);
         }
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo(DropDownList DDL, DataSet DS, string Value, string Text, bool ExibirSelecione)
+        public static void PopulaCombo(DropDownList ddl, DataSet ds, string value, string text, bool exibirSelecione)
         {
-            PopulaCombo(DDL, DS.Tables[0], Value, Text, ExibirSelecione);
+            PopulaCombo(ddl, ds.Tables[0], value, text, exibirSelecione);
         }
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo(DropDownList DDL, DataTable DT, string Value, string Text)
+        public static void PopulaCombo(DropDownList ddl, DataTable dt, string value, string text)
         {
-            PopulaCombo(DDL, DT, Value, Text, false);
+            PopulaCombo(ddl, dt, value, text, false);
         }
         /// <summary>
         /// Popular o DropDownList pelo objeto
         /// </summary>
-        public static void PopulaCombo(DropDownList DDL, DataTable DT, string Value, string Text, bool ExibirSelecione)
+        public static void PopulaCombo(DropDownList ddl, DataTable dt, string value, string text, bool exibirSelecione)
         {
-            System.Data.DataView DV = DT.DefaultView;
-            DV.Sort = Text;
+            DataView dv = dt.DefaultView;
+            dv.Sort = text;
 
-            DDL.DataSource = DV;
-            DDL.DataValueField = Value;
-            DDL.DataTextField = Text;
-            DDL.DataBind();
+            ddl.DataSource = dv;
+            ddl.DataValueField = value;
+            ddl.DataTextField = text;
+            ddl.DataBind();
 
-            if (ExibirSelecione)
-                DDL.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Selecione", "0", true));
+            if (exibirSelecione)
+                ddl.Items.Insert(0, new ListItem("Selecione", "0", true));
         }
 
-        public static void PopulaComboUF(DropDownList DDL, string Selecione)
+        public static void PopulaComboUf(DropDownList ddl, string selecione)
         {
-            if(!string.IsNullOrEmpty(Selecione))
-                DDL.Items.Add(new ListItem(Selecione, "", true));
+            if(!string.IsNullOrEmpty(selecione))
+                ddl.Items.Add(new ListItem(selecione, "", true));
 
-            DDL.Items.Add(new ListItem("AC - Acre", "AC", true));
-            DDL.Items.Add(new ListItem("AL - Alagoas", "AL", true));
-            DDL.Items.Add(new ListItem("AM - Amazonas", "AM", true));
-            DDL.Items.Add(new ListItem("AP - Amapá", "AP", true));
-            DDL.Items.Add(new ListItem("BA - Bahia", "BA", true));
-            DDL.Items.Add(new ListItem("CE - Ceará", "CE", true));
-            DDL.Items.Add(new ListItem("DF - Distrito Federal", "DF", true));
-            DDL.Items.Add(new ListItem("ES - Espírito Santo", "ES", true));
-            DDL.Items.Add(new ListItem("GO - Goiás", "GO", true));
-            DDL.Items.Add(new ListItem("MA - Maranhão", "MA", true));
-            DDL.Items.Add(new ListItem("MG - Minas Gerais", "MG", true));
-            DDL.Items.Add(new ListItem("MS - Mato Grosso do Sul", "MS", true));
-            DDL.Items.Add(new ListItem("MT - Mato Grosso", "MT", true));
-            DDL.Items.Add(new ListItem("PA - Pará", "PA", true));
-            DDL.Items.Add(new ListItem("PB - Paraíba", "PB", true));
-            DDL.Items.Add(new ListItem("PE - Pernambuco", "PE", true));
-            DDL.Items.Add(new ListItem("PI - Piauí", "PI", true));
-            DDL.Items.Add(new ListItem("PR - Paraná", "PR", true));
-            DDL.Items.Add(new ListItem("RJ - Rio de Janeiro", "RJ", true));
-            DDL.Items.Add(new ListItem("RN - Rio Grande do Norte", "RN", true));
-            DDL.Items.Add(new ListItem("RO - Rondônia", "RO", true));
-            DDL.Items.Add(new ListItem("RR - Roraima", "RR", true));
-            DDL.Items.Add(new ListItem("RS - Rio Grande do Sul", "RS", true));
-            DDL.Items.Add(new ListItem("SC - Santa Catarina", "SC", true));
-            DDL.Items.Add(new ListItem("SE - Sergipe", "SE", true));
-            DDL.Items.Add(new ListItem("SP - São Paulo", "SP", true));
-            DDL.Items.Add(new ListItem("TO - Tocantins", "TO", true));
-            DDL.Items.Add(new ListItem("EX - Exterior", "EX", true));
+            ddl.Items.Add(new ListItem("AC - Acre", "AC", true));
+            ddl.Items.Add(new ListItem("AL - Alagoas", "AL", true));
+            ddl.Items.Add(new ListItem("AM - Amazonas", "AM", true));
+            ddl.Items.Add(new ListItem("AP - Amapá", "AP", true));
+            ddl.Items.Add(new ListItem("BA - Bahia", "BA", true));
+            ddl.Items.Add(new ListItem("CE - Ceará", "CE", true));
+            ddl.Items.Add(new ListItem("DF - Distrito Federal", "DF", true));
+            ddl.Items.Add(new ListItem("ES - Espírito Santo", "ES", true));
+            ddl.Items.Add(new ListItem("GO - Goiás", "GO", true));
+            ddl.Items.Add(new ListItem("MA - Maranhão", "MA", true));
+            ddl.Items.Add(new ListItem("MG - Minas Gerais", "MG", true));
+            ddl.Items.Add(new ListItem("MS - Mato Grosso do Sul", "MS", true));
+            ddl.Items.Add(new ListItem("MT - Mato Grosso", "MT", true));
+            ddl.Items.Add(new ListItem("PA - Pará", "PA", true));
+            ddl.Items.Add(new ListItem("PB - Paraíba", "PB", true));
+            ddl.Items.Add(new ListItem("PE - Pernambuco", "PE", true));
+            ddl.Items.Add(new ListItem("PI - Piauí", "PI", true));
+            ddl.Items.Add(new ListItem("PR - Paraná", "PR", true));
+            ddl.Items.Add(new ListItem("RJ - Rio de Janeiro", "RJ", true));
+            ddl.Items.Add(new ListItem("RN - Rio Grande do Norte", "RN", true));
+            ddl.Items.Add(new ListItem("RO - Rondônia", "RO", true));
+            ddl.Items.Add(new ListItem("RR - Roraima", "RR", true));
+            ddl.Items.Add(new ListItem("RS - Rio Grande do Sul", "RS", true));
+            ddl.Items.Add(new ListItem("SC - Santa Catarina", "SC", true));
+            ddl.Items.Add(new ListItem("SE - Sergipe", "SE", true));
+            ddl.Items.Add(new ListItem("SP - São Paulo", "SP", true));
+            ddl.Items.Add(new ListItem("TO - Tocantins", "TO", true));
+            ddl.Items.Add(new ListItem("EX - Exterior", "EX", true));
         }
     }
 }
