@@ -20,20 +20,6 @@ namespace KartRanking.Administrador
     public partial class Admin : System.Web.UI.MasterPage
     {
 
-        #region dk
-        private DataKartDataContext _dk = null;
-
-        public DataKartDataContext dk
-        {
-            get
-            {
-                if (_dk == null)
-                    _dk = new DataKartDataContext();
-                return _dk;
-            }
-        }
-        #endregion
-
         #region Alert
         public void Alert(Exception ex)
         {
@@ -60,33 +46,29 @@ namespace KartRanking.Administrador
             HttpCookie cookie = Request.Cookies["KartRankingAutoLogin"];
             HttpCookie cookieUser = Request.Cookies["KartRankingUserName"];
 
-            if (cookieUser != null)
+            if (!string.IsNullOrEmpty(cookieUser?.Value))
             {
-                if (!string.IsNullOrEmpty(cookieUser.Value))
-                {
-                    txtEmail.Text = cookieUser.Value;
-                }
+                txtEmail.Text = cookieUser.Value;
             }
 
-            if (cookie != null)
+            if (!string.IsNullOrEmpty(cookie?.Value))
             {
-                if (!string.IsNullOrEmpty(cookie.Value))
+                if (Session["Usuario"] == null)
                 {
-                    if (Session["Usuario"] == null)
+
+                    DataKartDataContext dk = new DataKartDataContext();
+                    Usuario user = (from p in dk.Usuarios
+                        where p.Email.Equals(cookie.Value)
+                        select p).FirstOrDefault();
+
+                    if (user != null)
                     {
-                        Usuario user = (from p in dk.Usuarios
-                                        where p.Email.Equals(cookie.Value)
-                                        select p).FirstOrDefault();
+                        Session["Usuario"] = user;
+                        pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
+                        pnlLogin.Visible = pnlNotLogin.Visible = false;
+                        lblNomeUsuario.Text = user.Nome;
 
-                        if (user != null)
-                        {
-                            Session["Usuario"] = user;
-                            pnlMenu.Visible = pnlConteudo.Visible = ddlGrupos.Enabled = imgAssociarGrupo.Enabled = true;
-                            pnlLogin.Visible = pnlNotLogin.Visible = false;
-                            lblNomeUsuario.Text = user.Nome;
-
-                            CarregarGruposUsuario();
-                        }
+                        CarregarGruposUsuario();
                     }
                 }
             }
@@ -118,7 +100,7 @@ namespace KartRanking.Administrador
                 if (string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtEmail.Text))
                     throw new Exception("Informe um usuário e senha.");
 
-                using (BaseDados.DataKartDataContext dk = new BaseDados.DataKartDataContext())
+                using (var dk = new DataKartDataContext())
                 {
                     Usuario user = (from p in dk.Usuarios
                                     where p.Email.Equals(txtEmail.Text.ToLower().Trim()) && p.Senha.Equals(txtPassword.Text.ToLower().Trim())
@@ -152,7 +134,7 @@ namespace KartRanking.Administrador
                     dk.Kart_log_acessos.InsertOnSubmit(new Kart_log_acesso() { dtAcesso = DateTime.Now, idUsuario = user.idUsuario });
                     dk.SubmitChanges();
                 }
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.location.href='/Administrador/home.aspx';", true);
+                Page.ClientScript.RegisterStartupScript(GetType(), "Redirect", "window.location.href='/Administrador/home.aspx';", true);
             }
             catch (Exception ex)
             {
@@ -220,8 +202,9 @@ namespace KartRanking.Administrador
         private void CarregarGruposUsuario()
         {
             Usuario user = (Usuario)Session["Usuario"];
+            DataKartDataContext dk = new DataKartDataContext();
 
-            var Grupos = (from gu in dk.Kart_Usuario_Grupos
+            var grupos = (from gu in dk.Kart_Usuario_Grupos
                           join g in dk.Kart_Grupos
                           on gu.idGrupo equals g.idGrupo
                           orderby g.dtCriacao descending
@@ -229,9 +212,9 @@ namespace KartRanking.Administrador
                           && g.Ativo == true
                           select new { id = g.idGrupo, Nome = g.NomeGrupo });
 
-            if (Grupos != null && Grupos.Count() > 0)
+            if (grupos.Any())
             {
-                ddlGrupos.DataSource = Grupos;
+                ddlGrupos.DataSource = grupos;
                 ddlGrupos.DataTextField = "Nome";
                 ddlGrupos.DataValueField = "id";
                 ddlGrupos.DataBind();
@@ -255,6 +238,7 @@ namespace KartRanking.Administrador
 
         private void CarregarCampeonato(int idGrupo)
         {
+            DataKartDataContext dk = new DataKartDataContext();
             var campeonato = (from c in dk.Kart_Campeonatos
                                where c.idGrupo == idGrupo
                                && c.Ativo == true

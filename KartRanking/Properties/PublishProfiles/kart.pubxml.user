@@ -117,7 +117,7 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="bin/KartRanking.dll">
-      <publishTime>04/11/2017 15:30:07</publishTime>
+      <publishTime>04/11/2017 17:15:48</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>

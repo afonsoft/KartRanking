@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using KartRanking.Page;
 using KartRanking.BaseDados;
@@ -103,7 +102,7 @@ namespace KartRanking.Grupo
                                        && u.Ativo == true
                                        select u).ToList();
 
-                if (users != null)
+                if (users.Count > 0)
                 {
 
                     int usuarioSelecionado = rnd.Next(users.Count);
