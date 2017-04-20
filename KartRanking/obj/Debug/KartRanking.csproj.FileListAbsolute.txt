@@ -9,11 +9,6 @@ C:\AFONSO\KartRanking\KartRanking\bin\KartRanking.pdb
 C:\AFONSO\KartRanking\KartRanking\bin\KartRanking.dll.CodeAnalysisLog.xml
 C:\AFONSO\KartRanking\KartRanking\bin\KartRanking.dll.lastcodeanalysissucceeded
 C:\AFONSO\KartRanking\KartRanking\bin\AjaxControlToolkit.dll
-C:\AFONSO\KartRanking\KartRanking\bin\AjaxControlToolkit.resources.dll
-C:\AFONSO\KartRanking\KartRanking\bin\AjaxMin.dll
-C:\AFONSO\KartRanking\KartRanking\bin\AspNetInfo.SampleDiagnosticPlugIn.dll
-C:\AFONSO\KartRanking\KartRanking\bin\HtmlAgilityPack.dll
-C:\AFONSO\KartRanking\KartRanking\bin\Microsoft.WindowsAzure.Storage.dll
 C:\AFONSO\KartRanking\KartRanking\obj\Debug\KartRanking.csprojResolveAssemblyReference.cache
 C:\AFONSO\KartRanking\KartRanking\obj\Debug\KartRanking.dll
 C:\AFONSO\KartRanking\KartRanking\obj\Debug\KartRanking.pdb

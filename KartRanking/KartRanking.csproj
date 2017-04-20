@@ -79,31 +79,9 @@
     <ApplicationIcon>icons\helmet_256.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=4.1.7.725, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="AjaxControlToolkit, Version=17.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>dlls\AjaxControlToolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="AjaxControlToolkit.resources, Version=4.1.7.725, Culture=pt, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>dlls\AjaxControlToolkit.resources.dll</HintPath>
-    </Reference>
-    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>dlls\AjaxMin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AspNetInfo, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>dlls\AspNetInfo.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="AspNetInfo.SampleDiagnosticPlugIn, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>dlls\AspNetInfo.SampleDiagnosticPlugIn.dll</HintPath>
-    </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>dlls\HtmlAgilityPack.dll</HintPath>
+      <HintPath>..\packages\AjaxControlToolkit.17.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -132,16 +110,8 @@
     <Content Include="Administrador\RegrasGrupo.aspx" />
     <Content Include="Administrador\updateUserForum.aspx" />
     <Content Include="Administrador\Videos.aspx" />
-    <Content Include="AspNetInfo.aspx" />
     <Content Include="BingSiteAuth.xml" />
     <Content Include="crc32.aspx" />
-    <Content Include="dlls\AjaxControlToolkit.dll" />
-    <Content Include="dlls\AjaxControlToolkit.resources.dll" />
-    <Content Include="dlls\AjaxMin.dll" />
-    <Content Include="dlls\AspNetInfo.dll" />
-    <Content Include="dlls\AspNetInfo.SampleDiagnosticPlugIn.dll" />
-    <Content Include="dlls\HtmlAgilityPack.dll" />
-    <Content Include="dlls\Microsoft.WindowsAzure.Storage.dll" />
     <Content Include="email\GrupoFotos.htm" />
     <Content Include="email\GrupoNoticias.htm" />
     <Content Include="email\GrupoRegraModificado.htm" />
@@ -565,6 +535,7 @@
     <Content Include="Grupo\ImgTitleHandler.ashx" />
     <Content Include="crc32.php" />
     <None Include="Grupo\countdown\images\.DS_Store" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
   </ItemGroup>
   <ItemGroup>
