@@ -1,0 +1,15 @@
+language: csharp
+mono:
+  - latest
+os:
+  - linux
+  - osx
+solution: KartRanking.sln
+install:
+  - nuget restore KartRanking.sln
+script:
+  - xbuild /p:Configuration=Debug KartRanking.sln
+  - xbuild /p:Configuration=Release KartRanking.sln
+cache:
+  directories:
+    - bin
