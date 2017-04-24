@@ -3,6 +3,7 @@
   <PropertyGroup>
     <UseIISExpress>false</UseIISExpress>
     <NameOfLastUsedPublishProfile>kart</NameOfLastUsedPublishProfile>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
