@@ -263,20 +263,19 @@ namespace KartRanking.Grupo
 
             for (int i = 0; i < source.Length; i++)
             {
-                char let = source[i];
-                if (let == '<')
+                if (source[i] == '<')
                 {
                     inside = true;
                     continue;
                 }
-                if (let == '>')
+                if (source[i] == '>')
                 {
                     inside = false;
                     continue;
                 }
                 if (!inside)
                 {
-                    array[arrayIndex] = let;
+                    array[arrayIndex] = source[i];
                     arrayIndex++;
                 }
             }

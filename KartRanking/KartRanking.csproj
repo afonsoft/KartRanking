@@ -75,11 +75,6 @@
     <ApplicationIcon>icons\helmet_256.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=17.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AjaxControlToolkit.17.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -531,7 +526,6 @@
     <Content Include="Grupo\ImgTitleHandler.ashx" />
     <Content Include="crc32.php" />
     <None Include="Grupo\countdown\images\.DS_Store" />
-    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\kart.pubxml" />
   </ItemGroup>
   <ItemGroup>
