@@ -245,3 +245,4 @@ ModelManifest.xml
 .fake/
 bin
 /KartRanking/obj
+/packages
