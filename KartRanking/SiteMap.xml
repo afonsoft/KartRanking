@@ -169,48 +169,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspInfo.aspx</loc>
-    <lastmod>2016-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspNetInfo.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/CadastroUsuario.aspx</loc>
-    <lastmod>2016-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/crc32.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/index.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/InstallDb.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/PageError.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
     <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -729,48 +687,6 @@
   <url>
     <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
     <lastmod>2017-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspInfo.aspx</loc>
-    <lastmod>2016-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/AspNetInfo.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/CadastroUsuario.aspx</loc>
-    <lastmod>2016-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/crc32.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/index.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/InstallDb.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://kart.afonsoft.com.br/bkp.10.04.2017/PageError.aspx</loc>
-    <lastmod>2017-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
