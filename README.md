@@ -31,5 +31,17 @@ Waffle Issues<br/> [![Stories in Ready](https://badge.waffle.io/afonsoft/KartRan
   </tr>
 </table>
 <br/>
-Thank you for downloading KartRanking. For more information please visit [http://kart.afonsoft.com.br](http://kart.afonsoft.com.br).
+<b>KartRanking - Sistema de controle de pontuação web de campeonato</b>
+
+*Projeto com objetivo de desenvolver um sistema de controle de pontuação de um ou vários campeonato de kart online.*
+<ul>
+<li>Com cadastro de usuários;</li>
+<li>Cadastro de Campeonato;</li>
+<li>Gerenciamento do campeonato;</li>
+<li>Lanchamento dos pontos;</li>
+<li>Regras, mensagem e enquete;</li>
+<li>Entre outros.</li>
+</ul>
+<br/>
+Thank you for downloading KartRanking. For more information please visit [http://kart.afonsoft.com.br].
 
