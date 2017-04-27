@@ -247,3 +247,4 @@ bin
 /KartRanking/obj
 /packages
 /.vs
+/KartRanking/*.user

@@ -758,7 +758,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <ItemGroup>
-    <PackageReference Include="AjaxControlToolkit" Version="17.1.0.0" />
-  </ItemGroup>
 </Project>
