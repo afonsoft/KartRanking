@@ -231,7 +231,9 @@ namespace KartRanking.Administrador
             else
             {
                 ddlGrupos.Items.Insert(0, new ListItem("Nenhum Grupo associado", "0", true));
-                Response.Redirect("~/Administrador/AdminGrupo.aspx");
+
+                if (!Request.Url.LocalPath.Contains("AdminGrupo.aspx") && !Request.Url.LocalPath.Contains("perfil.aspx"))
+                    Response.Redirect("~/Administrador/AdminGrupo.aspx");
             }
 
         }

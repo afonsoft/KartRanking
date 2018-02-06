@@ -96,7 +96,8 @@ namespace KartRanking.Page
             Usuario user = (Usuario)Session["Usuario"];
             if (user.Ativo == false)
             {
-                Response.Redirect("~/Administrador/perfil.aspx", true);
+                if(!Request.Url.LocalPath.Contains("perfil.aspx"))
+                    Response.Redirect("~/Administrador/perfil.aspx", true);
                 return false;
             }
             return true;

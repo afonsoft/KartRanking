@@ -7,6 +7,12 @@ environment:
   EnableNuGetPackageRestore: true
   ResolveNuGetPackageAssets: true
 services: iis
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
 nuget:
   account_feed: true
   project_feed: true
@@ -14,4 +20,7 @@ nuget:
 before_build:
 - cmd: nuget.exe restore -verbosity detailed C:\projects\KartRanking\KartRanking.sln
 build:
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
   verbosity: detailed
