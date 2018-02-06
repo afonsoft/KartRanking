@@ -162,7 +162,9 @@ namespace KartRanking.Administrador
                         dk.GetTable<Kart_Usuario_Grupo>().InsertOnSubmit(kug);
                         dk.SubmitChanges(ConflictMode.FailOnFirstConflict);
                     }
+                    Session["IdGrupo"] = null;
                     Alert("Usuário incluido com suceso!");
+                    PopularGrupos();
                 }
             }
             catch (Exception ex)
