@@ -11,7 +11,7 @@ dir="ltr" lang="pt-br" xml:lang="pt-br">
 <!--<![endif]-->
 <head runat="server" profile="http://gmpg.org/xfn/11">
     <title>Kart Ranking - Gerenciamento de campeonatos de Kart com ranking</title>
-    <meta name="copyright" content="AFONSOFT 2014" />
+    <meta name="copyright" content="AFONSOFT 2018" />
     <meta http-equiv="content-language" content="pt-br" />
     <meta name="robots" content="follow, all" />
     <meta name="resource-type" content="document" />
