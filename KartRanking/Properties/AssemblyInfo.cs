@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "AFONSOFT" )]
 [assembly: AssemblyProduct( "KartRanking" )]
-[assembly: AssemblyCopyright("AFONSOFT 2017")]
+[assembly: AssemblyCopyright("AFONSOFT 2018")]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
@@ -32,6 +32,6 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("2.2.0.*")]
-[assembly: AssemblyFileVersion("2017.04.11")]
+[assembly: AssemblyVersion("2.3.0.*")]
+[assembly: AssemblyFileVersion("2018.02.07")]
 [assembly: NeutralResourcesLanguageAttribute("pt-BR")]

@@ -61,13 +61,6 @@
     </asp:Panel>
     <asp:Panel ID="PanelEquipes" Visible="false" runat="server">
         <asp:HiddenField ID="HiddenFieldidEquipeCampeonato" runat="server" />
-        <script type="text/javascript">
-            function openInfoEquipe(id) {
-                document.getElementById("<%= HiddenFieldidEquipeCampeonato.ClientID %>").value = id;
-                alert(id);
-            }
-        </script>
-        <asp:LinkButton ID="lnkOpenInfoEquipe" runat="server" OnClick="lnkOpenInfoEquipe_Click"></asp:LinkButton>
         <div class="page1 box maxheight" style="height: auto; min-height: 380px;">
             <div class="padding-box">
                 <div class="indent-bot">
@@ -102,7 +95,7 @@
                                         <%# Container.ItemIndex  + 1 %>
                                     </td>
                                     <td style="width: auto;">
-                                        <a href="#" onclick='openInfoEquipe(<%# Eval("idEquipeCampeonato") %>);'>
+                                             <a href='/<%= UrlGrupo %>/pilotos/equipes/<%# Eval("idEquipeCampeonato") %>'>
                                             <%# Eval("Equipe") %></a>
                                     </td>
                                     <td style="width: 40px;">
@@ -285,5 +278,8 @@
                 <a href="/<%= UrlGrupo %>/pilotos" class="button"><strong><strong>Voltar</strong></strong></a>
             </div>
         </div>
+    </asp:Panel>
+
+    <asp:Panel ID="PanelInfoEquipe" Visible="true" runat="server">
     </asp:Panel>
 </asp:Content>

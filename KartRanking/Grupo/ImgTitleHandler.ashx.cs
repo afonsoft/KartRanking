@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Drawing;
 using KartRanking.Tools;
-using KartRanking.BaseDados;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 
@@ -35,7 +32,7 @@ namespace KartRanking.Grupo
                 PrivateFontCollection myFonts;
 
                 FontFamily family = LoadFontFamily(PathUtil.GetFullPathRoot() + @"\Fonts\28dayslater-webfont.ttf", out myFonts);
-                Font theFont = new Font(family, 48.0f);
+                Font theFont = new Font(family, 44.0f);
 
                 if (!String.IsNullOrEmpty(context.Request.QueryString["text"]))
                 {

@@ -22,6 +22,7 @@ namespace KartRanking.Grupo
             {
                 string op = Request.QueryString["op"];
                 string sidUsuario = Request.QueryString["idUsuario"];
+                string sidEquipe = Request.QueryString["IdEquipe"];
 
                 if (op == "pilotos" || string.IsNullOrEmpty(op))
                 {
@@ -29,22 +30,39 @@ namespace KartRanking.Grupo
                     PanelPiloto.Visible = true;
                     PanelEquipes.Visible = false;
                     PanelInfo.Visible = false;
+                    PanelInfoEquipe.Visible = false;
                 }
-                else if (op == "equipes")
+                else if (op == "equipes" && string.IsNullOrEmpty(sidEquipe))
                 {
                     PopularGrid(2);
                     PanelPiloto.Visible = false;
                     PanelEquipes.Visible = true;
                     PanelInfo.Visible = false;
+                    PanelInfoEquipe.Visible = false;
                 }
+                else if (op == "equipes" && !string.IsNullOrEmpty(sidEquipe))
+                {
+                    PanelPiloto.Visible = false;
+                    PanelEquipes.Visible = false;
+                    PanelInfo.Visible = false;
+                    PanelInfoEquipe.Visible = true;
+                    PopularEquipe(Convert.ToInt32(sidEquipe));
+                }
+
                 else if (op == "info" && !string.IsNullOrEmpty(sidUsuario))
                 {
                     PanelPiloto.Visible = false;
                     PanelEquipes.Visible = false;
                     PanelInfo.Visible = true;
+                    PanelInfoEquipe.Visible = false;
                     PopularInfo(Convert.ToInt32(sidUsuario));
                 }
             }
+        }
+
+        private void PopularEquipe(int idEquipe)
+        {
+
         }
 
         private void PopularInfo(int idUsuario)
@@ -113,13 +131,6 @@ namespace KartRanking.Grupo
                     gvRankigEquipe.DataBind();
                 }
             }
-        }
-
-        protected void lnkOpenInfoEquipe_Click(object sender, EventArgs e)
-        {
-            //TODO: Abrir um popup com as informações do pilotos da equipe selecionada;
-            int idEquipe = 0;
-            idEquipe = Convert.ToInt32(HiddenFieldidEquipeCampeonato.Value);
         }
     }
 }

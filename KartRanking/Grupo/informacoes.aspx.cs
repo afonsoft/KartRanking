@@ -25,7 +25,7 @@ namespace KartRanking.Grupo
 
         private void PopularRegras()
         {
-            ExibirRegras.InnerHtml = "";
+            ExibirRegras.InnerHtml = "Nenhuma Regra ou informação cadastrada no Grupo";
             string regra;
 
             using (DataKartDataContext dk = new DataKartDataContext())

@@ -33,9 +33,8 @@ namespace KartRanking
             var context = HttpContext.Current;
             if (context?.Session != null)
             {
-                if (Convert.ToString(context.Session["idGrupoGrupos"]) !=
-                    Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]) &&
-                    Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]) != "0")
+                if (Convert.ToString(context.Session["idGrupoGrupos"]) != Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]) 
+                    && Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]) != "0")
                 {
                     context.Session["idGrupoGrupos"] = Convert.ToString(HttpContext.Current.Items["idGrupoGrupos"]);
                     context.Session["UrlGrupo"] = null;
@@ -49,7 +48,9 @@ namespace KartRanking
 
             if (Request.Url.LocalPath.IndexOf(".", StringComparison.Ordinal) >= 0 ||
                 Request.Url.LocalPath.IndexOf("?", StringComparison.Ordinal) >= 0)
+            {
                 return;
+            }
 
             HttpContext.Current.Items["idGrupoGrupos"] = 0;
 
@@ -97,20 +98,21 @@ namespace KartRanking
                     HttpContext.Current.Items["idGrupoGrupos"] = idGrupo;
                     var url = Request.Url.AbsolutePath;
 
-                    if (url.Contains("/info/") && (url.IndexOf(".", StringComparison.Ordinal) < 0) &&
-                        (url.IndexOf('?') < 0))
+                    if (url.Contains("/info/") && (url.IndexOf(".", StringComparison.Ordinal) < 0) && (url.IndexOf('?') < 0))
                     {
                         var idusuario = Request.Url.Segments[4];
-                        Context.RewritePath("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=info&IdGrupo=" +
-                                            idGrupo);
+                        Context.RewritePath("~/Grupo/pilotos.aspx?idUsuario=" + idusuario + "&op=info&IdGrupo=" + idGrupo);
                     }
-                    else if (url.Contains("/equipes") && (url.IndexOf(".", StringComparison.Ordinal) < 0) &&
-                             (url.IndexOf('?') < 0))
+                    else if (url.Contains("/equipes/") && (url.IndexOf(".", StringComparison.Ordinal) < 0) && (url.IndexOf('?') < 0))
+                    {
+                        var idEquipe = Request.Url.Segments[4];
+                        Context.RewritePath("~/Grupo/pilotos.aspx?op=equipes" + "&IdGrupo=" + idGrupo + "&IdEquipe=" + idEquipe);
+                    }
+                    else if (url.Contains("/equipes") && (url.IndexOf(".", StringComparison.Ordinal) < 0) && (url.IndexOf('?') < 0))
                     {
                         Context.RewritePath("~/Grupo/pilotos.aspx?op=equipes" + "&IdGrupo=" + idGrupo);
                     }
-                    else if (url.Contains("/pilotos") && (url.IndexOf(".", StringComparison.Ordinal) < 0) &&
-                             (url.IndexOf('?') < 0))
+                    else if (url.Contains("/pilotos") && (url.IndexOf(".", StringComparison.Ordinal) < 0) && (url.IndexOf('?') < 0))
                     {
                         Context.RewritePath("~/Grupo/pilotos.aspx?op=pilotos" + "&IdGrupo=" + idGrupo);
                     }
