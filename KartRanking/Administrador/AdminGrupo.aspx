@@ -6,6 +6,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceCorpo" runat="server">
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $('#<% txtNomeGrupo.ClientID %>').change(function () {
+                $('#<%= txtUrlAcesso.ClientID %>').val($(this).val().split(" ").join(""));
+            });
+
             try {
                 $('#<%= txtUrlAcesso.ClientID %>').on("focus", function () {
                     var dest = $(this);
@@ -88,7 +93,7 @@
                 <span class="label">Url Acesso:</span>
             </td>
             <td colspan="5">
-                <asp:TextBox ID="txtUrlAcesso" MaxLength="50" runat="server" CssClass="text"></asp:TextBox>
+                <asp:TextBox ID="txtUrlAcesso" MaxLength="50" runat="server" ReadOnly="true" CssClass="text"></asp:TextBox>
             </td>
         </tr>
         <tr>

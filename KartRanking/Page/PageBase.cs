@@ -3,6 +3,8 @@ using System.Web;
 using System.Globalization;
 using System.Web.UI.HtmlControls;
 using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace KartRanking.Page
 {
@@ -72,18 +74,64 @@ namespace KartRanking.Page
             base.OnLoad(e);
         }
 
-        // <summary>
-        // Base de dados
-        // </summary>
-        //public DataKartDataContext dk
-        //{
-        //    get
-        //    {
-        //        if (_dk == null)
-        //            _dk = new DataKartDataContext();
-        //        return _dk;
-        //    }
-        //}
+        public string FixString(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return "";
+
+            return RemoveIvalidCharacters(RemoveAccents(value.Trim()));
+        }
+
+        public string RemoveIvalidCharacters(string value)
+        {
+            value = Regex.Replace(value, "[«»\u201C\u201D\u201E\u201F\u2033\u2036]", "");
+            value = Regex.Replace(value, "[èëêð]", "e");
+            value = Regex.Replace(value, "[ÈËÊ]", "E");
+            value = Regex.Replace(value, "[àâä]", "a");
+            value = Regex.Replace(value, "[ÀÂÄÅ]", "A");
+            value = Regex.Replace(value, "[ÙÛÜ]", "U");
+            value = Regex.Replace(value, "[úûüµ]", "u");
+            value = Regex.Replace(value, "[òöø]", "o");
+            value = Regex.Replace(value, "[ÒÖØ]", "O");
+            value = Regex.Replace(value, "[ìîï]", "i");
+            value = Regex.Replace(value, "[ÌÎÏ]", "I");
+            value = Regex.Replace(value, "[š]", "s");
+            value = Regex.Replace(value, "[Š]", "S");
+            value = Regex.Replace(value, "[ñ]", "n");
+            value = Regex.Replace(value, "[Ñ]", "N");
+            value = Regex.Replace(value, "[ÿ]", "y");
+            value = Regex.Replace(value, "[Ÿ]", "Y");
+            value = Regex.Replace(value, "[ž]", "z");
+            value = Regex.Replace(value, "[Ž]", "Z");
+            value = Regex.Replace(value, "[Ð]", "D");
+            value = Regex.Replace(value, "[œ]", "oe");
+            value = Regex.Replace(value, "[Œ]", "Oe");
+            value = Regex.Replace(value, "[\"]", "");
+            value = Regex.Replace(value, "[;]", "");
+            value = Regex.Replace(value, "[\t]", "");
+            value = Regex.Replace(value, "[\n]", "");
+            value = Regex.Replace(value, "[\r]", "");
+            value = Regex.Replace(value, "'", "");
+            value = Regex.Replace(value, ";", "");
+            value = Regex.Replace(value, "[\u2026]", "...");
+            value = Regex.Replace(value, Environment.NewLine, "");
+            return value;
+        }
+
+        private string RemoveAccents(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return text;
+
+            StringBuilder sbReturn = new StringBuilder();
+            var arrayText = text.Normalize(NormalizationForm.FormD).ToCharArray();
+            foreach (char letter in arrayText)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(letter) != UnicodeCategory.NonSpacingMark)
+                    sbReturn.Append(letter);
+            }
+            return sbReturn.ToString().Trim();
+        }
 
         /// <summary>
         /// Alerta

@@ -100,7 +100,7 @@ namespace KartRanking.Administrador
         {
             txtNomeGrupo.ReadOnly = p;
             txtSigla.ReadOnly = p;
-            txtUrlAcesso.ReadOnly = p;
+            txtUrlAcesso.ReadOnly = p; 
             txtCidade.ReadOnly = p;
             ddlEstado.Enabled = !p;
             ddlAtivo.Enabled = !p;
@@ -138,14 +138,25 @@ namespace KartRanking.Administrador
 
                 ValidarCampos();
 
+                txtUrlAcesso.Text = FixString(txtUrlAcesso.Text.Trim()).ToLower();
+                txtSigla.Text = txtSigla.Text.Trim();
+                txtNomeGrupo.Text = txtNomeGrupo.Text.Trim();
+
+                string urlAcesso = txtUrlAcesso.Text;
+                string sigla = txtSigla.Text;
+                string nomeGrupo = txtNomeGrupo.Text;
+
+                if (string.IsNullOrEmpty(urlAcesso) || string.IsNullOrEmpty(sigla) || string.IsNullOrEmpty(nomeGrupo))
+                    throw new Exception("Favor verificar a sigla, o nome e a url do grupo!");
+                
                 DataKartDataContext dk = new DataKartDataContext();
 
                 if (IdGrupo <= 0)
                 {
                     int count = (from g in dk.Kart_Grupos
-                                 where g.Sigla.Equals(txtSigla.Text)
-                                 || g.NomeGrupo.Equals(txtNomeGrupo.Text)
-                                 || g.UrlAcesso.Equals(txtUrlAcesso.Text)
+                                 where g.Sigla.Equals(sigla)
+                                 || g.NomeGrupo.Equals(nomeGrupo)
+                                 || g.UrlAcesso.Equals(urlAcesso)
                                  select g).Count();
 
                     if (count > 0)
@@ -154,10 +165,10 @@ namespace KartRanking.Administrador
                     kg = new Kart_Grupo();
 
                     kg.Id_Usuario_Lider = user.idUsuario;
-                    kg.NomeGrupo = txtNomeGrupo.Text;
+                    kg.NomeGrupo = nomeGrupo;
                     kg.permitirInsricoes = Convert.ToBoolean(ddlPermitirInscricoes.SelectedValue);
-                    kg.Sigla = txtSigla.Text;
-                    kg.UrlAcesso = txtUrlAcesso.Text;
+                    kg.Sigla = sigla;
+                    kg.UrlAcesso = urlAcesso;
                     kg.Ativo = true;
                     kg.Cidade = txtCidade.Text;
                     kg.dtCriacao = DateTime.Now;
@@ -197,30 +208,30 @@ namespace KartRanking.Administrador
                               where g.idGrupo == IdGrupo
                               select g).FirstOrDefault();
 
-                        if (kg.NomeGrupo != txtNomeGrupo.Text)
+                        if (kg.NomeGrupo != nomeGrupo)
                         {
                             int count = (from g in dk.Kart_Grupos
-                                         where g.NomeGrupo.Equals(txtNomeGrupo.Text)
+                                         where g.NomeGrupo.Equals(nomeGrupo)
                                          select g).Count();
 
                             if (count > 0)
                                 throw new Exception("Já existe um grupo cadastro com esse Nome!");
                         }
 
-                        if (kg.Sigla != txtSigla.Text)
+                        if (kg.Sigla != sigla)
                         {
                             int count = (from g in dk.Kart_Grupos
-                                         where g.Sigla.Equals(txtSigla.Text)
+                                         where g.Sigla.Equals(sigla)
                                          select g).Count();
 
                             if (count > 0)
                                 throw new Exception("Já existe um grupo cadastro com essa Sigla!");
                         }
 
-                        if (kg.UrlAcesso != txtUrlAcesso.Text)
+                        if (kg.UrlAcesso != urlAcesso)
                         {
                             int count = (from g in dk.Kart_Grupos
-                                         where g.UrlAcesso.Equals(txtUrlAcesso.Text)
+                                         where g.UrlAcesso.Equals(urlAcesso)
                                          select g).Count();
 
                             if (count > 0)
@@ -228,10 +239,10 @@ namespace KartRanking.Administrador
                         }
 
                         kg.Id_Usuario_Lider = user.idUsuario;
-                        kg.NomeGrupo = txtNomeGrupo.Text;
+                        kg.NomeGrupo = nomeGrupo;
                         kg.permitirInsricoes = Convert.ToBoolean(ddlPermitirInscricoes.SelectedValue);
-                        kg.Sigla = txtSigla.Text;
-                        kg.UrlAcesso = txtUrlAcesso.Text;
+                        kg.Sigla = sigla;
+                        kg.UrlAcesso = urlAcesso;
                         kg.Ativo = true;
                         kg.Cidade = txtCidade.Text;
                         kg.dtCriacao = DateTime.Now;
