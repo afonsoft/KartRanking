@@ -7,7 +7,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $('#<% txtNomeGrupo.ClientID %>').change(function () {
+            $('#<%= txtNomeGrupo.ClientID %>').change(function () {
                 $('#<%= txtUrlAcesso.ClientID %>').val($(this).val().split(" ").join(""));
             });
 
