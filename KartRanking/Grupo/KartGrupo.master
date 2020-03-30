@@ -21,6 +21,7 @@
             color: #fecc5f;
         }
     </style>
+
     <asp:ContentPlaceHolder ID="ContentPlaceHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
