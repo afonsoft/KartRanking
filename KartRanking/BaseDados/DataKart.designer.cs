@@ -323,7 +323,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Usuarios")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Usuarios")]
 	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -708,7 +708,7 @@ namespace KartRanking.BaseDados
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foto", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Foto", DbType="Image", UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Foto
 		{
 			get
@@ -1249,7 +1249,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Calendario_Campeonato")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Calendario_Campeonato : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1628,7 +1628,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Campeonato")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Campeonato : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -1987,7 +1987,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Equipe_Campeonato")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Equipe_Campeonato : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2242,7 +2242,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Grid_Calendario")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Grid_Calendario : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2626,7 +2626,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3141,7 +3141,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_log_erro")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_log_erro : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3604,7 +3604,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Noticias_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Noticias_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3916,7 +3916,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Ponto_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Ponto_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -4139,7 +4139,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Resultado_Calendario")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Resultado_Calendario : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -4547,7 +4547,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Usuario_Equipe_Campeonato")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Usuario_Equipe_Campeonato : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -4763,7 +4763,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Usuario_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Usuario_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5051,7 +5051,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Equipe_Usuario")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class View_Equipe_Usuario
 	{
 		
@@ -5150,7 +5150,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class View_Kart_Usuario_Pontos_Grupo
 	{
 		
@@ -5249,7 +5249,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Equipe_Pontos_Campeonato")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class View_Kart_Equipe_Pontos_Campeonato
 	{
 		
@@ -5402,7 +5402,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Historico")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class View_Kart_Usuario_Historico
 	{
 		
@@ -5519,7 +5519,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.View_Kart_Usuario_Pontos_Campeonato")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class View_Kart_Usuario_Pontos_Campeonato
 	{
 		
@@ -5654,7 +5654,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Album_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Album_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -5990,7 +5990,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Regras_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Regras_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -6254,7 +6254,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Videos_Grupo")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_Videos_Grupo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -6607,7 +6607,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Campeonato_Usuario_Desativados")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Kart_Campeonato_Usuario_Desativados")]
 	public partial class Kart_Campeonato_Usuario_Desativado : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -6847,7 +6847,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_Equipe_Campeonato_Desativados")]
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Kart_Equipe_Campeonato_Desativados")]
 	public partial class Kart_Equipe_Campeonato_Desativado : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -7087,7 +7087,7 @@ namespace KartRanking.BaseDados
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="afonsoftcombr.Kart_log_acesso")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Kart_log_acesso : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
