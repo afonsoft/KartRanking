@@ -1,14 +1,14 @@
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Calendario_Campeonato]    Script Date: 01/17/2013 15:07:00 ******/
+/****** Object:  Table [Kart_Calendario_Campeonato]    Script Date: 01/17/2013 15:07:00 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Calendario_Campeonato](
+CREATE TABLE [Kart_Calendario_Campeonato](
 	[idCalendario] [int] IDENTITY(1,1) NOT NULL,
 	[idCampeonato] [int] NOT NULL,
 	[Data] [smalldatetime] NOT NULL,
@@ -30,17 +30,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Calendario_Campeonato](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Campeonato]    Script Date: 01/17/2013 15:07:33 ******/
+/****** Object:  Table [Kart_Campeonato]    Script Date: 01/17/2013 15:07:33 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Campeonato](
+CREATE TABLE [Kart_Campeonato](
 	[idCampeonato] [int] IDENTITY(1,1) NOT NULL,
 	[idGrupo] [int] NOT NULL,
 	[dtInicio] [datetime] NOT NULL,
@@ -60,17 +60,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Campeonato](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Equipe_Campeonato]    Script Date: 01/17/2013 15:07:58 ******/
+/****** Object:  Table [Kart_Equipe_Campeonato]    Script Date: 01/17/2013 15:07:58 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Equipe_Campeonato](
+CREATE TABLE [Kart_Equipe_Campeonato](
 	[idEquipeCampeonato] [int] IDENTITY(1,1) NOT NULL,
 	[idCampeonato] [int] NOT NULL,
 	[NomeEquipe] [nvarchar](200) NOT NULL,
@@ -88,17 +88,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Equipe_Campeonato](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Grid_Calendario]    Script Date: 01/17/2013 15:08:30 ******/
+/****** Object:  Table [Kart_Grid_Calendario]    Script Date: 01/17/2013 15:08:30 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Grid_Calendario](
+CREATE TABLE [Kart_Grid_Calendario](
 	[idGrid] [int] IDENTITY(1,1) NOT NULL,
 	[idCalendario] [int] NOT NULL,
 	[Pos] [int] NOT NULL,
@@ -118,17 +118,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Grid_Calendario](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Grupo]    Script Date: 01/17/2013 15:08:56 ******/
+/****** Object:  Table [Kart_Grupo]    Script Date: 01/17/2013 15:08:56 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Grupo](
+CREATE TABLE [Kart_Grupo](
 	[idGrupo] [int] IDENTITY(1,1) NOT NULL,
 	[NomeGrupo] [nvarchar](100) NOT NULL,
 	[Sigla] [nchar](50) NOT NULL,
@@ -151,17 +151,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Grupo](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_log_erro]    Script Date: 01/17/2013 15:09:21 ******/
+/****** Object:  Table [Kart_log_erro]    Script Date: 01/17/2013 15:09:21 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_log_erro](
+CREATE TABLE [Kart_log_erro](
 	[idErro] [int] IDENTITY(1,1) NOT NULL,
 	[UserIP] [nchar](20) NULL,
 	[URL] [nvarchar](max) NULL,
@@ -186,17 +186,17 @@ CREATE TABLE [afonsoftcombr].[Kart_log_erro](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Ponto_Grupo]    Script Date: 01/17/2013 15:09:42 ******/
+/****** Object:  Table [Kart_Ponto_Grupo]    Script Date: 01/17/2013 15:09:42 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Ponto_Grupo](
+CREATE TABLE [Kart_Ponto_Grupo](
 	[idPontoGrupo] [int] IDENTITY(1,1) NOT NULL,
 	[idGrupo] [int] NOT NULL,
 	[Pos] [int] NOT NULL,
@@ -212,17 +212,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Ponto_Grupo](
 GO
 
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Resultado_Calendario]    Script Date: 01/17/2013 15:10:06 ******/
+/****** Object:  Table [Kart_Resultado_Calendario]    Script Date: 01/17/2013 15:10:06 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Resultado_Calendario](
+CREATE TABLE [Kart_Resultado_Calendario](
 	[idResultado] [int] IDENTITY(1,1) NOT NULL,
 	[idCalendario] [int] NOT NULL,
 	[Pos] [int] NOT NULL,
@@ -247,17 +247,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Resultado_Calendario](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato]    Script Date: 01/17/2013 15:10:38 ******/
+/****** Object:  Table [Kart_Usuario_Equipe_Campeonato]    Script Date: 01/17/2013 15:10:38 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato](
+CREATE TABLE [Kart_Usuario_Equipe_Campeonato](
 	[idUsuarioEquipeCampeonato] [int] IDENTITY(1,1) NOT NULL,
 	[idEquipeCampeonato] [int] NOT NULL,
 	[idUsuario] [int] NOT NULL,
@@ -279,17 +279,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato](
 
 GO
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Kart_Usuario_Grupo]    Script Date: 01/17/2013 15:11:09 ******/
+/****** Object:  Table [Kart_Usuario_Grupo]    Script Date: 01/17/2013 15:11:09 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Kart_Usuario_Grupo](
+CREATE TABLE [Kart_Usuario_Grupo](
 	[idGrupoUsuario] [int] IDENTITY(1,1) NOT NULL,
 	[idGrupo] [int] NOT NULL,
 	[idUsuario] [int] NOT NULL,
@@ -313,17 +313,17 @@ CREATE TABLE [afonsoftcombr].[Kart_Usuario_Grupo](
 ) ON [PRIMARY]
 
 GO
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  Table [afonsoftcombr].[Usuarios]    Script Date: 01/17/2013 15:11:46 ******/
+/****** Object:  Table [Usuarios]    Script Date: 01/17/2013 15:11:46 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [afonsoftcombr].[Usuarios](
+CREATE TABLE [Usuarios](
 	[idUsuario] [int] IDENTITY(1,1) NOT NULL,
 	[Nome] [nvarchar](200) NOT NULL,
 	[Apelido] [nchar](30) NULL,
@@ -363,247 +363,247 @@ CREATE TABLE [afonsoftcombr].[Usuarios](
 
 GO
 
-ALTER TABLE [afonsoftcombr].[Usuarios] ADD  CONSTRAINT [DF_Usuarios_MostarInfo]  DEFAULT ((1)) FOR [MostarInfo]
+ALTER TABLE [Usuarios] ADD  CONSTRAINT [DF_Usuarios_MostarInfo]  DEFAULT ((1)) FOR [MostarInfo]
 GO
 
-ALTER TABLE [afonsoftcombr].[Usuarios] ADD  CONSTRAINT [DF_Usuarios_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+ALTER TABLE [Usuarios] ADD  CONSTRAINT [DF_Usuarios_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
 GO
 
-ALTER TABLE [afonsoftcombr].[Usuarios] ADD  CONSTRAINT [DF_Usuarios_Ativo]  DEFAULT ((1)) FOR [Ativo]
-GO
-
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo]  WITH CHECK ADD  CONSTRAINT [FK1_Kart_Usuario_Grupo_Kart_Usuario_Grupo] FOREIGN KEY([idGrupo])
-REFERENCES [afonsoftcombr].[Kart_Grupo] ([idGrupo])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo] CHECK CONSTRAINT [FK1_Kart_Usuario_Grupo_Kart_Usuario_Grupo]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo]  WITH CHECK ADD  CONSTRAINT [FK2_Kart_Usuario_Grupo_Kart_Usuario_Grupo] FOREIGN KEY([idUsuario])
-REFERENCES [afonsoftcombr].[Usuarios] ([idUsuario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo] CHECK CONSTRAINT [FK2_Kart_Usuario_Grupo_Kart_Usuario_Grupo]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_Principal]  DEFAULT ((0)) FOR [Principal]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_Admin]  DEFAULT ((0)) FOR [Admin]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_Aprovado]  DEFAULT ((0)) FOR [Aprovado]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Kart_Equipe_Campeonato] FOREIGN KEY([idEquipeCampeonato])
-REFERENCES [afonsoftcombr].[Kart_Equipe_Campeonato] ([idEquipeCampeonato])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato] CHECK CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Kart_Equipe_Campeonato]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Usuarios] FOREIGN KEY([idUsuario])
-REFERENCES [afonsoftcombr].[Usuarios] ([idUsuario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato] CHECK CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Usuarios]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Usuario_Equipe_Campeonato] ADD  CONSTRAINT [DF_Kart_Usuario_Equipe_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Resultado_Calendario_Kart_Calendario_Campeonato] FOREIGN KEY([idCalendario])
-REFERENCES [afonsoftcombr].[Kart_Calendario_Campeonato] ([idCalendario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] CHECK CONSTRAINT [FK_Kart_Resultado_Calendario_Kart_Calendario_Campeonato]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario]  WITH CHECK ADD  CONSTRAINT [FK2_Kart_Resultado_Calendario_Kart_Resultado_Calendario] FOREIGN KEY([idUsuario])
-REFERENCES [afonsoftcombr].[Usuarios] ([idUsuario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] CHECK CONSTRAINT [FK2_Kart_Resultado_Calendario_Kart_Resultado_Calendario]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempo]  DEFAULT ((0)) FOR [tempoHoras]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempoHoras1]  DEFAULT ((0)) FOR [tempoMinutos]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempoHoras1_1]  DEFAULT ((0)) FOR [tempoSegundos]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempoHoras1_2]  DEFAULT ((0)) FOR [tempoMilisegundos]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_Ponto]  DEFAULT ((0)) FOR [Ponto]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_Voltas]  DEFAULT ((0)) FOR [Voltas]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Ponto_Grupo]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Ponto_Grupo_Kart_Grupo] FOREIGN KEY([idGrupo])
-REFERENCES [afonsoftcombr].[Kart_Grupo] ([idGrupo])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Ponto_Grupo] CHECK CONSTRAINT [FK_Kart_Ponto_Grupo_Kart_Grupo]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_log_erro]  WITH CHECK ADD  CONSTRAINT [FK_Kart_log_erro_Usuarios] FOREIGN KEY([idUsuario])
-REFERENCES [afonsoftcombr].[Usuarios] ([idUsuario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_log_erro] CHECK CONSTRAINT [FK_Kart_log_erro_Usuarios]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_log_erro] ADD  CONSTRAINT [DF_Kart_log_erro_dtErro]  DEFAULT (getdate()) FOR [dtErro]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Grupo]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Grupo_Usuarios] FOREIGN KEY([Id_Usuario_Lider])
-REFERENCES [afonsoftcombr].[Usuarios] ([idUsuario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grupo] CHECK CONSTRAINT [FK_Kart_Grupo_Usuarios]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grupo] ADD  CONSTRAINT [DF_Kart_Grupo_permitirInsricoesNoSite]  DEFAULT ((1)) FOR [permitirInsricoes]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grupo] ADD  CONSTRAINT [DF_Kart_Grupo_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grupo] ADD  CONSTRAINT [DF_Kart_Grupo_Ativo]  DEFAULT ((1)) FOR [Ativo]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Grid_Calendario_Kart_Calendario_Campeonato] FOREIGN KEY([idCalendario])
-REFERENCES [afonsoftcombr].[Kart_Calendario_Campeonato] ([idCalendario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] CHECK CONSTRAINT [FK_Kart_Grid_Calendario_Kart_Calendario_Campeonato]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario]  WITH CHECK ADD  CONSTRAINT [FK2_Kart_Grid_Calendario_Kart_Grid_Calendario] FOREIGN KEY([idUsuario])
-REFERENCES [afonsoftcombr].[Usuarios] ([idUsuario])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] CHECK CONSTRAINT [FK2_Kart_Grid_Calendario_Kart_Grid_Calendario]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_Pos]  DEFAULT ((0)) FOR [Pos]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_Volta]  DEFAULT ((0)) FOR [Volta]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempoMinutos]  DEFAULT ((0)) FOR [tempoMinutos]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempo]  DEFAULT ((0)) FOR [tempoHoras]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempoSegundos]  DEFAULT ((0)) FOR [tempoSegundos]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempoHora1]  DEFAULT ((0)) FOR [tempoMilisegundos]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_dtcriacao]  DEFAULT (getdate()) FOR [dtcriacao]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Equipe_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Equipe_Campeonato_Kart_Campeonato] FOREIGN KEY([idCampeonato])
-REFERENCES [afonsoftcombr].[Kart_Campeonato] ([idCampeonato])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Equipe_Campeonato] CHECK CONSTRAINT [FK_Kart_Equipe_Campeonato_Kart_Campeonato]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Equipe_Campeonato] ADD  CONSTRAINT [DF_Kart_Equipe_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
-GO
-
-
-
-ALTER TABLE [afonsoftcombr].[Kart_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Campeonato_Kart_Grupo] FOREIGN KEY([idGrupo])
-REFERENCES [afonsoftcombr].[Kart_Grupo] ([idGrupo])
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Campeonato] CHECK CONSTRAINT [FK_Kart_Campeonato_Kart_Grupo]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Campeonato] ADD  CONSTRAINT [DF_Kart_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
-GO
-
-ALTER TABLE [afonsoftcombr].[Kart_Campeonato] ADD  CONSTRAINT [DF_Kart_Campeonato_Ativo]  DEFAULT ((1)) FOR [Ativo]
+ALTER TABLE [Usuarios] ADD  CONSTRAINT [DF_Usuarios_Ativo]  DEFAULT ((1)) FOR [Ativo]
 GO
 
 
 
 
-ALTER TABLE [afonsoftcombr].[Kart_Calendario_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Calendario_Campeonato_Kart_Campeonato] FOREIGN KEY([idCampeonato])
-REFERENCES [afonsoftcombr].[Kart_Campeonato] ([idCampeonato])
+ALTER TABLE [Kart_Usuario_Grupo]  WITH CHECK ADD  CONSTRAINT [FK1_Kart_Usuario_Grupo_Kart_Usuario_Grupo] FOREIGN KEY([idGrupo])
+REFERENCES [Kart_Grupo] ([idGrupo])
 GO
 
-ALTER TABLE [afonsoftcombr].[Kart_Calendario_Campeonato] CHECK CONSTRAINT [FK_Kart_Calendario_Campeonato_Kart_Campeonato]
+ALTER TABLE [Kart_Usuario_Grupo] CHECK CONSTRAINT [FK1_Kart_Usuario_Grupo_Kart_Usuario_Grupo]
 GO
 
-ALTER TABLE [afonsoftcombr].[Kart_Calendario_Campeonato] ADD  CONSTRAINT [DF_Kart_Calendario_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+ALTER TABLE [Kart_Usuario_Grupo]  WITH CHECK ADD  CONSTRAINT [FK2_Kart_Usuario_Grupo_Kart_Usuario_Grupo] FOREIGN KEY([idUsuario])
+REFERENCES [Usuarios] ([idUsuario])
 GO
 
-ALTER TABLE [afonsoftcombr].[Kart_Calendario_Campeonato] ADD  CONSTRAINT [DF_Kart_Calendario_Campeonato_Ativo]  DEFAULT ((1)) FOR [Ativo]
+ALTER TABLE [Kart_Usuario_Grupo] CHECK CONSTRAINT [FK2_Kart_Usuario_Grupo_Kart_Usuario_Grupo]
+GO
+
+ALTER TABLE [Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_Principal]  DEFAULT ((0)) FOR [Principal]
+GO
+
+ALTER TABLE [Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_Admin]  DEFAULT ((0)) FOR [Admin]
+GO
+
+ALTER TABLE [Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_Aprovado]  DEFAULT ((0)) FOR [Aprovado]
+GO
+
+ALTER TABLE [Kart_Usuario_Grupo] ADD  CONSTRAINT [DF_Kart_Usuario_Grupo_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+GO
+
+
+
+ALTER TABLE [Kart_Usuario_Equipe_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Kart_Equipe_Campeonato] FOREIGN KEY([idEquipeCampeonato])
+REFERENCES [Kart_Equipe_Campeonato] ([idEquipeCampeonato])
+GO
+
+ALTER TABLE [Kart_Usuario_Equipe_Campeonato] CHECK CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Kart_Equipe_Campeonato]
+GO
+
+ALTER TABLE [Kart_Usuario_Equipe_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Usuarios] FOREIGN KEY([idUsuario])
+REFERENCES [Usuarios] ([idUsuario])
+GO
+
+ALTER TABLE [Kart_Usuario_Equipe_Campeonato] CHECK CONSTRAINT [FK_Kart_Usuario_Equipe_Campeonato_Usuarios]
+GO
+
+ALTER TABLE [Kart_Usuario_Equipe_Campeonato] ADD  CONSTRAINT [DF_Kart_Usuario_Equipe_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+GO
+
+
+
+ALTER TABLE [Kart_Resultado_Calendario]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Resultado_Calendario_Kart_Calendario_Campeonato] FOREIGN KEY([idCalendario])
+REFERENCES [Kart_Calendario_Campeonato] ([idCalendario])
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] CHECK CONSTRAINT [FK_Kart_Resultado_Calendario_Kart_Calendario_Campeonato]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario]  WITH CHECK ADD  CONSTRAINT [FK2_Kart_Resultado_Calendario_Kart_Resultado_Calendario] FOREIGN KEY([idUsuario])
+REFERENCES [Usuarios] ([idUsuario])
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] CHECK CONSTRAINT [FK2_Kart_Resultado_Calendario_Kart_Resultado_Calendario]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempo]  DEFAULT ((0)) FOR [tempoHoras]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempoHoras1]  DEFAULT ((0)) FOR [tempoMinutos]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempoHoras1_1]  DEFAULT ((0)) FOR [tempoSegundos]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_tempoHoras1_2]  DEFAULT ((0)) FOR [tempoMilisegundos]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_Ponto]  DEFAULT ((0)) FOR [Ponto]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_Voltas]  DEFAULT ((0)) FOR [Voltas]
+GO
+
+ALTER TABLE [Kart_Resultado_Calendario] ADD  CONSTRAINT [DF_Kart_Resultado_Calendario_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+GO
+
+
+
+ALTER TABLE [Kart_Ponto_Grupo]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Ponto_Grupo_Kart_Grupo] FOREIGN KEY([idGrupo])
+REFERENCES [Kart_Grupo] ([idGrupo])
+GO
+
+ALTER TABLE [Kart_Ponto_Grupo] CHECK CONSTRAINT [FK_Kart_Ponto_Grupo_Kart_Grupo]
+GO
+
+
+
+ALTER TABLE [Kart_log_erro]  WITH CHECK ADD  CONSTRAINT [FK_Kart_log_erro_Usuarios] FOREIGN KEY([idUsuario])
+REFERENCES [Usuarios] ([idUsuario])
+GO
+
+ALTER TABLE [Kart_log_erro] CHECK CONSTRAINT [FK_Kart_log_erro_Usuarios]
+GO
+
+ALTER TABLE [Kart_log_erro] ADD  CONSTRAINT [DF_Kart_log_erro_dtErro]  DEFAULT (getdate()) FOR [dtErro]
+GO
+
+
+
+ALTER TABLE [Kart_Grupo]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Grupo_Usuarios] FOREIGN KEY([Id_Usuario_Lider])
+REFERENCES [Usuarios] ([idUsuario])
+GO
+
+ALTER TABLE [Kart_Grupo] CHECK CONSTRAINT [FK_Kart_Grupo_Usuarios]
+GO
+
+ALTER TABLE [Kart_Grupo] ADD  CONSTRAINT [DF_Kart_Grupo_permitirInsricoesNoSite]  DEFAULT ((1)) FOR [permitirInsricoes]
+GO
+
+ALTER TABLE [Kart_Grupo] ADD  CONSTRAINT [DF_Kart_Grupo_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+GO
+
+ALTER TABLE [Kart_Grupo] ADD  CONSTRAINT [DF_Kart_Grupo_Ativo]  DEFAULT ((1)) FOR [Ativo]
+GO
+
+
+
+ALTER TABLE [Kart_Grid_Calendario]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Grid_Calendario_Kart_Calendario_Campeonato] FOREIGN KEY([idCalendario])
+REFERENCES [Kart_Calendario_Campeonato] ([idCalendario])
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] CHECK CONSTRAINT [FK_Kart_Grid_Calendario_Kart_Calendario_Campeonato]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario]  WITH CHECK ADD  CONSTRAINT [FK2_Kart_Grid_Calendario_Kart_Grid_Calendario] FOREIGN KEY([idUsuario])
+REFERENCES [Usuarios] ([idUsuario])
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] CHECK CONSTRAINT [FK2_Kart_Grid_Calendario_Kart_Grid_Calendario]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_Pos]  DEFAULT ((0)) FOR [Pos]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_Volta]  DEFAULT ((0)) FOR [Volta]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempoMinutos]  DEFAULT ((0)) FOR [tempoMinutos]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempo]  DEFAULT ((0)) FOR [tempoHoras]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempoSegundos]  DEFAULT ((0)) FOR [tempoSegundos]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_tempoHora1]  DEFAULT ((0)) FOR [tempoMilisegundos]
+GO
+
+ALTER TABLE [Kart_Grid_Calendario] ADD  CONSTRAINT [DF_Kart_Grid_Calendario_dtcriacao]  DEFAULT (getdate()) FOR [dtcriacao]
+GO
+
+
+
+ALTER TABLE [Kart_Equipe_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Equipe_Campeonato_Kart_Campeonato] FOREIGN KEY([idCampeonato])
+REFERENCES [Kart_Campeonato] ([idCampeonato])
+GO
+
+ALTER TABLE [Kart_Equipe_Campeonato] CHECK CONSTRAINT [FK_Kart_Equipe_Campeonato_Kart_Campeonato]
+GO
+
+ALTER TABLE [Kart_Equipe_Campeonato] ADD  CONSTRAINT [DF_Kart_Equipe_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+GO
+
+
+
+ALTER TABLE [Kart_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Campeonato_Kart_Grupo] FOREIGN KEY([idGrupo])
+REFERENCES [Kart_Grupo] ([idGrupo])
+GO
+
+ALTER TABLE [Kart_Campeonato] CHECK CONSTRAINT [FK_Kart_Campeonato_Kart_Grupo]
+GO
+
+ALTER TABLE [Kart_Campeonato] ADD  CONSTRAINT [DF_Kart_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+GO
+
+ALTER TABLE [Kart_Campeonato] ADD  CONSTRAINT [DF_Kart_Campeonato_Ativo]  DEFAULT ((1)) FOR [Ativo]
+GO
+
+
+
+
+ALTER TABLE [Kart_Calendario_Campeonato]  WITH CHECK ADD  CONSTRAINT [FK_Kart_Calendario_Campeonato_Kart_Campeonato] FOREIGN KEY([idCampeonato])
+REFERENCES [Kart_Campeonato] ([idCampeonato])
+GO
+
+ALTER TABLE [Kart_Calendario_Campeonato] CHECK CONSTRAINT [FK_Kart_Calendario_Campeonato_Kart_Campeonato]
+GO
+
+ALTER TABLE [Kart_Calendario_Campeonato] ADD  CONSTRAINT [DF_Kart_Calendario_Campeonato_dtCriacao]  DEFAULT (getdate()) FOR [dtCriacao]
+GO
+
+ALTER TABLE [Kart_Calendario_Campeonato] ADD  CONSTRAINT [DF_Kart_Calendario_Campeonato_Ativo]  DEFAULT ((1)) FOR [Ativo]
 GO
 
 -- Views
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  View [afonsoftcombr].[View_Equipe_Usuario]    Script Date: 01/17/2013 16:59:02 ******/
+/****** Object:  View [View_Equipe_Usuario]    Script Date: 01/17/2013 16:59:02 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE VIEW [afonsoftcombr].[View_Equipe_Usuario]
+CREATE VIEW [View_Equipe_Usuario]
 AS
 SELECT dc.idUsuario, ec.NomeEquipe, ec.Sigla, ec.idEquipeCampeonato, ec.idCampeonato FROM Kart_Equipe_Campeonato ec (NOLOCK)
 join Kart_Usuario_Equipe_Campeonato dc (NOLOCK) on (dc.idEquipeCampeonato = ec.idEquipeCampeonato)
 GO
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  View [afonsoftcombr].[View_Kart_Equipe_Pontos_Campeonato]    Script Date: 01/17/2013 17:03:12 ******/
+/****** Object:  View [View_Kart_Equipe_Pontos_Campeonato]    Script Date: 01/17/2013 17:03:12 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE VIEW [afonsoftcombr].[View_Kart_Equipe_Pontos_Campeonato]  
+CREATE VIEW [View_Kart_Equipe_Pontos_Campeonato]  
 AS  
 SELECT     
 	Kart_Equipe_Campeonato.idEquipeCampeonato, 
@@ -820,17 +820,17 @@ EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0
 GO
 
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  View [afonsoftcombr].[View_Kart_Usuario_Historico]    Script Date: 01/17/2013 17:03:44 ******/
+/****** Object:  View [View_Kart_Usuario_Historico]    Script Date: 01/17/2013 17:03:44 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE VIEW [afonsoftcombr].[View_Kart_Usuario_Historico]  
+CREATE VIEW [View_Kart_Usuario_Historico]  
 AS  
 SELECT    
  Usuarios.idUsuario,   
@@ -854,17 +854,17 @@ GROUP BY
 GO
 
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  View [afonsoftcombr].[View_Kart_Usuario_Pontos_Campeonato]    Script Date: 01/17/2013 17:04:28 ******/
+/****** Object:  View [View_Kart_Usuario_Pontos_Campeonato]    Script Date: 01/17/2013 17:04:28 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE VIEW [afonsoftcombr].[View_Kart_Usuario_Pontos_Campeonato]  
+CREATE VIEW [View_Kart_Usuario_Pontos_Campeonato]  
 AS  
 SELECT    
  Usuarios.idUsuario,   
@@ -892,17 +892,17 @@ GROUP BY
 GO
 
 
-USE [afonsoftcombr_db]
+
 GO
 
-/****** Object:  View [afonsoftcombr].[View_Kart_Usuario_Pontos_Grupo]    Script Date: 01/17/2013 17:04:56 ******/
+/****** Object:  View [View_Kart_Usuario_Pontos_Grupo]    Script Date: 01/17/2013 17:04:56 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE VIEW [afonsoftcombr].[View_Kart_Usuario_Pontos_Grupo]
+CREATE VIEW [View_Kart_Usuario_Pontos_Grupo]
 AS
 SELECT  
 	Usuarios.idUsuario, 

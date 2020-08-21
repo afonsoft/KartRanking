@@ -1,481 +1,776 @@
-﻿<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/kart.afonsoft.com.br/AspNetInfo.aspx
-    </loc>
-    <lastmod>2017-04-11</lastmod>
+    <loc>http://kart.afonsoft.com.br//crc32.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/kart.afonsoft.com.br/crc32.aspx
-    </loc>
-    <lastmod>2018-02-06</lastmod>
+    <loc>http://kart.afonsoft.com.br//Default.aspx</loc>
+    <lastmod>2020-08-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/kart.afonsoft.com.br/index.aspx
-    </loc>
-    <lastmod>2018-02-06</lastmod>
+    <loc>http://kart.afonsoft.com.br//index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/kart.afonsoft.com.br/InstallDb.aspx
-    </loc>
-    <lastmod>2018-02-06</lastmod>
+    <loc>http://kart.afonsoft.com.br//InstallDb.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/kart.afonsoft.com.br/PageError.aspx
-    </loc>
-    <lastmod>2018-02-06</lastmod>
+    <loc>http://kart.afonsoft.com.br//PageError.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx
-    </loc>
-    <lastmod>2018-03-29</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Captcha.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Financeiro.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Fotos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/home.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/index.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Informacoes.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Noticias.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/perfil.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Videos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/crc32.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx
-    </loc>
-    <lastmod>2018-03-29</lastmod>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/InstallDb.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/PageError.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Captcha.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Financeiro.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Fotos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/home.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/index.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Informacoes.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Noticias.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/perfil.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>
-      http://kart.afonsoft.com.br/Administrador/Videos.aspx
-    </loc>
-    <lastmod>2018-02-07</lastmod>
+    <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
-    <lastmod>2018-02-07</lastmod>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/crc32.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/InstallDb.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/PackageTmp/PageError.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/AdminGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CadastroUsuarioBasico.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/CalendarioProvas.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Captcha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ClassificacaoCampeonato.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Financeiro.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Fotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/home.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Informacoes.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InformacoesGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/InscricoesUsuariosGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/ListarGrupos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Noticias.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/perfil.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PermissaoGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/PilotosEquipesGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RecuperarSenha.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/RegrasGrupo.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/updateUserForum.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Administrador/Videos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/fotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/index.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/informacoes.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/noticias.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/pilotos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://kart.afonsoft.com.br/Grupo/videos.aspx</loc>
+    <lastmod>2020-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using KartRanking.Page;
 using KartRanking.BaseDados;
 using KartRanking.email;
@@ -62,7 +59,6 @@ namespace KartRanking.Administrador
             if (usr == null)
             {
                 Alert("Este e-mail não está cadastrado na nossa base de dados!");
-                return;
             }
             else
             {
