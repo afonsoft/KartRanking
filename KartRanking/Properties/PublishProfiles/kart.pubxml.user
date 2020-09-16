@@ -117,10 +117,10 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="bin/KartRanking.dll">
-      <publishTime>08/21/2020 16:35:28</publishTime>
+      <publishTime>08/21/2020 16:41:17</publishTime>
     </File>
     <File Include="bin/KartRanking.pdb">
-      <publishTime>08/21/2020 16:35:28</publishTime>
+      <publishTime>08/21/2020 16:41:17</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>
