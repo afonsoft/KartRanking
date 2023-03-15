@@ -4557,7 +4557,7 @@ namespace KartRanking.BaseDados
 		
 		private int _idEquipeCampeonato;
 		
-		private int _idUsuario;
+		private int _idUsuario;	
 		
 		private System.Nullable<System.DateTime> _dtCriacao;
 		
