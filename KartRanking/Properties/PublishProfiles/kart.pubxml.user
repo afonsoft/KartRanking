@@ -6,88 +6,90 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\publicar\KART</_PublishTargetUrl>
+    <History>True|2023-04-18T18:48:23.3642772Z;</History>
+    <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="Administrador/Admin.master">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/AdminCalendarioProvas.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/AdminCampeonato.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/AdminGrupo.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/CadastroUsuarioBasico.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/CalendarioProvas.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/Captcha.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/ClassificacaoCampeonato.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/Financeiro.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/Fotos.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/home.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/ImageHandler.ashx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/index.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/Informacoes.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/InformacoesGrupos.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/InscricoesUsuariosGrupo.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/ListarGrupos.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/Noticias.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/perfil.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/PermissaoGrupo.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/PilotosEquipesGrupo.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/RecuperarSenha.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/RegrasGrupo.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/updateUserForum.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Administrador/Videos.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="AspNetInfo.aspx">
       <publishTime>04/10/2017 08:04:57</publishTime>
     </File>
     <File Include="bin/AjaxControlToolkit.dll">
-      <publishTime>08/07/2018 18:16:00</publishTime>
+      <publishTime>08/07/2018 15:16:00</publishTime>
     </File>
     <File Include="bin/AjaxControlToolkit.resources.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>
@@ -99,280 +101,280 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="bin/Fonts/28dayslater-webfont.eot">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="bin/Fonts/28dayslater-webfont.svg">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="bin/Fonts/28dayslater-webfont.ttf">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="bin/Fonts/28dayslater-webfont.woff">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="bin/Fonts/28DaysLater.ttf">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="bin/HtmlAgilityPack.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="bin/KartRanking.dll">
-      <publishTime>08/21/2020 16:41:17</publishTime>
+      <publishTime>04/18/2023 15:48:18</publishTime>
     </File>
     <File Include="bin/KartRanking.pdb">
-      <publishTime>08/21/2020 16:41:17</publishTime>
+      <publishTime>04/18/2023 15:48:18</publishTime>
     </File>
     <File Include="bin/Microsoft.WindowsAzure.Storage.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="BingSiteAuth.xml">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="crc32.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="crc32.php">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/960Grid.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_diagonals-thick_15_0b3e6f_40x40.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_dots-medium_30_0b58a2_4x4.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_dots-small_20_333333_2x2.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_dots-small_30_a32d00_2x2.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_dots-small_40_00498f_2x2.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_flat_40_292929_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-bg_gloss-wave_20_111111_500x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-icons_00498f_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-icons_98d2fb_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-icons_9ccdfc_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/images/ui-icons_ffffff_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/jquery-ui-1.10.0.custom.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/dot-luv/jquery-ui-1.10.0.custom.min.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/GridViewTemplate.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/ie.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/jquery-te-1.3.3.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/jquery-te-1.3.3.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/Karting.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/Login.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/menu.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_flat_25_000000_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_flat_30_cccccc_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_flat_50_5c5c5c_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_flat_55_fbec88_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_flat_75_ffffff_40x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_20_555555_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_40_ffc73d_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_55_fbf9ee_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_65_ffffff_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_75_d0e5f5_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_75_dadada_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_75_e6e6e6_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_85_dfeffc_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_glass_95_fef1ec_1x400.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_gloss-wave_25_333333_500x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_gloss-wave_40_b81e22_500x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_highlight-soft_80_eeeeee_1x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_inset-hard_100_f5f8f9_1x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-bg_inset-soft_50_710516_1x100.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_217bc0_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_222222_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_2e83ff_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_454545_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_469bdd_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_4b8e0b_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_6da8d5_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_888888_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_a83300_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_cccccc_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_cd0a0a_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_d8e7f3_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_f9bd01_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/images/ui-icons_ffffff_256x240.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/redmond/jquery-ui-1.9.2.custom.min.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/reset.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="css/smoothness/images/animated-overlay.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_glass_75_dadada_1x400.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-icons_222222_256x240.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-icons_2e83ff_256x240.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-icons_454545_256x240.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-icons_888888_256x240.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/images/ui-icons_cd0a0a_256x240.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/jquery-ui-1.10.1.custom.css">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/smoothness/jquery-ui-1.10.1.custom.min.css">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/style.css">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="css/superfish.css">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>08/21/2020 14:19:00</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="dlls/AjaxControlToolkit.dll">
       <publishTime>04/10/2017 08:04:58</publishTime>
@@ -396,571 +398,571 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:58</publishTime>
     </File>
     <File Include="email/AssociadoGrupo.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/AssociadoGrupoAdmin.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/benvindo.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/GrupoFotos.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/GrupoModificado.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/GrupoNoticias.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/GrupoRegraModificado.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/GrupoStatus.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="email/GrupoVideos.htm">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="Fonts/28dayslater-webfont.eot">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Fonts/28dayslater-webfont.svg">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Fonts/28dayslater-webfont.ttf">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Fonts/28dayslater-webfont.woff">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Fonts/28DaysLater.ttf">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/countdown.js">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/examples 1.html">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/examples 2.html">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/examples 3.html">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper00.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper01.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper02.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper10.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper11.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper12.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper20.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper21.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper22.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper30.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper31.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper32.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper40.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper41.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper42.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper50.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper51.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper52.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper60.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper61.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper62.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper70.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper71.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper72.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper80.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper81.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper82.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper90.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper91.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/images/flipper92.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/READ ME.txt">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/countdown/tests.html">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/css/grid.css">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/fotos.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/img/bg.jpg">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/img/Campeonato.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/img/dash.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/img/Etapas.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/img/Noticias.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/img/PilotoDestaque.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/img/Pilotos.png">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/ImgTitleHandler.ashx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/index.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/informacoes.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/js/jquery.lwtCountdown.js">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/KartGrupo.master">
-      <publishTime>03/30/2020 17:05:47</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/noticias.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/pilotos.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="Grupo/videos.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="icons/helmet_16.ico">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_16.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_24.ico">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_24.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_256.ico">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_256.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_32.ico">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_32.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_48.ico">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_48.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_64.ico">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_64.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_72.ico">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="icons/helmet_72.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/add.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/banner.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/bar.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/bg-top.jpg">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/border-bot.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail.jpg">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail10.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail11.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail2.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail3.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail4.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail5.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail6.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail7.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail8.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/box-tail9.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/button-left.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/button-right.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/button-tail.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/button-video.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/buttonbg.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/buttonbgHover.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/Calender.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/checkered_flag32.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/checkered_flag64.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/close.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/delete16px.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/Edit16px.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/figcaption-bg.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/footer-tail.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/Group.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/Grupo.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/GrupoAdd.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/GrupoSearch.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/header_back.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/history.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/input-bg.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/loading.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/loginArrow.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/loginbuttonbg.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/logo.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/marker-1.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/marker-2.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/menu-left.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/menu-right.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/menu-tail.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/message-bg.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/Motorsport_Helmet.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/nav-bg.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/nav-bg_mini.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/next.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/page1-img1.jpg">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/pagination-bg.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/pagination.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/pause.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/pict-1.jpg">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/pict-2.jpg">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/piloto-sem-foto.jpg">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/play.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/Positioning.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/prev.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/printer.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/replay.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/select-bg.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/select-marker.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/slider-banner1.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/slider-banner2.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/slider-banner3.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/submenu-marker2.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/submenu-spacer.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/submenu-tail.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/th-tail.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="images/Trophy_Gold.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="index.aspx">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="InstallDb.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="js/fancyBox/blank.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/fancybox_loading%402x.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/fancybox_loading.gif">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/fancybox_overlay.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/fancybox_sprite%402x.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/fancybox_sprite.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/helpers/fancybox_buttons.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/helpers/jquery.fancybox-buttons.css">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/helpers/jquery.fancybox-buttons.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/helpers/jquery.fancybox-media.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/helpers/jquery.fancybox-thumbs.css">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/helpers/jquery.fancybox-thumbs.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/jquery.fancybox.css">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/jquery.fancybox.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/jquery.fancybox.pack.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/fancyBox/jquery.mousewheel-3.0.6.pack.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/html5.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/jquery-1.9.1.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/jquery-te-1.3.3.min.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/jquery-ui-1.10.1.custom.min.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/jquery.easySlider.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/jquery.maskedinput.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/jquery.numeric.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/jquery.swfobject.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/lightbox.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/login.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/PIE.htc">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="js/whizzywig63.js">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="kart-touch-icon.png">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="KartRanking.Master">
-      <publishTime>03/30/2020 17:05:16</publishTime>
+      <publishTime>04/18/2023 15:41:29</publishTime>
     </File>
     <File Include="PageError.aspx">
-      <publishTime>03/30/2020 16:54:43</publishTime>
+      <publishTime>04/18/2023 15:39:49</publishTime>
     </File>
     <File Include="piloto-sem-foto.jpg">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="References/AjaxControlToolkit.dll">
       <publishTime>04/10/2017 08:04:57</publishTime>
@@ -969,16 +971,16 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
       <publishTime>04/10/2017 08:04:57</publishTime>
     </File>
     <File Include="robots.txt">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="SiteMap.xml">
-      <publishTime>08/21/2020 14:41:46</publishTime>
+      <publishTime>05/24/2021 08:04:33</publishTime>
     </File>
     <File Include="uc/InfoPiloto.ascx">
-      <publishTime>03/30/2020 16:54:44</publishTime>
+      <publishTime>05/24/2021 08:04:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/21/2020 14:26:47</publishTime>
+      <publishTime>03/15/2023 15:54:42</publishTime>
     </File>
   </ItemGroup>
 </Project>
